@@ -1,0 +1,689 @@
+\documentclass[12pt]{report}
+\usepackage{geometry}	
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{etoolbox}
+\usepackage{caption}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\captionsetup[figure]{labelfont=bf, font=footnotesize}
+
+%this several lines is for: no number before suction. (This is a bug)
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+
+\geometry{
+	a4paper,
+	total={180mm,257mm},
+ 	left=15mm,
+ 	top=15mm,
+ 	right=15mm,
+}
+
+\title{\textbf{Thesis Title}\\ \vspace{1cm}
+			{\large Department of Physics, The University of Hong Kong, Pokfulam Road, Hong Kong}\\ \vspace{1cm}
+			{\includegraphics[scale=0.2]{{/home/wwc129/Desktop/Thesis/hku.png}}}\\ \vspace{3cm}
+}
+\date{}
+\author{Wang Wenchao  \\3030053350}
+\setlength{\columnsep}{1cm}
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\Large} % format
+{\textit{Chapter \thechapter}} % label
+{0.5ex} % sep
+{
+    \rule{\textwidth}{1pt}
+    \vspace{1ex}
+    \centering
+} % before-code
+
+\titleformat{\section}[hang]
+{\large\bfseries}
+{\thesection}
+{0.5em}
+{}
+
+\titleformat{\subsection}[hang]
+{\fontsize{12}{15}\bfseries\sffamily}
+{\thesubsection}
+{1em}
+{}
+
+\titleformat{\subsubsection}[hang]
+{\fontsize{11}{15}\bfseries\sffamily}
+{\thesubsection}
+{0.5em}
+{}
+
+\titleformat{\subsubsubsection}[hang]
+{\fontsize{9}{15}\bfseries\sffamily}
+{\thesubsection}
+{0.5em}
+{}
+
+
+
+\newcommand{\mycaption}[1]{\caption{\textit{\footnotesize #1}}}
+%Below is the main content.
+
+\begin{document}
+\maketitle
+\tableofcontents{}
+
+    %\vspace{1cm}
+    %chapter 'Abstract'.
+\begin{abstract}
+    \normalsize
+    Recent observations find that some millisecond pulsars (known as Class II MSPs) show aligned pulse profil
+    es in 
+    different energy bands. Conventionally, radio and gamma-ray emission are produced in different 
+    regions---in polar cap 
+    and outer gap respectively. The finding of Class II MSPs implies that radio, X-ray and gamma-ray 
+    emission 
+    can all be emitted in outer gap. This means that Class II MSPs can have a different emission mechanism. 
+    Recently, 
+    scientists propose a model suggesting that hard X-ray can be emitted by inverse Compton scattering 
+    between radio
+    waves and energetic charged particles. The objective of the thesis is to test this model by measuring 
+    hard X-ray 
+    spectra of some Class II MSPs using \textit{NuSTAR}. 
+\end{abstract}
+			
+		
+		
+	%chapter 'Introduction'.
+\chapter{Introduction}   	   
+    \section{Neutron Stars and Pulsars}
+        Neutron stars are produced by a supernova explosion of massive stars which have about 4 to 8 
+        solar mass. After 
+        the supernova explosion, the star leaves a central region. And the central region collapses because 
+        of the effect of 
+        gravity until protons and electrons combine to form neutrons ($e^{-}+p\rightarrow n+\nu_{e}$)
+        ---the reason why they are called 
+        ``neutron stars''.  
+        Because neutrons have no electromagnetic force on each other, they can be squeezed very tightly. 
+        Therefore, a neutron  
+        star has tremendous high density (about $5\times 10^{17} kg/m^3$) and its diameter and mass is about
+        20km and 
+        1.4 solar mass respectively. What
+        prevents a neutron star to continue to contract is the degeneracy pressure of neutrons. \\
+        \indent Pulsars are fast-spinning neutron stars. Their rotational periods can be from a few 
+        milliseconds
+        to several seconds. For example, the rotational period of PSR B1937+21 is about 1.56$ms$ while 
+        PSR B1919+21 is approximately 1.34$s$. As we know, a star can be ripped by centrifugal force if the
+        star rotates too fast. We can estimate lower limit of density of a star with the equation: 
+        $\rho=\frac{3\pi}{P^2G}$, where $P$ is the rotational period of a pulsar. Just for simplicity, we
+        let $P$ be 1$s$. Then we get $\rho\approx 1.4\times 10^{11}kg/m^3$. With the knowledge  that the 
+        density of a white dwarf is about $1\times 10^9kg/m^3$ which is smaller than the lower density limit,
+        the observed fast-spinning stars belong to the kind stars which are much denser 
+        than white dwarf. As a result, neutron stars are ideal candidates for pulsars. \\
+        \indent 
+        More than 2000 pulsars have been found so far. Most of them are in the disk of our Galaxy while we also can 
+        find a small portion of them in high latitude, which can be seen clearly in the figure \ref{fig:spatial 
+        distribution}. This may 
+        because they cannot escape the gravitational potential if their kinetic energy is not large enough. Besides,
+        even though they have large enough velocities to escape from their birth region, there are some 
+        probabilities that they become nearly non-detectable before reaching high latitude. 
+        
+        \begin{figure}[h]
+          \centering
+          \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/pulsar_distribution.png}
+          \caption{\textit{\footnotesize Spatial distribution of some pulsars in galactic coordinate system.}}
+          \label{fig:spatial distribution}
+        \end{figure}
+        
+
+
+        %can add these content later.
+        \iffalse 
+        \indent Although the primary focuses of this thesis are observational characteristics such as 
+        spectra and light-curves, it is helpful to talk a little about internal structure of pulsars.
+        \fi 
+
+        \iffalse
+        \indent Many stars are in binary systems so neutron stars can also be isolated or in binary systems. 
+        Some of them even have planets. That a pulsar is in binary system provides us a convenient way to 
+        measure its mass. 
+        \indent 
+        \fi
+		     
+    
+             
+
+
+    \section{Emission Mechanism of Pulsars}
+            Although emission mechanism of pulsars has not been fully understood yet, some models are developed 
+            trying to 
+            explain observational facts. The following is one toy model that can explain some basic features of 
+            pulsars.
+       
+        \subsection{Magnetic Dipole Model}
+            Assume a pulsar has a magnetic dipole moment $\vec{m}$, the angel between rotation axis and 
+            direction of 
+            $\vec{m}$ is $\alpha$, its angular velocity is $\Omega$, radius is R and moment of inertia is $I$. 
+            Also by 
+            assuming that energy of electromagnetic radiation are all from rotational energy, its spin-down 
+            rate can be written 
+            as: 
+            $$
+                \dot{\Omega}=-\frac{B_p^2 R^6 \Omega^3 \sin{\alpha}^3}{6c^3I}
+            $$
+            where $B_p$ is magnetic field strength in the pole of the pulsar. Its surface magnetic field can 
+            also be estimated
+            by:
+            $$
+                B_s=\sqrt{\frac{3c^3I}{2\pi^2R^6}P\dot{P}}=3.2\times 10^{19}\sqrt{P\dot{P}}
+            $$
+            where $B_s$ is the strength of surface magnetic field. \\
+            \indent In general, a pulsar's spin down rate can be expressed as: $\dot{\Omega}=-K\Omega^{n}$, 
+            where K is a 
+            constant and n is called braking index. In magnetic dipole model, n is 3 and in reality n is 
+            usually less than 3. Then 
+            characteristic age of the pulsar can be defined as: $P/2\dot{P}$ in magnetic dipole model. 
+            For example, the Crab 
+            pulsar's rotation period is about $0.033s$ and period derivative is $4.22\times 10^{-13}s/s$. 
+            The characteristic 
+            age is about 1200 years. The pulsar is remnant of a supernova which is observed by ancient 
+            astronomers in 1054 
+            AD, so the record shows that characteristic age can give us order of magnetic estimate of a 
+            pulsar's real age. 
+
+          
+        \subsection{A More Sophisticated Model}
+              It is oversimplified to regard a pulsar as a magnetized sphere rotating in vacuum. Actually,
+              there are plenty of 
+              charged particles in a pulsar's magnetosphere which corotate with the pulsar. The creation of 
+              charged particles can 
+              be described by the following steps. \\
+              \indent 1. The corotating charged primary particles emit gamma-ray by curvature radiation 
+              because of acceleration in super strong magnetic field.  \\
+              \indent 2. In super intense magnetic field,  the high energy photons decay into electrons and 
+              positrons which are called secondary particles by the process: 
+              $\gamma + (B) \rightarrow e^++e^-+(B)$. Syncrotron 
+                                  photons can be emitted by these secondary particles. \\
+              \indent 3. Secondary particles are also accelerated in strong magnetic field which is just like 
+              primary particles. As a result, these charged particles can create more secondary particles. \\
+              \indent This chain of process is quite efficient to produce charged particles and pulsar's 
+              magnetosphere is filled with plasam as a consequence. So, it is natural to think of the 
+              distribution of charges in pulsar's magnetosphere. A characteristic charge density 
+              $\rho_{GJ}=-\frac{\vec{\Omega}\cdot \vec{B}}{2\pi c}$ is called Goldreich-Julian density. 
+              This charges can offset part of electric field ($E_{\parallel}$) which is parallel to magnetic 
+              field. There is some region in the magnetosphere called ``outer gap'' where $\rho_{GJ}$ is so 
+              small that it can't screen $E_{\parallel}$ effectively. As a result, the secondary particles can 
+              be accelerated at a very large velocity (Lorentz factor $\gamma\sim 10^7$) and emit gamma-ray. 
+              Photons in outer gap can also create electrons and positrons by the process: 
+              $\gamma+\gamma\rightarrow e^-+e^+$. At the outer gap, one-photon pair production can't happen 
+              because magnetic field is too weak in this region.
+            
+                                
+        
+             
+
+    \section{Millisecond Pulsar} 
+        \subsection{P-$\dot{\mathbf{P}}$ Diagram} 
+        P-$\dot{\mathrm{P}}$ diagram is an important tool for analyzing evolution of pulsars. 
+        Period (P) and time derivative of period ($\dot{\mathrm{P}}$) are two of pulsars' important 
+        characteristics. Analyzing the position of a pulsar in P-$\dot{\mathrm{P}}$ diagram can give some 
+        valuable information such as which evolution stage the pulsar is in or the type of the pulsar, etc. 
+        The figure \ref{fig:p-pdot} is an example of  
+        P-$\dot{\mathrm{P}}$ diagram. The horizontal axis is pulsars' rotation periods and the vertical axis is 
+        time derivative of rotation periods.
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale=0.35]{{/home/wwc129/Desktop/Thesis/ppdot.png}}
+            \caption{\textit{\footnotesize Position of pulsars in P-}\footnotesize$\dot{P}$ \textit{\footnotesize
+                        diagram}}
+            \label{fig:p-pdot}
+        \end{figure}
+        In this P-$\dot{\mathrm{P}}$ diagram, the negative slope lines represent the strength of surface 
+        magnetic field while the positive slope lines represent the characteristic age of pulsars. The 
+        following is a short explanation for this. From previous discussion, we have known that the 
+        characteristic age of a pulsar is $\tau=-P/\dot{P}=P/(-\dot{P})$, so line of constant 
+        $\tau$ is a set of straight lines with equal positive slope. We also know $B\propto\sqrt{P\dot{P}}$,
+        therefore the line of constant $B$ should be a part of hyperbola. When $\dot{P}$ is very small, the
+        hyperbola looks like a straight line with negative slope. \\
+        \indent 
+        This figure shows that most pulsars lie in the position about $1s, 10^{-14}s/s$.
+        At the same time, a couple of stars lie at the bottom-left of the figure---these are millisecond
+        pulsars (MSP). Their 
+        rotation periods are about 1-20 milliseconds. It is believed that MSPs are spun up by accretion of 
+        mass from its 
+        companion star. In the above P-$\dot{\mathrm{P}}$ diagram, we can observe that millisecond pulsars' 
+        surface magnetic field are about 3 to 4 orders of magnitude lower than those of normal pulsars. However,
+        an MSP has a relative strong magnetic field near its light cylinder. The reason is that an MSP's radius 
+        of light cylinder ($R_{lc}=c/\omega)$ is much smaller than a normal pulsar's because of its short 
+        rotation period and the magnetic field near light cylinder can be estimated as 
+        $B_{lc}\sim\left(R/R_{lc}\right)^3$. At the same time, pulsars' emission mechanism is closely related 
+        to their magnetic field near light cylinder. As a result, like a normal pulsar, an MSP also have 
+        broadband spectrum from radio to gamma rays. 
+        \subsection{Origin Of Millisecond Pulsars}
+            From pulsars' emission mechanism, we know that magnetic field of a pulsar decreases with time while 
+            the spin period increase with time. But MSPs' spin period is much shorter than normal pulsars and 
+            surface magnetic field is a lot weaker. This makes an MSP seem to be both young and old. As a result,
+            people think millisecond pulsars are old pulsars spun up by its companion. The companion star transfer
+            mass and angular momentum to accelerate the pulsar. Therefore, the aged pulsar can spin faster 
+            gradually. 
+            \subsubsection{Mass Transfer And Accretion In Binary Systems}
+                X-ray binaries are a type of binary systems that is luminous in X-ray band. There are several kinds 
+                of X-ray binaries including low mass X-ray binaries (LMXB) and high mass X-ray binaries (HMXB). 
+                The way of transferring mass is different in these two types of systems. Before discussing mass 
+                transfer, we need to know a little bit about Roche Lobe. The figure \ref{fig:roche lobe} is a 
+                schematic diagram of Roche lobe.
+                \begin{figure}[h]
+                  \centering
+                  \includegraphics[scale=0.5]{/home/wwc129/Desktop/Thesis/roche_lobes.jpg}
+                  \begin{minipage}{0.8\textwidth}
+                  \caption{\footnotesize \textit{Schematic diagram of Roche lobe.} $L_{1}$ is called inner 
+                            Lagrange point which is the intersection of equipotential lines of star A 
+                            and B.}
+                  \label{fig:roche lobe}
+                  \end{minipage}
+                \end{figure}\\
+                \indent  We call two stars in an LMXB as A and B respectively for convenience. It is obvious 
+                that if an object is close to star A, the gravitational influence of A is so strong that we can 
+                nearly ignore the effect of star B. Similarly, this is true for star B. As a result, there must be 
+                a point where the effect of star A is equal to star B which is called inner Lagrange point. The two
+                volumes inside the largest equipotential lines of A and B are called Roche lobe. If star B cross 
+                its Roche lobe, than its mass will be attracted by A thus mass transfer between A and B happens. We 
+                should notice that this is the main way of mass transfer in LMXB. While in HMXB, the mass can be 
+                transferred by strong wind of the massive companion star. \\
+                \indent 
+                What should be noted is that mass transfer can change the distance between two companion stars. If 
+                low-mass star transfer mass to high-mass companion star, the orbital separation will be large. 
+                This can actually stop mass transfer and is like negative feedback. 
+                On the contrary, mass transfer from high-mass star to low-mass star will shrink the orbital 
+                distance.\\
+                
+                
+                
+
+
+
+                
+        \subsection{Class II MSPs}
+            \begin{figure}[h!]   
+                \centering
+                \includegraphics[width=6.7cm,height=7cm]{{/home/wwc129/Desktop/Thesis/bands.png}}
+                \caption{\textit{\footnotesize Pulse profiles of PSR B1937+21 in radio, X-ray and gamma-ray.}}
+                \label{fig:class }
+            \end{figure}	 
+            Radio emission are usually considered to be emitted above the polar cap, which means radio emission 
+            and gamma-ray emission are from different location of pulsar's magnetosphere. However, there are about 
+            10 sources showing aligned pulse profiles in radio and gamma-ray implying that radio emission may 
+            produced from outer magnetosphere. These pulsars have strong magnetic 
+            field near the light cylinder. The figure \ref{fig:class } is an example of aligned pulse profile.
+            \\ 
+            \section{Objectives}
+            Recently, it is found that X-ray band of spectrum of millisecond pulsar B1937+21 has a hard photon 
+            index of $0.9\mathrm{\pm}0.1$ by analysing data of \textit{Chandra}, \textit{XMM-Newton} \textit{Fermi}. 
+            People think X-ray emission
+            is mainly produced by synchrotron radiation, but it is difficult to explain such a hard photon index. 
+            Besides millisecond pulsar B1937+21, it is discovered that hard photon index is a common characteristic 
+            of class II MSPs. Therefore, people propose that Inverse Compton scattering can also lead to X-ray 
+            emission and build a model recently to explain it. \\
+            \indent 
+            In order to test the model, we need to analyse the hard X-ray band of millisecond pulsars B1937+21, 
+            J0218+4232 and B1821-24. The energy ranges of \textit{Chandra} and \textit{XMM-Newton} are up to 10keV 
+            and 15keV respectively while \textit{NuSTAR} can be up to 79keV. As a result, we aim to use
+            \textit{NuSTAR} to measure the hard X-ray band of the three MSPs mentioned above. 
+
+
+
+    \section{NuSTAR}  
+        \textit{NuSTAR} stands for Nuclear Spectroscopic Telescope Array and is launched in June 12, 2012. It is the 
+        first space telescope
+        focusing on hard X-ray (3eV-79eV) band. This is the telescope that we mainly use and it is helpful to know 
+        the structure to deal
+        with its data. It mainly composed of three parts: detectors, optics and mast as the figure \ref{fig:nustar}
+        shows.
+        \begin{figure}[h] 
+            \centering
+            \includegraphics[scale=0.6]{{/home/wwc129/Desktop/Thesis/nustar.png}}
+            \caption{\textit{\footnotesize \textit{NuSTAR}'s sketch. The mast connects X-ray optics and focal plane 
+            detectors.}}
+            \label{fig:nustar}
+        \end{figure}
+              
+        \subsection{Detectors} 
+            \textit{NuSTAR} has two independent photons counting detector modules (FPMA \& FPMB) and each module 
+            contains 4 
+            Cadmium-Zinc-Telluride (CZT) detectors. Every detector is a rectangular crystal whose size is 
+            $20mm\times 20mm 
+            \times 2mm$ (length$\times$ width$\times$height) and have $32\times 32$ pixels. \\
+            \begin{figure}[h]  
+                \hspace{2.3cm} 
+                \begin{minipage}[c]{0.4\textwidth}
+                    \includegraphics[width=5cm,height=5cm]{{/home/wwc129/Desktop/Thesis/detector.png}}
+                \end{minipage}
+                \hspace{0.5cm} 
+                \begin{minipage}[c]{0.4\textwidth}
+                    \includegraphics[width=5cm,height=5cm]{{/home/wwc129/Desktop/Thesis/sheld.png}}
+                \end{minipage}
+                \newline
+                \noindent \hspace*{0.08\linewidth}
+                \begin{minipage}[c]{0.8\linewidth}
+                \caption{\textit{\footnotesize Left: One of two detector modules which contains $2\times 2$ array 
+                of independent detectors.
+                Right: One detector module shielded by Csl crystal. CZT detectors can turn high 
+                energy photons into electrons very efficiently in room temperature so they are operated at 
+                15\textdegree{}C. }}
+                \end{minipage}
+                \label{fig:detectors}
+            \end{figure}
+            %\vspace{0.35cm}
+            \indent In order to help to distinguish the source photons and the background photons, the focal 
+            planes are shielded with 
+            crystals made of Celsium-Iodide (Csl). The Csl shields can record the photons come from directions 
+            which are not the 
+            direction of \textit{NuSTAR} optical axis. So background photons can be subtracted from the total photon 
+            counts. 
+              
+        \subsection{Optics}
+            Corresponding to two detector modules, \textit{NuSTAR} also has two optics called Optics Module A and B 
+            (OMA \& OMB). The 
+            focal length is 10.14 meters which is about the same length with its mast. X-ray is very hard to 
+            reflect so mirrors are 
+            usually made of high density materials such as Pt and W. Past telescopes such as \textit{Chandra} uses 
+            these high density 
+            materials to reflect low energy X-ray (up to 10eV). However, the efficiency of reflecting high 
+            energy X-ray drops 
+            drastically. High density contrast between two kinds of materials are needed to overcome this
+            problem. As a 
+            result, \textit{NuSTAR}'s mirror is coated with Pt/SiC and W/Si multilayers and can reflect hard X-ray 
+            up to 79eV. \\
+            \indent Besides high density contrast between two materials, a small incident angle is also 
+            required. As the figure \ref{fig:optics}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.6]{{/home/wwc129/Desktop/Thesis/lightscheme.png}}
+                \caption{\textit{\footnotesize Light path schematic diagram of reflecting X-ray}}
+                \label{fig:optics}
+            \end{figure}
+            showing, the focal length may be very long because of the small incidence angle. This is partly 
+            the reason why
+            \textit{NuSTAR}'s detectors and optics are separated by a 10-meter long mast which will be introduced in 
+            the next section.
+			
+        \subsection{Mast}
+            Although \textit{NuSTAR}'s mast is stable and reliable, it can cause some image distortion because of 
+            its deformation. Therefore, 
+            careful calibration or measurement of mast's deformation is necessary. In order to achieve this, 
+            \textit{NuSTAR} has a laser 
+            metrology system which consists of two lasers and two light-sensing detectors. The two 
+            lasers are located on optics 
+            while the two detectors are mounted on the detector module. Then, the deformation can be recorded 
+            and used to reconstruct the raw data. The figure \ref{fig:mast} shows what the mast looks like. The
+            reason why \textit{NuSTAR} has a deployable mast is that it is carried by a relative small rockets.
+            \begin{figure}[h!]
+              \centering
+              \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/nustar_mast.png}
+              \mycaption{\textit{NuSTAR}'s mast. Left: stored in container. Right: after being deployed.}
+              \label{fig:mast}
+            \end{figure}
+
+        \subsection{Performance of NuSTAR}
+            Though \textit{NuSTAR} has a broad energy range, the effective collecting area at different energy is 
+            quite different. The figure \ref{fig:effective_area} shows comparison between \textit{NuSTAR} and other 
+            telescopes.
+            \begin{figure}[h!]
+              \centering
+              \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/effect_area.png}
+              \mycaption{\textit{NuSTAR}'s effective area compared with other X-ray focusing telescopes.}
+              \label{fig:effective_area}
+            \end{figure}
+            
+            From figure \ref{fig:effective_area} we can see that the effective area drops dramatically after 70keV.
+            Therefore, we may need to screen out the high energy part ($>$70keV) for data analysis.
+            The figure \ref{fig:psf} shows the point spread function (PSF) of optics module A and B. In order to
+            make faint pixels look more obvious, the images are in logarithm scale. The PSF of both optics module A
+            and B are dependent on energy. The table \ref{table:psf_relation} lists the relationships and from this 
+            table we can see that angular resolution of optics module B is slightly better A.
+           
+            \begin{figure}[h]
+              \centering
+              \includegraphics[scale=0.27]{/home/wwc129/Desktop/Thesis/psf.png}
+              \mycaption{Image of NuSTAR's point spread function of optics module A(left) and B(right).}
+              \label{fig:psf}
+              \vspace{1cm} 
+              \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/psf_relation.png}
+              \mycaption{PSF (half power diameter) as a function of energy.}
+              \label{table:psf_relation}
+            \end{figure}
+           
+
+\chapter{Data Analysis}
+  \section{The Procedures To Deal With \textit{NuSTAR} Data}
+  \textit{NuSTAR} Data Analysis Software (\textit{NuSTARDAS}) is used for data processing. This includes three steps:
+    data calibration, data screening and products extraction. The next paragraph talks about the reason the 
+    first two steps are necessary. \\
+    \indent 
+    Lots of factors can affect raw data, such as movements of \textit{NuSTAR}‘s mast, the orbit of the telescope, 
+    etc. As a result, \textit{NuSTAR} data must be calibrated before they can be used to do data analysis. Also, 
+    some parts 
+    of data are not good for scientific analysing. For example, there are some bad pixels in the telescope's 
+    detectors which cannot record photons correctly. Thus, the data recorded by these bad pixels have to be
+    treated very carefully. We might get rid of the data when the source is bright, while if the photon counts
+    are too small, we might have to use these data with carefulness. And sometimes we may want to focus on a 
+    particular part of data. Thus, we need to screen the calibrated data. \\
+    \indent 
+    In order to understand data filter process better, it is necessary to know the different levels of 
+    \textit{NuSTAR} data. 
+    \textit{NuSTAR} data can be divide into 5 levels which is from level 0 to level 3. Level 0 data are raw 
+    telemetry files
+    which might not be in formal format (FITS format). Level 1 data contains two parts: level 1 and level 1a. Level 1
+    data are formatted in FITS format, but not calibrated yet. Level 1a data are level 1 data after calibration. 
+    Actually, level 1a data are addition of level 1 data and calibration data. Level 1a data are produced by step 1 
+    (data calibration). Then by step 2 (data screening), we get level 2 data which are cleaned files. We can do data
+    analysis after getting level 2 data. Thus in order to get reliable result, it is key to get raw data properly 
+    cleaned. The following is comparison between level 1a event file and level 2 event file after screening.    
+    \begin{figure}[h] 
+      \vspace{0.2cm}
+      \begin{minipage}{0.45\textwidth}
+        \begin{flushright} 
+          \includegraphics[scale=0.31]{/home/wwc129/Desktop/Thesis/A_uf.png}
+        %\caption{raw picture}
+        \end{flushright}
+      \end{minipage}
+      \hspace{1cm}
+      \begin{minipage}{0.45\textwidth}
+        \begin{flushleft}
+          \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/A_cl.png}
+        \end{flushleft} 
+      \end{minipage}
+      \centering
+      \begin{minipage}[c]{0.85\textwidth}
+          \caption{\textit{\footnotesize Left: sky image generated directly from level 1a data. Right: sky image 
+          generated from screened level 2 data. These two figures are produced from the same raw data. There are 
+          many criteria for data screening and the figure in the right is just an example.}}
+      \end{minipage}
+    \end{figure}
+    
+    \subsection{Data Calibration}   
+        The first process is data calibration. In this step, two factors should be considered: the temporal change 
+        of mast and spacecraft's attitude. By using telescope's housekeeping files, the corrected data can be 
+        produced by \textit{NuSTAR} software. There are some \textit{NuSTAR} software modules for this process. Most of them are 
+        nearly automatically, which means once we have initial files, the output files are fixed. Therefore, we 
+        do not concentrate much on these software modules. However, there is 1 module that we should use more 
+        carefully, which is 'nuhotpix'. Before we go into this module, some basic concepts should be introduced.
+        \subsubsection{Grade of Data}  
+            When a photon interacts with a detector, the ideal condition is that only one pixel record this photon,
+            which has better spectra resolution than other situations. 
+            But a single X-ray photon can be spread and received by more than one pixel. Generally, the less pixels
+            by which a photon recorded, the better the event is. 
+            Naturally, there are different patterns of interaction between the
+            photon and surrounding pixels. These patterns are listed below.  
+            \begin{figure}[h] 
+              \centering
+              \includegraphics[scale=0.34]{/home/wwc129/Desktop/Thesis/grade.png}
+              \begin{minipage}[c]{0.85\textwidth}
+                \caption{\textit{\footnotesize There are 33 different \textit{NuSTAR} grades---from grade 0 to 32.
+                          In this figure, grades from 0 to 26 are listed because these grades are accepted by 
+                          \textit{NuSTAR} data screening by default. We can further get rid of some grades if needed.}}
+              \end{minipage}
+            \end{figure}
+            
+
+
+        \subsubsection{Status of Data} 
+            Just like flagging the quality of pixel data, it is necessary to flag event data because there are many
+            factors that can trigger detectors. For instance, if we have a photon record in a detector, we need to 
+            know if it is from the source we are observing. Actually, cosmic rays can also trigger the 
+            detectors and we want to get rid of them in order to increase the signal to noise ratio. 
+            Therefore, after we have distinguished them from source photons, it is needed to be recorded for data
+            screening---thus each single event has its status. In fact, similar to data's grade, status of data also
+            has many patterns. For example, an event may fall into bad pixels, have a neighborhood bad pixel
+            or fall into a hot pixel, etc. All these different situations are recorded by a 16-bit binary number and
+            status of good event which is ideal for scientific analysis is all zero.\\
+
+        \vspace{2cm}
+        \noindent Now, we can focus on the module 'nuhotpix'. Unlike bad pixels which always do not receive energy 
+        or always have the false relationship between photon energy and electric signal, hot pixels change over time.
+        As a result, it is more tricky to distinguish hot pixels than bad pixels. Module 'nuhotpix' uses statistical
+        test to find out hot pixels. First of all, we need to bin the event file (time interval is controlled by 
+        parameter of module nuhotpix---'binsize', and the default value is 600). We assume that the total photon 
+        counts during a period is Poisson distribution. Then compare counts of a pixel with its surrounding
+        pixels (the number of surrounding pixels is defined by parameter 'cellsize'). If the probability of counts
+        is lower than the Poisson probability threshold, this pixel is thought be a hot pixel. The Poisson 
+        probability threshold is set by parameter 'logpos' which is always negative. Therefore, we need to set 
+        3 parameters of module nuhotpix: binsize, cellsize and logpos. This is a set of parameters we focus on
+        during data calibration in order to get better spectra. More conveniently, instead of using these modules
+        separately, software module 'nupipeline' is a good choice because it will carry out all above modules 
+        automatically. 
+    
+    \subsection{Data Screening}  
+        After data calibration, though we know if one event is good or not, bad events are not excluded from original
+        files. This is the primary reason of doing data screening. There are primarily 3 procedures in this step.\\
+        \indent The first one is choosing good time intervals, which means remove some unwanted time intervals. For 
+        example, when the telescope is in the South Atlantic Anomaly, when the Earth is in the Field Of View and 
+        when the motion of mast is not well tracked, etc. Then remove bad pixels and events flagged as bad in the 
+        last step (by using the information of data status). At last, choose the proper grade of data 
+        (the default value is 0-26). \\
+        \indent The core module in this step is called 'nuscreen' and most of job is done by this software module.  
+        There are two parameters we mostly focus on---'gradeexpr' and 'statusexpr', which are used for choosing 
+        grade of data and status of data respectively. For example, gradeexpr=0-8 means choosing grade range 
+        from 0 to 8 and statusexpr="STATUS==b000000000x0xx000" means leaving out bad events. We also can set  
+        them to default value by 'statusexpr=DEFAULT' and 'statusexpr=DEFAULT'. By adjusting these parameters' 
+        values, we can get a bunch of cleaned event files. Then we can generate several sky images and spectra and 
+        choose a better result. 
+
+    \subsection{Products Extraction}
+        The aim of this process is to extract high-level scientific products including light curves, sky images,
+        spectra, Ancillary Response Files (ARF) and Redistribution Matrix Files (RMF). ARF and RMF files are used 
+        for spectra analysis. The main software module is 'nuproducts' which generates these files automatically by 
+        passing some parameters. I mainly focus on two parameters which are 'pilow' and 'pihigh'. These two 
+        parameters filter the energy range of cleaned stage 2 event files. The default values of the two parameters
+        are 39 Pi and 1909 Pi respectively corresponding the \textit{NuSTAR}'s energy range 3-78.4eV. But usually we choose 
+        pilow larger than 39 and pihigh smaller than 1909 in order to get more reliable data.
+                
+
+    
+    \section{Data Analysis of Pulsar B1937+21}
+        As previously mentioned, there are three parameters (cellsize, logpos, binsize) in step 1 and two 
+        parameters (gradeexpr, statusexpr) in step 2 that we are going to focus on. 
+        Therefore, there are actually 5 parameters to concentrate on in step 1 and 2. And in step 3, there are 1 
+        parameter, source and background region we are going to adjust. Thus, the number of total parameters is
+        actually 8. We want to get better result by tweak these 8 parameters.\\
+        \subsection{All Parameters Are Default Values}
+          \indent 
+          At first, I set all these 5 values as default  
+          In this case, cellsize=5, logpos=-6, binsize=600, gradeexpr=DEFAULT and statusexpr=DEFAULT.
+          Then we can produce a complete set of stage 2 files by using the module 'nupipeline'. The following is 
+          the sky images from \textit{NuSTAR}'s module A and module B. 
+        \begin{figure}[h]
+          \hspace{0.7cm}
+          \begin{minipage}{0.45\textwidth} 
+            \centering 
+            \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/A01.png}
+            \caption{\textit{\footnotesize Sky image of module A}}
+          \end{minipage}
+          \hspace{0.1cm} 
+          \begin{minipage}{0.45\textwidth}
+            \centering 
+            \includegraphics[scale=0.33]{/home/wwc129/Desktop/Thesis/B01.png}
+            \caption{\textit{\footnotesize Sky image of module B}}
+          \end{minipage}
+        \end{figure}
+      
+        The total events in the left figure is 33533 while in the right figure the number is 28806 
+        (including background counts). We can also see that left figure is a little bit brighter than the figure
+        in the right. There are lots of noise in these two pictures though the source is clearly identifiable. The 
+        focal plane module comprises 4 detectors, but in these figures we cannot distinguish different detectors. 
+        This partly shows that the data is not calibrated and screened well enough. \\
+        \indent After getting cleaned stage 2 files, we continue to generate light curves, spectra and so on. 
+        Before do this, it is required to choose source and background region. The following pictures shows the 
+        region I choose (this was the region I chose first time). 
+          
+        \begin{figure}[h]
+          \hspace{0.7cm}
+          \begin{minipage}{0.45\textwidth} 
+            \centering 
+            \includegraphics[scale=0.33]{/home/wwc129/Desktop/Thesis/A01_region.png}
+            \caption{\textit{\footnotesize Source and background regions of module A. }}
+          \end{minipage}
+          \hspace{0.1cm} 
+          \begin{minipage}{0.45\textwidth}
+            \centering 
+            \includegraphics[scale=0.344]{/home/wwc129/Desktop/Thesis/B01_region.png}
+            \caption{\textit{\footnotesize Source and background regions of module B. }}
+          \end{minipage}
+        \end{figure}
+        
+        In the following figures, the left green circle is source region while the right green circle is 
+        background region. The center of source circle is (19:39:38.561 ra, 21:34:59.081 dec) which is pretty 
+        close to the coordinates of pulsar B1937+21. This means that the observation data can be used to analyse 
+        the pulsar. Then use \textit{NuSTAR} software module 'nuproducts' to generate light curves, spectra, 
+        source ARF and RMF file (these files are used to do spectra analysis). 
+
+
+
+
+
+
+
+
+
+
+
+
+		
+			
+
+\end{document}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
