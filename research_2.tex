@@ -14,7 +14,21 @@
 \usepackage{caption}
 \usepackage{anyfontsize}
 \usepackage{caption}
+\usepackage{color}
+\usepackage{url}
+\usepackage{hyperref}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    linkcolor=black,
+    urlcolor=black
+}
+
+
 \captionsetup[figure]{labelfont=bf, font=footnotesize}
+
 
 %this several lines is for: no number before suction. (This is a bug)
 \makeatletter
@@ -83,8 +97,7 @@
 \begin{document}
 \maketitle
 \tableofcontents{}
-
-    %\vspace{1cm}
+   %\vspace{1cm}
     %chapter 'Abstract'.
 \begin{abstract}
     \normalsize
@@ -129,7 +142,7 @@
         $\rho=\frac{3\pi}{P^2G}$, where $P$ is the rotational period of a pulsar. Just for simplicity, we
         let $P$ be 1$s$. Then we get $\rho\approx 1.4\times 10^{11}kg/m^3$. With the knowledge  that the 
         density of a white dwarf is about $1\times 10^9kg/m^3$ which is smaller than the lower density limit,
-        the observed fast-spinning stars belong to the kind stars which are much denser 
+        the observed fast-spinning stars belong to the kind of stars which are much denser 
         than white dwarf. As a result, neutron stars are ideal candidates for pulsars. \\
         \indent 
         More than 2000 pulsars have been found so far. Most of them are in the disk of our Galaxy while we also can 
@@ -191,8 +204,8 @@
             where $B_s$ is the strength of surface magnetic field. \\
             \indent In general, a pulsar's spin down rate can be expressed as: $\dot{\Omega}=-K\Omega^{n}$, 
             where K is a 
-            constant and n is called braking index. In magnetic dipole model, n is 3 and in reality n is 
-            usually less than 3. Then 
+            constant and n is called braking index. In magnetic dipole model n is 3 \hypersetup{urlcolor= red}
+            (\href{https://arxiv.org/pdf/1506.04605.pdf}{\textit{H.Tong 2015}}). Then 
             characteristic age of the pulsar can be defined as: $P/2\dot{P}$ in magnetic dipole model. 
             For example, the Crab 
             pulsar's rotation period is about $0.033s$ and period derivative is $4.22\times 10^{-13}s/s$. 
@@ -200,15 +213,31 @@
             age is about 1200 years. The pulsar is remnant of a supernova which is observed by ancient 
             astronomers in 1054 
             AD, so the record shows that characteristic age can give us order of magnetic estimate of a 
-            pulsar's real age. 
-
+            pulsar's real age. \\
+            \indent 
+            Although braking index is 3 in magnetic dipole model, most of pulsars' braking index is less than 3 as 
+            shown in figure \ref{fig:braking_index}. The reason is that if a pulsar's spin down is completely because
+            of pulsar wind, the braking index is 1. Thus, the real braking index should be a combination of 1 and 3,
+            which is usually less than 3  \hypersetup{urlcolor= red}
+            (\href{http://www.ift.uni.wroc.pl/~csqcdiv/talks/26092014/ohamil_csqcdiv.pdf}
+            {\textit{Oliver Hamil 2014}}).
+            \begin{figure}[!h]
+              \centering
+              \includegraphics[scale=0.6]{/home/wwc129/Desktop/Thesis/table.png}
+              \mycaption{Braking index of some pulsars.}
+              \label{fig:braking_index}
+            \end{figure}
+    
           
         \subsection{A More Sophisticated Model}
               It is oversimplified to regard a pulsar as a magnetized sphere rotating in vacuum. Actually,
               there are plenty of 
               charged particles in a pulsar's magnetosphere which corotate with the pulsar. The creation of 
               charged particles can 
-              be described by the following steps. \\
+              be described by the following steps 
+              (\href{http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle\_query?1971...164..529S&amp;data
+              \_type=PDF\_HIGH&amp;whole\_paper=YES&amp;type=PRINTER&amp;filetype=.pdf}{\textit{P.A.Sturrock
+              1971}}). \\ 
               \indent 1. The corotating charged primary particles emit gamma-ray by curvature radiation 
               because of acceleration in super strong magnetic field.  \\
               \indent 2. In super intense magnetic field,  the high energy photons decay into electrons and 
@@ -296,7 +325,9 @@
                 \indent  We call two stars in an LMXB as A and B respectively for convenience. It is obvious 
                 that if an object is close to star A, the gravitational influence of A is so strong that we can 
                 nearly ignore the effect of star B. Similarly, this is true for star B. As a result, there must be 
-                a point where the effect of star A is equal to star B which is called inner Lagrange point. The two
+                a point where the effect of star A is equal to star B which is called inner Lagrange point 
+                \hypersetup{urlcolor= red}
+                (\href{https://arxiv.org/pdf/astro-ph/0311272.pdf}{\textit{Seidov 2013}}). The two
                 volumes inside the largest equipotential lines of A and B are called Roche lobe. If star B cross 
                 its Roche lobe, than its mass will be attracted by A thus mass transfer between A and B happens. We 
                 should notice that this is the main way of mass transfer in LMXB. While in HMXB, the mass can be 
@@ -324,22 +355,26 @@
             Radio emission are usually considered to be emitted above the polar cap, which means radio emission 
             and gamma-ray emission are from different location of pulsar's magnetosphere. However, there are about 
             10 sources showing aligned pulse profiles in radio and gamma-ray implying that radio emission may 
-            produced from outer magnetosphere. These pulsars have strong magnetic 
+            produced from outer magnetosphere and they are called Class II MSPs\hypersetup{urlcolor= red}
+            (\href{https://arxiv.org/pdf/1110.1271.pdf}{\textit{Guillemot et al. 2012}}). 
+			These pulsars have strong magnetic 
             field near the light cylinder. The figure \ref{fig:class } is an example of aligned pulse profile.
-            \\ 
-            \section{Objectives}
-            Recently, it is found that X-ray band of spectrum of millisecond pulsar B1937+21 has a hard photon 
-            index of $0.9\mathrm{\pm}0.1$ by analysing data of \textit{Chandra}, \textit{XMM-Newton} \textit{Fermi}. 
-            People think X-ray emission
-            is mainly produced by synchrotron radiation, but it is difficult to explain such a hard photon index. 
-            Besides millisecond pulsar B1937+21, it is discovered that hard photon index is a common characteristic 
-            of class II MSPs. Therefore, people propose that Inverse Compton scattering can also lead to X-ray 
-            emission and build a model recently to explain it. \\
-            \indent 
-            In order to test the model, we need to analyse the hard X-ray band of millisecond pulsars B1937+21, 
-            J0218+4232 and B1821-24. The energy ranges of \textit{Chandra} and \textit{XMM-Newton} are up to 10keV 
-            and 15keV respectively while \textit{NuSTAR} can be up to 79keV. As a result, we aim to use
-            \textit{NuSTAR} to measure the hard X-ray band of the three MSPs mentioned above. 
+
+    \section{Objectives}
+    Recently, it is found that X-ray band of spectrum of millisecond pulsar B1937+21 has a hard photon 
+    index of $0.9\mathrm{\pm}0.1$ by analysing data of \textit{Chandra}, \textit{XMM-Newton} \textit{Fermi} 
+    (\href{https://arxiv.org/pdf/1110.1271.pdf}{\textit{Ng et al. 2014}}).
+    People think X-ray emission
+    is mainly produced by synchrotron radiation, but it is difficult to explain such a hard photon index. 
+    Besides millisecond pulsar B1937+21, it is discovered that hard photon index is a common characteristic 
+    of class II MSPs. Therefore, people propose that Inverse Compton scattering can also lead to X-ray 
+    emission and build a model recently to explain it (\href{https://arxiv.org/pdf/1110.1271.pdf}
+    {\textit{Ng et al. 2014}}). \\
+    \indent 
+    In order to test the model, we need to analyse the hard X-ray band of millisecond pulsars B1937+21, 
+    J0218+4232 and B1821-24. The energy ranges of \textit{Chandra} and \textit{XMM-Newton} are up to 10keV 
+    and 15keV respectively while \textit{NuSTAR} can be up to 79keV. As a result, we aim to use
+    \textit{NuSTAR} to measure the hard X-ray band of the three MSPs mentioned above. 
 
 
 
@@ -451,14 +486,15 @@
             The figure \ref{fig:psf} shows the point spread function (PSF) of optics module A and B. In order to
             make faint pixels look more obvious, the images are in logarithm scale. The PSF of both optics module A
             and B are dependent on energy. The table \ref{table:psf_relation} lists the relationships and from this 
-            table we can see that angular resolution of optics module B is slightly better A.
-           
-            \begin{figure}[h]
+            table we can also see that angular resolution of optics module B is slightly better A.
+            
+             
+            \begin{figure}[!htp]
               \centering
               \includegraphics[scale=0.27]{/home/wwc129/Desktop/Thesis/psf.png}
               \mycaption{Image of NuSTAR's point spread function of optics module A(left) and B(right).}
               \label{fig:psf}
-              \vspace{1cm} 
+              \vspace{1.5cm} 
               \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/psf_relation.png}
               \mycaption{PSF (half power diameter) as a function of energy.}
               \label{table:psf_relation}
@@ -594,12 +630,12 @@
     \section{Data Analysis of Pulsar B1937+21}
         As previously mentioned, there are three parameters (cellsize, logpos, binsize) in step 1 and two 
         parameters (gradeexpr, statusexpr) in step 2 that we are going to focus on. 
-        Therefore, there are actually 5 parameters to concentrate on in step 1 and 2. And in step 3, there are 1 
+        Therefore, there are actually 5 parameters to concentrate on in step 1 and 2. And in step 3, there is 1 
         parameter, source and background region we are going to adjust. Thus, the number of total parameters is
-        actually 8. We want to get better result by tweak these 8 parameters.\\
+        actually 8. We want to get better result by tweaking these 8 parameters.\\
         \subsection{All Parameters Are Default Values}
           \indent 
-          At first, I set all these 5 values as default  
+          At first, I set all these 5 values as default.  
           In this case, cellsize=5, logpos=-6, binsize=600, gradeexpr=DEFAULT and statusexpr=DEFAULT.
           Then we can produce a complete set of stage 2 files by using the module 'nupipeline'. The following is 
           the sky images from \textit{NuSTAR}'s module A and module B. 
@@ -619,34 +655,112 @@
         \end{figure}
       
         The total events in the left figure is 33533 while in the right figure the number is 28806 
-        (including background counts). We can also see that left figure is a little bit brighter than the figure
-        in the right. There are lots of noise in these two pictures though the source is clearly identifiable. The 
-        focal plane module comprises 4 detectors, but in these figures we cannot distinguish different detectors. 
-        This partly shows that the data is not calibrated and screened well enough. \\
-        \indent After getting cleaned stage 2 files, we continue to generate light curves, spectra and so on. 
-        Before do this, it is required to choose source and background region. The following pictures shows the 
-        region I choose (this was the region I chose first time). 
-          
+        (including background counts). We can also see that the left figure is a little bit brighter than the figure
+        in the right. Although there are lots of background noises in these two pictures, 
+        the source is clearly identifiable. 
+        The focal plane module comprises 4 detectors, but in these figures we cannot distinguish different detectors.
+        This implies that the data are not calibrated and screened well enough. \\
+        \indent After getting cleaned stage 2 files, we can continue to generate light curves, spectra and so on. 
+        Before doing these, it is required to choose source and background regions. The figure \ref{fig:a1} and 
+        \ref{fig:b1} show the regions we choose (this was the region I chose first time). 
         \begin{figure}[h]
           \hspace{0.7cm}
           \begin{minipage}{0.45\textwidth} 
             \centering 
             \includegraphics[scale=0.33]{/home/wwc129/Desktop/Thesis/A01_region.png}
             \caption{\textit{\footnotesize Source and background regions of module A. }}
+            \label{fig:a1}
           \end{minipage}
           \hspace{0.1cm} 
           \begin{minipage}{0.45\textwidth}
             \centering 
             \includegraphics[scale=0.344]{/home/wwc129/Desktop/Thesis/B01_region.png}
             \caption{\textit{\footnotesize Source and background regions of module B. }}
+            \label{fig:b1}
           \end{minipage}
         \end{figure}
         
-        In the following figures, the left green circle is source region while the right green circle is 
+        In the above figures, the left green circle is source region while the right green circle is 
         background region. The center of source circle is (19:39:38.561 ra, 21:34:59.081 dec) which is pretty 
         close to the coordinates of pulsar B1937+21. This means that the observation data can be used to analyse 
-        the pulsar. Then use \textit{NuSTAR} software module 'nuproducts' to generate light curves, spectra, 
-        source ARF and RMF file (these files are used to do spectra analysis). 
+        the pulsar B1937+21. Then use \textit{NuSTAR} software module 'nuproducts' to generate sky images, light 
+        curves, spectra, source ARF and RMF file (these files are used to do spectra analysis). The figure 
+        \ref{fig:sky1} is sky image of module A and B produced by 'nuproducts'.\\
+        \begin{figure}[h!]
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushright}
+                \includegraphics[scale=0.3]{/home/wwc129/Desktop/Thesis/A_pro.png}
+            \end{flushright}
+          \end{minipage}
+        \hspace{1cm}
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft}
+                \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/B_pro.png}
+            \end{flushleft}
+          \end{minipage}
+          \centering 
+          \begin{minipage}[b]{0.85\textwidth}
+            \vspace{0.25cm}
+            \mycaption{Stage 3 sky images of module A (left) and B (right). The energy range we chose is from 
+                        35pi to 1909pi which is the default value.}
+            \label{fig:sky1}
+          \end{minipage}
+          
+        \end{figure}
+
+        At first glance, there is no difference between stage 2 sky images and stage 3 sky images. But actually, 
+        the pixels of stage 3 sky images are much less. Take module A for example, the dimensions of stage 2 and 3
+        sky images are 54137$\times$54137 and 1000$\times$1000. This shows that even though we choose the largest
+        reasonable energy range (35-1909pi corresponding to 3-79eV which is the energy range of \textit{NuSTAR}), 
+        there are lots of data has been filtered out.\\
+        \indent
+        The figure \ref{fig:lightcurves} is the light curve of module A and B. Although these pictures show a little 
+        bit periodicity, they still look messy. The reason is that the time resolution of \textit{NuSTAR} is 2$ms$
+        which is larger than the spin period of B1937+21 ($\sim$1.56ms). As a result, it is not appropriate to do 
+        timing analysis of the pulsar using \textit{NuSTAR}. \\
+        \begin{figure}[h]
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft}
+                \includegraphics[scale=0.31]{/home/wwc129/Desktop/Thesis/nu30101031002A01_lc.png}
+              \end{flushleft}
+            \end{minipage}
+          \hspace{0.1cm} 
+          \begin{minipage}{0.45\textwidth}
+            \includegraphics[scale=0.31]{/home/wwc129/Desktop/Thesis/nu30101031002B01_lc.png}
+          \end{minipage}
+          \mycaption{Light curves of module A (left) and B (right).}
+          \label{fig:lightcurves}
+        \end{figure}
+
+        The figure \ref{spectra} is the spectra of module A and B. The group counts of both module A and B are
+        20 and the fitting model is multiplication of absorption of X-ray model (see in sherpa document \href{http://
+        cxc.harvard.edu/sherpa/ahelp/xstbabs.html}{'xstbabs'}) and 1 dimensional power law model (see also in sherpa 
+        document\href{http://cxc.harvard.edu/sherpa/ahelp/powlaw1d.html}{'powlaw1d'}). We use chi square statistics
+        to analyse goodness of fitting.\\
+        \indent
+        The number of total points in spectrum of module A is 17 and B is 15. For the spectrum of A, the 
+        reduced statistic is 0.67058 and Q-value is 0.805413. For the spectrum of B, the reduced statistic is 0.48646
+        and Q-value is 0.92405. \newpage 
+        \begin{figure}[!ht]
+          \begin{minipage}[c]{0.45\textwidth}
+            \begin{flushleft} 
+                \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/spectrum_a.png}
+            \end{flushleft}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft}
+            \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/spectrum_b.png}
+            \end{flushleft}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+          \mycaption{Spectra of module A (left) and B (right). The total counts of A before grouping is 
+                      255 and B is 209 (after subtracting background counts).}
+          \label{spectra}
+          \end{minipage}
+          \end{figure}
+        
+
 
 
 
