@@ -499,82 +499,98 @@
               \mycaption{PSF (half power diameter) as a function of energy.}
               \label{table:psf_relation}
             \end{figure}
-           
 
-\chapter{Data Analysis}
-  \section{The Procedures To Deal With \textit{NuSTAR} Data}
-  \textit{NuSTAR} Data Analysis Software (\textit{NuSTARDAS}) is used for data processing. This includes three steps:
-    data calibration, data screening and products extraction. The next paragraph talks about the reason the 
-    first two steps are necessary. \\
-    \indent 
-    Lots of factors can affect raw data, such as movements of \textit{NuSTAR}‘s mast, the orbit of the telescope, 
-    etc. As a result, \textit{NuSTAR} data must be calibrated before they can be used to do data analysis. Also, 
-    some parts 
-    of data are not good for scientific analysing. For example, there are some bad pixels in the telescope's 
-    detectors which cannot record photons correctly. Thus, the data recorded by these bad pixels have to be
-    treated very carefully. We might get rid of the data when the source is bright, while if the photon counts
-    are too small, we might have to use these data with carefulness. And sometimes we may want to focus on a 
-    particular part of data. Thus, we need to screen the calibrated data. \\
-    \indent 
-    In order to understand data filter process better, it is necessary to know the different levels of 
-    \textit{NuSTAR} data. 
-    \textit{NuSTAR} data can be divide into 5 levels which is from level 0 to level 3. Level 0 data are raw 
-    telemetry files
-    which might not be in formal format (FITS format). Level 1 data contains two parts: level 1 and level 1a. Level 1
-    data are formatted in FITS format, but not calibrated yet. Level 1a data are level 1 data after calibration. 
-    Actually, level 1a data are addition of level 1 data and calibration data. Level 1a data are produced by step 1 
-    (data calibration). Then by step 2 (data screening), we get level 2 data which are cleaned files. We can do data
-    analysis after getting level 2 data. Thus in order to get reliable result, it is key to get raw data properly 
-    cleaned. The following is comparison between level 1a event file and level 2 event file after screening.    
-    \begin{figure}[h] 
-      \vspace{0.2cm}
-      \begin{minipage}{0.45\textwidth}
-        \begin{flushright} 
-          \includegraphics[scale=0.31]{/home/wwc129/Desktop/Thesis/A_uf.png}
-        %\caption{raw picture}
-        \end{flushright}
-      \end{minipage}
-      \hspace{1cm}
-      \begin{minipage}{0.45\textwidth}
-        \begin{flushleft}
-          \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/A_cl.png}
-        \end{flushleft} 
-      \end{minipage}
-      \centering
-      \begin{minipage}[c]{0.85\textwidth}
-          \caption{\textit{\footnotesize Left: sky image generated directly from level 1a data. Right: sky image 
-          generated from screened level 2 data. These two figures are produced from the same raw data. There are 
-          many criteria for data screening and the figure in the right is just an example.}}
-      \end{minipage}
-    \end{figure}
-    
-    \subsection{Data Calibration}   
-        The first process is data calibration. In this step, two factors should be considered: the temporal change 
-        of mast and spacecraft's attitude. By using telescope's housekeeping files, the corrected data can be 
-        produced by \textit{NuSTAR} software. There are some \textit{NuSTAR} software modules for this process. Most of them are 
-        nearly automatically, which means once we have initial files, the output files are fixed. Therefore, we 
-        do not concentrate much on these software modules. However, there is 1 module that we should use more 
-        carefully, which is 'nuhotpix'. Before we go into this module, some basic concepts should be introduced.
-        \subsubsection{Grade of Data}  
+        \section{The Procedures of Processing NuSTAR Data}
+            \textit{NuSTAR} Data Analysis Software (\textit{NuSTARDAS}) is used for data processing. This includes 
+            three steps:
+            data calibration, data screening and products extraction. The next paragraph talks about the reason the 
+            first two steps are necessary. \\
+            \indent 
+            Lots of factors can affect raw data, such as movements of \textit{NuSTAR}‘s mast, the orbit of the 
+            telescope, 
+            etc. As a result, \textit{NuSTAR} data must be calibrated before they can be used to do data analysis. 
+            Also, some parts 
+            of data are not good for scientific analysing. For example, there are some bad pixels in the telescope's 
+            detectors which cannot record photons correctly. Thus, the data recorded by these bad pixels have to be
+            treated very carefully. We might get rid of the data when the source is bright, while if the photon counts
+            are too small, we might have to use these data with carefulness. And sometimes we may want to focus on a 
+            particular part of data. Thus, we need to screen the calibrated data. \\
+            \indent 
+            In order to understand data filter process better, it is necessary to know the different levels of 
+            \textit{NuSTAR} data. 
+            \textit{NuSTAR} data can be divide into 5 levels which is from level 0 to level 3. Level 0 data are raw 
+            telemetry files
+            which might not be in formal format (FITS format). Level 1 data contains two parts: level 1 and level 
+            1a. Level 1
+            data are formatted in FITS format, but not calibrated yet. Level 1a data are level 1 data after 
+            calibration. 
+            Actually, level 1a data are addition of level 1 data and calibration data. Level 1a data are produced by 
+            step 1 
+            (data calibration). Then by step 2 (data screening), we get level 2 data which are cleaned files. We 
+            can do data
+            analysis after getting level 2 data. Thus in order to get reliable result, it is key to get raw data 
+            properly 
+            cleaned. The figure \ref{fig:comparison} is comparison between level 1a event file and level 2 event file 
+            after screening.  
+
+            \begin{figure}[h] 
+            \vspace{0.2cm}
+                \begin{minipage}{0.45\textwidth}
+                \begin{flushright} 
+                \includegraphics[scale=0.31]{/home/wwc129/Desktop/Thesis/A_uf.png}
+             %\caption{raw picture}
+            \end{flushright}
+            \end{minipage}
+            \hspace{1cm}
+            \begin{minipage}{0.45\textwidth}
+              \begin{flushleft}
+                \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/A_cl.png}
+              \end{flushleft} 
+            \end{minipage}
+            \centering
+            \begin{minipage}[c]{0.85\textwidth}
+                \caption{\textit{\footnotesize Left: sky image generated directly from level 1a data. Right: sky 
+                image 
+                generated from screened level 2 data. These two figures are produced from the same raw data. 
+                There are 
+                many criteria for data screening and the figure in the right is just an example.}}
+                \label{fig:comparison}
+            \end{minipage}
+            \end{figure}
+            
+            \subsection{Data Calibration}   
+                The first process is data calibration. In this step, two factors should be considered: the temporal 
+                change 
+                of mast and spacecraft's attitude. By using telescope's housekeeping files, the corrected data can be 
+                produced by \textit{NuSTAR} software. There are some \textit{NuSTAR} software modules for this 
+                process. Most of them are 
+                nearly automatically, which means once we have initial files, the output files are fixed. 
+                Therefore, we 
+                do not concentrate much on these software modules. Before we go into this module, some basic 
+                concepts should be introduced.
+
+            \subsubsection{Grade of Data}  
             When a photon interacts with a detector, the ideal condition is that only one pixel record this photon,
             which has better spectra resolution than other situations. 
             But a single X-ray photon can be spread and received by more than one pixel. Generally, the less pixels
             by which a photon recorded, the better the event is. 
             Naturally, there are different patterns of interaction between the
-            photon and surrounding pixels. These patterns are listed below.  
+            photon and surrounding pixels. These patterns are listed in figure \ref{fig:nustar_grade}.  
             \begin{figure}[h] 
               \centering
               \includegraphics[scale=0.34]{/home/wwc129/Desktop/Thesis/grade.png}
               \begin{minipage}[c]{0.85\textwidth}
                 \caption{\textit{\footnotesize There are 33 different \textit{NuSTAR} grades---from grade 0 to 32.
                           In this figure, grades from 0 to 26 are listed because these grades are accepted by 
-                          \textit{NuSTAR} data screening by default. We can further get rid of some grades if needed.}}
+                          \textit{NuSTAR} data screening by default. We can further get rid of some grades if needed.}
+                          }
+              \label{fig:nustar_grade}
               \end{minipage}
+              
             \end{figure}
-            
 
 
-        \subsubsection{Status of Data} 
+            \subsubsection{Status of Data} 
             Just like flagging the quality of pixel data, it is necessary to flag event data because there are many
             factors that can trigger detectors. For instance, if we have a photon record in a detector, we need to 
             know if it is from the source we are observing. Actually, cosmic rays can also trigger the 
@@ -583,62 +599,65 @@
             screening---thus each single event has its status. In fact, similar to data's grade, status of data also
             has many patterns. For example, an event may fall into bad pixels, have a neighborhood bad pixel
             or fall into a hot pixel, etc. All these different situations are recorded by a 16-bit binary number and
-            status of good event which is ideal for scientific analysis is all zero.\\
+            status of good event which is ideal for scientific analysis is all zero (recorded as "b0000000000000000").
 
-        \vspace{2cm}
-        \noindent Now, we can focus on the module 'nuhotpix'. Unlike bad pixels which always do not receive energy 
-        or always have the false relationship between photon energy and electric signal, hot pixels change over time.
-        As a result, it is more tricky to distinguish hot pixels than bad pixels. Module 'nuhotpix' uses statistical
-        test to find out hot pixels. First of all, we need to bin the event file (time interval is controlled by 
-        parameter of module nuhotpix---'binsize', and the default value is 600). We assume that the total photon 
-        counts during a period is Poisson distribution. Then compare counts of a pixel with its surrounding
-        pixels (the number of surrounding pixels is defined by parameter 'cellsize'). If the probability of counts
-        is lower than the Poisson probability threshold, this pixel is thought be a hot pixel. The Poisson 
-        probability threshold is set by parameter 'logpos' which is always negative. Therefore, we need to set 
-        3 parameters of module nuhotpix: binsize, cellsize and logpos. This is a set of parameters we focus on
-        during data calibration in order to get better spectra. More conveniently, instead of using these modules
-        separately, software module 'nupipeline' is a good choice because it will carry out all above modules 
-        automatically. 
+            
+            \subsection{Data Screening}  
+              After data calibration, though we know if one event is good or not, bad events are not excluded from 
+              original
+              files. This is the primary reason of doing data screening. There are primarily 3 procedures in this 
+              step.\\
+              \indent The first one is choosing good time intervals, which means remove some unwanted time 
+              intervals. For 
+              example, when the telescope is in the South Atlantic Anomaly, when the Earth is in the Field Of 
+              View and 
+              when the motion of mast is not well tracked, etc. Sometimes we need to add our own GTI (Good Time 
+              Interval) file to get better cleaned data. 
+              Then remove bad pixels and events flagged as 
+              bad in the 
+              last step (by using the information of data status). At last, choose the proper grade of data 
+              (the default value is 0-26). \\
+              \indent The core module in this step is called 'nuscreen' and most of job is done by this software 
+              module.  
+              There are two parameters we mostly focus on---'gradeexpr' and 'statusexpr', which are used for choosing 
+              grade of data and status of data respectively. For example, gradeexpr=0-8 means choosing grade range 
+              from 0 to 8 and statusexpr="STATUS==b000000000x0xx000" means leaving out bad events. We also can set  
+              them to default value by 'statusexpr=DEFAULT' and 'statusexpr=DEFAULT'. By adjusting these parameters' 
+              values, we can get a bunch of cleaned event files. Then we can generate several sky images and 
+              spectra and 
+              choose a better result. 
+
+             \subsection{Products Extraction}
+              The aim of this process is to extract high-level scientific products including light curves, sky images,
+              spectra, Ancillary Response Files (ARF) and Redistribution Matrix Files (RMF). ARF and RMF files are 
+              used for spectra analysis. The main software module is 'nuproducts' which generates these files 
+              automatically by 
+              passing some parameters. I mainly focus on two parameters which are 'pilow' and 'pihigh'. These two 
+              parameters filter the energy range of cleaned stage 2 event files. The default values of the two 
+              parameters
+              are 39 Pi and 1909 Pi respectively corresponding the \textit{NuSTAR}'s energy range 3-78.4eV. But 
+              usually we 
+              choose pilow larger than 39 and pihigh smaller than 1909 in order to get more reliable data.
+
+
+
+
+
+            
+
+
+
+            
+           
+
+\chapter{Data Analysis}
     
-    \subsection{Data Screening}  
-        After data calibration, though we know if one event is good or not, bad events are not excluded from original
-        files. This is the primary reason of doing data screening. There are primarily 3 procedures in this step.\\
-        \indent The first one is choosing good time intervals, which means remove some unwanted time intervals. For 
-        example, when the telescope is in the South Atlantic Anomaly, when the Earth is in the Field Of View and 
-        when the motion of mast is not well tracked, etc. Then remove bad pixels and events flagged as bad in the 
-        last step (by using the information of data status). At last, choose the proper grade of data 
-        (the default value is 0-26). \\
-        \indent The core module in this step is called 'nuscreen' and most of job is done by this software module.  
-        There are two parameters we mostly focus on---'gradeexpr' and 'statusexpr', which are used for choosing 
-        grade of data and status of data respectively. For example, gradeexpr=0-8 means choosing grade range 
-        from 0 to 8 and statusexpr="STATUS==b000000000x0xx000" means leaving out bad events. We also can set  
-        them to default value by 'statusexpr=DEFAULT' and 'statusexpr=DEFAULT'. By adjusting these parameters' 
-        values, we can get a bunch of cleaned event files. Then we can generate several sky images and spectra and 
-        choose a better result. 
-
-    \subsection{Products Extraction}
-        The aim of this process is to extract high-level scientific products including light curves, sky images,
-        spectra, Ancillary Response Files (ARF) and Redistribution Matrix Files (RMF). ARF and RMF files are used 
-        for spectra analysis. The main software module is 'nuproducts' which generates these files automatically by 
-        passing some parameters. I mainly focus on two parameters which are 'pilow' and 'pihigh'. These two 
-        parameters filter the energy range of cleaned stage 2 event files. The default values of the two parameters
-        are 39 Pi and 1909 Pi respectively corresponding the \textit{NuSTAR}'s energy range 3-78.4eV. But usually we choose 
-        pilow larger than 39 and pihigh smaller than 1909 in order to get more reliable data.
-                
-
     
-    \section{Data Analysis of Pulsar B1937+21}
-        As previously mentioned, there are three parameters (cellsize, logpos, binsize) in step 1 and two 
-        parameters (gradeexpr, statusexpr) in step 2 that we are going to focus on. 
-        Therefore, there are actually 5 parameters to concentrate on in step 1 and 2. And in step 3, there is 1 
-        parameter, source and background region we are going to adjust. Thus, the number of total parameters is
-        actually 8. We want to get better result by tweaking these 8 parameters.\\
-        \subsection{All Parameters Are Default Values}
-          \indent 
-          At first, I set all these 5 values as default.  
-          In this case, cellsize=5, logpos=-6, binsize=600, gradeexpr=DEFAULT and statusexpr=DEFAULT.
-          Then we can produce a complete set of stage 2 files by using the module 'nupipeline'. The following is 
-          the sky images from \textit{NuSTAR}'s module A and module B. 
+    \section{Data Analysis of Pulsar B1937+21 Using NuSTAR}
+        Usually, we choose all the parameters to be default values. We may change some of the parameters in certain 
+        cases. 
+        Then we can produce a complete set of stage 2 files by using the module 'nupipeline'. The following is 
+        the sky images from \textit{NuSTAR}'s module A and module B. 
         \begin{figure}[h]
           \hspace{0.7cm}
           \begin{minipage}{0.45\textwidth} 
@@ -679,7 +698,6 @@
             \label{fig:b1}
           \end{minipage}
         \end{figure}
-        
         In the above figures, the left green circle is source region while the right green circle is 
         background region. The center of source circle is (19:39:38.561 ra, 21:34:59.081 dec) which is pretty 
         close to the coordinates of pulsar B1937+21. This means that the observation data can be used to analyse 
@@ -707,7 +725,6 @@
           \end{minipage}
           
         \end{figure}
-
         At first glance, there is no difference between stage 2 sky images and stage 3 sky images. But actually, 
         the pixels of stage 3 sky images are much less. Take module A for example, the dimensions of stage 2 and 3
         sky images are 54137$\times$54137 and 1000$\times$1000. This shows that even though we choose the largest
@@ -717,7 +734,7 @@
         The figure \ref{fig:lightcurves} is the light curve of module A and B. Although these pictures show a little 
         bit periodicity, they still look messy. The reason is that the time resolution of \textit{NuSTAR} is 2$ms$
         which is larger than the spin period of B1937+21 ($\sim$1.56ms). As a result, it is not appropriate to do 
-        timing analysis of the pulsar using \textit{NuSTAR}. \\
+        timing analysis of the pulsar B1937+21 using \textit{NuSTAR}. \\
         \begin{figure}[h]
           \begin{minipage}{0.45\textwidth}
             \begin{flushleft}
