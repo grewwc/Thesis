@@ -94,6 +94,9 @@
 \newcommand{\mycaption}[1]{\caption{\textit{\footnotesize #1}}}
 %Below is the main content.
 
+
+
+
 \begin{document}
 \maketitle
 \tableofcontents{}
@@ -680,25 +683,28 @@
         The focal plane module comprises 4 detectors, but in these figures we cannot distinguish different detectors.
         This implies that the data are not calibrated and screened well enough. \\
         \indent After getting cleaned stage 2 files, we can continue to generate light curves, spectra and so on. 
-        Before doing these, it is required to choose source and background regions. The figure \ref{fig:a1} and 
-        \ref{fig:b1} show the regions we choose (this was the region I chose first time). 
+        Before doing these, it is required to choose source and background regions. The figure \ref{fig:sky0}
+        show the regions we choose (this was the region I chose first time). \\
         \begin{figure}[h]
-          \hspace{0.7cm}
           \begin{minipage}{0.45\textwidth} 
-            \centering 
+            \begin{flushright} 
             \includegraphics[scale=0.33]{/home/wwc129/Desktop/Thesis/A01_region.png}
-            \caption{\textit{\footnotesize Source and background regions of module A. }}
-            \label{fig:a1}
+            \end{flushright}
           \end{minipage}
-          \hspace{0.1cm} 
+          \hspace{1cm} 
           \begin{minipage}{0.45\textwidth}
-            \centering 
+            \begin{flushleft}
             \includegraphics[scale=0.344]{/home/wwc129/Desktop/Thesis/B01_region.png}
-            \caption{\textit{\footnotesize Source and background regions of module B. }}
-            \label{fig:b1}
+            \end{flushleft}
+          \end{minipage}
+          \begin{minipage}[b]{0.85\textwidth}
+            \vspace{0.25cm}
+            \mycaption{Source and background regions of module A (left) and B (right).}
+            \label{fig:sky0}
           \end{minipage}
         \end{figure}
-        In the above figures, the left green circle is source region while the right green circle is 
+        \indent In figure \ref{fig:sky0}, the left green circle is source region while the right green 
+        circle is 
         background region. The center of source circle is (19:39:38.561 ra, 21:34:59.081 dec) which is pretty 
         close to the coordinates of pulsar B1937+21. This means that the observation data can be used to analyse 
         the pulsar B1937+21. Then use \textit{NuSTAR} software module 'nuproducts' to generate sky images, light 
@@ -710,7 +716,7 @@
                 \includegraphics[scale=0.3]{/home/wwc129/Desktop/Thesis/A_pro.png}
             \end{flushright}
           \end{minipage}
-        \hspace{1cm}
+        \hspace{1.5cm}
           \begin{minipage}{0.45\textwidth}
             \begin{flushleft}
                 \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/B_pro.png}
@@ -723,9 +729,9 @@
                         35pi to 1909pi which is the default value.}
             \label{fig:sky1}
           \end{minipage}
-          
         \end{figure}
-        At first glance, there is no difference between stage 2 sky images and stage 3 sky images. But actually, 
+        \indent At first glance, there is no difference between stage 2 sky images and stage 3 sky images. 
+        But actually, 
         the pixels of stage 3 sky images are much less. Take module A for example, the dimensions of stage 2 and 3
         sky images are 54137$\times$54137 and 1000$\times$1000. This shows that even though we choose the largest
         reasonable energy range (35-1909pi corresponding to 3-79eV which is the energy range of \textit{NuSTAR}), 
@@ -748,8 +754,7 @@
           \mycaption{Light curves of module A (left) and B (right).}
           \label{fig:lightcurves}
         \end{figure}
-
-        The figure \ref{spectra} is the spectra of module A and B. The group counts of both module A and B are
+        \indent The figure \ref{spectra} is the spectra of module A and B. The group counts of both module A and B are
         20 and the fitting model is multiplication of absorption of X-ray model (see in sherpa document 
         \href{http://%
         cxc.harvard.edu/sherpa/ahelp/xstbabs.html}{'xstbabs'}) and 1 dimensional power law model (see also in sherpa 
@@ -758,7 +763,19 @@
         \indent
         The number of total points in spectrum of module A is 17 and B is 15. For the spectrum of A, the 
         reduced statistic is 0.67058 and Q-value is 0.805413. For the spectrum of B, the reduced statistic is 0.48646
-        and Q-value is 0.92405. \newpage 
+        and Q-value is 0.92405. 
+        \subsection*{Some Analysis}
+        \indent There are actually some problems in the whole precess. First of all, the regions is not properly 
+        chosen. Although we can see that the pulsar is completely in the source region, it is not in the center of 
+        the source region. As for the background region, it is a little bit small. In addition, there are four 
+        detectors so it is better to choose the background and source region in the same detector. \\
+        \indent Secondly, the light curves of both module A and B are too messy, so we may need to clean the data
+        more carefully. One straightforward way is to add our own GTI file rather than only using the default GTI 
+        file. Thirdly, the reduced statistic values for module A and B are 0.67 and 0.49 respectively, which are 
+        
+        \indent So, we change the 
+        
+        
         \begin{figure}[!ht]
           \begin{minipage}[c]{0.45\textwidth}
             \begin{flushleft} 
