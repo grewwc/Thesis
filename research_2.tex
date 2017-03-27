@@ -665,71 +665,58 @@
           \hspace{0.7cm}
           \begin{minipage}{0.45\textwidth} 
             \centering 
-            \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/A01.png}
+            \includegraphics[scale=0.33]{/home/wwc129/Desktop/Thesis/A01.png}
             \caption{\textit{\footnotesize Sky image of module A}}
           \end{minipage}
           \hspace{0.1cm} 
-          \begin{minipage}{0.45\textwidth}
+          \begin{minipage}{0.52\textwidth}
             \centering 
-            \includegraphics[scale=0.33]{/home/wwc129/Desktop/Thesis/B01.png}
+            \includegraphics[scale=0.39]{/home/wwc129/Desktop/Thesis/B01.png}
             \caption{\textit{\footnotesize Sky image of module B}}
           \end{minipage}
         \end{figure}
       
-        The total events in the left figure is 33533 while in the right figure the number is 28806 
-        (including background counts). We can also see that the left figure is a little bit brighter than the figure
-        in the right. Although there are lots of background noises in these two pictures, 
-        the source is clearly identifiable. 
-        The focal plane module comprises 4 detectors, but in these figures we cannot distinguish different detectors.
-        This implies that the data are not calibrated and screened well enough. \\
+        Although there are lots of background noises in these two pictures, the source is clearly identifiable. 
+        We can obviously see the differences between these two figures. For example, the source is sharper in the 
+        right figure. Actually, from figure \ref{table:psf_relation} we can see that the PSF (half power diameter) of
+        module B is slightly smaller than that of module A in each energy range. 
+        The focal plane module comprises 4 detectors, but in these figures we can barely distinguish different 
+        detectors. This implies that the data are not calibrated and screened well enough. \\
         \indent After getting cleaned stage 2 files, we can continue to generate light curves, spectra and so on. 
         Before doing these, it is required to choose source and background regions. The figure \ref{fig:sky0}
-        show the regions we choose (this was the region I chose first time). \\
+        show the regions we choose.  \\
         \begin{figure}[h]
           \begin{minipage}{0.45\textwidth} 
             \begin{flushright} 
-            \includegraphics[scale=0.33]{/home/wwc129/Desktop/Thesis/A01_region.png}
+            \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/A01_region.png}
             \end{flushright}
           \end{minipage}
-          \hspace{1cm} 
+          \hspace{2.1cm}  
           \begin{minipage}{0.45\textwidth}
             \begin{flushleft}
-            \includegraphics[scale=0.344]{/home/wwc129/Desktop/Thesis/B01_region.png}
+            \includegraphics[scale=0.42]{/home/wwc129/Desktop/Thesis/B01_region.png}
             \end{flushleft}
           \end{minipage}
-          \begin{minipage}[b]{0.85\textwidth}
+          \begin{center}
+          \begin{minipage}{0.85\textwidth}
             \vspace{0.25cm}
             \mycaption{Source and background regions of module A (left) and B (right).}
             \label{fig:sky0}
           \end{minipage}
+        \end{center}
         \end{figure}
         \indent In figure \ref{fig:sky0}, the left green circle is source region while the right green 
         circle is 
-        background region. The center of source circle is (19:39:38.561 ra, 21:34:59.081 dec) which is pretty 
-        close to the coordinates of pulsar B1937+21. This means that the observation data can be used to analyse 
-        the pulsar B1937+21. Then use \textit{NuSTAR} software module 'nuproducts' to generate sky images, light 
-        curves, spectra, source ARF and RMF file (these files are used to do spectra analysis). The figure 
-        \ref{fig:sky1} is sky image of module A and B produced by 'nuproducts'.\\
-        \begin{figure}[h!]
-          \begin{minipage}{0.45\textwidth}
-            \begin{flushright}
-                \includegraphics[scale=0.3]{/home/wwc129/Desktop/Thesis/A_pro.png}
-            \end{flushright}
-          \end{minipage}
-        \hspace{1.5cm}
-          \begin{minipage}{0.45\textwidth}
-            \begin{flushleft}
-                \includegraphics[scale=0.35]{/home/wwc129/Desktop/Thesis/B_pro.png}
-            \end{flushleft}
-          \end{minipage}
-          \centering 
-          \begin{minipage}[b]{0.85\textwidth}
-            \vspace{0.25cm}
-            \mycaption{Stage 3 sky images of module A (left) and B (right). The energy range we chose is from 
-                        35pi to 1909pi which is the default value.}
-            \label{fig:sky1}
-          \end{minipage}
-        \end{figure}
+        background region. The center of source circle is (19:39:38.561 ra, 21:34:59.126 dec) and the radius is 
+        23 arcsecond. The data of the source region center is from
+        \href{http://www.atnf.csiro.au/people/pulsar/psrcat/proc\_form.php?version=1.56&startUserDefined=true&c1\_val%
+        =&c2\_val=&c3\_val=&c4\_val=&sort\_attr=jname&sort\_order=asc&condition=&pulsar\_names=b1937\%2B21\%0D\%0A&ep%
+        hemeris=short&submit\_ephemeris=Get+Ephemeris&coords\_unit=raj\%2Fdecj&radius=&coords\_1=&coords\_2=&style=%
+        Long+with+last+digit+error&no\_value=*&fsize=3&x\_axis=&x\_scale=linear&y\_axis=&y\_scale=linear&state=query}%
+        {\textit{ATNF}}
+        (Australia Telescope National Facility). From the figure \ref{fig:sky0} we can see that the source we 
+        observed is actually the right source---B1937+21. This means that the observation data can be used to analyse 
+        the pulsar B1937+21.  \\
         \indent At first glance, there is no difference between stage 2 sky images and stage 3 sky images. 
         But actually, 
         the pixels of stage 3 sky images are much less. Take module A for example, the dimensions of stage 2 and 3
