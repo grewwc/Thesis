@@ -16,6 +16,9 @@
 \usepackage{caption}
 \usepackage{color}
 \usepackage{url}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabu}
 \usepackage{hyperref}
 
 \hypersetup{
@@ -708,7 +711,9 @@
         \indent In figure \ref{fig:sky0}, the left green circle is source region while the right green 
         circle is 
         background region. The center of source circle is (19:39:38.561 ra, +21:34:59.126 dec) and the radius is 
-        23 arcsecond. The data of the source region center is from
+        23 arcseconds. The center of the background region is (19:39:12:412 ra, +21:35:29.210 dec) and the radius is 
+        34.140 arcseconds.
+        The data of the source region center is from
         \href{http://www.atnf.csiro.au/people/pulsar/psrcat/proc\_form.php?version=1.56&startUserDefined=true&c1\_val%
         =&c2\_val=&c3\_val=&c4\_val=&sort\_attr=jname&sort\_order=asc&condition=&pulsar\_names=b1937\%2B21\%0D\%0A&ep%
         hemeris=short&submit\_ephemeris=Get+Ephemeris&coords\_unit=raj\%2Fdecj&radius=&coords\_1=&coords\_2=&style=%
@@ -752,7 +757,28 @@
         cxc.harvard.edu/sherpa/ahelp/xstbabs.html}{'xstbabs'}) and 1 dimensional power law model (see also in sherpa 
         document\href{http://cxc.harvard.edu/sherpa/ahelp/powlaw1d.html}{'powlaw1d'}). We use chi square statistics
         to analyse goodness of fitting.\\
+
+
+        %add a parameter table here.
+        \begin{table}[!h] 
+          \centering
+          \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
+            \hline
+            & Module A & Module B \\
+            \hline
+            Column Density (nH) ($10^{22} atoms/cm^2$) & 4.06 & 0.012\\ 
+            \hline
+            Photon Index ($\Gamma$) & 1.33 & 1.46 \\
+            \hline 
+            Reduced Chi Square Statistic & 0.33 & 0.30 \\
+            \hline 
+          \end{tabular}
+          \mycaption{Fitting result  }
+          \label{table:parameter_1}
+        \end{table}
+
         \indent
+        The table \ref{table:parameter_1} lists some important parameters of the fitting result. 
         The number of total points in spectrum of module A and B are both 11. For the spectrum of A, the 
         reduced statistic is about 0.33 and Q-value is about 0.95. The fitted column density is about 
         $4.06\times 10^22 atoms/cm^2$ and the photon index is 1.33. For the spectrum of B, the reduced statistic is 
@@ -760,7 +786,7 @@
         the column density between module A and B are huge (module A is about 400 times larger than module B). This 
         is because that the high energy X-ray photons are nearly not absorbed by interstellar medium. As a result, 
         the column density fitted only by \textit{NuSTAR} (3$\sim$79eV) reliable so we need to combine 
-        \textit{NuSTAR} data and \textit{Chandra} and \textit{XMM-Newton} data together to fit. 
+        \textit{NuSTAR} data and \textit{Chandra} and \textit{XMM-Newton} data together to fit.\\ 
         \begin{figure}[!ht]
           \begin{minipage}{0.45\textwidth}
             \begin{flushleft} 
@@ -774,12 +800,13 @@
           \end{minipage}
           \centering
           \begin{minipage}{0.8\textwidth}
-          \mycaption{Spectra of module A (left) and B (right). The total counts of A before grouping is 
-                      255 and B is 209 (after subtracting background counts).}
+          \mycaption{Spectra of module A (left) and B (right). The total source counts of A before grouping is 
+                      301 and B is 286. After subtracting background, the source counts of A is 193.45 and B is
+                      170.25. Reduced chi square statistic: 0.33 (A) and 0.3 (B).}
           \label{spectra}
           \end{minipage}
           \end{figure}
-
+          \\
         \subsection*{Some Analysis}
         \indent There are actually some problems in the whole precess. First of all, the regions is not properly 
         chosen. Although we can see that the pulsar is completely in the source region, it is not in the center of 
@@ -800,12 +827,15 @@
         At first, we need to change the source and background regions. The figure \ref{fig:region2} shows the 
         region we choose this time. There are three major changes of the chosen regions. First of all, we slightly 
         adjust the center of the source region in order to make the observed source be the center of the source 
-        region. The center is (19:39:38.101 ra, +24:34:56.838 dec).
-        We do not change the radius of the source region so the radius is still 23 arcsecond. Secondly, we change the
-        position of the background region and make it in the same region with the observed source. This is because 
+        region. The center is (19:39:38.101 ra, +24:34:56.838 dec). 
+        We do not change the radius of the source region so the radius is still 23 arcseconds. Secondly, we change the
+        position of the background region and make it in the same region with the observed source. The center of the 
+        background region is (19:39:38.003 ra, +21:34:57.657 dec). The inner and outer radius (the background region
+        is an annulus) are 40 arcseconds and 100 arcseconds respectively. 
+        The reason we choose the background region is that  
         \textit{NuSTAR} has 4 detectors and we want to get rid of the influence of instinct differences between the 
         4 detectors. Thirdly, we change the shape of background region from a circle to an annulus. The aim is to 
-        make the background region surround the observed source to be more like the background of the source. 
+        make the background region surround the observed source to be more like the background of the source.\\ 
         \begin{figure}[!ht]
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
@@ -823,8 +853,86 @@
           \label{fig:region2}
           \end{minipage}
         \end{figure}
+        \\
+        \indent The figures \ref{fig:a_1_region2_lightcurve} and \ref{fig:b_1_region2_lightcurve} are the light 
+        curves 
+        of the module A and B respectively after changing the source and background regions. The bin time is 
+        also 50 seconds. The horizontal axis represents time and the vertical axis represents count rates. 
+        Actually there is no obvious improvement in light curves after we change the source and background regions
+        --- there are also some spikes in the light curves. \\
+        \begin{figure}[!ht]
+          \begin{minipage}{1\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.4]{/home/wwc129/Desktop/Thesis/a_1_region2_lightcurve.png}
+                \mycaption{Light curve of module A}
+                \label{fig:a_1_region2_lightcurve}
+            \end{center}
+            \end{minipage}
+            \\
+          \begin{minipage}{1\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.4]{/home/wwc129/Desktop/Thesis/b_1_region2_lightcurve.png}
+            \mycaption{Light curve of module B}
+            \label{fig:b_1_region2_lightcurve}
+            \end{center}
+          \end{minipage}
+          \centering
+        \end{figure}
+        \indent 
 
 
+        \begin{table}[!h] 
+          \centering
+          \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
+            \hline
+            & Module A & Module B \\
+            \hline
+            Column Density (nH) ($10^{22} atoms/cm^2$) & 0.0054 & 0.0020\\ 
+            \hline
+            Photon Index ($\Gamma$) & 1.11 & 1.51 \\
+            \hline 
+            Reduced Chi Square Statistic & 0.73 & 0.51 \\
+            \hline 
+          \end{tabular}
+          \mycaption{Fitting result}
+          \label{table:parameter_region2}
+        \end{table}
+
+        The figure \ref{fig:spectra_region2} is the spectra of module A and B. The table \ref{table:parameter_region2}
+        show some key parameters of fitting result. The fit model and method 
+        are the same as before. For module A, the reduced chi square statistic value is about 0.73 and Q-value is 
+        0.65. For module B, the reduced chi square statistic is about 0.51 and Q-value is 0.83. After changing the 
+        source and background regions, the reduced chi square statistic values of both module A and B are greatly 
+        increased while the Q-values are largely decreased. This means that the observation data is less overfitted
+        by our model, which generally is a better result. We keep using this set of source and background regions
+        for now. \\
+
+        \begin{figure}[!ht]
+          \begin{minipage}{0.45\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/a_1_region2_spectrum.png}
+            \end{center}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/b_1_region2_spectrum.png}
+            \end{center}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+          \mycaption{Spectra of module A (left) and B (right). The total source counts of A before grouping is 
+                      264 and B is 254. After subtracting the background counts, the source counts are 181.64 (A)
+                      and 157.90 (B). Reduced chi square statistic: 0.73 (A) and 0.51 (B). }
+          \label{fig:spectra_region2}
+          \end{minipage}
+          \end{figure}
+             
+        \indent
+        Now we consider using our own GTI file to filter the light curves we get before. We use GTI 
+
+
+
+        
         
 
 
@@ -844,6 +952,9 @@
 
     
 
+
+
+        
 
 
 \end{document}
