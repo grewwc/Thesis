@@ -860,7 +860,7 @@
         also 50 seconds. The horizontal axis represents time and the vertical axis represents count rates. 
         Actually there is no obvious improvement in light curves after we change the source and background regions
         --- there are also some spikes in the light curves. \\
-        \begin{figure}[!ht]
+        \begin{figure}[!ht] 
           \begin{minipage}{1\textwidth}
             \begin{center} 
                 \includegraphics[scale=0.4]{/home/wwc129/Desktop/Thesis/a_1_region2_lightcurve.png}
@@ -881,7 +881,7 @@
         \indent 
 
 
-        \begin{table}[!h] 
+        \begin{table}[!h]   
           \centering
           \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
             \hline
@@ -922,14 +922,37 @@
           \begin{minipage}{0.8\textwidth}
           \mycaption{Spectra of module A (left) and B (right). The total source counts of A before grouping is 
                       264 and B is 254. After subtracting the background counts, the source counts are 181.64 (A)
-                      and 157.90 (B). Reduced chi square statistic: 0.73 (A) and 0.51 (B). }
+                      and 157.90 (B). Reduced chi square statistic: 0.73 (A) and 0.51 (B).}
           \label{fig:spectra_region2}
           \end{minipage}
           \end{figure}
              
         \indent
-        Now we consider using our own GTI file to filter the light curves we get before. We use GTI 
-
+        Now we consider using our own GTI file to filter the light curves we get before in order to get rid of 
+        spikes.
+        We use \href{http://cxc.harvard.edu/ciao/ahelp/dmextract.html}{"dmextract"} and 
+        \href{http://cxc.harvard.edu/ciao/ahelp/deflare.html}{"deflare"} tools to extract GTI files. The figures 
+        \ref{fig:a_gti} and \ref{fig:b_gti} are the light curves after filtering event files by our own GTI files. 
+        
+        \begin{figure}[!ht] 
+          \begin{minipage}{1\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.42]{/home/wwc129/Desktop/Thesis/a_gti.png}
+                \mycaption{Light curve of module A after adding our own GTI file}
+                \label{fig:a_gti}
+            \end{center}
+            \end{minipage}
+            \\
+          \begin{minipage}{1\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.42]{/home/wwc129/Desktop/Thesis/b_gti.png}
+            \mycaption{Light curve of module B after adding our own GTI file}
+            \label{fig:b_gti}
+            \end{center}
+          \end{minipage}
+          \centering
+        \end{figure}
+        \indent 
 
 
         
