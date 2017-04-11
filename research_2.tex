@@ -20,16 +20,16 @@
 \usepackage{array}
 \usepackage{tabu}
 \usepackage{hyperref}
+\usepackage{color}
 
 \hypersetup{
     colorlinks,
     citecolor=black,
     filecolor=black,
+    %linkcolor=[RGB]{0,204,0},
     linkcolor=black,
     urlcolor=black
 }
-
-
 \captionsetup[figure]{labelfont=bf, font=footnotesize}
 
 
@@ -712,7 +712,7 @@
         circle is 
         background region. The center of source circle is (19:39:38.561 ra, +21:34:59.126 dec) and the radius is 
         23 arcseconds. The center of the background region is (19:39:12:412 ra, +21:35:29.210 dec) and the radius is 
-        34.140 arcseconds.
+        34.140 arcseconds. We call the choice of the source and background region as "region 1".
         The data of the source region center is from
         \href{http://www.atnf.csiro.au/people/pulsar/psrcat/proc\_form.php?version=1.56&startUserDefined=true&c1\_val%
         =&c2\_val=&c3\_val=&c4\_val=&sort\_attr=jname&sort\_order=asc&condition=&pulsar\_names=b1937\%2B21\%0D\%0A&ep%
@@ -781,9 +781,10 @@
         The table \ref{table:parameter_1} lists some important parameters of the fitting result. 
         The number of total points in spectrum of module A and B are both 11. For the spectrum of A, the 
         reduced statistic is about 0.33 and Q-value is about 0.95. The fitted column density is about 
-        $4.06\times 10^22 atoms/cm^2$ and the photon index is 1.33. For the spectrum of B, the reduced statistic is 
+        $4.06\times 10^{22} atoms/cm^2$ and the photon index is 1.33. For the spectrum of B, the reduced statistic is
         0.30 and Q-value is about 0.97. The column density is about 0.012 and photon index is 1.46. We observed that
-        the column density between module A and B are huge (module A is about 400 times larger than module B). This 
+        the column density difference between module A and B are huge (module A is about 400 times larger than 
+        module B). This 
         is because that the high energy X-ray photons are nearly not absorbed by interstellar medium. As a result, 
         the column density fitted only by \textit{NuSTAR} (3$\sim$79eV) reliable so we need to combine 
         \textit{NuSTAR} data and \textit{Chandra} and \textit{XMM-Newton} data together to fit.\\ 
@@ -828,13 +829,15 @@
         region we choose this time. There are three major changes of the chosen regions. First of all, we slightly 
         adjust the center of the source region in order to make the observed source be the center of the source 
         region. The center is (19:39:38.101 ra, +24:34:56.838 dec). 
-        We do not change the radius of the source region so the radius is still 23 arcseconds. Secondly, we change the
+        We do not change the radius of the source region so the radius is still 23 arcseconds. Secondly, we change 
+        the
         position of the background region and make it in the same region with the observed source. The center of the 
         background region is (19:39:38.003 ra, +21:34:57.657 dec). The inner and outer radius (the background region
         is an annulus) are 40 arcseconds and 100 arcseconds respectively. 
         The reason we choose the background region is that  
         \textit{NuSTAR} has 4 detectors and we want to get rid of the influence of instinct differences between the 
-        4 detectors. Thirdly, we change the shape of background region from a circle to an annulus. The aim is to 
+        4 detectors. Thirdly, we change the shape of background region from a circle to an annulus. Just as before, 
+        we call this choice of region as "region 2". The aim is to 
         make the background region surround the observed source to be more like the background of the source.\\ 
         \begin{figure}[!ht]
           \begin{minipage}{0.45\textwidth}
@@ -853,87 +856,110 @@
           \label{fig:region2}
           \end{minipage}
         \end{figure}
-        \\
-        \indent The figures \ref{fig:a_1_region2_lightcurve} and \ref{fig:b_1_region2_lightcurve} are the light 
+        
+        \indent At first glance, it seems that this time we choose the source and background region reasonably. But 
+        there %
+        are also some problems just as the following figure \ref{fig:problems} showing. The \textit{NuSTAR} is 
+        composed of 4 separate detectors that work independently with each other. Therefore, we should make sure that
+        the background region we choose does not cross the border of one detector. Thus, we change the background 
+        region to the "region 3" as the right part of the following figures show (figure
+        \ref{fig:problems}) and keep on using the "region 3" in the following discussion of this section. Meanwhile,
+        because we want to try to do timing analysis, barycenter correction is also applied in the following 
+        analysis. So far, we have changed 2 things: background region and barycenter correction. 
+        \begin{figure}[!ht]
+          \begin{minipage}{0.45\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.42]{/home/wwc129/Desktop/Thesis/region2_problem.png}
+            \end{center}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.42]{/home/wwc129/Desktop/Thesis/bkregion_3.png}
+            \end{center}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+            \mycaption{The problems of the annulus background region (denote as "region 2", \textit{left}) and the 
+            background region we choose again (denote as "region 3", \textit{right}).}
+          \label{fig:problems}
+          \end{minipage}
+        \end{figure}
+
+        \indent The figures \ref{fig:a_1_region3_lightcurve} and \ref{fig:b_1_region3_lightcurve} are the light 
         curves 
         of the module A and B respectively after changing the source and background regions. The bin time is 
         also 50 seconds. The horizontal axis represents time and the vertical axis represents count rates. 
         Actually there is no obvious improvement in light curves after we change the source and background regions
-        --- there are also some spikes in the light curves. \\
-        \begin{figure}[!ht] 
+        --- there are also some spikes in the light curves. In order to get rid of those high spikes, we add some 
+        GTI files to filter the event file. 
+        \begin{figure}[!ht]  
           \begin{minipage}{1\textwidth}
             \begin{center} 
-                \includegraphics[scale=0.4]{/home/wwc129/Desktop/Thesis/a_1_region2_lightcurve.png}
+                \includegraphics[scale=0.4]{/home/wwc129/Desktop/Thesis/lc_a_region3.png}
                 \mycaption{Light curve of module A}
-                \label{fig:a_1_region2_lightcurve}
+                \label{fig:a_1_region3_lightcurve}
             \end{center}
             \end{minipage}
             \\
           \begin{minipage}{1\textwidth}
             \begin{center}
-            \includegraphics[scale=0.4]{/home/wwc129/Desktop/Thesis/b_1_region2_lightcurve.png}
+            \includegraphics[scale=0.4]{/home/wwc129/Desktop/Thesis/lc_b_region3.png}
             \mycaption{Light curve of module B}
-            \label{fig:b_1_region2_lightcurve}
+            \label{fig:b_1_region3_lightcurve}
             \end{center}
           \end{minipage}
           \centering
         \end{figure}
-        \indent 
-
-
         \begin{table}[!h]   
           \centering
           \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
             \hline
             & Module A & Module B \\
             \hline
-            Column Density (nH) ($10^{22} atoms/cm^2$) & 0.0054 & 0.0020\\ 
+            Column Density (nH) ($10^{22} atoms/cm^2$) & 6.46$\times10^{-6}$ & 1.75$\times10^{-5}$\\ 
             \hline
-            Photon Index ($\Gamma$) & 1.11 & 1.51 \\
+            Photon Index ($\Gamma$) & 1.10 & 1.53 \\
             \hline 
-            Reduced Chi Square Statistic & 0.73 & 0.51 \\
+            Reduced Chi Square Statistic & 0.74 & 0.53 \\
             \hline 
           \end{tabular}
           \mycaption{Fitting result}
-          \label{table:parameter_region2}
+          \label{table:parameter_region3}
         \end{table}
-
-        The figure \ref{fig:spectra_region2} is the spectra of module A and B. The table \ref{table:parameter_region2}
+        
+        \indent The figure \ref{fig:spectra_region3} is the spectra of module A and B. The table 
+        \ref{table:parameter_region3}
         show some key parameters of fitting result. The fit model and method 
         are the same as before. For module A, the reduced chi square statistic value is about 0.73 and Q-value is 
         0.65. For module B, the reduced chi square statistic is about 0.51 and Q-value is 0.83. After changing the 
         source and background regions, the reduced chi square statistic values of both module A and B are greatly 
         increased while the Q-values are largely decreased. This means that the observation data is less overfitted
-        by our model, which generally is a better result. We keep using this set of source and background regions
-        for now. \\
-
+        by our model, which generally is a better result.  
         \begin{figure}[!ht]
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
-                \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/a_1_region2_spectrum.png}
+                \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/spec_a.png}
             \end{center}
             \end{minipage}
           \begin{minipage}{0.45\textwidth}
             \begin{center}
-            \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/b_1_region2_spectrum.png}
+            \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/spec_b.png}
             \end{center}
           \end{minipage}
           \centering
           \begin{minipage}{0.8\textwidth}
           \mycaption{Spectra of module A (left) and B (right). The total source counts of A before grouping is 
-                      264 and B is 254. After subtracting the background counts, the source counts are 181.64 (A)
-                      and 157.90 (B). Reduced chi square statistic: 0.73 (A) and 0.51 (B).}
-          \label{fig:spectra_region2}
+                      264 and B is 254. After subtracting the background counts, the source counts are 188.23 (A)
+                      and 161.97 (B). Reduced chi square statistic: 0.74 (A) and 0.53 (B).}
+          \label{fig:spectra_region3}
           \end{minipage}
           \end{figure}
-             
-        \indent
-        Now we consider using our own GTI file to filter the light curves we get before in order to get rid of 
-        spikes.
+        
+        \indent Now we consider using our own GTI file to filter the light curves we get before in order to get 
+        rid of spikes.
         We use \href{http://cxc.harvard.edu/ciao/ahelp/dmextract.html}{"dmextract"} and 
         \href{http://cxc.harvard.edu/ciao/ahelp/deflare.html}{"deflare"} tools to extract GTI files. The figures 
         \ref{fig:a_gti} and \ref{fig:b_gti} are the light curves after filtering event files by our own GTI files. 
-        
         \begin{figure}[!ht] 
           \begin{minipage}{1\textwidth}
             \begin{center} 
@@ -944,7 +970,7 @@
             \end{minipage}
             \\
           \begin{minipage}{1\textwidth}
-            \begin{center}
+           \begin{center}
             \includegraphics[scale=0.42]{/home/wwc129/Desktop/Thesis/b_gti.png}
             \mycaption{Light curve of module B after adding our own GTI file}
             \label{fig:b_gti}
@@ -952,15 +978,69 @@
           \end{minipage}
           \centering
         \end{figure}
-        \indent 
 
+        \indent The above light curves look much better than the previous light curves 
+        (figure \ref{fig:a_gti} 
+        and figure \ref{fig:b_gti}). All extremely high spikes are removed. We also have 
+        applied barycenter
+        correction in this step. After adding the GTI file, the cleaned event files are changed too. As a result, 
+        the spectra should also have some changes. The figures \ref{fig:spectra_usrgti}
+        are spectra produced by using GTI files we generated.  
+        \begin{figure}[!ht] 
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft} 
+                \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/spec_usrgti_a.png}
+            \end{flushleft}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft}
+            \includegraphics[scale=0.45]{/home/wwc129/Desktop/Thesis/spec_usrgti_b.png}
+            \end{flushleft}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+          \mycaption{Spectra of module A (left) and B (right) after adding our own GTI files. 
+                    The total source counts of A before subtracting background is 238 and B is 211. 
+                    After subtracting background counts, 
+                    the source counts of A is 177.78 and B is 139.46. Reduced chi square statistic: 1.13 (A) and 
+                    0.98 (B).}
+          \label{fig:spectra_usrgti}
+          \end{minipage}
+          \end{figure}
 
-        
-        
+          \indent The table \ref{table:spectra_usrgti} shows some critical parameters of the fitting result. 
+          We can see that adding our own defined GTI file will apparently affect the result of spectra fitting. 
+          The photon index change from 1.10 to 1.20 for module A while the photon index change from 1.53 to 
+          1.48. Besides, the chi square statistic changes dramatically for both module A and B (nearly doubled).
+          We notice that the column density for module A and B differs greatly. 
+          I think we can ignore this for now because hard X-ray is nearly not affected by
+          interstellar medium. We will care about column density after combined with other telescopes data such 
+          as Chandra. 
+          \begin{table}[!h]   
+            \centering
+            \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
+              \hline
+              & Module A & Module B \\
+              \hline
+              Column Density (nH) ($10^{22} atoms/cm^2$) & 7.57 & $4.65\times10^{-8}$\\ 
+              \hline
+              Photon Index ($\Gamma$) & 1.20 & 1.48 \\
+              \hline 
+              Reduced Chi Square Statistic & 1.13 & 0.98 \\
+              \hline 
+            \end{tabular}
+            \mycaption{Fitting result with user defined GTI files}
+            \label{table:spectra_usrgti}
+          \end{table}
 
+          Then, we want to combine the module A and B data to fit the spectra together. This leads to a question.
+          We know that there are some intrinsic differences between module A and B of \textit{NuSTAR}. As a result,
+          how do we combine two modules together to generate one spectrum? There are two ways of doing this. Firstly,
+          we can directly fit the spectra of these two modules with one single model. Secondly, we can add a 
+          constant between module A and B to represent the differences. The following figures \ref{} are the result.
 
-
-
+ 
+         
 
 
 
