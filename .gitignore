@@ -3,4 +3,7 @@
 *.aux
 *.toc
 *.swp
+*.fdb_latexmk
+*.fls
+*.gz
 
