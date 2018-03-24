@@ -120,11 +120,20 @@
 }
 
 \newcommand{\change}[1]{
-  $<$change$>$#1$<$/change$>$
+  $<$\textbf{change}$>$#1$<$\textbf{/change}$>$
 }
 
 \newcommand{\add}[1]{
-  $<$add$>$#1$<$/add$>$
+  $<$\textbf{add}$>$#1$<$\textbf{/add}$>$
+}
+
+\newcommand{\mayChange}[1]{
+  $<$\textbf{mayChange}$>$#1$<$\textbf{/mayChange}$>$
+}
+
+\newcommand{\myComment}[1]{
+  %#1 
+  \newline
 }
 
 \begin{document}
@@ -1194,27 +1203,54 @@
           After we have reviewed gamma-ray fundamental emission mechanism, we can proceed to
           the Two-layer model on which this thesis is mainly based. Two-layer model is a 
           variation of outer-gap model since they both claim that the gamma-ray emission zone
-          is close to the light-cylinder. However, by two-layer model, the outer layer 
+          is close to the light-cylinder. However, in two-layer model, the outer layer 
           consists of two regions --- a primary acceleration region and a screening region. 
           
           In the primary region, charged particles moved out of pulsars along the open field lines, 
           so the charge density is usually very low. 
           However, by pair-production processes, a lot of $e^{-}$ and $e^{+}$ are produced. 
           But in the primary region where lots of pairs are created, the charge density doesn't 
-          change very much because the pairs are not separated yet. With the help of strong 
+          change very much because the pairs have not been separated yet. With the help of strong 
           electric field, the particles of different signs move to opposite directions. 
           As a result, the two-layer model states that just above the primary region, a screening 
           region will be created and the charge density is very large. This is basically the reason why 
           there are two regions in pulsars' outer magnetosphere.
 
+          Then the next issue is that how we describe the distribution of charge density in these two regions. 
+          For simplicity, we just use a step function to represent the charge density distribution and step function 
+          can clearly shows the gap between the two regions. We use a magnetic dipole model to approximate the 
+          magnetic distribution in the magnetosphere. Since in magnetic dipole model, magnetic field at one position is 
+          only dependent on the position's distance from the source and altitude, we can also ignore the azimuthal 
+          distribution of charge density in our model and use the two parameters
+          the $r (distance)$ and $\theta (altitude)$ to calculate the magnetic field at some position.
+
           In the two-layer model, we can use three parameters to express the structure of a pulsar's outer 
           magnetosphere - charge density of the primary region, the total length of the primary region and the 
           screening region and the last one is the ratio of the thickness of the primary region and the 
-          screening region. 
+          screening region. The figure \ref{fig: charge_density} shows the basic structure of two-layer model. 
 
+          \singleFig{charge_density}{0.6}{(a): The geometry of two-layer model. $h_{1}$ and $h_{2}$ is the height
+          of the primary region and the screening region respectively. (b): the charge densities of primary region and 
+          screening region. In the primary region, the charge density is much smaller than Goldreich-Julian charge density
+          while is larger in the screening region. \mayChange{this figure is from the previous paper, I may need to 
+          regenerate the figure.}}
+      
+          As the figure \ref{fig: charge_density} showing, 
           Let the charge density of the primary region be $(1-g_{1}) \rho_{GJ}$ and the total gap size is 
           $h_{2}$, where $\rho_{GJ}$ is Goldreich-Julian charge density. For convenience, 
-          we also denote the gap size of the primary region as $h_{1}$.
+          we also denote the gap size of the primary region as $h_{1}$. 
+          \myComment{Then we can calculate electric potential and electric field by solving the Poisson equation }
+
+          We denote the electrical potential to be $\phi_{0}$ which satisfies 
+          \begin{equation}
+            \label{eq: Poisson_corotating}
+            \nabla^{2}\phi_{0} = -4\pi\rho_{GJ}
+          \end{equation}
+          and the total electrical potential is $\phi = \phi_{0} + \phi^{\prime}$, where $\phi^{\prime}$ is a 
+          representation of the deviation of the co-rotating electrical potential.  
+          Let total charge density is $\rho$ and subtract the equation \ref{eq: Poisson_corotating} we have 
+          $\nabla^{2}\phi^{\prime} = -4\pi\rho^{\prime}$
+
 
           \add{continue from here}
 

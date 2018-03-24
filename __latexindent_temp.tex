@@ -1,0 +1,1608 @@
+\documentclass[12pt]{report}
+\usepackage{geometry}	
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{multicol}
+\usepackage{titlesec}
+\usepackage{graphicx}
+\usepackage{wrapfig}
+\usepackage{textcomp}
+\usepackage{caption}
+\usepackage{subcaption}
+\usepackage{comment}
+\usepackage{etoolbox}
+\usepackage{caption}
+\usepackage{anyfontsize}
+\usepackage{caption}
+\usepackage{color}
+\usepackage{url}
+\usepackage{multirow}
+\usepackage{array}
+\usepackage{tabu}
+\usepackage{hyperref}
+\usepackage{color}
+\usepackage{epigraph}
+
+\hypersetup{
+    colorlinks,
+    citecolor=black,
+    filecolor=black,
+    %linkcolor=[RGB]{0,204,0},
+    linkcolor=black,
+    urlcolor=black
+}
+\captionsetup[figure]{labelfont=bf, font=footnotesize}
+
+\setlength{\parskip}{1em}
+% \setcounter{tocdepth}{4} 
+% \setcounter{secnumdepth}{4}
+
+%this several lines is for: no number before suction. (This is a bug)
+\makeatletter
+\patchcmd{\ttlh@hang}{\parindent\z@}{\parindent\z@\leavevmode}{}{}
+\patchcmd{\ttlh@hang}{\noindent}{}{}{}
+\makeatother
+
+
+\geometry{
+	a4paper,
+	total={180mm,257mm},
+ 	left=25mm,
+ 	top=15mm,
+ 	right=25mm,
+}
+
+\title{\textbf{Thesis Title}\\ \vspace{1cm}
+			{\large Department of Physics, The University of Hong Kong, Pokfulam Road, Hong Kong}\\ \vspace{1cm}
+			{\includegraphics[scale=0.2]{{/Users/grewwc/Desktop/Thesis/hku.png}}}\\ \vspace{3cm}
+}
+\date{}
+\author{Wang Wenchao  \\3030053350}
+\setlength{\columnsep}{1cm}
+
+\titleformat
+{\chapter} % command
+[display] % shape
+{\bfseries\Large} % format
+{\textit{Chapter \thechapter}} % label
+{0.5ex} % sep
+{
+    \rule{\textwidth}{1pt}
+    \vspace{1ex}
+    \centering
+} % before-code
+
+\titleformat{\section}[hang]
+{\large\bfseries}
+{\thesection}
+{0.5em}
+{}
+
+\titleformat{\subsection}[hang]
+{\fontsize{12}{15}\bfseries\sffamily}
+{\thesubsection}
+{1em}
+{}
+
+\titleformat{\subsubsection}[hang]
+{\fontsize{11}{15}\bfseries\sffamily}
+{\thesubsection}
+{0.5em}
+{}
+
+\titleformat{\subsubsubsection}[hang]
+{\fontsize{9}{15}\bfseries\sffamily}
+{\thesubsection}
+{0.5em}
+{}
+
+
+
+\newcommand{\mycaption}[1]{\caption{\textit{\footnotesize #1}}}
+%Below is the main content.
+
+%insert a single figure.
+%parameters: 
+%%  1. path
+%%  2. scale
+%%  3. caption
+\newcommand{\singleFig}[3]{
+ \begin{figure}[!ht]
+  \centering
+  \includegraphics[scale=#2]{/Users/grewwc/Desktop/Thesis/#1}
+  \mycaption{#3}
+  \label{fig: #1}
+ \end{figure} 
+}
+
+\newcommand{\question}[1]{
+  $<$question$>$#1$<$/question$>$
+}
+
+\newcommand{\change}[1]{
+  $<$change$>$#1$<$/change$>$
+}
+
+\newcommand{\add}[1]{
+  $<$add$>$#1$<$/add$>$
+}
+
+\begin{document}
+\maketitle
+\tableofcontents{}
+   %\vspace{1cm}
+    %chapter 'Abstract'.
+\begin{abstract}
+    \normalsize
+    Recent observations find that some millisecond pulsars (known as Class II MSPs) show aligned pulse profile
+    es in 
+    different energy bands. Conventionally, radio and gamma-ray emission are produced in different 
+    regions---in polar cap 
+    and outer gap respectively. The finding of Class II MSPs implies that radio, X-ray and gamma-ray 
+    emission 
+    can all be emitted in outer gap. This means that Class II MSPs can have a different emission mechanism. 
+    Recently, 
+    scientists propose a model suggesting that hard X-ray can be emitted by inverse Compton scattering 
+    between radio
+    waves and energetic charged particles. The objective of the thesis is to test this model by measuring 
+    hard X-ray 
+    spectra of some Class II MSPs using \textit{NuSTAR}. 
+\end{abstract}
+			
+		
+		
+	%chapter 'Introduction'.
+\chapter{Introduction}   	   
+    \section{Neutron Stars and Pulsars}
+        Neutron stars are produced by a supernova explosion of massive stars which have about 4 to 8 
+        solar mass. After 
+        the supernova explosion, the star leaves a central region. And the central region collapses because 
+        of the effect of 
+        gravity until protons and electrons combine to form neutrons ($e^{-}+p\rightarrow n+\nu_{e}$)
+        ---the reason why they are called 
+        ``neutron stars''.  
+        Because neutrons have no electromagnetic force on each other, they can be squeezed very tightly. 
+        Therefore, a neutron  
+        star has tremendous high density (about $5\times 10^{17} kg/m^3$) and its diameter and mass is about
+        20km and 
+        1.4 solar mass respectively. What
+        prevents a neutron star to continue to contract is the degeneracy pressure of neutrons. \\
+        \indent Pulsars are fast-spinning neutron stars. Their rotational periods can be from a few 
+        milliseconds
+        to several seconds. For example, the rotational period of PSR B1937+21 is about 1.56$ms$ while 
+        PSR B1919+21 is approximately 1.34$s$. As we know, a star can be ripped by centrifugal force if the
+        star rotates too fast. We can estimate lower limit of density of a star with the equation: 
+        $\rho=\frac{3\pi}{P^2G}$, where $P$ is the rotational period of a pulsar. Just for simplicity, we
+        let $P$ be 1$s$. Then we get $\rho\approx 1.4\times 10^{11}kg/m^3$. With the knowledge  that the 
+        density of a white dwarf is about $1\times 10^9kg/m^3$ which is smaller than the lower density limit,
+        the observed fast-spinning stars belong to the kind of stars which are much denser 
+        than white dwarf. As a result, neutron stars are ideal candidates for pulsars. \\
+        \indent 
+        More than 2000 pulsars have been found so far. Most of them are in the disk of our Galaxy while we also can 
+        find a small portion of them in high latitude, which can be seen clearly in the figure \ref{fig:spatial 
+        distribution}. This may 
+        because they cannot escape the gravitational potential if their kinetic energy is not large enough. Besides,
+        even though they have large enough velocities to escape from their birth region, there are some 
+        probabilities that they become nearly non-detectable before reaching high latitude. 
+        
+        \begin{figure}[h]
+          \centering
+          \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/pulsar_distribution.png}
+          \caption{\textit{\footnotesize Spatial distribution of some pulsars in galactic coordinate system.}}
+          \label{fig:spatial distribution}
+        \end{figure}
+        
+
+
+        %can add these content later.
+        \iffalse 
+        \indent Although the primary focuses of this thesis are observational characteristics such as 
+        spectra and light-curves, it is helpful to talk a little about internal structure of pulsars.
+        \fi 
+
+        \iffalse
+        \indent Many stars are in binary systems so neutron stars can also be isolated or in binary systems. 
+        Some of them even have planets. That a pulsar is in binary system provides us a convenient way to 
+        measure its mass. 
+        \indent 
+        \fi
+		     
+    
+             
+
+
+    \section{Emission Mechanism of Pulsars}
+            Although emission mechanism of pulsars has not been fully understood yet, some models are developed 
+            trying to 
+            explain observational facts. The following is one toy model that can explain some basic features of 
+            pulsars.
+       
+        \subsection{Magnetic Dipole Model}
+            Assume a pulsar has a magnetic dipole moment $\vec{m}$, the angel between rotation axis and 
+            direction of 
+            $\vec{m}$ is $\alpha$, its angular velocity is $\Omega$, radius is R and moment of inertia is $I$. 
+            Also by 
+            assuming that energy of electromagnetic radiation are all from rotational energy, its spin-down 
+            rate can be written 
+            as: 
+            $$
+                \dot{\Omega}=-\frac{B_p^2 R^6 \Omega^3 \sin{\alpha}^3}{6c^3I}
+            $$
+            where $B_p$ is magnetic field strength in the pole of the pulsar. Its surface magnetic field can 
+            also be estimated
+            by:
+            $$
+                B_s=\sqrt{\frac{3c^3I}{2\pi^2R^6}P\dot{P}}=3.2\times 10^{19}\sqrt{P\dot{P}}
+            $$
+            where $B_s$ is the strength of surface magnetic field. \\
+            \indent In general, a pulsar's spin down rate can be expressed as: $\dot{\Omega}=-K\Omega^{n}$, 
+            where K is a 
+            constant and n is called braking index. In magnetic dipole model n is 3 \hypersetup{urlcolor= red}
+            (\href{https://arxiv.org/pdf/1506.04605.pdf}{\textit{H.Tong 2015}}). Then 
+            characteristic age of the pulsar can be defined as: $P/2\dot{P}$ in magnetic dipole model. 
+            For example, the Crab 
+            pulsar's rotation period is about $0.033s$ and period derivative is $4.22\times 10^{-13}s/s$. 
+            The characteristic 
+            age is about 1200 years. The pulsar is remnant of a supernova which is observed by ancient 
+            astronomers in 1054 
+            AD, so the record shows that characteristic age can give us order of magnetic estimate of a 
+            pulsar's real age. \\
+            \indent 
+            Although braking index is 3 in magnetic dipole model, most of pulsars' braking index is less than 3 as 
+            shown in figure \ref{fig:braking_index}. The reason is that if a pulsar's spin down is completely because
+            of pulsar wind, the braking index is 1. Thus, the real braking index should be a combination of 1 and 3,
+            which is usually less than 3  \hypersetup{urlcolor= red}
+            (\href{http://www.ift.uni.wroc.pl/~csqcdiv/talks/26092014/ohamil_csqcdiv.pdf}
+            {\textit{Oliver Hamil 2014}}).
+            \begin{figure}[!h]
+              \centering
+              \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/table.png}
+              \mycaption{Braking index of some pulsars.}
+              \label{fig:braking_index}
+            \end{figure}
+    
+          
+        \subsection{A More Sophisticated Model}
+              It is oversimplified to regard a pulsar as a magnetized sphere rotating in vacuum. Actually,
+              there are plenty of 
+              charged particles in a pulsar's magnetosphere which co-rotate with the pulsar. The creation of 
+              charged particles can 
+              be described by the following steps 
+              (\href{http://articles.adsabs.harvard.edu/cgi-bin/nph-iarticle\_query?1971...164..529S&amp;data
+              \_type=PDF\_HIGH&amp;whole\_paper=YES&amp;type=PRINTER&amp;filetype=.pdf}{\textit{P.A.Sturrock
+              1971}}). \\ 
+              \indent 1. The co-rotating charged primary particles emit gamma-ray by curvature radiation 
+              because of acceleration in super strong magnetic field.  \\
+              \indent 2. In super intense magnetic field,  the high energy photons decay into electrons and 
+              positrons which are called secondary particles by the process: 
+              $\gamma + (B) \rightarrow e^++e^-+(B)$. Synchrotron 
+                                  photons can be emitted by these secondary particles. \\
+              \indent 3. Secondary particles are also accelerated in strong magnetic field which is just like 
+              primary particles. As a result, these charged particles can create more secondary particles. \\
+              \indent This chain of process is quite efficient to produce charged particles and pulsar's 
+              magnetosphere is filled with plasma as a consequence. So, it is natural to think of the 
+              distribution of charges in pulsar's magnetosphere. A characteristic charge density 
+              $\rho_{GJ}=-\frac{\vec{\Omega}\cdot \vec{B}}{2\pi c}$ is called Goldreich-Julian density. 
+              This charges can offset part of electric field ($E_{\parallel}$) which is parallel to magnetic 
+              field. There is some region in the magnetosphere called ``outer gap'' where $\rho_{GJ}$ is so 
+              small that it can't screen $E_{\parallel}$ effectively. As a result, the secondary particles can 
+              be accelerated at a very large velocity (Lorentz factor $\gamma\sim 10^7$) and emit gamma-ray. 
+              Photons in outer gap can also create electrons and positrons by the process: 
+              $\gamma+\gamma\rightarrow e^-+e^+$. At the outer gap, one-photon pair production can't happen 
+              because magnetic field is too weak in this region.
+            
+                                
+        
+             
+
+    \section{Millisecond Pulsar} 
+        \subsection{P-$\dot{\mathbf{P}}$ Diagram} 
+        P-$\dot{\mathrm{P}}$ diagram is an important tool for analyzing evolution of pulsars. 
+        Period (P) and time derivative of period ($\dot{\mathrm{P}}$) are two of pulsars' important 
+        characteristics. Analyzing the position of a pulsar in P-$\dot{\mathrm{P}}$ diagram can give some 
+        valuable information such as which evolution stage the pulsar is in or the type of the pulsar, etc. 
+        The figure \ref{fig:p-pdot} is an example of  
+        P-$\dot{\mathrm{P}}$ diagram. The horizontal axis is pulsars' rotation periods and the vertical axis is 
+        time derivative of rotation periods.
+        \begin{figure}[h]
+            \centering
+            \includegraphics[scale=0.35]{{/Users/grewwc/Desktop/Thesis/ppdot.png}}
+            \caption{\textit{\footnotesize Position of pulsars in P-}\footnotesize$\dot{P}$ \textit{\footnotesize
+                        diagram}}
+            \label{fig:p-pdot}
+        \end{figure}
+        In this P-$\dot{\mathrm{P}}$ diagram, the negative slope lines represent the strength of surface 
+        magnetic field while the positive slope lines represent the characteristic age of pulsars. The 
+        following is a short explanation for this. From previous discussion, we have known that the 
+        characteristic age of a pulsar is $\tau=-P/\dot{P}=P/(-\dot{P})$, so line of constant 
+        $\tau$ is a set of straight lines with equal positive slope. We also know $B\propto\sqrt{P\dot{P}}$,
+        therefore the line of constant $B$ should be a part of hyperbola. When $\dot{P}$ is very small, the
+        hyperbola looks like a straight line with negative slope. \\
+        \indent 
+        This figure shows that most pulsars lie in the position about $1s, 10^{-14}s/s$.
+        At the same time, a couple of stars lie at the bottom-left of the figure---these are millisecond
+        pulsars (MSP). Their 
+        rotation periods are about 1-20 milliseconds. It is believed that MSPs are spun up by accretion of 
+        mass from its 
+        companion star. In the above P-$\dot{\mathrm{P}}$ diagram, we can observe that millisecond pulsars' 
+        surface magnetic field are about 3 to 4 orders of magnitude lower than those of normal pulsars. However,
+        an MSP has a relative strong magnetic field near its light cylinder. The reason is that an MSP's radius 
+        of light cylinder ($R_{lc}=c/\omega)$ is much smaller than a normal pulsar's because of its short 
+        rotation period and the magnetic field near light cylinder can be estimated as 
+        $B_{lc}\sim\left(R/R_{lc}\right)^3$. At the same time, pulsars' emission mechanism is closely related 
+        to their magnetic field near light cylinder. As a result, like a normal pulsar, an MSP also have 
+        broadband spectrum from radio to gamma rays. 
+        \subsection{Origin Of Millisecond Pulsars}
+            From pulsars' emission mechanism, we know that magnetic field of a pulsar decreases with time while 
+            the spin period increase with time. But MSPs' spin period is much shorter than normal pulsars and 
+            surface magnetic field is a lot weaker. This makes an MSP seem to be both young and old. As a result,
+            people think millisecond pulsars are old pulsars spun up by its companion. The companion star transfer
+            mass and angular momentum to accelerate the pulsar. Therefore, the aged pulsar can spin faster 
+            gradually. 
+            \subsubsection{Mass Transfer And Accretion In Binary Systems}
+                X-ray binaries are a type of binary systems that is luminous in X-ray band. There are several kinds 
+                of X-ray binaries including low mass X-ray binaries (LMXB) and high mass X-ray binaries (HMXB). 
+                The way of transferring mass is different in these two types of systems. Before discussing mass 
+                transfer, we need to know a little bit about Roche Lobe. The figure \ref{fig:roche lobe} is a 
+                schematic diagram of Roche lobe.
+                \begin{figure}[h]
+                  \centering
+                  \includegraphics[scale=0.5]{/Users/grewwc/Desktop/Thesis/roche_lobes.jpg}
+                  \begin{minipage}{0.8\textwidth}
+                  \caption{\footnotesize \textit{Schematic diagram of Roche lobe.} $L_{1}$ is called inner 
+                            Lagrange point which is the intersection of equipotential lines of star A 
+                            and B.}
+                  \label{fig:roche lobe}
+                  \end{minipage}
+                \end{figure}\\
+                \indent  We call two stars in an LMXB as A and B respectively for convenience. It is obvious 
+                that if an object is close to star A, the gravitational influence of A is so strong that we can 
+                nearly ignore the effect of star B. Similarly, this is true for star B. As a result, there must be 
+                a point where the effect of star A is equal to star B which is called inner Lagrange point 
+                \hypersetup{urlcolor= red}
+                (\href{https://arxiv.org/pdf/astro-ph/0311272.pdf}{\textit{Seidov 2013}}). The two
+                volumes inside the largest equipotential lines of A and B are called Roche lobe. If star B cross 
+                its Roche lobe, than its mass will be attracted by A thus mass transfer between A and B happens. We 
+                should notice that this is the main way of mass transfer in LMXB. While in HMXB, the mass can be 
+                transferred by strong wind of the massive companion star. \\
+                \indent 
+                What should be noted is that mass transfer can change the distance between two companion stars. If 
+                low-mass star transfer mass to high-mass companion star, the orbital separation will be large. 
+                This can actually stop mass transfer and is like negative feedback. 
+                On the contrary, mass transfer from high-mass star to low-mass star will shrink the orbital 
+                distance.\\
+                       
+        \subsection{Class II MSPs}
+            \begin{figure}[h!]   
+                \centering
+                \includegraphics[width=6.7cm,height=7cm]{{/Users/grewwc/Desktop/Thesis/bands.png}}
+                \caption{\textit{\footnotesize Pulse profiles of PSR B1937+21 in radio, X-ray and gamma-ray.}}
+                \label{fig:class }
+            \end{figure}	 
+            Radio emission are usually considered to be emitted above the polar cap, which means radio emission 
+            and gamma-ray emission are from different location of pulsar's magnetosphere. However, there are about 
+            10 sources showing aligned pulse profiles in radio and gamma-ray implying that radio emission may 
+            produced from outer magnetosphere and they are called Class II MSPs\hypersetup{urlcolor= red}
+            (\href{https://arxiv.org/pdf/1110.1271.pdf}{\textit{Guillemot et al. 2012}}). 
+			These pulsars have strong magnetic 
+            field near the light cylinder. The figure \ref{fig:class } is an example of aligned pulse profile.
+
+    \section{Objectives}
+    Recently, it is found that X-ray band of spectrum of millisecond pulsar B1937+21 has a hard photon 
+    index of $0.9\mathrm{\pm}0.1$ by analyzing data of \textit{Chandra}, \textit{XMM-Newton} \textit{Fermi} 
+    (\href{https://arxiv.org/pdf/1110.1271.pdf}{\textit{Ng et al. 2014}}).
+    People think X-ray emission
+    is mainly produced by synchrotron radiation, but it is difficult to explain such a hard photon index. 
+    Besides millisecond pulsar B1937+21, it is discovered that hard photon index is a common characteristic 
+    of class II MSPs. Therefore, people propose that Inverse Compton scattering can also lead to X-ray 
+    emission and build a model recently to explain it (\href{https://arxiv.org/pdf/1110.1271.pdf}
+    {\textit{Ng et al. 2014}}). \\
+    \indent 
+    In order to test the model, we need to analyze the hard X-ray band of millisecond pulsars B1937+21, 
+    J0218+4232 and B1821-24. The energy ranges of \textit{Chandra} and \textit{XMM-Newton} are up to 10keV 
+    and 15keV respectively while \textit{NuSTAR} can be up to 79keV. As a result, we aim to use
+    \textit{NuSTAR} to measure the hard X-ray band of the three MSPs mentioned above. 
+
+
+
+    \section{NuSTAR}  
+        \textit{NuSTAR} stands for Nuclear Spectroscopic Telescope Array and is launched in June 12, 2012. It is the 
+        first space telescope
+        focusing on hard X-ray (3eV-79eV) band. This is the telescope that we mainly use and it is helpful to know 
+        the structure to deal
+        with its data. It mainly composed of three parts: detectors, optics and mast as the figure \ref{fig:nustar}
+        shows.
+        \begin{figure}[h] 
+            \centering
+            \includegraphics[scale=0.6]{{/Users/grewwc/Desktop/Thesis/nustar.png}}
+            \caption{\textit{\footnotesize \textit{NuSTAR}'s sketch. The mast connects X-ray optics and focal plane 
+            detectors.}}
+            \label{fig:nustar}
+        \end{figure}
+              
+        \subsection{Detectors} 
+            \textit{NuSTAR} has two independent photons counting detector modules (FPMA \& FPMB) and each module 
+            contains 4 
+            Cadmium-Zinc-Telluride (CZT) detectors. Every detector is a rectangular crystal whose size is 
+            $20mm\times 20mm 
+            \times 2mm$ (length$\times$ width$\times$height) and have $32\times 32$ pixels. \\
+            \begin{figure}[h]  
+                \hspace{2.3cm} 
+                \begin{minipage}[c]{0.4\textwidth}
+                    \includegraphics[width=5cm,height=5cm]{{/Users/grewwc/Desktop/Thesis/detector.png}}
+                \end{minipage}
+                \hspace{0.5cm} 
+                \begin{minipage}[c]{0.4\textwidth}
+                    \includegraphics[width=5cm,height=5cm]{{/Users/grewwc/Desktop/Thesis/sheld.png}}
+                \end{minipage}
+                \newline
+                \noindent \hspace*{0.08\linewidth}
+                \begin{minipage}[c]{0.8\linewidth}
+                \caption{\textit{\footnotesize Left: One of two detector modules which contains $2\times 2$ array 
+                of independent detectors.
+                Right: One detector module shielded by Csl crystal. CZT detectors can turn high 
+                energy photons into electrons very efficiently in room temperature so they are operated at 
+                15\textdegree{}C. }}
+                \end{minipage}
+                \label{fig:detectors}
+            \end{figure}
+            %\vspace{0.35cm}
+            \indent In order to help to distinguish the source photons and the background photons, the focal 
+            planes are shielded with 
+            crystals made of Celsium-Iodide (Csl). The Csl shields can record the photons come from directions 
+            which are not the 
+            direction of \textit{NuSTAR} optical axis. So background photons can be subtracted from the total photon 
+            counts. 
+              
+        \subsection{Optics}
+            Corresponding to two detector modules, \textit{NuSTAR} also has two optics called Optics Module A and B 
+            (OMA \& OMB). The 
+            focal length is 10.14 meters which is about the same length with its mast. X-ray is very hard to 
+            reflect so mirrors are 
+            usually made of high density materials such as Pt and W. Past telescopes such as \textit{Chandra} uses 
+            these high density 
+            materials to reflect low energy X-ray (up to 10eV). However, the efficiency of reflecting high 
+            energy X-ray drops 
+            drastically. High density contrast between two kinds of materials are needed to overcome this
+            problem. As a 
+            result, \textit{NuSTAR}'s mirror is coated with Pt/SiC and W/Si multilayers and can reflect hard X-ray 
+            up to 79eV. 
+
+            \indent Besides high density contrast between two materials, a small incident angle is also 
+            required. As the figure \ref{fig:optics}
+            \begin{figure}[h]
+                \centering
+                \includegraphics[scale=0.6]{{/Users/grewwc/Desktop/Thesis/lightscheme.png}}
+                \caption{\textit{\footnotesize Light path schematic diagram of reflecting X-ray}}
+                \label{fig:optics}
+            \end{figure}
+            showing, the focal length may be very long because of the small incidence angle. This is partly 
+            the reason why
+            \textit{NuSTAR}'s detectors and optics are separated by a 10-meter long mast which will be introduced in 
+            the next section.
+			
+        \subsection{Mast}
+            Although \textit{NuSTAR}'s mast is stable and reliable, it can cause some image distortion because of 
+            its deformation. Therefore, 
+            careful calibration or measurement of mast's deformation is necessary. In order to achieve this, 
+            \textit{NuSTAR} has a laser 
+            metrology system which consists of two lasers and two light-sensing detectors. The two 
+            lasers are located on optics 
+            while the two detectors are mounted on the detector module. Then, the deformation can be recorded 
+            and used to reconstruct the raw data. The figure \ref{fig:mast} shows what the mast looks like. The
+            reason why \textit{NuSTAR} has a deployable mast is that it is carried by a relative small rockets.
+            \begin{figure}[h!]
+              \centering
+              \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/nustar_mast.png}
+              \mycaption{\textit{NuSTAR}'s mast. Left: stored in container. Right: after being deployed.}
+              \label{fig:mast}
+            \end{figure}
+
+        \subsection{Performance of NuSTAR}
+            Though \textit{NuSTAR} has a broad energy range, the effective collecting area at different energy is 
+            quite different. The figure \ref{fig:effective_area} shows comparison between \textit{NuSTAR} and other 
+            telescopes.
+            \begin{figure}[h!]
+              \centering
+              \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/effect_area.png}
+              \mycaption{\textit{NuSTAR}'s effective area compared with other X-ray focusing telescopes.}
+              \label{fig:effective_area}
+            \end{figure}
+            
+            From figure \ref{fig:effective_area} we can see that the effective area drops dramatically after 70keV.
+            Therefore, we may need to screen out the high energy part ($>$70keV) for data analysis.
+            The figure \ref{fig:psf} shows the point spread function (PSF) of optics module A and B. In order to
+            make faint pixels look more obvious, the images are in logarithm scale. The PSF of both optics module A
+            and B are dependent on energy. The table \ref{table:psf_relation} lists the relationships and from this 
+            table we can also see that angular resolution of optics module B is slightly better A.
+            
+             
+            \begin{figure}[!htp]
+              \centering
+              \includegraphics[scale=0.27]{/Users/grewwc/Desktop/Thesis/psf.png}
+              \mycaption{Image of NuSTAR's point spread function of optics module A(left) and B(right).}
+              \label{fig:psf}
+              \vspace{1.5cm} 
+              \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/psf_relation.png}
+              \mycaption{PSF (half power diameter) as a function of energy.}
+              \label{table:psf_relation}
+            \end{figure}
+
+        \section{The Procedures of Processing NuSTAR Data}
+            \textit{NuSTAR} Data Analysis Software (\textit{NuSTARDAS}) is used for data processing. This includes 
+            three steps:
+            data calibration, data screening and products extraction. The next paragraph talks about the reason the 
+            first two steps are necessary. 
+
+            \indent 
+            Lots of factors can affect raw data, such as movements of \textit{NuSTAR}‘s mast, the orbit of the 
+            telescope, 
+            etc. As a result, \textit{NuSTAR} data must be calibrated before they can be used to do data analysis. 
+            Also, some parts 
+            of data are not good for scientific analyzing. For example, there are some bad pixels in the telescope's 
+            detectors which cannot record photons correctly. Thus, the data recorded by these bad pixels have to be
+            treated very carefully. We might get rid of the data when the source is bright, while if the photon counts
+            are too small, we might have to use these data with carefulness. And sometimes we may want to focus on a 
+            particular part of data. Thus, we need to screen the calibrated data. 
+
+            \indent 
+            In order to understand data filter process better, it is necessary to know the different levels of 
+            \textit{NuSTAR} data. 
+            \textit{NuSTAR} data can be divide into 5 levels which is from level 0 to level 3. Level 0 data are raw 
+            telemetry files
+            which might not be in formal format (FITS format). Level 1 data contains two parts: level 1 and level 
+            1a. Level 1
+            data are formatted in FITS format, but not calibrated yet. Level 1a data are level 1 data after 
+            calibration. 
+            Actually, level 1a data are addition of level 1 data and calibration data. Level 1a data are produced by 
+            step 1 
+            (data calibration). Then by step 2 (data screening), we get level 2 data which are cleaned files. We 
+            can do data
+            analysis after getting level 2 data. Thus in order to get reliable result, it is key to get raw data 
+            properly 
+            cleaned. The figure \ref{fig:comparison} is comparison between level 1a event file and level 2 event file 
+            after screening.  
+
+            \begin{figure}[h] 
+            \vspace{0.2cm}
+                \begin{minipage}{0.45\textwidth}
+                \begin{flushright} 
+                \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/A_uf.png}
+             %\caption{raw picture}
+            \end{flushright}
+            \end{minipage}
+            \hspace{1cm}
+            \begin{minipage}{0.45\textwidth}
+              \begin{flushleft}
+                \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/A_cl.png}
+              \end{flushleft} 
+            \end{minipage}
+            \centering
+            \begin{minipage}[c]{0.85\textwidth}
+                \caption{\textit{\footnotesize Left: sky image generated directly from level 1a data. Right: sky 
+                image 
+                generated from screened level 2 data. These two figures are produced from the same raw data. 
+                There are 
+                many criteria for data screening and the figure in the right is just an example.}}
+                \label{fig:comparison}
+            \end{minipage}
+            \end{figure}
+            
+            \subsection{Data Calibration}   
+                The first process is data calibration. In this step, two factors should be considered: the temporal 
+                change 
+                of mast and spacecraft's attitude. By using telescope's housekeeping files, the corrected data can be 
+                produced by \textit{NuSTAR} software. There are some \textit{NuSTAR} software modules for this 
+                process. Most of them are 
+                nearly automatically, which means once we have initial files, the output files are fixed. 
+                Therefore, we 
+                do not concentrate much on these software modules. Before we go into this module, some basic 
+                concepts should be introduced.
+
+            \subsubsection{Grade of Data}  
+            When a photon interacts with a detector, the ideal condition is that only one pixel record this photon,
+            which has better spectra resolution than other situations. 
+            But a single X-ray photon can be spread and received by more than one pixel. Generally, the less pixels
+            by which a photon recorded, the better the event is. 
+            Naturally, there are different patterns of interaction between the
+            photon and surrounding pixels. These patterns are listed in figure \ref{fig:nustar_grade}.  
+            \begin{figure}[h] 
+              \centering
+              \includegraphics[scale=0.34]{/Users/grewwc/Desktop/Thesis/grade.png}
+              \begin{minipage}[c]{0.85\textwidth}
+                \caption{\textit{\footnotesize There are 33 different \textit{NuSTAR} grades---from grade 0 to 32.
+                          In this figure, grades from 0 to 26 are listed because these grades are accepted by 
+                          \textit{NuSTAR} data screening by default. We can further get rid of some grades if needed.}
+                          }
+              \label{fig:nustar_grade}
+              \end{minipage}
+              
+            \end{figure}
+
+
+            \subsubsection{Status of Data} 
+            Just like flagging the quality of pixel data, it is necessary to flag event data because there are many
+            factors that can trigger detectors. For instance, if we have a photon record in a detector, we need to 
+            know if it is from the source we are observing. Actually, cosmic rays can also trigger the 
+            detectors and we want to get rid of them in order to increase the signal to noise ratio. 
+            Therefore, after we have distinguished them from source photons, it is needed to be recorded for data
+            screening---thus each single event has its status. In fact, similar to data's grade, status of data also
+            has many patterns. For example, an event may fall into bad pixels, have a neighborhood bad pixel
+            or fall into a hot pixel, etc. All these different situations are recorded by a 16-bit binary number and
+            status of good event which is ideal for scientific analysis is all zero (recorded as "b0000000000000000").
+
+            
+            \subsection{Data Screening}  
+              After data calibration, though we know if one event is good or not, bad events are not excluded from 
+              original
+              files. This is the primary reason of doing data screening. There are primarily 3 procedures in this 
+              step.
+
+              \indent The first one is choosing good time intervals, which means remove some unwanted time 
+              intervals. For 
+              example, when the telescope is in the South Atlantic Anomaly, when the Earth is in the Field Of 
+              View and 
+              when the motion of mast is not well tracked, etc. Sometimes we need to add our own GTI (Good Time 
+              Interval) file to get better cleaned data. 
+              Then remove bad pixels and events flagged as 
+              bad in the 
+              last step (by using the information of data status). At last, choose the proper grade of data 
+              (the default value is 0-26). 
+
+              \indent The core module in this step is called 'nuscreen' and most of job is done by this software 
+              module.  
+              There are two parameters we mostly focus on---'gradeexpr' and 'statusexpr', which are used for choosing 
+              grade of data and status of data respectively. For example, gradeexpr=0-8 means choosing grade range 
+              from 0 to 8 and statusexpr="STATUS==b000000000x0xx000" means leaving out bad events. We also can set  
+              them to default value by 'statusexpr=DEFAULT' and 'statusexpr=DEFAULT'. By adjusting these parameters' 
+              values, we can get a bunch of cleaned event files. Then we can generate several sky images and 
+              spectra and 
+              choose a better result. 
+
+             \subsection{Products Extraction}
+              The aim of this process is to extract high-level scientific products including light curves, sky images,
+              spectra, Ancillary Response Files (ARF) and Redistribution Matrix Files (RMF). ARF and RMF files are 
+              used for spectra analysis. The main software module is 'nuproducts' which generates these files 
+              automatically by 
+              passing some parameters. I mainly focus on two parameters which are 'pilow' and 'pihigh'. These two 
+              parameters filter the energy range of cleaned stage 2 event files. The default values of the two 
+              parameters
+              are 39 Pi and 1909 Pi respectively corresponding the \textit{NuSTAR}'s energy range 3-78.4eV. But 
+              usually we 
+              choose pilow larger than 39 and pihigh smaller than 1909 in order to get more reliable data.
+
+\chapter{Data Analysis}
+    
+    
+    \section{Data Analysis of Pulsar B1937+21 Using NuSTAR}
+        Usually, we choose all the parameters to be default values. We may change some of the parameters in certain 
+        cases. 
+        Then we can produce a complete set of stage 2 files by using the module 'nupipeline'. The following is 
+        the sky images from \textit{NuSTAR}'s module A and module B. 
+        \begin{figure}[h]
+          \hspace{0.7cm}
+          \begin{minipage}{0.45\textwidth} 
+            \centering 
+            \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/A01.png}
+            \caption{\textit{\footnotesize Sky image of module A}}
+          \end{minipage}
+          \hspace{0.1cm} 
+          \begin{minipage}{0.52\textwidth}
+            \centering 
+            \includegraphics[scale=0.39]{/Users/grewwc/Desktop/Thesis/B01.png}
+            \caption{\textit{\footnotesize Sky image of module B}}
+          \end{minipage}
+        \end{figure}
+      
+        Although there are lots of background noises in these two pictures, the source is clearly identifiable. 
+        We can obviously see the differences between these two figures. For example, the source is sharper in the 
+        right figure. Actually, from figure \ref{table:psf_relation} we can see that the PSF (half power diameter) of
+        module B is slightly smaller than that of module A in each energy range. 
+        The focal plane module comprises 4 detectors, but in these figures we can barely distinguish different 
+        detectors. This implies that the data are not calibrated and screened well enough. 
+
+        \indent After getting cleaned stage 2 files, we can continue to generate light curves, spectra and so on. 
+        Before doing these, it is required to choose source and background regions. The figure \ref{fig:sky0}
+        show the regions we choose.  
+
+        \begin{figure}[h]
+          \begin{minipage}{0.45\textwidth} 
+            \begin{flushright} 
+            \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/A01_region.png}
+            \end{flushright}
+          \end{minipage}
+          \hspace{2.1cm}  
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft}
+            \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/B01_region.png}
+            \end{flushleft}
+          \end{minipage}
+          \begin{center}
+          \begin{minipage}{0.85\textwidth}
+            \vspace{0.25cm}
+            \mycaption{Source and background regions of module A (left) and B (right).}
+            \label{fig:sky0}
+          \end{minipage}
+        \end{center}
+        \end{figure}
+        \indent In figure \ref{fig:sky0}, the left green circle is source region while the right green 
+        circle is 
+        background region. The center of source circle is (19:39:38.561 ra, +21:34:59.126 dec) and the radius is 
+        23 arcseconds. The center of the background region is (19:39:12:412 ra, +21:35:29.210 dec) and the radius is 
+        34.140 arcseconds. We call the choice of the source and background region as "region 1".
+        The data of the source region center is from
+        \href{http://www.atnf.csiro.au/people/pulsar/psrcat/proc\_form.php?version=1.56&startUserDefined=true&c1\_val%
+        =&c2\_val=&c3\_val=&c4\_val=&sort\_attr=jname&sort\_order=asc&condition=&pulsar\_names=b1937\%2B21\%0D\%0A&ep%
+        hemeris=short&submit\_ephemeris=Get+Ephemeris&coords\_unit=raj\%2Fdecj&radius=&coords\_1=&coords\_2=&style=%
+        Long+with+last+digit+error&no\_value=*&fsize=3&x\_axis=&x\_scale=linear&y\_axis=&y\_scale=linear&state=query}%
+        {\textit{ATNF}}
+        (Australia Telescope National Facility). From the figure \ref{fig:sky0} we can see that the source we 
+        observed is actually the right source---B1937+21. This means that the observation data can be used to analyse 
+        the pulsar B1937+21. However, for module B, the position observed source is a little bit away from the 
+        ATNF data. This means that we might need 2 sets of source and background regions for module A and module B
+        respectively.
+
+        \indent  
+        The figures \ref{fig:lightcurve_a} and \ref{fig:lightcurve_b} are the light curves of module A and B.
+        These light curves are generated using ds9 software. The time interval of each bin is 50 seconds.
+        The horizontal axis is time and the vertical axis is proportional to count rate. 
+        Although these pictures show  periodicities, it does not mean that we can do timing analysis for B1937+21 
+        by using \textit{NuSTAR}. The reason is that the time resolution of \textit{NuSTAR} is about 2 $ms$ which
+        is larger than the spin period of B1937+21 ($\sim$1.56ms). In fact, I think the periodicity reflect the 
+        \textit{NuSTAR}'s orbital information to some extent. \textit{NuSTAR}'s orbit is very low (the semi major
+        axis is about 7000km) so its observation will be greatly influenced by the Earth. When the source is blocked
+        by the Earth, the count rate is zero (after data calibration and screen) \\
+        \begin{figure}[h]
+          \begin{minipage}{\textwidth}
+            \begin{center}
+                \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/A_lc.png}
+                \mycaption{Light curve of module A}
+                \label{fig:lightcurve_a}
+              \end{center}
+            \end{minipage}
+         \\ 
+          \begin{minipage}{\textwidth}
+            \centering
+            \includegraphics[scale=0.34]{/Users/grewwc/Desktop/Thesis/B_lc.png}
+          \mycaption{Light curve of module B}
+          \label{fig:lightcurve_b}
+          \end{minipage}
+        \end{figure}\\
+        \indent 
+        The figure \ref{spectra} is the spectra of module A and B. The group counts of both module A and B are
+        20 and the fitting model is multiplication of absorption of X-ray model (see in sherpa document 
+        \href{http://%
+        cxc.harvard.edu/sherpa/ahelp/xstbabs.html}{'xstbabs'}) and 1 dimensional power law model (see also in sherpa 
+        document\href{http://cxc.harvard.edu/sherpa/ahelp/powlaw1d.html}{'powlaw1d'}). We use chi square statistics
+        to analyze goodness of fitting.\\
+
+
+        %add a parameter table here.
+        \begin{table}[!h] 
+          \centering
+          \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
+            \hline
+            & Module A & Module B \\
+            \hline
+            Column Density (nH) ($10^{22} atoms/cm^2$) & 4.06 & 0.012\\ 
+            \hline
+            Photon Index ($\Gamma$) & 1.33 & 1.46 \\
+            \hline 
+            Reduced Chi Square Statistic & 0.33 & 0.30 \\
+            \hline 
+          \end{tabular}
+          \mycaption{Fitting result  }
+          \label{table:parameter_1}
+        \end{table}
+
+        \indent
+        The table \ref{table:parameter_1} lists some important parameters of the fitting result. 
+        The number of total points in spectrum of module A and B are both 11. For the spectrum of A, the 
+        reduced statistic is about 0.33 and Q-value is about 0.95. The fitted column density is about 
+        $4.06\times 10^{22} atoms/cm^2$ and the photon index is 1.33. For the spectrum of B, the reduced statistic is
+        0.30 and Q-value is about 0.97. The column density is about 0.012 and photon index is 1.46. We observed that
+        the column density difference between module A and B are huge (module A is about 400 times larger than 
+        module B). This 
+        is because that the high energy X-ray photons are nearly not absorbed by interstellar medium. As a result, 
+        the column density fitted only by \textit{NuSTAR} (3$\sim$79eV) reliable so we need to combine 
+        \textit{NuSTAR} data and \textit{Chandra} and \textit{XMM-Newton} data together to fit.\\ 
+        \begin{figure}[h]
+          \begin{minipage}{0.45\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/a_1.png}
+            \end{center}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/b_1.png}
+            \end{center}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+          \mycaption{Spectra of module A (left) and B (right). The total source counts of A before grouping is 
+                      301 and B is 286. After subtracting background, the source counts of A is 193.45 and B is
+                      170.25. Reduced chi square statistic: 0.33 (A) and 0.3 (B).}
+          \label{spectra}
+          \end{minipage}
+          \end{figure}
+          \\
+        \subsection*{Some Analysis}
+          \indent There are actually some problems in the whole precess. First of all, the regions is not properly 
+            chosen. Although we can see that the pulsar is completely in the source region, it is not in the center of 
+            the source region (especially for module B). As for the background region, it is a little bit small. 
+            In addition, there are four 
+            detectors so it is better to choose the background and source region in the same detector. 
+
+        \indent Secondly, there are many spikes in light curves of both module A and B. 
+        Therefore we may need to clean the data
+        more carefully. One straightforward way is to add our own GTI file rather than only using the default GTI 
+        file. Thirdly, the reduced statistic values for module A and B are 0.33 and 0.30 respectively, which are 
+        a little bit small. It means that our model is overfitted and the result seems to be too good to happen. In 
+        general, our model is good if reduced chi square statistic is about 1. Thus, we need to rethink how we 
+        should screen the data.
+
+        \indent 
+        In short, we are focusing on the two things: change the source and background regions and filter the 
+        light curves by adding our own GTI file. 
+
+        \indent
+        At first, we need to change the source and background regions. The figure \ref{fig:region2} shows the 
+        region we choose this time. There are three major changes of the chosen regions. First of all, we slightly 
+        adjust the center of the source region in order to make the observed source be the center of the source 
+        region. The center is (19:39:38.101 ra, +24:34:56.838 dec). 
+        We do not change the radius of the source region so the radius is still 23 arcseconds. Secondly, we change 
+        the position of the background region and make it in the same region with the observed source. The center of the 
+        background region is (19:39:38.003 ra, +21:34:57.657 dec). The inner and outer radius (the background region
+        is an annulus) are 40 arcseconds and 100 arcseconds respectively. 
+        The reason we choose the background region is that  
+        \textit{NuSTAR} has 4 detectors and we want to get rid of the influence of instinct differences between the 
+        4 detectors. Thirdly, we change the shape of background region from a circle to an annulus. Just as before, 
+        we call this choice of region as "region 2". The aim is to 
+        make the background region surround the observed source to be more like the background of the source.\\ 
+        \begin{figure}[!ht]
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft} 
+              \includegraphics[scale=0.36]{/Users/grewwc/Desktop/Thesis/A_region2.png}
+            \end{flushleft}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft}
+              \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/B_region2.png}
+            \end{flushleft}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+          \mycaption{Source and background regions of module A (left) and module B (right).}
+          \label{fig:region2}
+          \end{minipage}
+        \end{figure}
+        
+        \indent At first glance, it seems that this time we choose the source and background region reasonably. But 
+        there %
+        are also some problems just as the following figure \ref{fig:problems} showing. The \textit{NuSTAR} is 
+        composed of 4 separate detectors that work independently with each other. Therefore, we should make sure that
+        the background region we choose does not cross the border of one detector. Thus, we change the background 
+        region to the "region 3" as the right part of the following figures show (figure
+        \ref{fig:problems}) and keep on using the "region 3" in the following discussion of this section. Meanwhile,
+        because we want to try to do timing analysis, barycenter correction is also applied in the following 
+        analysis. So far, we have changed 2 things: background region and barycenter correction. 
+        \begin{figure}[!ht]
+          \begin{minipage}{0.45\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/region2_problem.png}
+            \end{center}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/bkregion_3.png}
+            \end{center}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+            \mycaption{The problems of the annulus background region (denote as "region 2", \textit{left}) and the 
+            background region we choose again (denote as "region 3", \textit{right}).}
+          \label{fig:problems}
+          \end{minipage}
+        \end{figure}
+
+        \indent The figures \ref{fig:a_1_region3_lightcurve} and \ref{fig:b_1_region3_lightcurve} are the light 
+        curves 
+        of the module A and B respectively after changing the source and background regions. The bin time is 
+        also 50 seconds. The horizontal axis represents time and the vertical axis represents count rates. 
+        Actually there is no obvious improvement in light curves after we change the source and background regions
+        --- there are also some spikes in the light curves. In order to get rid of those high spikes, we add some 
+        GTI files to filter the event file. 
+        \begin{figure}[!ht]  
+          \begin{minipage}{1\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/lc_a_region3.png}
+                \mycaption{Light curve of module A}
+                \label{fig:a_1_region3_lightcurve}
+            \end{center}
+            \end{minipage}
+            \\
+          \begin{minipage}{1\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/lc_b_region3.png}
+            \mycaption{Light curve of module B}
+            \label{fig:b_1_region3_lightcurve}
+            \end{center}
+          \end{minipage}
+          \centering
+        \end{figure}
+        \begin{table}[!h]   
+          \centering
+          \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
+            \hline
+            & Module A & Module B \\
+            \hline
+            Column Density (nH) ($10^{22} atoms/cm^2$) & 6.46$\times10^{-6}$ & 1.75$\times10^{-5}$\\ 
+            \hline
+            Photon Index ($\Gamma$) & 1.10 & 1.53 \\
+            \hline 
+            Reduced Chi Square Statistic & 0.74 & 0.53 \\
+            \hline 
+          \end{tabular}
+          \mycaption{Fitting result}
+          \label{table:parameter_region3}
+        \end{table}
+        
+        \indent The figure \ref{fig:spectra_region3} is the spectra of module A and B. The table 
+        \ref{table:parameter_region3}
+        show some key parameters of fitting result. The fit model and method 
+        are the same as before. For module A, the reduced chi square statistic value is about 0.73 and Q-value is 
+        0.65. For module B, the reduced chi square statistic is about 0.51 and Q-value is 0.83. After changing the 
+        source and background regions, the reduced chi square statistic values of both module A and B are greatly 
+        increased while the Q-values are largely decreased. This means that the observation data is less overfitted
+        by our model, which generally is a better result.  
+        \begin{figure}[!ht]
+          \begin{minipage}{0.45\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/spec_a.png}
+            \end{center}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/spec_b.png}
+            \end{center}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+          \mycaption{Spectra of module A (left) and B (right). The total source counts of A before grouping is 
+                      264 and B is 254. After subtracting the background counts, the source counts are 188.23 (A)
+                      and 161.97 (B). Reduced chi square statistic: 0.74 (A) and 0.53 (B).}
+          \label{fig:spectra_region3}
+          \end{minipage}
+          \end{figure}
+        
+        \indent Now we consider using our own GTI file to filter the light curves we get before in order to get 
+        rid of spikes.
+        We use \href{http://cxc.harvard.edu/ciao/ahelp/dmextract.html}{"dmextract"} and 
+        \href{http://cxc.harvard.edu/ciao/ahelp/deflare.html}{"deflare"} tools to extract GTI files. The figures 
+        \ref{fig:a_gti} and \ref{fig:b_gti} are the light curves after filtering event files by our own GTI files. 
+        \begin{figure}[!ht] 
+          \begin{minipage}{1\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/a_gti.png}
+                \mycaption{Light curve of module A after adding our own GTI file}
+                \label{fig:a_gti}
+            \end{center}
+            \end{minipage}
+            \\
+          \begin{minipage}{1\textwidth}
+          \begin{center}
+            \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/b_gti.png}
+            \mycaption{Light curve of module B after adding our own GTI file}
+            \label{fig:b_gti}
+            \end{center}
+          \end{minipage}
+          \centering
+        \end{figure}
+
+        \indent The above light curves look much better than the previous light curves 
+        (figure \ref{fig:a_gti} 
+        and figure \ref{fig:b_gti}). All extremely high spikes are removed. We also have 
+        applied barycenter
+        correction in this step. After adding the GTI file, the cleaned event files are changed too. As a result, 
+        the spectra should also have some changes. The figures \ref{fig:spectra_usrgti}
+        are spectra produced by using GTI files we generated.  
+        \begin{figure}[!ht] 
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft} 
+                \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/spec_usrgti_a.png}
+            \end{flushleft}
+            \end{minipage}
+          \begin{minipage}{0.45\textwidth}
+            \begin{flushleft}
+            \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/spec_usrgti_b.png}
+            \end{flushleft}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+          \mycaption{Spectra of module A (left) and B (right) after adding our own GTI files. 
+                    The total source counts of A before subtracting background is 238 and B is 211. 
+                    After subtracting background counts, 
+                    the source counts of A is 177.78 and B is 139.46. Reduced chi square statistic: 1.13 (A) and 
+                    0.98 (B).}
+          \label{fig:spectra_usrgti}
+          \end{minipage}
+          \end{figure}
+
+          \indent The table \ref{table:spectra_usrgti} shows some critical parameters of the fitting result. 
+          We can see that adding our own defined GTI file will apparently affect the result of spectra fitting. 
+          The photon index change from 1.10 to 1.20 for module A while the photon index change from 1.53 to 
+          1.48. Besides, the chi square statistic changes dramatically for both module A and B (nearly doubled).
+          We notice that the column density for module A and B differs greatly. 
+          I think we can ignore this for now because hard X-ray is nearly not affected by
+          interstellar medium. We will care about column density after combined with other telescopes data such 
+          as Chandra. 
+          \begin{table}[!h]   
+            \centering
+            \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
+              \hline
+              & Module A & Module B \\
+              \hline
+              Column Density (nH) ($10^{22} atoms/cm^2$) & 7.57 & $4.65\times10^{-8}$\\ 
+              \hline
+              Photon Index ($\Gamma$) & 1.20 & 1.48 \\
+              \hline 
+              Reduced Chi Square Statistic & 1.13 & 0.98 \\
+              \hline 
+            \end{tabular}
+            \mycaption{Fitting result with user defined GTI files}
+            \label{table:spectra_usrgti}
+          \end{table}
+
+          Then, we want to combine the module A and B data to fit the spectra together. This leads to a question.
+          We know that there are some intrinsic differences between module A and B of \textit{NuSTAR}. As a result,
+          how do we combine two modules together to generate one spectrum? There are two ways of doing this. Firstly,
+          we can directly fit the spectra of these two modules with one single model. Secondly, we can add a 
+          constant between module A and B to represent the differences. % The following figures \ref{} are the result.
+
+%another chapter
+  \chapter{Gamma-Ray Analysis}
+      As mentioned before, because of the very short rotation periods, MSPs have very small light cylinder radii 
+      compared with normal pulsars. As a result, their emission mechanisms are similar to normal pulsars, 
+      especially for my target objects --- PSRJ0218+4232, PSRJ1939+2134 and PSRJ1824-2452
+      which are among the fastest spinning MSPs. Therefore, as normal pulsars,these three 
+      pulsars are bright in Gamma-Ray band so it is convenient for us to analyze the spectra 
+      properties of them in gamma-rays.
+
+      \section{Gamma-Ray Emission Mechanism of MSPs}
+        An MSP's magnetosphere is dominated by various kinds of emission mechanisms. Thus we should review some 
+        fundamental emission mechanism firstly, including synchrotron radiation, curvature radiation and 
+        inverse-Compton radiation.
+        
+        \subsection{synchrotron radiation}
+          Synchrotron radiation is a special case of cyclotron radiation when particles' speed is comparable to the 
+          speed of light. Because of the relativistic beaming effect, we will observe a very short radiation pulse 
+          when speed of particles is large. 
+          We only aim to analyze the spectrum properties of MSPs, so we focus on the 
+          spectrum property of synchrotron radiation. The power spectrum of a single electron  
+          can be described by the function \ref{func: syncrothron spectrum}
+          \begin{equation}
+            \label{func: syncrothron spectrum}
+            P\left(\nu\right) = \frac{\sqrt{3} e^3 B \sin{\alpha}}{m c^2} 
+              \left(\frac{\nu}{\nu_c}\right) \int_{\nu / \nu_c}^{\infty} K_{5/3}\left(\eta \right)d\eta 
+          \end{equation}
+          where $\nu_c$ is the critical frequency and $K_{5/3}$ is modified Bessel function. The critical frequency 
+          can be expressed by the function \ref{func: critical_frequency}
+          \begin{equation}
+            \label{func: critical_frequency}
+            \nu_c = \frac{3}{2} \gamma^2 \nu_{cyc} \sin{\alpha}
+          \end{equation} 
+          where $\alpha$ is the pitch angle and the $\nu_{cyc}$ is the frequency of corresponding cyclotron radiation. 
+
+          These function does not give us very much information because of the integration of the modified Bessel 
+          function. We let $x = \nu / \nu_c$ and fix the environment variables such as magnetic field ($B$), 
+          the function \ref{func: syncrothron spectrum} becomes: 
+          \begin{equation}
+            \label{func: to_x}
+            P\left(\nu\right) = C \times x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
+          \end{equation}
+          where $C$ is a constant dependent on $B$. Thus, in order to analyze the power spectrum of synchrotron radiation,
+          we only concentrate on the later part, which is 
+          \begin{equation}
+            \label{func: fx}
+            F\left(x\right) = x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
+          \end{equation}
+          
+          \begin{figure}[!ht] 
+          \begin{minipage}{\textwidth}
+            \begin{center} 
+              \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/sync_spectrum_loglog.png}
+            \end{center}
+            \end{minipage}
+            \\
+          \begin{minipage}{\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.61]{/Users/grewwc/Desktop/Thesis/sync_power_loglog.png}
+            \end{center}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+            \mycaption{According to the function \ref{func: fx}, top: $F\left(x\right)$; bottom: $x F\left(x\right)$.
+              \change{should change the style of the figure.}}
+            \label{fig: sync_spectrum_loglog}
+          \end{minipage}
+          \end{figure}
+          
+          The top figure \ref{func: fx} describes the general shape of power spectrum of synchrotron radiation
+          When the frequency is larger than
+          the critical frequency $\nu_c$, the power goes down dramatically. However, the top figure does not show 
+          the information that at what frequency the electron emit the strongest power, which is in the bottom figure.
+          The bottom figure shows that the energy most energy emitted around critical frequency. 
+
+          In reality, synchrotron radiations are not generated by a single particle. We describe the number density 
+          distribution of electrons with respect to energy by a single power-law model as the function 
+          \ref{func: sync_number_density} shown.
+          \begin{equation}
+            \label{func: sync_number_density}
+            N\left(E\right) \approx C E^{-\delta}
+          \end{equation}
+        
+          For simplicity, we set the ambient magnetic field $B$ to be a constant and make an approximation that all 
+          radiations are at a single frequency:
+          \begin{equation}
+            \label{func: sync_approximation}
+            \nu \approx \gamma^2 \nu_{cyc}
+          \end{equation}
+          where the meaning of $\nu_{cyc}$ is the same as function \ref{func: critical_frequency}. Our objective is to
+          know the relationship between total power of all electrons and their radiation frequency. We describe the 
+          relationship as the function \ref{func: sync_power_single_frequency}
+          
+          \begin{eqnarray}
+            \label{func: sync_power_single_frequency}
+            -P\left(E\right)N\left(E\right)dE &=& Q_{\nu} d\nu\\
+            P\left(E\right) &=& \frac{4}{3} \sigma_{T} \beta^2 \gamma^2 c U_B
+          \end{eqnarray} 
+          where $\sigma_{T}$ is electron Thompson scattering section, $U_B$ is energy density of the environment 
+          magnetic field,  $Q_{nu}$ is the emission coefficient of synchrotron radiation 
+          and $E=\gamma m_e c^2$. With function \ref{func: sync_approximation}, we have
+          \begin{equation}
+            \label{func: sync_combine}
+            P = \frac{dE}{d\nu} = \frac{m_e c^2}{2\sqrt{\nu \nu_{cyc}}}
+          \end{equation}
+          Combine the function \ref{func: sync_combine} and \ref{func: sync_power_single_frequency} we get:
+          \begin{equation}
+            Q_{\nu} = \frac{4}{3} \sigma_{T} \beta^2 \gamma^2 c U_B \frac{m_e c^2}{2\sqrt{\nu \nu_{cyc}}} N\left(E\right)
+          \end{equation}
+          By ignoring constants in the function \ref{func: sync_power_single_frequency} we have 
+          \begin{equation}
+            \label{func: sync_final}
+            Q_{\nu} \propto \nu^{(1-\delta)/2}
+          \end{equation}
+          The function \ref{func: sync_final} shows that if the number density electrons is a power-law distribution, 
+          the spectrum of synchrotron radiation is also a power-lay model.  
+          %end of synchrotron.
+
+
+        \subsection{Curvature Radiation}
+          When particles move along the curved magnetic field lines, they will generate curvature radiation. This is 
+          exactly the case in a pulsar's magnetosphere. The magnetic field is so strong that relativistic 
+          charged particles (electrons and positrons) are forced to move along the magnetic field line and hence 
+          emit strong curvature radiation. 
+          
+          \add{continue from here}
+        %end of "Curvature Radiation"
+
+        \subsection{Inverse-Compoton radiation}
+          \add{inverse-compoton radiation}
+        %end of "IC"
+
+        \subsection{Two-layer Model}
+          After we have reviewed gamma-ray fundamental emission mechanism, we can proceed to
+          the Two-layer model on which this thesis is mainly based. Two-layer model is a 
+          variation of outer-gap model since they both claim that the gamma-ray emission zone
+          is close to the light-cylinder. However, in two-layer model, the outer layer 
+          consists of two regions --- a primary acceleration region and a screening region. 
+          
+          In the primary region, charged particles moved out of pulsars along the open field lines, 
+          so the charge density is usually very low. 
+          However, by pair-production processes, a lot of $e^{-}$ and $e^{+}$ are produced. 
+          But in the primary region where lots of pairs are created, the charge density doesn't 
+          change very much because the pairs have not been separated yet. With the help of strong 
+          electric field, the particles of different signs move to opposite directions. 
+          As a result, the two-layer model states that just above the primary region, a screening 
+          region will be created and the charge density is very large. This is basically the reason why 
+          there are two regions in pulsars' outer magnetosphere.
+
+          Then the next issue is that how we describe the distribution of charge density in these two regions. 
+          For simplicity, we just use a step function to represent the charge density distribution and step function 
+          can clearly shows the gap between the two regions. We also 
+
+          In the two-layer model, we can use three parameters to express the structure of a pulsar's outer 
+          magnetosphere - charge density of the primary region, the total length of the primary region and the 
+          screening region and the last one is the ratio of the thickness of the primary region and the 
+          screening region. 
+
+          Let the charge density of the primary region be $(1-g_{1}) \rho_{GJ}$ and the total gap size is 
+          $h_{2}$, where $\rho_{GJ}$ is Goldreich-Julian charge density. For convenience, 
+          we also denote the gap size of the primary region as $h_{1}$.
+
+          \add{continue from here}
+
+        \section{Introduction of The Fermi Gamma-ray Space Telescope}
+          The Fermi Gamma-ray Space Telescope was launched on June 11, 2008 and opened a new window of studying
+          supermassive black-hole systems, pulsars and so on. Its original name was Gamma-ray Large Area Space 
+          Telescope (GLAST) and changed to Fermi Gamma-ray Space Telescope in honor of a great scientist 
+          Enrico Fermi.
+
+          The Fermi Gamma-ray Space Telescope contains two parts: Gamma-ray Burst Monitor (GBM) and Large 
+          Area Telescope (LAT), which is the primary components and is at least 30 times more sensitive than 
+          all gamma-ray telescopes launched before. We only use LAT for our purposes. So we 
+          focus on the LAT instrument, which contains four main subcomponents including tracker, calorimeter,
+          anti-coincidence detector and data acquisition system. The reason why the telescope is designed in 
+          this way is that high-energy gamma-rays cannot be refracted by lens or mirrors. As a result, the way
+          that the Fermi LAT operates is totally different. 
+
+          
+        \begin{figure}[!ht]  
+          \begin{minipage}{1\textwidth}
+            \begin{center} 
+                \includegraphics[scale=0.7]{/Users/grewwc/Desktop/Thesis/Gamma_telescope_schematic.png}
+                \mycaption{Light curve of module A}
+                \label{fig:fermi schematic}
+            \end{center}
+          \end{minipage}
+        \end{figure}
+        The following figure \ref{fig:fermi schematic} demonstrates the very basic idea of the Fermi LAT working
+        principles. \\
+
+        \begin{itemize}
+          \item Gamma-ray photons can enter the anti-coincidence detector freely while cosmic-rays will generate
+            signals which can tell the data acquisition system to reject these particles. In this way, the 
+            Fermi LAT can distinguish the gamma-ray photons and high energy cosmic rays and the confidence is 
+            over 99.9\%. 
+          \item The conversion foil (shown in the figure \ref{fig:fermi schematic}) can convert the 
+            gamma-ray photons into electron and positron pairs. This procedure makes it possible to determine 
+            the directions of the coming gamma-ray photons. 
+          \item The tracker (particle tracking detectors in the figure \ref{fig:fermi schematic}) records the 
+            positions of the electrons and positrons generated from the gamma-ray photons. There are many 
+            trackers so the paths of a particle can be constructed.
+          \item The electrons and positrons reach the calorimeter hence their energies are also measured.
+            Therefore, the energies of the original gamma-ray photons can also be calculated. 
+          \item The data acquisition system rejects unwanted particles such as cosmic rays by the method we mentioned 
+            before. Also, photons come from the Earth's astronomers are also rejected. 
+        \end{itemize}
+      
+        For a telescope, the ability of measuring the light direction and energy is very crucial. 
+        From the above descriptions of the Fermi LAT working principles, we know that the preciseness of 
+        construction of particles' path heavily influences how good we can measure the direction of photons. 
+        And this process is greatly dependent on algorithms, which means that with the improvements of software,
+        the sensitivity of the telescope can also be improved. The Pass 8 data was released on June 24, 2015.
+        It is an reprocessing of the entire Fermi mission dataset with better energy measurements, larger effective 
+        area, wider energy range and so on. This is part of the reason why I will redo the analysis of the three MSPs.
+
+      \section{Analysis With Fermi LAT}
+        In this section, my main objective is to show the results of my analysis. Before doing so, it is 
+        appropriate to briefly introduce some terminologies. 
+        \begin{itemize}
+          \item The first is count maps. A count map is basically generated by the following steps. Firstly we choose a 
+            pixel with a certain size. Then we check each photon's direction to determine if the photon is in this 
+            pixel. If it is in the pixel, the photon counts of the pixel will add one. So more photons fall within 
+            the pixel, the more photon counts the pixel has, hence the brighter the pixel is. By doing the same thing 
+            for every pixel, a count map is generated. A count map let us know what we have observed intuitively and 
+            gives us a very basic idea of if we get the wanted data. 
+          \item A count cube is very similar to a count map, except that a count cube is divided in many energy
+            bands. For example, a dataset whose energy is from 100MeV to 100GeV can be divided into 30 bins. We can
+            generate a count map in each energy bin, so we have 30 count maps. In other words, we can regard a 
+            count cube as multiple count maps. 
+          \item TS value provides us a way to test if our target source is observed. The TS value is: 
+            $TS = -2 \frac{\ln{L_{max, 0}}}{\ln{L_{max, 1}}}$, where $\ln{L_{max, 0}}$ is the maximum likelihood value 
+            without the target source while $\ln{L_{max, 0}}$ is the maximum likelihood value with the target source.
+            According to the equation, the smaller the ratio of $\ln{L_{max, 0}}$ and $\ln{L_{max, 1}}$, the larger
+            the TS value is. Therefore, a larger TS value statistically means that our aimed source is observed. 
+          \item \add{may have more items}
+        \end{itemize}
+
+        The basic idea of fitting spectra parameters is to make the count cube generated by the model be as similar 
+        to the observation data as possible. The calculation process can be summarized as follows. First of all, we 
+        have to generate a spectral model for every source in the region of interest based on the Fermi database.
+        The database includes LAT four-year Point Source Catalog (3FGL), Galactic diffuse emission (gll\_iem\_v06.fits)
+        and isotropic emission (iso\_P8R2\_SOURCE\_V6\_v06.txt). 
+        Then we can produce a count cube based on the model. Generally speaking, the difference of the 
+        count cubes between the model and observation is obvious. Then, the Fermi software adjusts the parameters 
+        to make the difference smaller. Until the errors are acceptable, the software outputs the final fitted 
+        parameters. 
+
+        We use a power-law-exponential-cutoff (PLExpCutoff) model to fit the observation data and 
+        it is a special case of power-law-super-exponential-cutoff (PLSuperExpCutoff) model. 
+        The spectrum of PLSuperExpCutoff can be described by the function: 
+            \begin{equation} 
+              \label{eq: fermi_model}
+              \frac{dN}{dE} = N_{0} \left(\frac{E}{E_0}\right)^{\gamma_1} 
+              exp\left(-\left(\frac{E}{E_c}\right)^{\gamma_2}\right)
+            \end{equation}
+        where $N_0$ is prefactor, $E_c$ is the cutoff energy and the $E_0$ is just a scale. 
+        PLExpCutoff model is the special case when $\gamma_2=1$. Our aim is to fit the parameters 
+        $N_0$, $E_c$ and $\gamma_1$ to make the model be more consistent with observation data.
+
+        \subsection{PSR J0218+4232}
+          \label{j0218}
+          Our ROI is a circle with radius of $20^\circ$ and all parameters of sources which are $8^\circ$ outside 
+          of the center are fixed. For sources within $8^\circ$, their parameters are same as the default values. 
+          In our case, there are 7 point sources which have free parameters. In the figure 
+          \ref{fig: j0218_count_map_and_model}, the green circles represent those free sources while the purple circles 
+          represent fixed sources. We need to notice that in the outer parts of the count map, there are some of very 
+          bright sources which have no free parameters. The reasons is that the they are so far away from our target source
+          that the Fermi telescope can distinguish if a photon comes from the target source or the outer source. However, 
+          it is another case for the nearby sources. 
+
+          \subsubsection{Count Maps And Count Cubes}
+          \begin{figure}[!ht]  
+            \begin{minipage}{0.45\textwidth}
+              \begin{center} 
+                  \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_count_map_with_region.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.45\textwidth}
+              \begin{center} 
+                  \includegraphics[scale=0.38]{/Users/grewwc/Desktop/Thesis/j0218_count_map_model.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{\textwidth}
+              \centering 
+              \mycaption{The count map of PSR J0218 (left) and the count map generated by the model. In the left figure,
+              the green circles are free sources while the purple circles are fixed sources.
+              The size of the figure is 141 pixels $\times$ 141 pixels, and each pixel is $0.2^\circ \times 0.2^\circ$. 
+              \\ \change{The figure color bar is a problem. I need to use some other tools to merge the two color bars.)}}
+            \label{fig: j0218_count_map_and_model}    
+            \end{minipage}
+          \end{figure}
+          In the left of the figure \ref{fig: j0218_count_map_and_model} 
+          is the count map of PSR J0218+4232.
+          In the center of the left figure, 
+          we can clearly see our target source. The dimension of the figures seems to be weird and 
+          the reason why we have 141 pixels for both x and y axis is that we select a circle region from 
+          the original data. However, when we generate a count map, we have to assign the sizes for x and y 
+          axis separately, which means that our a count map is actually rectangular. As a result, we have to crop a 
+          rectangular from the original circle region and in this case, we choose the rectangular as a square.  
+          
+          \begin{figure}[!ht]
+            \begin{minipage}{0.32\textwidth}
+              \begin{center} 
+                \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_ccube_bin_1.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.32\textwidth}
+              \begin{center}
+                \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_ccube_bin_15.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.32\textwidth}
+              \begin{center}
+              \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_ccube_bin_29.png}
+              \end{center}
+            \end{minipage}
+
+            \centering
+            \begin{minipage}{0.8\textwidth}
+              \mycaption{Three figures of PSR J0218+4232's count cube. The energy range of the figure in the 
+                left: 100$\sim$123MeV, middle: 1.873$\sim$2.310GeV, right: 35.11$\sim$43.29GeV.
+                \add{add color bar}}
+              \label{fig: j0218_ccube_bin_1_and_15}
+            \end{minipage}
+          \end{figure}
+          
+          The figure \ref{fig: j0218_ccube_bin_1_and_15} is a comparison of PSR J0218+4232's count maps in different energy 
+          bands. The count map in about 100MeV is so messy that we can hardly distinguish our target source 
+          while in about 30GeV so faint that there are no recorded photon around the source. 
+          We choose three circle regions whose center are the our target source and the radii are 1000 $''$ for 
+          all of the three figures and calculate the total photon counts of the selected regions. 
+          As the following table \ref{table:j0218_ccube_photon_counts}
+          shown, though total photon counts around our target source are similar between the left and middle map, the 
+          counts per energy is quite different. Therefore, we focus more on the middle energy parts (500MeV $\sim$ 
+          50GeV). This means that when doing binned analysis, we divide more bins in the middle part.
+
+          \begin{table}[!h]   
+            \centering
+            \begin{tabular}{m{4cm} | c | c | c }
+              & Left & Middle & Right \\
+              \hline
+              Total counts & 78 & 93 & 0 \\
+              \hline 
+              Energy range (MeV) & 100$\sim$123 & 1873$\sim$2310 & 35110$\sim$43290 \\ 
+              \hline
+              Counts / MeV & 3.39 & 0.213 & 0.000 \\  
+            \end{tabular}
+            \mycaption{Photon counts of count maps in different energy bands.}
+            \label{table:j0218_ccube_photon_counts}
+          \end{table}
+
+          \subsubsection{Binned Likelihood Analysis}
+
+            The figure \ref{fig: j0218_count_map_and_model} shows that the fit result of the model 
+            is similar to the observation. However, 
+            there are lots of small red pixels in the left figure (generated directly by the observation data) while the 
+            right figure is very "clean". This means that a lot of photon are thought as generated by the modeled 
+            source so in our model, the sources are generally slightly brighter than the observation. However, our target
+            source is an exception. In the region we have used before (the center is the target source, and the radius is
+            1000$''$), the total photon count in the left figure is 1815 compare to 1737 in the right figure. 
+
+            The reason why the count map generated directly by the observation data is a lot more messy is that our modeled 
+            source is generated according to the Fermi database and their spatial position is fixed. This means that if 
+            a photon comes from a particular direction and there is no any known pulsar in this direction, this 
+            photon has to be modeled to other direction. Thus, the spatial position of the photon is different 
+            between the observation and the model. 
+            
+            \begin{figure}[!ht]
+              \begin{minipage}{1\textwidth}
+                \begin{center} 
+                  \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/j0218_count_map_diff.png}
+                \end{center}
+              \end{minipage}
+              \centering
+              \begin{minipage}{0.8\textwidth}
+                \mycaption{The residual map shows the difference between the observation and the model. 
+                It is generated by subtracting the photon counts of each pixel between the count maps of 
+                observation and the model. 
+                \change{ugly, scale may be wrong}}
+                \label{fig: j0218_count_map_diff}
+              \end{minipage}
+            \end{figure}
+
+            The figure \ref{fig: j0218_count_map_diff} generally describes how well our model is compared to the 
+            observation data. There are some black dots and bright dots in the residual map which means that the 
+            absolute photon counts between the model and the observation differ a lot. However, 
+            it is acceptable because the original value is much larger. The absolute values
+            of most of other pixels are less than 10 implying that the global fit is fine. 
+
+            \begin{table}[!ht]
+              \centering
+                \begin{tabular}{c|c|c}
+                  & Value & Error \\
+                  \hline 
+                  Prefactor ($N_{0}$) & $1.71\times 10^{-11}$ & $0.0610\times 10^{-12}$ \\
+                  \hline
+                  Index1 ($\gamma_1$) & $1.8999$ & 0.0395 \\
+                  \hline 
+                  Cutoff ($E_c$, MeV) & $3794.25$ & $396.447$ \\
+                \end{tabular}    
+                \mycaption{Fit parameters of the model. The parameters are corresponding to the equation 
+                  \ref{eq: fermi_model}. \\
+                  \add{add comparison with previous data later.)}
+                  \change{the table is ugly}}
+                \label{table: j0218_fit_result}        
+            \end{table}  
+
+            \singleFig{j0218_cur_with_data_points.png}{0.6}{
+              The log-log plot of flux to energy. The grey shade represents 
+              fitting errors, black points with error bars are flux points, the blue dots are upper values and the 
+              red line is the PLExpCutoff model multiplied by $E^2$. Flux points 
+              are fitted separately by dividing the total energy bin (100 MeV $\sim$ 100 GeV) into multiple energy bins.
+              The horizontal error bars represents the width of each bin. \\
+              (The figure should use legends, but for now I have problem setting those styles, 
+              may be my matplotlib version is too old.) \\
+              \change{legends, arrows}
+            }
+
+            The table \ref{table: j0218_fit_result} lists the results of fitting parameters. The figure 
+            \ref{fig: j0218_cur_with_data_points.png} plot the spectrum according to the function \ref{eq: fermi_model}.
+            One thing should be noticed is that we need to multiply $E^2$ to the function \ref{eq: fermi_model} to 
+            get the flux. The figure \ref{fig: j0218_cur_with_data_points.png} shows that the global fit is consistent 
+            with flux points fitted by each energy bin separately. The TS value for the fit is 7110, which gives us 
+            a significance level $\sigma \approx \sqrt{TS} = 84$. This strongly implies the presence of our
+            target source. We can also use a TS map to test the presence of the source as the figure 
+            \ref{fig: blank.png} showing. 
+
+            \singleFig{blank.png}{0.3}{\change{The figure should be a TS map, but the new TS map has not been generated yet.
+            The previous TS map does not use the best fit parameters, so I have to re-generate the TS map. And this 
+            world map is just a reminder and it may be used a lot.}}
+
+            
+            \subsection{PSR J1824.6-2452}
+              The ROI region is a circle whose radius is $20^\circ$ and all sources outside of $8^\circ$ are fixed. 
+              There are 6 free sources in the region of $8^\circ$. The figure 
+              \ref{fig: b1821_count_map_with_region_and_model} 
+              is a combination of count maps of observation data and the model. 
+
+              \subsubsection{Count Maps And Count Cubes}
+              \begin{figure}[!ht]
+                \begin{center}
+                \begin{minipage}{0.45\textwidth}
+                  \begin{center} 
+                    \includegraphics[scale=0.32]{/Users/grewwc/Desktop/Thesis/b1821_count_map_with_region.png}
+                  \end{center}
+                \end{minipage}
+                \begin{minipage}{0.45\textwidth}
+                  \begin{center}
+                    \includegraphics[scale=0.39]{/Users/grewwc/Desktop/Thesis/b1821_count_map_model.png}
+                  \end{center}
+                \end{minipage}
+              \end{center}
+
+                \centering
+                \begin{minipage}{\textwidth}
+                  \mycaption{The count map of PSR J1821.6 (left) and the count map generated by the model. In the left figure,
+                  the green circles are free sources while the purple circles are fixed sources.
+                  The sizes of the both figures are 141 pixels $\times$ 141 pixels, 
+                  and each pixel is $0.2^\circ \times 0.2^\circ$. 
+                  \\ (The figure color bar is a problem. I need to use some other tools to merge the two color bars. 
+                  Also, I think I should make the color bar be vertical instead of horizontal.)}
+                  \label{fig: b1821_count_map_with_region_and_model}
+                \end{minipage}
+              \end{figure}
+              
+              As the figure \ref{fig: b1821_count_map_with_region_and_model} shown, the PSR J1824.6 is much dimmer than
+              PSR J0218+4232, which implies that the fitting result may be worse. In general, the two figures are quite 
+              similar, except that the modeled count map lacks some details and the reason was explained in the previous 
+              section \ref{j0218}. 
+            
+              \begin{figure}[!ht]
+                \begin{center}
+                \begin{minipage}{0.32\textwidth}
+                  \begin{center} 
+                    \includegraphics[scale=0.345]{/Users/grewwc/Desktop/Thesis/b1821_ccube_1.png}
+                  \end{center}
+                \end{minipage}
+                \begin{minipage}{0.32\textwidth}
+                  \begin{center}
+                    \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_ccube_15.png}
+                  \end{center}
+                \end{minipage}
+                \begin{minipage}{0.32\textwidth}
+                  \begin{center}
+                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_ccube_33.png}
+                  \end{center}
+                \end{minipage}
+              \end{center}
+                \centering
+                \begin{minipage}{0.8\textwidth}
+                  \mycaption{Three figures of PSR J1824.6's count cube. The energy range of the figure in the 
+                    left: 100$\sim$123MeV, middle: 1.873$\sim$2.310GeV, right: 81.11$\sim$100GeV.
+                    \add{add color bar}}
+                  \label{fig: b1821_ccube_1_15_33.png}
+                \end{minipage}
+              \end{figure}
+
+              The figures \ref{fig: b1821_ccube_1_15_33.png} are count maps of PSR J1824.6-2452 in different energy 
+              bands. The target pulsar is too faint in very high energy band and interfered too much by the ambient 
+              environment in low energy band (around 100MeV). Because our target source is near the M28 globular 
+              cluster and very faint, it is reasonable that the fitting result is worse than PSR J0218+4232. 
+
+              
+              \subsubsection{Binned Likelihood Analysis}
+                The differences of the count map between the observation data and the model are described as the figure
+                \ref{fig: b1821_count_map_diff.png}.
+                \singleFig{b1821_count_map_diff.png}{0.6}
+                  {The residual map shows the difference in photon counts between the observation and the model
+                  \change{ugly}}
+              
+                There is an obvious black dot in the figure \ref{fig: b1821_count_map_diff.png} and the value of the dot
+                is large --- 1299. 
+                The original value from the observation data is 4503. I think the model is acceptable
+                because the source in this pixel is fixed and far away from our target source 
+                (\question{I'm not sure yet.}).
+                So the value of this source does not contribute too much to the center. The values of most other 
+                pixels are below 20 implying that the global fit result is acceptable. 
+                
+                \singleFig{b1821_spectrum_with_points.png}{0.6}{The log-log plot of flux to energy. 
+                  \change{should use legends, add arrows for upper values, make the label fonts larger.}}
+
+                The figure \ref{fig: b1821_spectrum_with_points.png} shows that the global fit is consistent with 
+                the flux points generated by fitting sub-energy bins. However, we should notice the first flux points 
+                which is denoted as a blue square in the figure \ref{fig: b1821_spectrum_with_points.png}. This 
+                flux points is significantly smaller than the global fit (the red line in the figure). 
+                What's more, the upper value for the first energy bin is still slightly smaller. 
+                \question{I think it is because that the flux points are fitted separately and are independent to 
+                the global fit. In fact, we use a single power-lay model to fit each sub-energy bin while PLExpCutoff
+                model to do the global fit. As we have explained previously, the lower energy part of the 
+                observation (around 100 MeV) is not reliable. As a result, the separate fit for the first energy bin
+                is not as reliable as the global fit and it is reasonable that the two fitting results are not 
+                consistent. When this happens, we have more confidence on the global fit than the separate fit.}
+
+              \singleFig{blank.png}{0.3}{\change{The figure should be a TS map, but the new TS map has not been generated yet.
+              The previous TS map does not use the best fit parameters, so I have to re-generate the TS map. And this 
+              world map is just a reminder and it may be used a lot.}}
+
+            \subsection{PSR J1939+2134}
+              \add{continue here}
+
+
+\end{document}
+
+
+
+
+
