@@ -24,5 +24,6 @@
         "markdown",
         "latex",
         "plaintext"
-    ]
+    ],
+    "python.pythonPath": "/anaconda2/bin/python"
 }

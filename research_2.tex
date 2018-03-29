@@ -30,7 +30,7 @@
     %linkcolor=[RGB]{0,204,0},
     linkcolor=black,
     urlcolor=black
-}
+
 \captionsetup[figure]{labelfont=bf, font=footnotesize}
 
 \setlength{\parskip}{1em}
@@ -120,7 +120,7 @@
 }
 
 \newcommand{\question}[1]{
-  $<$question$>$#1$<$/question$>$
+  $<$\textbf{question}$>$#1$<$\textbf{/question}$>$
 }
 
 \newcommand{\change}[1]{
@@ -1085,7 +1085,7 @@
       As mentioned before, because of the very short rotation periods, MSPs have very small light cylinder radii 
       compared with normal pulsars. As a result, their emission mechanisms are similar to normal pulsars, 
       especially for my target objects --- PSRJ0218+4232, PSRJ1939+2134 and PSRJ1824-2452
-      which are among the fastest spinning MSPs. Therefore, as normal pulsars,these three 
+      which are among the fastest spinning MSPs. Therefore, as normal pulsars, these three 
       pulsars are bright in Gamma-Ray band so it is convenient for us to analyze the spectra 
       properties of them in gamma-rays.
 
@@ -1208,7 +1208,7 @@
           \add{continue from here}
         %end of "Curvature Radiation"
 
-        \subsection{Inverse-Compoton radiation}
+        \subsection{Inverse-Compton radiation}
           \add{inverse-compoton radiation}
 
 
@@ -1220,7 +1220,7 @@
           variation of outer-gap model since they both claim that the gamma-ray emission zone
           is close to the light-cylinder. However, in two-layer model, the outer layer 
           consists of two regions --- a primary acceleration region and a screening region. 
-          
+
           In the primary region, charged particles moved out of pulsars along the open field lines, 
           so the charge density is usually very low. 
           However, by pair-production processes, a lot of $e^{-}$ and $e^{+}$ are produced. 
@@ -1280,7 +1280,7 @@
           As a result, the equation \ref{eq: Poisson_final} can be written as: 
           \begin{equation}
             \label{eq: Poisson_final_final}
-            \frac{\partial^2}{\partial z} \phi^{\prime} = -4\pi\left(\rho - \rho_{GJ} \right)
+            \frac{\partial^2}{\partial z^2} \phi^{\prime} = -4\pi\left(\rho - \rho_{GJ} \right)
           \end{equation}
 
           In order to solve the equation \ref{eq: Poisson_final_final}, we have to have proper boundary conditions. 
@@ -1288,14 +1288,46 @@
           $x_{lo}, x_{hi}, z_{lo}, z_{hi}$. It is reasonable to set $x_{lo}$ and $x_{hi}$
           be the pulsar's surface and the light cylinder respectively and $z_{lo}$ (lower boundary) be the last open 
           field line. And let the electrical potential be $0$ along the last open field line (this is because we have 
-          igonred) .   
+          ignored the variation of electric field in $x$ direction).   
 
           \begin{equation}
             \label{eq: lower_boundary}
             \phi \left(x, z_{lo}\right) = 0
           \end{equation}
-          The position of $z_{hi}$ is a little bit tricky. 
+          The position of $z_{hi}$ is a little bit tricky. In order to make the electrical potential be 
+          continuous at $z = z_{hi} = h_2$, the model sets the $\phi^{\prime} = 0$ since the 
+          non-corotating electrical potential outside the upper bound is $0$ and the co-rotating potential
+          is continuous near the boundary. 
 
+          With these boundary conditions and equation \ref{eq: Poisson_final_final}, we can calculate the 
+          distribution of electric field, which accelerates charged particles to a very high speed so that 
+          they can emit curvature radiation, giving gamma-ray spectra. With the accelerating electric field 
+          known, we can calculate the Lorentz factor of charged particles and their spectra. This is the 
+          basic idea of the Two-layer model. \question{not sure if I should introduce the theory more 
+          thoroughly}.
+
+          \question{I am not sure if I should add this part here, since it is completely based on 
+            my own experience}
+          \subsubsection{Constraints of The Two-lay Model Used In The Thesis} 
+            The simplified two-layer model is consistent with observation data to some extent. 
+            (The relevant data can be found in the paper 
+            \href{http://iopscience.iop.org/article/10.1088/0004-637X/720/1/178/pdf}
+            {\color{black}{\textit{\small GAMMA-RAY SPECTRAL PROPERTIES OF MATURE PULSARS: A TWO-LAYER MODEL.}}})
+            The model uses 4 parameters to get a fair good prediction of gamma-ray spectra for many 
+            pulsars. And all these 4 parameters have a very obvious physical meaning. 
+            However, we can clearly find the "defects" of the model --- it is somewhat oversimplified. 
+            Though there are other more sophisticated version of two-layer model, we use the simpler one, 
+            which may cause some inconsistency between our simulation and observation. 
+
+            Therefore, we can briefly analyze which part is oversimplified and can be improved. 
+            First of all, we directly use a step function to describe the charged particle distribution. 
+            Though the charge density of the screening region is much larger than the primary region, using 
+            a step function is non-physical and may exaggerate the change rate of charge density. 
+            
+            
+
+
+        
           \add{continue from here}
 
         \section{Introduction of The Fermi Gamma-ray Space Telescope}
@@ -1312,7 +1344,6 @@
           this way is that high-energy gamma-rays cannot be refracted by lens or mirrors. As a result, the way
           that the Fermi LAT operates is totally different. 
 
-          
         \begin{figure}[!ht]  
           \begin{minipage}{1\textwidth}
             \begin{center} 
@@ -1341,7 +1372,7 @@
           \item The data acquisition system rejects unwanted particles such as cosmic rays by the method we mentioned 
             before. Also, photons come from the Earth's astronomers are also rejected. 
         \end{itemize}
-      
+
         For a telescope, the ability of measuring the light direction and energy is very crucial. 
         From the above descriptions of the Fermi LAT working principles, we know that the preciseness of 
         construction of particles' path heavily influences how good we can measure the direction of photons. 
@@ -1380,7 +1411,7 @@
         Then we can produce a count cube based on the model. Generally speaking, the difference of the 
         count cubes between the model and observation is obvious. Then, the Fermi software adjusts the parameters 
         to make the difference smaller. Until the errors are acceptable, the software outputs the final fitted 
-        parameters. 
+        parameters.  
 
         We use a power-law-exponential-cutoff (PLExpCutoff) model to fit the observation data and 
         it is a special case of power-law-super-exponential-cutoff (PLSuperExpCutoff) model. 
