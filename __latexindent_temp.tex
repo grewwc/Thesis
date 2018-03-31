@@ -30,7 +30,7 @@
     %linkcolor=[RGB]{0,204,0},
     linkcolor=black,
     urlcolor=black
-}
+
 \captionsetup[figure]{labelfont=bf, font=footnotesize}
 
 \setlength{\parskip}{1em}
@@ -115,16 +115,29 @@
  \end{figure} 
 }
 
+\newcommand{\gj}[0]{
+  Goldreich-Julian charge density
+}
+
 \newcommand{\question}[1]{
-  $<$question$>$#1$<$/question$>$
+  $<$\textbf{question}$>$#1$<$\textbf{/question}$>$
 }
 
 \newcommand{\change}[1]{
-  $<$change$>$#1$<$/change$>$
+  $<$\textbf{change}$>$#1$<$\textbf{/change}$>$
 }
 
 \newcommand{\add}[1]{
-  $<$add$>$#1$<$/add$>$
+  $<$\textbf{add}$>$#1$<$\textbf{/add}$>$
+}
+
+\newcommand{\mayChange}[1]{
+  $<$\textbf{mayChange}$>$#1$<$\textbf{/mayChange}$>$
+}
+
+\newcommand{\myComment}[1]{
+  %#1 
+  \newline
 }
 
 \begin{document}
@@ -776,7 +789,6 @@
         document\href{http://cxc.harvard.edu/sherpa/ahelp/powlaw1d.html}{'powlaw1d'}). We use chi square statistics
         to analyze goodness of fitting.\\
 
-
         %add a parameter table here.
         \begin{table}[!h] 
           \centering
@@ -805,6 +817,7 @@
         module B). This 
         is because that the high energy X-ray photons are nearly not absorbed by interstellar medium. As a result, 
         the column density fitted only by \textit{NuSTAR} (3$\sim$79eV) reliable so we need to combine 
+
         \textit{NuSTAR} data and \textit{Chandra} and \textit{XMM-Newton} data together to fit.\\ 
         \begin{figure}[h]
           \begin{minipage}{0.45\textwidth}
@@ -841,6 +854,7 @@
         general, our model is good if reduced chi square statistic is about 1. Thus, we need to rethink how we 
         should screen the data.
 
+
         \indent 
         In short, we are focusing on the two things: change the source and background regions and filter the 
         light curves by adding our own GTI file. 
@@ -859,6 +873,7 @@
         4 detectors. Thirdly, we change the shape of background region from a circle to an annulus. Just as before, 
         we call this choice of region as "region 2". The aim is to 
         make the background region surround the observed source to be more like the background of the source.\\ 
+
         \begin{figure}[!ht]
           \begin{minipage}{0.45\textwidth}
             \begin{flushleft} 
@@ -886,6 +901,7 @@
         \ref{fig:problems}) and keep on using the "region 3" in the following discussion of this section. Meanwhile,
         because we want to try to do timing analysis, barycenter correction is also applied in the following 
         analysis. So far, we have changed 2 things: background region and barycenter correction. 
+
         \begin{figure}[!ht]
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
@@ -912,6 +928,7 @@
         Actually there is no obvious improvement in light curves after we change the source and background regions
         --- there are also some spikes in the light curves. In order to get rid of those high spikes, we add some 
         GTI files to filter the event file. 
+
         \begin{figure}[!ht]  
           \begin{minipage}{1\textwidth}
             \begin{center} 
@@ -955,6 +972,7 @@
         source and background regions, the reduced chi square statistic values of both module A and B are greatly 
         increased while the Q-values are largely decreased. This means that the observation data is less overfitted
         by our model, which generally is a better result.  
+
         \begin{figure}[!ht]
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
@@ -1006,6 +1024,7 @@
         correction in this step. After adding the GTI file, the cleaned event files are changed too. As a result, 
         the spectra should also have some changes. The figures \ref{fig:spectra_usrgti}
         are spectra produced by using GTI files we generated.  
+
         \begin{figure}[!ht] 
           \begin{minipage}{0.45\textwidth}
             \begin{flushleft} 
@@ -1036,15 +1055,16 @@
           I think we can ignore this for now because hard X-ray is nearly not affected by
           interstellar medium. We will care about column density after combined with other telescopes data such 
           as Chandra. 
+
           \begin{table}[!h]   
             \centering
             \begin{tabular}{| m{4cm} | m{3cm} | m{3cm} |}
               \hline
-              & Module A & Module B \\
+              & Module A & Module B\\
               \hline
               Column Density (nH) ($10^{22} atoms/cm^2$) & 7.57 & $4.65\times10^{-8}$\\ 
               \hline
-              Photon Index ($\Gamma$) & 1.20 & 1.48 \\
+              Photon Index($\Gamma$) & 1.20 & 1.48 \\
               \hline 
               Reduced Chi Square Statistic & 1.13 & 0.98 \\
               \hline 
@@ -1059,14 +1079,16 @@
           we can directly fit the spectra of these two modules with one single model. Secondly, we can add a 
           constant between module A and B to represent the differences. % The following figures \ref{} are the result.
 
+
 %another chapter
   \chapter{Gamma-Ray Analysis}
       As mentioned before, because of the very short rotation periods, MSPs have very small light cylinder radii 
       compared with normal pulsars. As a result, their emission mechanisms are similar to normal pulsars, 
       especially for my target objects --- PSRJ0218+4232, PSRJ1939+2134 and PSRJ1824-2452
-      which are among the fastest spinning MSPs. Therefore, as normal pulsars,these three 
+      which are among the fastest spinning MSPs. Therefore, as normal pulsars, these three 
       pulsars are bright in Gamma-Ray band so it is convenient for us to analyze the spectra 
       properties of them in gamma-rays.
+
 
       \section{Gamma-Ray Emission Mechanism of MSPs}
         An MSP's magnetosphere is dominated by various kinds of emission mechanisms. Thus we should review some 
@@ -1101,7 +1123,7 @@
             P\left(\nu\right) = C \times x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
           \end{equation}
           where $C$ is a constant dependent on $B$. Thus, in order to analyze the power spectrum of synchrotron radiation,
-          we only concentrate on the later part, which is 
+          we only concentrate on the later part, which is
           \begin{equation}
             \label{func: fx}
             F\left(x\right) = x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
@@ -1186,8 +1208,10 @@
           \add{continue from here}
         %end of "Curvature Radiation"
 
-        \subsection{Inverse-Compoton radiation}
+        \subsection{Inverse-Compton radiation}
           \add{inverse-compoton radiation}
+
+
         %end of "IC"
 
         \subsection{Two-layer Model}
@@ -1196,7 +1220,7 @@
           variation of outer-gap model since they both claim that the gamma-ray emission zone
           is close to the light-cylinder. However, in two-layer model, the outer layer 
           consists of two regions --- a primary acceleration region and a screening region. 
-          
+
           In the primary region, charged particles moved out of pulsars along the open field lines, 
           so the charge density is usually very low. 
           However, by pair-production processes, a lot of $e^{-}$ and $e^{+}$ are produced. 
@@ -1209,24 +1233,132 @@
 
           Then the next issue is that how we describe the distribution of charge density in these two regions. 
           For simplicity, we just use a step function to represent the charge density distribution and step function 
-          can clearly shows the gap between the two regions. We also 
+          can clearly shows the gap between the two regions. We use a magnetic dipole model to approximate the 
+          magnetic distribution in the magnetosphere. Since in magnetic dipole model, magnetic field at one position is 
+          only dependent on the position's distance from the source and altitude, we can also ignore the azimuthal 
+          distribution of charge density in our model and use the two parameters
+          the $r (distance)$ and $\theta (altitude)$ to calculate the magnetic field at some position.
 
           In the two-layer model, we can use three parameters to express the structure of a pulsar's outer 
           magnetosphere - charge density of the primary region, the total length of the primary region and the 
           screening region and the last one is the ratio of the thickness of the primary region and the 
-          screening region. 
+          screening region. The figure \ref{fig: charge_density} shows the basic structure of two-layer model. 
 
-          Let the charge density of the primary region be $(1-g_{1}) \rho_{GJ}$ and the total gap size is 
+          \singleFig{charge_density}{0.6}{(a): The geometry of two-layer model. $h_{1}$ and $h_{2}$ is the height
+          of the primary region and the screening region respectively. (b): the charge densities of primary region and 
+          screening region. In the primary region, the charge density is much smaller than Goldreich-Julian charge density
+          while is larger in the screening region. \mayChange{this figure is from the previous paper, I may need to 
+          regenerate the figure.}}
+      
+          As the figure \ref{fig: charge_density} showing, 
+          let the charge density of the primary region be $\rho_1 = (1-g_{1}) \rho_{GJ}$ and the total gap size is 
           $h_{2}$, where $\rho_{GJ}$ is Goldreich-Julian charge density. For convenience, 
-          we also denote the gap size of the primary region as $h_{1}$.
+          we also denote the gap size of the primary region as $h_{1}$. 
+          \myComment{Then we can calculate electric potential and electric field by solving the Poisson equation }
 
+          We denote the electrical potential to be $\phi_{0}$ which satisfies 
+          \begin{equation}
+            \label{eq: Poisson_corotating}
+            \nabla^{2}\phi_{0} = -4\pi\rho_{GJ}
+          \end{equation}
+          and the total electrical potential is $\phi = \phi_{0} + \phi^{\prime}$, where $\phi^{\prime}$ is a 
+          representation of the deviation of the co-rotating electrical potential.  
+          Let total charge density is $\rho$ and subtract the equation \ref{eq: Poisson_corotating} we have 
+          \begin{equation}
+            \label{eq: Poisson_final}
+            \nabla^{2}\phi^{\prime} = -4\pi\left(\rho - \rho_{GJ} \right)
+          \end{equation}
+
+          Because the model has ignored the distribution in the azimuthal direction, we can use two parameters 
+          $x, z$ to represent a position, where $x$ is the direction along the magnetic field line and $z$ is the 
+          perpendicular to the magnetic field line. In order to solve the equation \ref{eq: Poisson_final}, 
+          the model also makes 2 approximations. The first is that the directive of electrical potential $\phi$ 
+          is ignored. The second is that the \gj{} is uniformly distributed along the magnetic line direction 
+          ($x$ direction). These 2 approximations are based on the a reasonable assumption that the change rate 
+          for both electrical potential ($\phi^{\prime}$) and \gj{}($\rho_{GJ}$) along the $x$ direction is much 
+          smaller compared with $z$ direction. 
+          As a result, the equation \ref{eq: Poisson_final} can be written as: 
+          \begin{equation}
+            \label{eq: Poisson_final_final}
+            \frac{\partial^2}{\partial z^2} \phi^{\prime} = -4\pi\left(\rho - \rho_{GJ} \right)
+          \end{equation}
+
+          In order to solve the equation \ref{eq: Poisson_final_final}, we have to have proper boundary conditions. 
+          First of all, we have to decide the boundary positions, which is determined by 4 parameters and they are  
+          $x_{lo}, x_{hi}, z_{lo}, z_{hi}$. It is reasonable to set $x_{lo}$ and $x_{hi}$
+          be the pulsar's surface and the light cylinder respectively and $z_{lo}$ (lower boundary) be the last open 
+          field line. And let the electrical potential be $0$ along the last open field line (this is because we have 
+          ignored the variation of electric field in $x$ direction).   
+
+          \begin{equation}
+            \label{eq: lower_boundary}
+            \phi \left(x, z_{lo}\right) = 0
+          \end{equation}
+          The position of $z_{hi}$ is a little bit tricky. In order to make the electrical potential be 
+          continuous at $z = z_{hi} = h_2$, the model sets the $\phi^{\prime} = 0$ since the 
+          non-corotating electrical potential outside the upper bound is $0$ and the co-rotating potential
+          is continuous near the boundary. 
+
+          With these boundary conditions and equation \ref{eq: Poisson_final_final}, we can calculate the 
+          distribution of electric field, which accelerates charged particles to a very high speed so that 
+          they can emit curvature radiation, giving gamma-ray spectra. With the accelerating electric field 
+          known, we can calculate the Lorentz factor of charged particles and their spectra. This is the 
+          basic idea of the Two-layer model. \question{not sure if I should introduce the theory more 
+          thoroughly}.
+
+          \question{I am not sure if I should add this part here, since it is completely based on 
+            my own experience}
+          \subsubsection{Constraints of The Two-lay Model Used In The Thesis} 
+            The simplified two-layer model is consistent with observation data to some extent. 
+            (The relevant data can be found in the paper 
+            \href{http://iopscience.iop.org/article/10.1088/0004-637X/720/1/178/pdf}
+            {\color{black}{\textit{\small GAMMA-RAY SPECTRAL PROPERTIES OF MATURE PULSARS: A TWO-LAYER MODEL.}}})
+            The model uses 4 parameters to get a fair good prediction of gamma-ray spectra for many 
+            pulsars. And all these 4 parameters have a very obvious physical meaning. 
+            However, we can clearly find the "defects" of the model --- it is somewhat oversimplified. 
+            Though there are other more sophisticated version of two-layer model, we use the simpler one, 
+            which may cause some inconsistency between our simulation and observation. 
+
+            Therefore, we can briefly analyze which part is oversimplified and can be improved. 
+            First of all, we directly use a step function to describe the charged particle distribution. 
+            Though the charge density of the screening region is much larger than the primary region, using 
+            a step function is non-physical and may exaggerate the change rate of charge density. At the 
+            same time, the dramatic change of charge density also brings introduces some instability for 
+            numerical simulation. 
+
+            Secondly, the model sets the total of screening region and primary region to be rectangular shape. 
+            Though the shape is not clear, it should not be a rectangular in theory and may be very different.
+            In numerical simulation, changes in shape of the regions will directly lead to a different 
+            integration region, which may change the simulated spectra completely. 
+
+            Thirdly, there are some inconsistency in the model itself according to the its assumption. 
+            For example, the model states that (for simplicity) the energy of charged particles accelerated 
+            in the primary region has been completely transferred to a photon-pairs by the pair creation process.
+            It can be expressed as a function: 
+            \begin{equation}
+              \label{eq: constraints-all-is-curvature-radiation}
+              e E_{\parallel} c = l_{cur}
+            \end{equation}
+            where $E_\parallel$ is the electric field strength along the magnetic field line and 
+            \begin{equation}
+              \label{eq: constraints-curvature-radiation-power}
+              l_{cur} = \frac{2 e^2 c \gamma^{4}_{e}}{3s^2}
+            \end{equation}
+            is the power of radiation, where $s$ 
+            From the above equation, we can derive $ $ 
+
+            
+            
+
+
+        
           \add{continue from here}
 
         \section{Introduction of The Fermi Gamma-ray Space Telescope}
           The Fermi Gamma-ray Space Telescope was launched on June 11, 2008 and opened a new window of studying
           supermassive black-hole systems, pulsars and so on. Its original name was Gamma-ray Large Area Space 
           Telescope (GLAST) and changed to Fermi Gamma-ray Space Telescope in honor of a great scientist 
-          Enrico Fermi.
+          Enrico Fermi. 
 
           The Fermi Gamma-ray Space Telescope contains two parts: Gamma-ray Burst Monitor (GBM) and Large 
           Area Telescope (LAT), which is the primary components and is at least 30 times more sensitive than 
@@ -1236,7 +1368,6 @@
           this way is that high-energy gamma-rays cannot be refracted by lens or mirrors. As a result, the way
           that the Fermi LAT operates is totally different. 
 
-          
         \begin{figure}[!ht]  
           \begin{minipage}{1\textwidth}
             \begin{center} 
@@ -1265,7 +1396,7 @@
           \item The data acquisition system rejects unwanted particles such as cosmic rays by the method we mentioned 
             before. Also, photons come from the Earth's astronomers are also rejected. 
         \end{itemize}
-      
+
         For a telescope, the ability of measuring the light direction and energy is very crucial. 
         From the above descriptions of the Fermi LAT working principles, we know that the preciseness of 
         construction of particles' path heavily influences how good we can measure the direction of photons. 
@@ -1304,7 +1435,7 @@
         Then we can produce a count cube based on the model. Generally speaking, the difference of the 
         count cubes between the model and observation is obvious. Then, the Fermi software adjusts the parameters 
         to make the difference smaller. Until the errors are acceptable, the software outputs the final fitted 
-        parameters. 
+        parameters.  
 
         We use a power-law-exponential-cutoff (PLExpCutoff) model to fit the observation data and 
         it is a special case of power-law-super-exponential-cutoff (PLSuperExpCutoff) model. 
@@ -1598,6 +1729,8 @@
 
             \subsection{PSR J1939+2134}
               \add{continue here}
+
+              
 
 
 \end{document}

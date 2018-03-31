@@ -1322,7 +1322,39 @@
             Therefore, we can briefly analyze which part is oversimplified and can be improved. 
             First of all, we directly use a step function to describe the charged particle distribution. 
             Though the charge density of the screening region is much larger than the primary region, using 
-            a step function is non-physical and may exaggerate the change rate of charge density. 
+            a step function is non-physical and may exaggerate the change rate of charge density. At the 
+            same time, the dramatic change of charge density also brings introduces some instability for 
+            numerical simulation. 
+
+            Secondly, the model sets the total of screening region and primary region to be rectangular shape. 
+            Though the shape is not clear, it should not be a rectangular in theory and may be very different.
+            In numerical simulation, changes in shape of the regions will directly lead to a different 
+            integration region, which may change the simulated spectra completely. 
+
+            Thirdly, there are some inconsistency in the model itself according to the its assumption. 
+            For example, the model states that (for simplicity) the energy of charged particles accelerated 
+            in the primary region has been completely transferred to a photon-pairs by the pair creation process.
+            It can be expressed as a function: 
+            \begin{equation}
+              \label{eq: constraints-all-is-curvature-radiation}
+              e E_{\parallel} c = l_{cur}
+            \end{equation}
+            where $E_\parallel$ is the electric field strength along the magnetic field line and 
+            \begin{equation}
+              \label{eq: constraints-curvature-radiation-power}
+              l_{cur} = \frac{2 e^2 c \gamma^{4}_{e}}{3s^2}
+            \end{equation}
+            is the power of radiation, where $s$ is the radius of curvature. 
+            Combining the equation \ref{eq: constraints-all-is-curvature-radiation} and 
+            \ref{eq: constraints-curvature-radiation-power} we have: 
+            \begin{equation}
+              \label{eq: constraints-gamma-can-be-0}
+              \gamma_{e} = \left(\frac{3s^2}{2e} E_{\parallel}\right)^{1/4}
+            \end{equation}
+            Since we $E_{\parallel}$ can be $0$, 
+            from the equation \ref{eq: constraints-curvature-radiation-power} we know that the 
+            $\gamma_{e}$
+
             
             
 
