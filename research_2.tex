@@ -131,6 +131,11 @@
   $<$\textbf{add}$>$#1$<$\textbf{/add}$>$
 }
 
+\newcommand{\mayAdd}[1]{
+  $<$\textbf{mayAdd}$>$#1$<$\textbf{/mayAdd}$>$
+}
+
+
 \newcommand{\mayChange}[1]{
   $<$\textbf{mayChange}$>$#1$<$\textbf{/mayChange}$>$
 }
@@ -138,6 +143,10 @@
 \newcommand{\myComment}[1]{
   %#1 
   \newline
+}
+
+\newcommand{\blackhref}[2]{
+  \href{#1}{\color{black}{\textit{\small #2}}}
 }
 
 \begin{document}
@@ -208,21 +217,18 @@
         
 
 
-        can add these content later.
-        \iffalse 
-        \indent Although the primary focuses of this thesis are observational characteristics such as 
-        spectra and light-curves, it is helpful to talk a little about internal structure of pulsars.
-        \fi 
+        \add{can add these content later.}
+        % \iffalse 
+        % \indent Although the primary focuses of this thesis are observational characteristics such as 
+        % spectra and light-curves, it is helpful to talk a little about internal structure of pulsars.
+        % \fi 
 
-        \iffalse
-        \indent Many stars are in binary systems so neutron stars can also be isolated or in binary systems. 
-        Some of them even have planets. That a pulsar is in binary system provides us a convenient way to 
-        measure its mass. 
-        \indent 
-        \fi
-		     
-  
-
+        % \iffalse
+        % \indent Many stars are in binary systems so neutron stars can also be isolated or in binary systems. 
+        % Some of them even have planets. That a pulsar is in binary system provides us a convenient way to 
+        % measure its mass. 
+        % \indent 
+        % \fi
 
     \section{Emission Mechanism of Pulsars}
             Although emission mechanism of pulsars has not been fully understood yet, some models are developed 
@@ -303,11 +309,7 @@
               Photons in outer gap can also create electrons and positrons by the process: 
               $\gamma+\gamma\rightarrow e^-+e^+$. At the outer gap, one-photon pair production can't happen 
               because magnetic field is too weak in this region.
-            
-                                
-        
-             
-
+ 
     \section{Millisecond Pulsar} 
         \subsection{P-$\dot{\mathbf{P}}$ Diagram} 
         P-$\dot{\mathrm{P}}$ diagram is an important tool for analyzing evolution of pulsars. 
@@ -319,7 +321,7 @@
         time derivative of rotation periods.
         \begin{figure}[h]
             \centering
-            \includegraphics[scale=0.35]{{/Users/grewwc/Desktop/Thesis/ppdot.png}}
+            \includegraphics[scale=0.45]{{/Users/grewwc/Desktop/Thesis/ppdot.png}}
             \caption{\textit{\footnotesize Position of pulsars in P-}\footnotesize$\dot{P}$ \textit{\footnotesize
                         diagram}}
             \label{fig:p-pdot}
@@ -388,8 +390,8 @@
         \subsection{Class II MSPs}
             \begin{figure}[h!]   
                 \centering
-                \includegraphics[width=6.7cm,height=7cm]{{/Users/grewwc/Desktop/Thesis/bands.png}}
-                \caption{\textit{\footnotesize Pulse profiles of PSR B1937+21 in radio, X-ray and gamma-ray.}}
+                \includegraphics[width=6.9cm,height=7.6cm]{{/Users/grewwc/Desktop/Thesis/bands.png}}
+                \caption{\textit{\footnotesize Pulse profiles of PSRJ1939+2134 in radio, X-ray and gamma-ray.}}
                 \label{fig:class }
             \end{figure}	 
             Radio emission are usually considered to be emitted above the polar cap, which means radio emission 
@@ -397,7 +399,7 @@
             10 sources showing aligned pulse profiles in radio and gamma-ray implying that radio emission may 
             produced from outer magnetosphere and they are called Class II MSPs\hypersetup{urlcolor= red}
             (\href{https://arxiv.org/pdf/1110.1271.pdf}{\textit{Guillemot et al. 2012}}). 
-			These pulsars have strong magnetic 
+			      These pulsars have strong magnetic 
             field near the light cylinder. The figure \ref{fig:class } is an example of aligned pulse profile.
 
     \section{Objectives}
@@ -1198,7 +1200,6 @@
           the spectrum of synchrotron radiation is also a power-lay model.  
           %end of synchrotron.
 
-
         \subsection{Curvature Radiation}
           When particles move along the curved magnetic field lines, they will generate curvature radiation. This is 
           exactly the case in a pulsar's magnetosphere. The magnetic field is so strong that relativistic 
@@ -1361,7 +1362,7 @@
             which are generalizations of model used in the thesis. Those models may have addressed the 
             problems described above, but the model used in the thesis do have some defects. 
 
-          \add{continue from here}
+          \mayAdd{continue from here}
 
         \section{Introduction of The Fermi Gamma-ray Space Telescope}
           The Fermi Gamma-ray Space Telescope was launched on June 11, 2008 and opened a new window of studying
@@ -1427,7 +1428,8 @@
           \item A count cube is very similar to a count map, except that a count cube is divided in many energy
             bands. For example, a dataset whose energy is from 100MeV to 100GeV can be divided into 30 bins. We can
             generate a count map in each energy bin, so we have 30 count maps. In other words, we can regard a 
-            count cube as multiple count maps. 
+            count cube as multiple count maps. A count cube's advantage over a count map is that we can 
+            observe distribution of gamma-ray photons in different energy range. 
           \item TS value provides us a way to test if our target source is observed. The TS value is: 
             $TS = -2 \frac{\ln{L_{max, 0}}}{\ln{L_{max, 1}}}$, where $\ln{L_{max, 0}}$ is the maximum likelihood value 
             without the target source while $\ln{L_{max, 0}}$ is the maximum likelihood value with the target source.
@@ -1454,9 +1456,36 @@
               \frac{dN}{dE} = N_{0} \left(\frac{E}{E_0}\right)^{\gamma_1} 
               exp\left(-\left(\frac{E}{E_c}\right)^{\gamma_2}\right)
             \end{equation}
-        where $N_0$ is prefactor, $E_c$ is the cutoff energy and the $E_0$ is just a scale. 
-        PLExpCutoff model is the special case when $\gamma_2=1$. Our aim is to fit the parameters 
+        where $N_0$ is prefactor, $E_c$ is the cutoff energy and the $E_0$ is a scale parameter. 
+        PLExpCutoff model is the special case where $\gamma_2=1$. Our aim is to fit the parameters 
         $N_0$, $E_c$ and $\gamma_1$ to make the model be more consistent with observation data.
+
+        \subsection{Correctness Verification of Data Processing}
+            Before analyzing the observation of my target sources, it is reasonable to test if my procedure of 
+            data processing is right or not. In order to do so, I try to do analysis for 
+            2 pulsars whose names are J0007+7303 and J0534+2200. The reason I choose these two pulsars 
+            is that in previous study, they are bright and easy to detect with a large TS value --- 
+            the TS values are 43388 and 102653 for J0007+7303 and J0534+2200 respectively. The data is from 
+            \blackhref{https://arxiv.org/abs/1305.4385}{this paper}. 
+
+            In the spectra fit process, I do not use the same parameters as the the paper, however, I get the 
+            similar result as the table \ref{table: previous_result_comparison} showing. 
+
+            \begin{table}[!ht]
+              \centering
+              \begin{tabular}{|c|c|c|c|c|c|c|c|} 
+                \hline 
+                \multicolumn{4}{|c|}{Before} & \multicolumn{4}{|c|}{Now} \\ 
+                \hline 
+                $\Gamma$ & $E_c$ & $E_0$ & TS &  $\Gamma$ & $E_c$ & $E_0$ & TS \\
+                \hline
+                \caption{The Spectra Fit Result}
+                \label{table: previous_result_comparison}
+
+              \end{tabular}
+            \end{table}
+
+          
 
         \subsection{PSR J0218+4232}
           \label{j0218}
@@ -1466,9 +1495,10 @@
           \ref{fig: j0218_count_map_and_model}, the green circles represent those free sources while the purple circles 
           represent fixed sources. We need to notice that in the outer parts of the count map, there are some of very 
           bright sources which have no free parameters. The reasons is that the they are so far away from our target source
-          that the Fermi telescope can distinguish if a photon comes from the target source or the outer source. However, 
-          it is another case for the nearby sources. 
-
+          that the Fermi telescope can distinguish if a photon comes from the target source or the outer sources.
+          As a result, we do not need to fit any parameters for those outer sources. 
+          However, it is another case for the nearby sources. 
+          
           \subsubsection{Count Maps And Count Cubes}
           \begin{figure}[!ht]  
             \begin{minipage}{0.45\textwidth}
