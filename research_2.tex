@@ -23,6 +23,8 @@
 \usepackage{color}
 \usepackage{epigraph}
 
+\renewcommand{\arraystretch}{2}
+
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -143,6 +145,10 @@
 \newcommand{\myComment}[1]{
   %#1 
   \newline
+}
+
+\newcommand{\Notice}[1]{
+  $<$\textbf{Notice}$>$#1$<$\textbf{/Notice}$>$
 }
 
 \newcommand{\blackhref}[2]{
@@ -1200,16 +1206,143 @@
           the spectrum of synchrotron radiation is also a power-lay model.  
           %end of synchrotron.
 
-        \subsection{Curvature Radiation}
-          When particles move along the curved magnetic field lines, they will generate curvature radiation. This is 
-          exactly the case in a pulsar's magnetosphere. The magnetic field is so strong that relativistic 
-          charged particles (electrons and positrons) are forced to move along the magnetic field line and hence 
-          emit strong curvature radiation. 
+        % \subsection{Curvature Radiation}
+        %   When particles move along the curved magnetic field lines, they will generate curvature radiation. This is 
+        %   exactly the case in a pulsar's magnetosphere. The magnetic field is so strong that relativistic 
+        %   charged particles (electrons and positrons) are forced to move along the magnetic field line and hence 
+        %   emit strong curvature radiation. 
           
-          \add{continue from here}
+        %   \add{continue from here}
         %end of "Curvature Radiation"
 
         \subsection{Inverse-Compton radiation}
+          If a energetic relativistic photon collides with a charged particle from an proper incident angle,
+          the photon's energy decreases and direction changes. This is a process of Compton Scattering. 
+          Inverse-Compton radiation is the opposite process by which a low energy photon gained energy 
+          from an ultra-relativistic electron. 
+
+          \singleFig{inverse_compton}{0.45}{Inverse Compton Diagram \Notice{this figure is from internet}}
+          
+          As the figure \ref{fig: inverse_compton} showing, in the laboratory frame ($S$), the incident angle and 
+          energy of a photon is $\theta$ and $h \nu$ respectively. The speed of the electron is $v$. In the 
+          electron rest frame ($S^{\prime}$), we change the denotation to $\theta^{\prime}$, $h \nu^{\prime}$ and.
+          Also, let the position of the electron be the origin point of $S^{\prime}$.
+          We can study the whole process in the $S^{\prime}$ frame, the transfer the result 
+          to the $S$ frame by Lorentz transformation. 
+
+          In the $S^{\prime}$ frame, the electron is at rest so its energy is $m_e c^2$. 
+          For Inverse Compton scattering, the energy of an incident photon (less than several $keV$) 
+          is much less than the rest energy of an electron (about $0.51MeV$) 
+          and the relationship can be expressed by 
+          $h\nu^{\prime} \ll m_e c^2$. Therefore, this can be treated as Thompson Scattering process. 
+          Let the Poynting vector of incident photons be $\vec{S}^{\prime}$ and their energy density 
+          be $U_{rad}^{\prime}$, we have equation \ref{eq: poynting_and_energy_density}
+          \begin{equation}
+            \label{eq: poynting_and_energy_density}
+            \vec{S}^{\prime} = c U_{rad}^{\prime}
+          \end{equation}
+          The electron absorbs the energy of the incident photons and then be accelerated. Thus the 
+          accelerated electron will emit part of energy taken from incoming photons and the power of 
+          scattered radiation is denoted as $P^{\prime}$.
+          The ratio can be described by Thompson Scattering cross section $\sigma_{T}$ which is:
+          \begin{equation}
+            \label{eq: thompson_cross_section}
+            \sigma_{T} = \frac{8\pi}{3} \left(\frac{e^2}{m_e c^2}\right)^2
+          \end{equation}
+          and the relationship between the electron radiation power and incoming photon energy flux can be 
+          described by the equation \ref{eq: relationship_power_poynting}
+          \begin{equation}
+            \label{eq: relationship_power_poynting}
+            P^{\prime} = \left| \vec{S}^{\prime} \right| \sigma_{T}
+          \end{equation}
+          Combine the equation \ref{eq: poynting_and_energy_density} and \ref{eq: relationship_power_poynting},
+          the radiation power emitted by the electron is: 
+          \begin{equation}
+            \label{eq: final_relationship}
+            P^{\prime} = c \sigma_{T} U^{\prime}_{rad}
+          \end{equation}
+
+          Then we need to find the relationship between frame $S$ and $S^{\prime}$. It mainly contains 2 
+          parts: the relationship between $P$, $P^{\prime}$ and $U_{rad}$, $U_{rad}^{\prime}$. Since 
+          $P = dE/dt$ and $dE/dt$ (\question{check}) is Lorentz invariant in inertial frame, we know: 
+          \begin{equation}
+            \label{eq: power_is_equal}
+            P = P^{\prime}
+          \end{equation}
+          Now we hope to write $U_{rad}^{\prime}$ in terms of $U_{rad}$. $U_{rad}$ is comprised by 
+          energy of a single photon and photon density. In the flowing analysis, all the denotations are 
+          correspondent to \ref{fig: inverse_compton} According to the relativistic Doppler shift formula,
+          we have: 
+          \begin{equation}
+            \label{eq: doppler_shift}
+            h \nu^{\prime} = \left(h \nu\right) \gamma \left(1 + \beta \cos{\theta} \right)
+          \end{equation}
+          where $\beta = v / c$ and $\gamma$ is Lorentz factor of an ultra-relativistic electron. 
+          Then we calculate the photon density. In the frame $S^{\prime}$, the photon density is
+          inverse proportional to the time interval ($\Delta t$) between 2 photon strike the electron 
+          since total number of photons is Lorentz invariant. In laboratory frame $S$, 
+          we consider 2 photons collide with the electron at the 4-dimension vector of 
+          $\left(x_{1}, 0, 0, t_{1}\right)$ and $\left(x_{2}, 0, 0, t_{2}\right)$. According to the 
+          Lorentz transformation between inertial frames: 
+          \begin{equation}
+            \label{eq: lorentz_transfer_general}
+              \begin{cases}
+                 & x = \gamma \left( x^{\prime} + \beta c t^{\prime} \right)\\
+                 & y = y^{\prime} \\
+                 & z = z^{\prime} \\ 
+                 & t = \gamma \left(t^{\prime} + \frac{\beta x^{\prime}}{c}\right)
+              \end{cases}       
+          \end{equation}
+          And since we set $x^{\prime} = 0$, from equation \ref{eq: lorentz_transfer_general}, the 2 
+          events of 2 successive photons collide with the electron can be expressed as:
+          $\left(\gamma v t_{1}^{\prime}, 0, 0, \gamma t_{1}^{\prime}\right)$ and 
+          $\left(\gamma v t_{2}^{\prime}, 0, 0, \gamma t_{2}^{\prime}\right)$. 
+          As the Fig \ref{fig: inverse_compton_time_interval} showing, the time interval of two successive 
+          photons (reciprocal of frequency) in frame $S$ is: 
+          \begin{eqnarray}
+            \label{eq: inverse_compton_time_interval}
+            \Delta t &=& \left(t_2 - t_1\right) + \frac{\left(x_2 - x_1\right) \cos{\theta}}{c}  \nonumber \\
+                     &=& \gamma \left(t_{2}^{\prime} - t_{1}^{\prime}\right) + \frac{\gamma v \left(t_{2}^{\prime} - t_{1}^{\prime}\right) \cos{\theta}}{c} \nonumber \\
+                     &=&  \Delta t^{\prime} \gamma \left(1 + \beta \cos{\theta}\right) 
+          \end{eqnarray}
+          The equation \ref{eq: inverse_compton_time_interval} shows that the relationship of photon number 
+          density between frame $S$ and $S^{\prime}$ is:
+          \begin{equation}
+            \label{eq: inverse_compton_number_density_relationship}
+            n^{\prime} = n \gamma \left(1 + \beta \cos{\theta}\right) 
+          \end{equation}
+          Combine the equation \ref{eq: inverse_compton_number_density_relationship} and 
+          \ref{eq: doppler_shift} we can transfer the incident photon energy density from frame $S$ to 
+          $S^{\prime}$ according to the equation \ref{eq: inverse_compton_energy_density}
+          \begin{equation}
+            \label{eq: inverse_compton_energy_density}
+            U_{rad}^{\prime} = U_{rad} \left[\gamma \left(1 + \beta \cos{\theta}\right)\right]^{2}
+          \end{equation}
+          In the equation \ref{eq: inverse_compton_energy_density}, the incoming photon energy density 
+          is a function of incident angle ($\theta$), in order to get the total photon energy density,
+          we integrate the equation over $\theta$. Then we get: 
+          \begin{equation}
+            \label{eq: inverse_compton_energy_density_total}
+            U_{rad}^{\prime} = \frac{4}{3} U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
+          \end{equation}
+          By combining the equation \ref{eq: inverse_compton_energy_density_total} and 
+          \ref{eq: final_relationship} we know the total scattered radiation power is:
+          \begin{eqnarray}
+            \label{eq: inverse_compton_power}
+            P^{\prime} &=& P  \nonumber \\
+                      &=& \frac{4}{3} \sigma_{T} c U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
+          \end{eqnarray}
+          
+          \vspace{1cm}
+          \singleFig{inverse_compton_time_interval}{0.45}{Two photons collide with an electron. 
+            In the frame $S^{\prime}$, two photons collide with a rest electron successively.
+            In the frame $S$, the electron is no longer at rest and the positions of the two events 
+            are $x_1$ and $x_2$ \Notice{the figure is from internet}}
+
+
+
+
+
           \add{inverse-compoton radiation}
 
 
@@ -1468,29 +1601,56 @@
             the TS values are 43388 and 102653 for J0007+7303 and J0534+2200 respectively. The data is from 
             \blackhref{https://arxiv.org/abs/1305.4385}{this paper}. 
 
-            In the spectra fit process, I do not use the same parameters as the the paper, however, I get the 
-            similar result as the table \ref{table: previous_result_comparison} showing. 
+            In the spectra fit process, I do not use the same fit parameters as the the paper, (for instance, 
+            the number of free parameters are different)
+            however, I get the similar result as the table \ref{table: previous_result_comparison} showing. In this table, 
+            I use the observation data from 2009-01-01 to 2013-02-01 in order to try to be consistent with 
+            the paper. In addition, I also fit spectra with data end up to 2018-02-01 to test how much 
+            improvement the Fermi Pass 8 Lat data has over the previous version. The results of year 2018 data 
+            is showed in table \ref{table: 2018_fit_data}.
+
+            \vspace{1cm}
+            \begin{table}[!ht]
+              \centering
+              \begin{tabular}{|c|c|c|c|c|c|c|} 
+                \hline 
+                & \multicolumn{3}{|c|}{Test} & \multicolumn{3}{|c|}{Paper} \\ 
+                \cline{2-7}
+                & $\Gamma$ & $E_c$ (MeV) & TS & $\Gamma$ & $E_c$ (MeV) & TS \\ 
+                \hline
+                J0007+7303 & $1.30\pm0.02$ & $2010\pm85$ & $96979$ & $1.4\pm0.1$ & $4700\pm200$ & $43388$  \\
+                \hline 
+                J0534+2200 & $2.07\pm0.01$ & $9880\pm572$ & $239015$ & $1.9\pm0.1$ & $4200\pm200$ & $102653$  \\
+                \hline
+              \end{tabular}
+              \caption{The Spectra Fit Result}
+              \label{table: previous_result_comparison}
+            \end{table}
 
             \begin{table}[!ht]
               \centering
-              \begin{tabular}{|c|c|c|c|c|c|c|c|} 
+              \begin{tabular}{|c|c|c|c|}
                 \hline 
-                \multicolumn{4}{|c|}{Before} & \multicolumn{4}{|c|}{Now} \\ 
-                \hline 
-                $\Gamma$ & $E_c$ & $E_0$ & TS &  $\Gamma$ & $E_c$ & $E_0$ & TS \\
-                \hline
-                \caption{The Spectra Fit Result}
-                \label{table: previous_result_comparison}
-
+                &$\Gamma$& $E_c$ (MeV) & TS \\ \hline 
+                J0007+7303 & $1.34\pm0.02$ & $2204\pm67$ & $210166$ \\ \hline 
+                J0534+2200 & $2.01\pm0.01$ & $9173\pm372$ & $449946$ \\ \hline
               \end{tabular}
+              \caption{Fit Results With Data From Year 2009 To Year 2018}
+              \label{table: 2018_fit_data}
             \end{table}
+            The table \ref{table: previous_result_comparison} and table \ref{table: 2018_fit_data} mainly 
+            show 2 pieces of information. Firstly, my procedure of dealing with observation data has no
+            big problems, so basically I can trust fit results of my target sources. Secondly, the Fermi 
+            Pass 8 Lat Data has improves the accuracy a lot. For example, as the table 
+            \ref{table: previous_result_comparison} showing, the photon indexes are 
+            $1.30\pm0.02$ and $1.4\pm0.1$, which means that the errors reduce a lot. Additionally, the TS 
+            value is more than double as before. 
 
-          
 
         \subsection{PSR J0218+4232}
           \label{j0218}
           Our ROI is a circle with radius of $20^\circ$ and all parameters of sources which are $8^\circ$ outside 
-          of the center are fixed. For sources within $8^\circ$, their parameters are same as the default values. 
+          of the center are fixed. For sources within $8^\circ$, their parameters are the same as the default values. 
           In our case, there are 7 point sources which have free parameters. In the figure 
           \ref{fig: j0218_count_map_and_model}, the green circles represent those free sources while the purple circles 
           represent fixed sources. We need to notice that in the outer parts of the count map, there are some of very 
@@ -1558,8 +1718,8 @@
           The figure \ref{fig: j0218_ccube_bin_1_and_15} is a comparison of PSR J0218+4232's count maps in different energy 
           bands. The count map in about 100MeV is so messy that we can hardly distinguish our target source 
           while in about 30GeV so faint that there are no recorded photon around the source. 
-          We choose three circle regions whose center are the our target source and the radii are 1000 $''$ for 
-          all of the three figures and calculate the total photon counts of the selected regions. 
+          We choose three circle regions whose centers are the our target sources and the radii are 1000 $''$ for 
+          all of the three figures and then calculate the total photon counts of the selected regions. 
           As the following table \ref{table:j0218_ccube_photon_counts}
           shown, though total photon counts around our target source are similar between the left and middle map, the 
           counts per energy is quite different. Therefore, we focus more on the middle energy parts (500MeV $\sim$ 
@@ -1586,15 +1746,16 @@
             is similar to the observation. However, 
             there are lots of small red pixels in the left figure (generated directly by the observation data) while the 
             right figure is very "clean". This means that a lot of photon are thought as generated by the modeled 
-            source so in our model, the sources are generally slightly brighter than the observation. However, our target
+            source. Thus in our model, the sources are generally slightly brighter than the observation. However, our target
             source is an exception. In the region we have used before (the center is the target source, and the radius is
             1000$''$), the total photon count in the left figure is 1815 compare to 1737 in the right figure. 
 
             The reason why the count map generated directly by the observation data is a lot more messy is that our modeled 
             source is generated according to the Fermi database and their spatial position is fixed. This means that if 
-            a photon comes from a particular direction and there is no any known pulsar in this direction, this 
-            photon has to be modeled to other direction. Thus, the spatial position of the photon is different 
-            between the observation and the model. 
+            a photon comes from a particular direction and there is no any known pulsar in that direction, this 
+            photon has to be classified to other directions in which there are other modeled pulsars.  
+            Thus, the spatial positions of photons are different between the observation and the model and 
+            the count maps generated directly from models are usually cleaner. 
             
             \begin{figure}[!ht]
               \begin{minipage}{1\textwidth}

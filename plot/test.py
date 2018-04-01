@@ -1,22 +1,19 @@
 from flask import Flask, render_template
 
-main: Flask = Flask(__name__)
-
-main.debug = True
-
-@main.route("/")
-def index():
-    return render_template('inner/main.html')
-
-@main.route("/article_1.html")
-def article_1():
-    return render_template('another_inner/article_1.html')
+app = Flask(__name__)
+app.debug = True
 
 
-@main.route("/article_2.html")
-def article_2():
-    return render_template('article_2.html')
+@app.route('/')
+def main():
+    return render_template('another_inner/main.html')
 
 
-if __name__ == '__main__':
-    main.run()
+@app.route('/about/')
+def about():
+    return render_template('inner/article_2.html')
+
+
+# app.run()
+from scipy import constants
+print(100 * 1e9 * 1.6e-19 , constants.m_e * constants.c**2)

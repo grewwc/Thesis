@@ -15,12 +15,7 @@
             <strong>
                 <ul>
                     <li>
-                        <a href="{{url_for('article_1')}}">article1 </a>
-                    </li>
-                    <li>
-                        <a href="{{url_for('article_2')}}">
-                            article2
-                        </a>
+                        <a href="{{ url_for('about') }}">article2</a>
                     </li>
                 </ul>
             </strong>
@@ -32,9 +27,8 @@
         <h3>Footer part</h3>
     </div>
 
-    <div >
-        {% block content %}
-        {% endblock %}
+    <div>
+        {% block content %} {% endblock %}
     </div>
 
 </body>
