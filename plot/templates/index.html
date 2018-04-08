@@ -1,0 +1,20 @@
+<h1>
+
+    Filling the for</h1>
+
+<form action="{{ url_for('register') }}" methods="GET">
+    Name:
+    <input name="name" type="text">
+    <br/> Class:
+    <select name="class">
+        <option value=""></option>
+        <option value="math"> Math </option>
+        <option value="PE"> P.E </option>
+        <option value="physics"> Physics </option>
+        <option value="chinese"> Chinese </option>
+    </select>
+    <br/>
+    <input type="submit" value="Submit">
+    
+
+</form>

@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>{% block title %} {% endblock %}</title>
+</head>
+<body>
+    {% block body %} {% endblock %}
+</body>
+</html>
+
+
+
+
+@app.route('/entry', methods=['GET', 'POST'])
+def entry_page():
+    if request.method == 'POST':
+        date = request.form['date']
+        title = request.form['blog_title']
+        post = request.form['blog_main']
+        post_entry = models.BlogPost(date = date, title = title, post = post)
+        db.session.add(post_entry)
+        db.session.commit()
+        return redirect(url_for('database'))
+    else:
+        return render_template('entry.html')
+
+@app.route('/database')        
+def database():
+    query = []
+    for i in session.query(models.BlogPost):
+        query.append((i.title, i.post, i.date))
+    return render_template('database.html', query = query)

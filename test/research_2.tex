@@ -98,6 +98,8 @@
 {0.5em}
 {}
 
+
+
 \newcommand{\mycaption}[1]{\caption{\textit{\footnotesize #1}}}
 %Below is the main content.
 
@@ -111,7 +113,7 @@
   \centering
   \includegraphics[scale=#2]{/Users/grewwc/Desktop/Thesis/#1}
   \mycaption{#3}
- \label{fig: #1}
+  \label{fig: #1}
  \end{figure} 
 }
 
@@ -176,10 +178,11 @@
 \end{abstract}
 			
 		
-
-%chapter 'Introduction'.
+		
+	%chapter 'Introduction'.
 \chapter{Introduction}   	   
     \section{Neutron Stars and Pulsars}
+
         Neutron stars are produced by a supernova explosion of massive stars which have about 4 to 8 
         solar mass. After 
         the supernova explosion, the star leaves a central region. And the central region collapses because 
@@ -192,9 +195,8 @@
         star has tremendous high density (about $5\times 10^{17} kg/m^3$) and its diameter and mass is about
         20km and 
         1.4 solar mass respectively. What
-        prevents a neutron star to continue to contract is the degeneracy pressure of neutrons. 
-        
-        Pulsars are fast-spinning neutron stars. Their rotational periods can be from a few 
+        prevents a neutron star to continue to contract is the degeneracy pressure of neutrons. \\
+        \indent Pulsars are fast-spinning neutron stars. Their rotational periods can be from a few 
         milliseconds
         to several seconds. For example, the rotational period of PSR B1937+21 is about 1.56$ms$ while 
         PSR B1919+21 is approximately 1.34$s$. As we know, a star can be ripped by centrifugal force if the
@@ -204,19 +206,19 @@
         density of a white dwarf is about $1\times 10^9kg/m^3$ which is smaller than the lower density limit,
         the observed fast-spinning stars belong to the kind of stars which are much denser 
         than white dwarf. As a result, neutron stars are ideal candidates for pulsars. \\
-        \indent
+        \indent 
         More than 2000 pulsars have been found so far. Most of them are in the disk of our Galaxy while we also can 
-        find a small portion of them in high latitude, which can be seen clearly in the Fig 
-        \ref{fig: spatial_distribution}. This may 
+        find a small portion of them in high latitude, which can be seen clearly in the figure 
+        \ref{fig:spatial distribution}. This may 
         because they cannot escape the gravitational potential if their kinetic energy is not large enough. Besides,
         even though they have large enough velocities to escape from their birth region, there are some 
         probabilities that they become nearly non-detectable before reaching high latitude. 
-
+        
         \begin{figure}[h]
           \centering
           \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/pulsar_distribution.png}
           \caption{\textit{\footnotesize Spatial distribution of some pulsars in galactic coordinate system.}}
-          \label{fig: spatial_distribution}
+          \label{fig:spatial distribution}
         \end{figure}
         
 
@@ -236,9 +238,9 @@
 
     \section{Emission Mechanism of Pulsars}
             Although emission mechanism of pulsars has not been fully understood yet, some models are developed 
-            trying to explain observational facts. The following is one toy model that can explain some basic 
-            features of pulsars. In this structure, the magnetic dipole model is introduced first, followed by 
-            synchrotron radiation and inverse Compton radiation. 
+            trying to 
+            explain observational facts. The following is one toy model that can explain some basic features of 
+            pulsars.
        
         \subsection{Magnetic Dipole Model}
             Assume a pulsar has a magnetic dipole moment $\vec{m}$, the angel between rotation axis and 
@@ -277,272 +279,15 @@
             which is usually less than 3  \hypersetup{urlcolor= red}
             (\href{http://www.ift.uni.wroc.pl/~csqcdiv/talks/26092014/ohamil_csqcdiv.pdf}
             {\textit{Oliver Hamil 2014}}).
-            
-            \begin{figure}[!ht]
+            \begin{figure}[!h]
               \centering
               \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/table.png}
               \mycaption{Braking index of some pulsars.}
               \label{fig:braking_index}
             \end{figure}
     
-        \subsection{Synchrotron Radiation}
-              Synchrotron radiation is a special case of cyclotron radiation when particles' speed is comparable to the 
-              speed of light. Because of the relativistic beaming effect, we will observe a very short radiation pulse 
-              when speed of particles is large. 
-              We only aim to analyze the spectrum properties of MSPs, so we focus on the 
-              spectrum property of synchrotron radiation. The power spectrum of a single electron  
-              can be described by the function \ref{func: syncrothron spectrum}
-            \begin{equation}
-              \label{func: syncrothron spectrum}
-              P\left(\nu\right) = \frac{\sqrt{3} e^3 B \sin{\alpha}}{m c^2} 
-                \left(\frac{\nu}{\nu_c}\right) \int_{\nu / \nu_c}^{\infty} K_{5/3}\left(\eta \right)d\eta 
-            \end{equation}
-            where $\nu_c$ is the critical frequency and $K_{5/3}$ is modified Bessel function. The critical frequency 
-            can be expressed by the function \ref{func: critical_frequency}
-            \begin{equation}
-              \label{func: critical_frequency}
-              \nu_c = \frac{3}{2} \gamma^2 \nu_{cyc} \sin{\alpha}
-            \end{equation} 
-            where $\alpha$ is the pitch angle and the $\nu_{cyc}$ is the frequency of corresponding cyclotron radiation. 
-  
-            These function does not give us very much information because of the integration of the modified Bessel 
-            function. We let $x = \nu / \nu_c$ and fix the environment variables such as magnetic field ($B$), 
-            the function \ref{func: syncrothron spectrum} becomes: 
-            \begin{equation}
-              \label{func: to_x}
-              P\left(\nu\right) = C \times x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
-            \end{equation}
-            where $C$ is a constant dependent on $B$. Thus, in order to analyze the power spectrum of synchrotron radiation,
-            we only concentrate on the later part, which is
-            \begin{equation}
-              \label{func: fx}
-              F\left(x\right) = x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
-            \end{equation}
-            
-            \begin{figure}[!ht] 
-            \begin{minipage}{\textwidth}
-              \begin{center} 
-                \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/sync_spectrum_loglog.png}
-              \end{center}
-              \end{minipage}
-              \\
-            \begin{minipage}{\textwidth}
-              \begin{center}
-              \includegraphics[scale=0.61]{/Users/grewwc/Desktop/Thesis/sync_power_loglog.png}
-              \end{center}
-            \end{minipage}
-            \centering
-            \begin{minipage}{0.8\textwidth}
-              \mycaption{According to the function \ref{func: fx}, top: $F\left(x\right)$; bottom: $x F\left(x\right)$.
-                \change{should change the style of the figure.}}
-              \label{fig: sync_spectrum_loglog}
-            \end{minipage}
-            \end{figure}
-            
-            The top figure \ref{func: fx} describes the general shape of power spectrum of synchrotron radiation
-            When the frequency is larger than
-            the critical frequency $\nu_c$, the power goes down dramatically. However, the top figure does not show 
-            the information that at what frequency the electron emit the strongest power, which is in the bottom figure.
-            The bottom figure shows that the energy most energy emitted around critical frequency. 
-  
-            In reality, synchrotron radiations are not generated by a single particle. We describe the number density 
-            distribution of electrons with respect to energy by a single power-law model as the function 
-            \ref{func: sync_number_density} shown.
-            \begin{equation}
-              \label{func: sync_number_density}
-              N\left(E\right) \approx C E^{-\delta}
-            \end{equation}
           
-            For simplicity, we set the ambient magnetic field $B$ to be a constant and make an approximation that all 
-            radiations are at a single frequency:
-            \begin{equation}
-              \label{func: sync_approximation}
-              \nu \approx \gamma^2 \nu_{cyc}
-            \end{equation}
-            where the meaning of $\nu_{cyc}$ is the same as function \ref{func: critical_frequency}. Our objective is to
-            know the relationship between total power of all electrons and their radiation frequency. We describe the 
-            relationship as the function \ref{func: sync_power_single_frequency}
-            
-            \begin{eqnarray}
-              \label{func: sync_power_single_frequency}
-              -P\left(E\right)N\left(E\right)dE &=& Q_{\nu} d\nu\\
-              P\left(E\right) &=& \frac{4}{3} \sigma_{T} \beta^2 \gamma^2 c U_B
-            \end{eqnarray} 
-            where $\sigma_{T}$ is electron Thompson scattering section, $U_B$ is energy density of the environment 
-            magnetic field,  $Q_{nu}$ is the emission coefficient of synchrotron radiation 
-            and $E=\gamma m_e c^2$. With function \ref{func: sync_approximation}, we have
-            \begin{equation}
-              \label{func: sync_combine}
-              P = \frac{dE}{d\nu} = \frac{m_e c^2}{2\sqrt{\nu \nu_{cyc}}}
-            \end{equation}
-            Combine the function \ref{func: sync_combine} and \ref{func: sync_power_single_frequency} we get:
-            \begin{equation}
-              Q_{\nu} = \frac{4}{3} \sigma_{T} \beta^2 \gamma^2 c U_B \frac{m_e c^2}{2\sqrt{\nu \nu_{cyc}}} N\left(E\right)
-            \end{equation}
-            By ignoring constants in the function \ref{func: sync_power_single_frequency} we have 
-            \begin{equation}
-              \label{func: sync_final}
-              Q_{\nu} \propto \nu^{(1-\delta)/2}
-            \end{equation}
-            The function \ref{func: sync_final} shows that if the number density electrons is a power-law distribution, 
-            the spectrum of synchrotron radiation is also a power-lay model.  
-            %end of synchrotron.
-  
-          % \subsection{Curvature Radiation}
-          %   When particles move along the curved magnetic field lines, they will generate curvature radiation. This is 
-          %   exactly the case in a pulsar's magnetosphere. The magnetic field is so strong that relativistic 
-          %   charged particles (electrons and positrons) are forced to move along the magnetic field line and hence 
-          %   emit strong curvature radiation. 
-            
-          %   \add{continue from here}
-          %end of "Curvature Radiation"
-          \subsection{Inverse-Compton radiation}
-          If a energetic relativistic photon collides with a charged particle from an proper incident angle,
-          the photon's energy decreases and direction changes. This is a process of Compton Scattering. 
-          Inverse-Compton radiation is the opposite process by which a low energy photon gained energy 
-          from an ultra-relativistic electron. 
-
-          \singleFig{inverse_compton}{0.45}{Inverse Compton Diagram \Notice{this figure is from internet}}
-          
-          As the figure \ref{fig: inverse_compton} showing, in the laboratory frame ($S$), the incident angle and 
-          energy of a photon is $\theta$ and $h \nu$ respectively. The speed of the electron is $v$. In the 
-          electron rest frame ($S^{\prime}$), we change the denotation to $\theta^{\prime}$, $h \nu^{\prime}$ and.
-          Also, let the position of the electron be the origin point of $S^{\prime}$.
-          We can study the whole process in the $S^{\prime}$ frame, the transfer the result 
-          to the $S$ frame by Lorentz transformation. 
-
-          In the $S^{\prime}$ frame, the electron is at rest so its energy is $m_e c^2$. 
-          For Inverse Compton scattering, the energy of an incident photon (less than several $keV$) 
-          is much less than the rest energy of an electron (about $0.51MeV$) 
-          and the relationship can be expressed by 
-          $h\nu^{\prime} \ll m_e c^2$. Therefore, this can be treated as Thompson Scattering process. 
-          Let the Poynting vector of incident photons be $\vec{S}^{\prime}$ and their energy density 
-          be $U_{rad}^{\prime}$, we have equation \ref{eq: poynting_and_energy_density}
-          \begin{equation}
-            \label{eq: poynting_and_energy_density}
-            \vec{S}^{\prime} = c U_{rad}^{\prime}
-          \end{equation}
-          The electron absorbs the energy of the incident photons and then be accelerated. Thus the 
-          accelerated electron will emit part of energy taken from incoming photons and the power of 
-          scattered radiation is denoted as $P^{\prime}$.
-          The ratio can be described by Thompson Scattering cross section $\sigma_{T}$ which is:
-          \begin{equation}
-            \label{eq: thompson_cross_section}
-            \sigma_{T} = \frac{8\pi}{3} \left(\frac{e^2}{m_e c^2}\right)^2
-          \end{equation}
-          and the relationship between the electron radiation power and incoming photon energy flux can be 
-          described by the equation \ref{eq: relationship_power_poynting}
-          \begin{equation}
-            \label{eq: relationship_power_poynting}
-            P^{\prime} = \left| \vec{S}^{\prime} \right| \sigma_{T}
-          \end{equation}
-          Combine the equation \ref{eq: poynting_and_energy_density} and \ref{eq: relationship_power_poynting},
-          the radiation power emitted by the electron is: 
-          \begin{equation}
-            \label{eq: final_relationship}
-            P^{\prime} = c \sigma_{T} U^{\prime}_{rad}
-          \end{equation}
-
-          Then we need to find the relationship between frame $S$ and $S^{\prime}$. It mainly contains 2 
-          parts: the relationship between $P$, $P^{\prime}$ and $U_{rad}$, $U_{rad}^{\prime}$. Since 
-          $P = dE/dt$ and $dE/dt$ (\question{check}) is Lorentz invariant in inertial frame, we know: 
-          \begin{equation}
-            \label{eq: power_is_equal}
-            P = P^{\prime}
-          \end{equation}
-          Now we hope to write $U_{rad}^{\prime}$ in terms of $U_{rad}$. $U_{rad}$ is comprised by 
-          energy of a single photon and photon density. In the flowing analysis, all the denotations are 
-          correspondent to \ref{fig: inverse_compton} According to the relativistic Doppler shift formula,
-          we have: 
-          \begin{equation}
-            \label{eq: doppler_shift}
-            h \nu^{\prime} = \left(h \nu\right) \gamma \left(1 + \beta \cos{\theta} \right)
-          \end{equation}
-          where $\beta = v / c$ and $\gamma$ is Lorentz factor of an ultra-relativistic electron. 
-          Then we calculate the photon density. In the frame $S^{\prime}$, the photon density is
-          inverse proportional to the time interval ($\Delta t$) between 2 photon strike the electron 
-          since total number of photons is Lorentz invariant. In laboratory frame $S$, 
-          we consider 2 photons collide with the electron at the 4-dimension vector of 
-          $\left(x_{1}, 0, 0, t_{1}\right)$ and $\left(x_{2}, 0, 0, t_{2}\right)$. According to the 
-          Lorentz transformation between inertial frames: 
-          \begin{equation}
-            \label{eq: lorentz_transfer_general}
-              \begin{cases}
-                 & x = \gamma \left( x^{\prime} + \beta c t^{\prime} \right)\\
-                 & y = y^{\prime} \\
-                 & z = z^{\prime} \\ 
-                 & t = \gamma \left(t^{\prime} + \frac{\beta x^{\prime}}{c}\right)
-              \end{cases}       
-          \end{equation}
-          And since we set $x^{\prime} = 0$, from equation \ref{eq: lorentz_transfer_general}, the 2 
-          events of 2 successive photons collide with the electron can be expressed as:
-          $\left(\gamma v t_{1}^{\prime}, 0, 0, \gamma t_{1}^{\prime}\right)$ and 
-          $\left(\gamma v t_{2}^{\prime}, 0, 0, \gamma t_{2}^{\prime}\right)$. 
-          As the Fig \ref{fig: inverse_compton_time_interval} showing, the time interval of two successive 
-          photons (reciprocal of frequency) in frame $S$ is: 
-          \begin{eqnarray}
-            \label{eq: inverse_compton_time_interval}
-            \Delta t &=& \left(t_2 - t_1\right) + \frac{\left(x_2 - x_1\right) \cos{\theta}}{c}  \nonumber \\
-                     &=& \gamma \left(t_{2}^{\prime} - t_{1}^{\prime}\right) + \frac{\gamma v \left(t_{2}^{\prime} - t_{1}^{\prime}\right) \cos{\theta}}{c} \nonumber \\
-                     &=&  \Delta t^{\prime} \gamma \left(1 + \beta \cos{\theta}\right) 
-          \end{eqnarray}
-          The equation \ref{eq: inverse_compton_time_interval} shows that the relationship of photon number 
-          density between frame $S$ and $S^{\prime}$ is:
-          \begin{equation}
-            \label{eq: inverse_compton_number_density_relationship}
-            n^{\prime} = n \gamma \left(1 + \beta \cos{\theta}\right) 
-          \end{equation}
-          Combine the equation \ref{eq: inverse_compton_number_density_relationship} and 
-          \ref{eq: doppler_shift} we can transfer the incident photon energy density from frame $S$ to 
-          $S^{\prime}$ according to the equation \ref{eq: inverse_compton_energy_density}
-          \begin{equation}
-            \label{eq: inverse_compton_energy_density}
-            U_{rad}^{\prime} = U_{rad} \left[\gamma \left(1 + \beta \cos{\theta}\right)\right]^{2}
-          \end{equation}
-          In the equation \ref{eq: inverse_compton_energy_density}, the incoming photon energy density 
-          is a function of incident angle ($\theta$), in order to get the total photon energy density,
-          we integrate the equation over $\theta$. Then we get: 
-          \begin{equation}
-            \label{eq: inverse_compton_energy_density_total}
-            U_{rad}^{\prime} = \frac{4}{3} U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
-          \end{equation}
-          By combining the equation \ref{eq: inverse_compton_energy_density_total} and 
-          \ref{eq: final_relationship} we know the total scattered radiation power is:
-          \begin{eqnarray}
-            \label{eq: inverse_compton_power}
-            P^{\prime} &=& P  \nonumber \\
-                       &=& \frac{4}{3} \sigma_{T} c U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
-          \end{eqnarray}
-          As mentioned before, $P^{\prime}$ and $P$ are total radiation power after scattering. Before the 
-          low energy gain photons, they give away some energy first which is $\sigma_{T} c U_{rad}$. 
-          Therefore, we have to subtract this value from the equation \ref{eq: inverse_compton_power} to 
-          calculate the rate of net energy gain, which is described by the equation 
-          \ref{eq: inverse_compton_net_gain}.
-          \begin{eqnarray}
-            \label{eq: inverse_compton_net_gain}
-            P^{\prime} = P = \frac{dE}{dt} &=& \frac{4}{3} \sigma_{T} c U_{rad} \left(\gamma^2 - \frac{1}{4}\right) - \sigma_{T} c U_{rad} \nonumber \\
-                                           &=& \frac{4}{3} \sigma_{T} c U_{rad} \beta^{2} \gamma^{2}
-          \end{eqnarray}
-          If we compare the equation \ref{eq: inverse_compton_net_gain} with \ref{func: sync_combine}, we 
-          find that the form is very similar between these two equations. 
-          \begin{equation}
-            \label{eq: comparision_inverse_compton_and_sync}
-            \frac{P_{IC}}{P_{sync}} = \frac{U_{rad}}{U_{B}}
-          \end{equation}
-          where $U_{B}$ is the energy density of environment magnetic field. 
-
-          \vspace{1cm}
-          \singleFig{inverse_compton_time_interval}{0.45}{Two photons collide with an electron. 
-            In the frame $S^{\prime}$, two photons collide with a rest electron successively.
-            In the frame $S$, the electron is no longer at rest and the positions of the two events 
-            are $x_1$ and $x_2$ \Notice{the figure is from internet}}
-
-          \add{spectrum property, shape}
-
-        %end of "IC"
-        
-          \subsection{A More Sophisticated Model}
-
+        \subsection{A More Sophisticated Model}
               It is oversimplified to regard a pulsar as a magnetized sphere rotating in vacuum. Actually,
               there are plenty of 
               charged particles in a pulsar's magnetosphere which co-rotate with the pulsar. The creation of 
@@ -1351,20 +1096,420 @@
       which are among the fastest spinning MSPs. Therefore, as normal pulsars, these three 
       pulsars are bright in Gamma-Ray band so it is convenient for us to analyze the spectra 
       properties of them in gamma-rays.
-  
-      \section{Introduction of The Fermi Gamma-ray Space Telescope}
-        The Fermi Gamma-ray Space Telescope was launched on June 11, 2008 and opened a new window of studying
-        supermassive black-hole systems, pulsars and so on. Its original name was Gamma-ray Large Area Space 
-        Telescope (GLAST) and changed to Fermi Gamma-ray Space Telescope in honor of a great scientist 
-        Enrico Fermi. 
 
-        The Fermi Gamma-ray Space Telescope contains two parts: Gamma-ray Burst Monitor (GBM) and Large 
-        Area Telescope (LAT), which is the primary components and is at least 30 times more sensitive than 
-        all gamma-ray telescopes launched before. We only use LAT for our purposes. So we 
-        focus on the LAT instrument, which contains four main subcomponents including tracker, calorimeter,
-        anti-coincidence detector and data acquisition system. The reason why the telescope is designed in 
-        this way is that high-energy gamma-rays cannot be refracted by lens or mirrors. As a result, the way
-        that the Fermi LAT operates is totally different. 
+
+      \section{Gamma-Ray Emission Mechanism of MSPs}
+        An MSP's magnetosphere is dominated by various kinds of emission mechanisms. Thus we should review some 
+        fundamental emission mechanism firstly, including synchrotron radiation, curvature radiation and 
+        inverse-Compton radiation.
+        
+        \subsection{synchrotron radiation}
+          Synchrotron radiation is a special case of cyclotron radiation when particles' speed is comparable to the 
+          speed of light. Because of the relativistic beaming effect, we will observe a very short radiation pulse 
+          when speed of particles is large. 
+          We only aim to analyze the spectrum properties of MSPs, so we focus on the 
+          spectrum property of synchrotron radiation. The power spectrum of a single electron  
+          can be described by the function \ref{func: syncrothron spectrum}
+          \begin{equation}
+            \label{func: syncrothron spectrum}
+            P\left(\nu\right) = \frac{\sqrt{3} e^3 B \sin{\alpha}}{m c^2} 
+              \left(\frac{\nu}{\nu_c}\right) \int_{\nu / \nu_c}^{\infty} K_{5/3}\left(\eta \right)d\eta 
+          \end{equation}
+          where $\nu_c$ is the critical frequency and $K_{5/3}$ is modified Bessel function. The critical frequency 
+          can be expressed by the function \ref{func: critical_frequency}
+          \begin{equation}
+            \label{func: critical_frequency}
+            \nu_c = \frac{3}{2} \gamma^2 \nu_{cyc} \sin{\alpha}
+          \end{equation} 
+          where $\alpha$ is the pitch angle and the $\nu_{cyc}$ is the frequency of corresponding cyclotron radiation. 
+
+          These function does not give us very much information because of the integration of the modified Bessel 
+          function. We let $x = \nu / \nu_c$ and fix the environment variables such as magnetic field ($B$), 
+          the function \ref{func: syncrothron spectrum} becomes: 
+          \begin{equation}
+            \label{func: to_x}
+            P\left(\nu\right) = C \times x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
+          \end{equation}
+          where $C$ is a constant dependent on $B$. Thus, in order to analyze the power spectrum of synchrotron radiation,
+          we only concentrate on the later part, which is
+          \begin{equation}
+            \label{func: fx}
+            F\left(x\right) = x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
+          \end{equation}
+          
+          \begin{figure}[!ht] 
+          \begin{minipage}{\textwidth}
+            \begin{center} 
+              \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/sync_spectrum_loglog.png}
+            \end{center}
+            \end{minipage}
+            \\
+          \begin{minipage}{\textwidth}
+            \begin{center}
+            \includegraphics[scale=0.61]{/Users/grewwc/Desktop/Thesis/sync_power_loglog.png}
+            \end{center}
+          \end{minipage}
+          \centering
+          \begin{minipage}{0.8\textwidth}
+            \mycaption{According to the function \ref{func: fx}, top: $F\left(x\right)$; bottom: $x F\left(x\right)$.
+              \change{should change the style of the figure.}}
+            \label{fig: sync_spectrum_loglog}
+          \end{minipage}
+          \end{figure}
+          
+          The top figure \ref{func: fx} describes the general shape of power spectrum of synchrotron radiation
+          When the frequency is larger than
+          the critical frequency $\nu_c$, the power goes down dramatically. However, the top figure does not show 
+          the information that at what frequency the electron emit the strongest power, which is in the bottom figure.
+          The bottom figure shows that the energy most energy emitted around critical frequency. 
+
+          In reality, synchrotron radiations are not generated by a single particle. We describe the number density 
+          distribution of electrons with respect to energy by a single power-law model as the function 
+          \ref{func: sync_number_density} shown.
+          \begin{equation}
+            \label{func: sync_number_density}
+            N\left(E\right) \approx C E^{-\delta}
+          \end{equation}
+        
+          For simplicity, we set the ambient magnetic field $B$ to be a constant and make an approximation that all 
+          radiations are at a single frequency:
+          \begin{equation}
+            \label{func: sync_approximation}
+            \nu \approx \gamma^2 \nu_{cyc}
+          \end{equation}
+          where the meaning of $\nu_{cyc}$ is the same as function \ref{func: critical_frequency}. Our objective is to
+          know the relationship between total power of all electrons and their radiation frequency. We describe the 
+          relationship as the function \ref{func: sync_power_single_frequency}
+          
+          \begin{eqnarray}
+            \label{func: sync_power_single_frequency}
+            -P\left(E\right)N\left(E\right)dE &=& Q_{\nu} d\nu\\
+            P\left(E\right) &=& \frac{4}{3} \sigma_{T} \beta^2 \gamma^2 c U_B
+          \end{eqnarray} 
+          where $\sigma_{T}$ is electron Thompson scattering section, $U_B$ is energy density of the environment 
+          magnetic field,  $Q_{nu}$ is the emission coefficient of synchrotron radiation 
+          and $E=\gamma m_e c^2$. With function \ref{func: sync_approximation}, we have
+          \begin{equation}
+            \label{func: sync_combine}
+            P = \frac{dE}{d\nu} = \frac{m_e c^2}{2\sqrt{\nu \nu_{cyc}}}
+          \end{equation}
+          Combine the function \ref{func: sync_combine} and \ref{func: sync_power_single_frequency} we get:
+          \begin{equation}
+            Q_{\nu} = \frac{4}{3} \sigma_{T} \beta^2 \gamma^2 c U_B \frac{m_e c^2}{2\sqrt{\nu \nu_{cyc}}} N\left(E\right)
+          \end{equation}
+          By ignoring constants in the function \ref{func: sync_power_single_frequency} we have 
+          \begin{equation}
+            \label{func: sync_final}
+            Q_{\nu} \propto \nu^{(1-\delta)/2}
+          \end{equation}
+          The function \ref{func: sync_final} shows that if the number density electrons is a power-law distribution, 
+          the spectrum of synchrotron radiation is also a power-lay model.  
+          %end of synchrotron.
+
+        % \subsection{Curvature Radiation}
+        %   When particles move along the curved magnetic field lines, they will generate curvature radiation. This is 
+        %   exactly the case in a pulsar's magnetosphere. The magnetic field is so strong that relativistic 
+        %   charged particles (electrons and positrons) are forced to move along the magnetic field line and hence 
+        %   emit strong curvature radiation. 
+          
+        %   \add{continue from here}
+        %end of "Curvature Radiation"
+
+        \subsection{Inverse-Compton radiation}
+          If a energetic relativistic photon collides with a charged particle from an proper incident angle,
+          the photon's energy decreases and direction changes. This is a process of Compton Scattering. 
+          Inverse-Compton radiation is the opposite process by which a low energy photon gained energy 
+          from an ultra-relativistic electron. 
+
+          \singleFig{inverse_compton}{0.45}{Inverse Compton Diagram \Notice{this figure is from internet}}
+          
+          As the figure \ref{fig: inverse_compton} showing, in the laboratory frame ($S$), the incident angle and 
+          energy of a photon is $\theta$ and $h \nu$ respectively. The speed of the electron is $v$. In the 
+          electron rest frame ($S^{\prime}$), we change the denotation to $\theta^{\prime}$, $h \nu^{\prime}$ and.
+          Also, let the position of the electron be the origin point of $S^{\prime}$.
+          We can study the whole process in the $S^{\prime}$ frame, the transfer the result 
+          to the $S$ frame by Lorentz transformation. 
+
+          In the $S^{\prime}$ frame, the electron is at rest so its energy is $m_e c^2$. 
+          For Inverse Compton scattering, the energy of an incident photon (less than several $keV$) 
+          is much less than the rest energy of an electron (about $0.51MeV$) 
+          and the relationship can be expressed by 
+          $h\nu^{\prime} \ll m_e c^2$. Therefore, this can be treated as Thompson Scattering process. 
+          Let the Poynting vector of incident photons be $\vec{S}^{\prime}$ and their energy density 
+          be $U_{rad}^{\prime}$, we have equation \ref{eq: poynting_and_energy_density}
+          \begin{equation}
+            \label{eq: poynting_and_energy_density}
+            \vec{S}^{\prime} = c U_{rad}^{\prime}
+          \end{equation}
+          The electron absorbs the energy of the incident photons and then be accelerated. Thus the 
+          accelerated electron will emit part of energy taken from incoming photons and the power of 
+          scattered radiation is denoted as $P^{\prime}$.
+          The ratio can be described by Thompson Scattering cross section $\sigma_{T}$ which is:
+          \begin{equation}
+            \label{eq: thompson_cross_section}
+            \sigma_{T} = \frac{8\pi}{3} \left(\frac{e^2}{m_e c^2}\right)^2
+          \end{equation}
+          and the relationship between the electron radiation power and incoming photon energy flux can be 
+          described by the equation \ref{eq: relationship_power_poynting}
+          \begin{equation}
+            \label{eq: relationship_power_poynting}
+            P^{\prime} = \left| \vec{S}^{\prime} \right| \sigma_{T}
+          \end{equation}
+          Combine the equation \ref{eq: poynting_and_energy_density} and \ref{eq: relationship_power_poynting},
+          the radiation power emitted by the electron is: 
+          \begin{equation}
+            \label{eq: final_relationship}
+            P^{\prime} = c \sigma_{T} U^{\prime}_{rad}
+          \end{equation}
+
+          Then we need to find the relationship between frame $S$ and $S^{\prime}$. It mainly contains 2 
+          parts: the relationship between $P$, $P^{\prime}$ and $U_{rad}$, $U_{rad}^{\prime}$. Since 
+          $P = dE/dt$ and $dE/dt$ (\question{check}) is Lorentz invariant in inertial frame, we know: 
+          \begin{equation}
+            \label{eq: power_is_equal}
+            P = P^{\prime}
+          \end{equation}
+          Now we hope to write $U_{rad}^{\prime}$ in terms of $U_{rad}$. $U_{rad}$ is comprised by 
+          energy of a single photon and photon density. In the flowing analysis, all the denotations are 
+          correspondent to \ref{fig: inverse_compton} According to the relativistic Doppler shift formula,
+          we have: 
+          \begin{equation}
+            \label{eq: doppler_shift}
+            h \nu^{\prime} = \left(h \nu\right) \gamma \left(1 + \beta \cos{\theta} \right)
+          \end{equation}
+          where $\beta = v / c$ and $\gamma$ is Lorentz factor of an ultra-relativistic electron. 
+          Then we calculate the photon density. In the frame $S^{\prime}$, the photon density is
+          inverse proportional to the time interval ($\Delta t$) between 2 photon strike the electron 
+          since total number of photons is Lorentz invariant. In laboratory frame $S$, 
+          we consider 2 photons collide with the electron at the 4-dimension vector of 
+          $\left(x_{1}, 0, 0, t_{1}\right)$ and $\left(x_{2}, 0, 0, t_{2}\right)$. According to the 
+          Lorentz transformation between inertial frames: 
+          \begin{equation}
+            \label{eq: lorentz_transfer_general}
+              \begin{cases}
+                 & x = \gamma \left( x^{\prime} + \beta c t^{\prime} \right)\\
+                 & y = y^{\prime} \\
+                 & z = z^{\prime} \\ 
+                 & t = \gamma \left(t^{\prime} + \frac{\beta x^{\prime}}{c}\right)
+              \end{cases}       
+          \end{equation}
+          And since we set $x^{\prime} = 0$, from equation \ref{eq: lorentz_transfer_general}, the 2 
+          events of 2 successive photons collide with the electron can be expressed as:
+          $\left(\gamma v t_{1}^{\prime}, 0, 0, \gamma t_{1}^{\prime}\right)$ and 
+          $\left(\gamma v t_{2}^{\prime}, 0, 0, \gamma t_{2}^{\prime}\right)$. 
+          As the Fig \ref{fig: inverse_compton_time_interval} showing, the time interval of two successive 
+          photons (reciprocal of frequency) in frame $S$ is: 
+          \begin{eqnarray}
+            \label{eq: inverse_compton_time_interval}
+            \Delta t &=& \left(t_2 - t_1\right) + \frac{\left(x_2 - x_1\right) \cos{\theta}}{c}  \nonumber \\
+                     &=& \gamma \left(t_{2}^{\prime} - t_{1}^{\prime}\right) + \frac{\gamma v \left(t_{2}^{\prime} - t_{1}^{\prime}\right) \cos{\theta}}{c} \nonumber \\
+                     &=&  \Delta t^{\prime} \gamma \left(1 + \beta \cos{\theta}\right) 
+          \end{eqnarray}
+          The equation \ref{eq: inverse_compton_time_interval} shows that the relationship of photon number 
+          density between frame $S$ and $S^{\prime}$ is:
+          \begin{equation}
+            \label{eq: inverse_compton_number_density_relationship}
+            n^{\prime} = n \gamma \left(1 + \beta \cos{\theta}\right) 
+          \end{equation}
+          Combine the equation \ref{eq: inverse_compton_number_density_relationship} and 
+          \ref{eq: doppler_shift} we can transfer the incident photon energy density from frame $S$ to 
+          $S^{\prime}$ according to the equation \ref{eq: inverse_compton_energy_density}
+          \begin{equation}
+            \label{eq: inverse_compton_energy_density}
+            U_{rad}^{\prime} = U_{rad} \left[\gamma \left(1 + \beta \cos{\theta}\right)\right]^{2}
+          \end{equation}
+          In the equation \ref{eq: inverse_compton_energy_density}, the incoming photon energy density 
+          is a function of incident angle ($\theta$), in order to get the total photon energy density,
+          we integrate the equation over $\theta$. Then we get: 
+          \begin{equation}
+            \label{eq: inverse_compton_energy_density_total}
+            U_{rad}^{\prime} = \frac{4}{3} U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
+          \end{equation}
+          By combining the equation \ref{eq: inverse_compton_energy_density_total} and 
+          \ref{eq: final_relationship} we know the total scattered radiation power is:
+          \begin{eqnarray}
+            \label{eq: inverse_compton_power}
+            P^{\prime} &=& P  \nonumber \\
+                      &=& \frac{4}{3} \sigma_{T} c U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
+          \end{eqnarray}
+          
+          \vspace{1cm}
+          \singleFig{inverse_compton_time_interval}{0.45}{Two photons collide with an electron. 
+            In the frame $S^{\prime}$, two photons collide with a rest electron successively.
+            In the frame $S$, the electron is no longer at rest and the positions of the two events 
+            are $x_1$ and $x_2$ \Notice{the figure is from internet}}
+
+
+
+
+
+          \add{inverse-compoton radiation}
+
+
+        %end of "IC"
+
+        \subsection{Two-layer Model}
+          After we have reviewed gamma-ray fundamental emission mechanism, we can proceed to
+          the Two-layer model on which this thesis is mainly based. Two-layer model is a 
+          variation of outer-gap model since they both claim that the gamma-ray emission zone
+          is close to the light-cylinder. However, in two-layer model, the outer layer 
+          consists of two regions --- a primary acceleration region and a screening region. 
+
+          In the primary region, charged particles moved out of pulsars along the open field lines, 
+          so the charge density is usually very low. 
+          However, by pair-production processes, a lot of $e^{-}$ and $e^{+}$ are produced. 
+          But in the primary region where lots of pairs are created, the charge density doesn't 
+          change very much because the pairs have not been separated yet. With the help of strong 
+          electric field, the particles of different signs move to opposite directions. 
+          As a result, the two-layer model states that just above the primary region, a screening 
+          region will be created and the charge density is very large. This is basically the reason why 
+          there are two regions in pulsars' outer magnetosphere.
+
+          Then the next issue is that how we describe the distribution of charge density in these two regions. 
+          For simplicity, we just use a step function to represent the charge density distribution and step function 
+          can clearly shows the gap between the two regions. We use a magnetic dipole model to approximate the 
+          magnetic distribution in the magnetosphere. Since in magnetic dipole model, magnetic field at one position is 
+          only dependent on the position's distance from the source and altitude, we can also ignore the azimuthal 
+          distribution of charge density in our model and use the two parameters
+          the $r (distance)$ and $\theta (altitude)$ to calculate the magnetic field at some position.
+
+          In the two-layer model, we can use three parameters to express the structure of a pulsar's outer 
+          magnetosphere - charge density of the primary region, the total length of the primary region and the 
+          screening region and the last one is the ratio of the thickness of the primary region and the 
+          screening region. The figure \ref{fig: charge_density} shows the basic structure of two-layer model. 
+
+          \singleFig{charge_density}{0.6}{(a): The geometry of two-layer model. $h_{1}$ and $h_{2}$ is the height
+          of the primary region and the screening region respectively. (b): the charge densities of primary region and 
+          screening region. In the primary region, the charge density is much smaller than Goldreich-Julian charge density
+          while is larger in the screening region. \mayChange{this figure is from the previous paper, I may need to 
+          regenerate the figure.}}
+      
+          As the figure \ref{fig: charge_density} showing, 
+          let the charge density of the primary region be $\rho_1 = (1-g_{1}) \rho_{GJ}$ and the total gap size is 
+          $h_{2}$, where $\rho_{GJ}$ is Goldreich-Julian charge density. For convenience, 
+          we also denote the gap size of the primary region as $h_{1}$. 
+          \myComment{Then we can calculate electric potential and electric field by solving the Poisson equation }
+
+          We denote the electrical potential to be $\phi_{0}$ which satisfies 
+          \begin{equation}
+            \label{eq: Poisson_corotating}
+            \nabla^{2}\phi_{0} = -4\pi\rho_{GJ}
+          \end{equation}
+          and the total electrical potential is $\phi = \phi_{0} + \phi^{\prime}$, where $\phi^{\prime}$ is a 
+          representation of the deviation of the co-rotating electrical potential.  
+          Let total charge density is $\rho$ and subtract the equation \ref{eq: Poisson_corotating} we have 
+          \begin{equation}
+            \label{eq: Poisson_final}
+            \nabla^{2}\phi^{\prime} = -4\pi\left(\rho - \rho_{GJ} \right)
+          \end{equation}
+
+          Because the model has ignored the distribution in the azimuthal direction, we can use two parameters 
+          $x, z$ to represent a position, where $x$ is the direction along the magnetic field line and $z$ is the 
+          perpendicular to the magnetic field line. In order to solve the equation \ref{eq: Poisson_final}, 
+          the model also makes 2 approximations. The first is that the directive of electrical potential $\phi$ 
+          is ignored. The second is that the \gj{} is uniformly distributed along the magnetic line direction 
+          ($x$ direction). These 2 approximations are based on the a reasonable assumption that the change rate 
+          for both electrical potential ($\phi^{\prime}$) and \gj{}($\rho_{GJ}$) along the $x$ direction is much 
+          smaller compared with $z$ direction. 
+          As a result, the equation \ref{eq: Poisson_final} can be written as: 
+          \begin{equation}
+            \label{eq: Poisson_final_final}
+            \frac{\partial^2}{\partial z^2} \phi^{\prime} = -4\pi\left(\rho - \rho_{GJ} \right)
+          \end{equation}
+
+          In order to solve the equation \ref{eq: Poisson_final_final}, we have to have proper boundary conditions. 
+          First of all, we have to decide the boundary positions, which is determined by 4 parameters and they are  
+          $x_{lo}, x_{hi}, z_{lo}, z_{hi}$. It is reasonable to set $x_{lo}$ and $x_{hi}$
+          be the pulsar's surface and the light cylinder respectively and $z_{lo}$ (lower boundary) be the last open 
+          field line. And let the electrical potential be $0$ along the last open field line (this is because we have 
+          ignored the variation of electric field in $x$ direction).   
+
+          \begin{equation}
+            \label{eq: lower_boundary}
+            \phi \left(x, z_{lo}\right) = 0
+          \end{equation}
+          The position of $z_{hi}$ is a little bit tricky. In order to make the electrical potential be 
+          continuous at $z = z_{hi} = h_2$, the model sets the $\phi^{\prime} = 0$ since the 
+          non-corotating electrical potential outside the upper bound is $0$ and the co-rotating potential
+          is continuous near the boundary. 
+
+          With these boundary conditions and equation \ref{eq: Poisson_final_final}, we can calculate the 
+          distribution of electric field, which accelerates charged particles to a very high speed so that 
+          they can emit curvature radiation, giving gamma-ray spectra. With the accelerating electric field 
+          known, we can calculate the Lorentz factor of charged particles and their spectra. This is the 
+          basic idea of the Two-layer model. \question{not sure if I should introduce the theory more 
+          thoroughly}.
+
+          \question{I am not sure if I should add this part here, since it is completely based on 
+            my own experience}
+          \subsubsection{Constraints of The Two-lay Model Used In The Thesis} 
+            The simplified two-layer model is consistent with observation data to some extent. 
+            (The relevant data can be found in the paper 
+            \href{http://iopscience.iop.org/article/10.1088/0004-637X/720/1/178/pdf}
+            {\color{black}{\textit{\small GAMMA-RAY SPECTRAL PROPERTIES OF MATURE PULSARS: A TWO-LAYER MODEL.}}})
+            The model uses 4 parameters to get a fair good prediction of gamma-ray spectra for many 
+            pulsars. And all these 4 parameters have a very obvious physical meaning. 
+            However, we can clearly find the "defects" of the model --- it is somewhat oversimplified. 
+            Though there are other more sophisticated version of two-layer model, we use the simpler one, 
+            which may cause some inconsistency between our simulation and observation. 
+
+            Therefore, we can briefly analyze which part is oversimplified and can be improved. 
+            First of all, we directly use a step function to describe the charged particle distribution. 
+            Though the charge density of the screening region is much larger than the primary region, using 
+            a step function is non-physical and may exaggerate the change rate of charge density. At the 
+            same time, the dramatic change of charge density also brings introduces some instability for 
+            numerical simulation. 
+
+            Secondly, the model sets the total of screening region and primary region to be rectangular shape. 
+            Though the shape is not clear, it should not be a rectangular in theory and may be very different.
+            In numerical simulation, changes in shape of the regions will directly lead to a different 
+            integration region, which may change the simulated spectra completely. 
+
+            Thirdly, there are some inconsistency in the model itself according to the its assumption. 
+            For example, the model states that (for simplicity) the energy of charged particles accelerated 
+            in the primary region has been completely transferred to a photon-pairs by the pair creation process.
+            It can be expressed as a function: 
+            \begin{equation}
+              \label{eq: constraints_all_is_curvature_radiation}
+              e E_{\parallel} c = l_{cur}
+            \end{equation}
+            where $E_\parallel$ is the electric field strength along the magnetic field line and 
+            \begin{equation}
+              \label{eq: constraints_curvature_radiation_power}
+              l_{cur} = \frac{2 e^2 c \gamma^{4}_{e}}{3s^2}
+            \end{equation}
+            is the power of curvature radiation, where $s$ is the radius of curvature. 
+            Combining the equation \ref{eq: constraints_all_is_curvature_radiation} and 
+            \ref{eq: constraints_curvature_radiation_power} we have: 
+            \begin{equation}
+              \label{eq: constraints_gamma_can_be_zero}
+              \gamma_{e} = \left(\frac{3s^2}{2e} E_{\parallel}\right)^{1/4}
+            \end{equation}
+            Since $E_{\parallel}$ can be $0$, 
+            from the equation \ref{eq: constraints_curvature_radiation_power} we know that 
+            $\gamma_{e}$ can also be $0$, which is absolutely impossible. Although this may not have a big 
+            influence on the spectra, it is the problem that we should solve. 
+
+            All in all, the model is simple and the gamma-ray spectra computed based on the model is 
+            consistent with observation data. There are many much more sophisticated two-layer model 
+            which are generalizations of model used in the thesis. Those models may have addressed the 
+            problems described above, but the model used in the thesis do have some defects. 
+
+          \mayAdd{continue from here}
+
+        \section{Introduction of The Fermi Gamma-ray Space Telescope}
+          The Fermi Gamma-ray Space Telescope was launched on June 11, 2008 and opened a new window of studying
+          supermassive black-hole systems, pulsars and so on. Its original name was Gamma-ray Large Area Space 
+          Telescope (GLAST) and changed to Fermi Gamma-ray Space Telescope in honor of a great scientist 
+          Enrico Fermi. 
+
+          The Fermi Gamma-ray Space Telescope contains two parts: Gamma-ray Burst Monitor (GBM) and Large 
+          Area Telescope (LAT), which is the primary components and is at least 30 times more sensitive than 
+          all gamma-ray telescopes launched before. We only use LAT for our purposes. So we 
+          focus on the LAT instrument, which contains four main subcomponents including tracker, calorimeter,
+          anti-coincidence detector and data acquisition system. The reason why the telescope is designed in 
+          this way is that high-energy gamma-rays cannot be refracted by lens or mirrors. As a result, the way
+          that the Fermi LAT operates is totally different. 
 
         \begin{figure}[!ht]  
           \begin{minipage}{1\textwidth}
@@ -1403,9 +1548,7 @@
         It is an reprocessing of the entire Fermi mission dataset with better energy measurements, larger effective 
         area, wider energy range and so on. This is part of the reason why I will redo the analysis of the three MSPs.
 
-      
-      
-        \section{Analysis With Fermi LAT}
+      \section{Analysis With Fermi LAT}
         In this section, my main objective is to show the results of my analysis. Before doing so, it is 
         appropriate to briefly introduce some terminologies. 
         \begin{itemize}
@@ -1425,7 +1568,7 @@
             without the target source while $\ln{L_{max, 0}}$ is the maximum likelihood value with the target source.
             According to the equation, the smaller the ratio of $\ln{L_{max, 0}}$ and $\ln{L_{max, 1}}$, the larger
             the TS value is. Therefore, a larger TS value statistically means that our aimed source is observed. 
-          \item \mayAdd{may have more items}
+          \item \add{may have more items}
         \end{itemize}
 
         The basic idea of fitting spectra parameters is to make the count cube generated by the model be as similar 
@@ -1480,15 +1623,9 @@
                 J0534+2200 & $2.07\pm0.01$ & $9880\pm572$ & $239015$ & $1.9\pm0.1$ & $4200\pm200$ & $102653$  \\
                 \hline
               \end{tabular}
-              \mycaption{The Spectra Fit Result. In the thesis, in order to make data analysis be more 
-                convinient, I use some pipeline scripts to deal with the observation data. The "Test" column
-                shows the results generated by using the pipeline scripts. The "Paper" column lists the 
-                corresponding spectra properties from \blackhref{https://arxiv.org/abs/1305.4385}{the paper}.
-                According to the standard PLSuperExpCutoff model (described in equation \ref{eq: fermi_model}, 
-                $\Gamma$ is photon index and $E_c$ is cutoff energy.}
+              \caption{The Spectra Fit Result}
               \label{table: previous_result_comparison}
             \end{table}
-            \vspace{1cm}            
 
             \begin{table}[!ht]
               \centering
@@ -1498,11 +1635,9 @@
                 J0007+7303 & $1.34\pm0.02$ & $2204\pm67$ & $210166$ \\ \hline 
                 J0534+2200 & $2.01\pm0.01$ & $9173\pm372$ & $449946$ \\ \hline
               \end{tabular}
-              \mycaption{Fit Results With Data From Year 2009 To Year 2018. The physical meanings of 
-              $\Gamma$ and $E_c$ are the same as the table \ref{table: previous_result_comparison}.}
+              \caption{Fit Results With Data From Year 2009 To Year 2018}
               \label{table: 2018_fit_data}
             \end{table}
-            \vspace{1cm}            
             The table \ref{table: previous_result_comparison} and table \ref{table: 2018_fit_data} mainly 
             show 2 pieces of information. Firstly, my procedure of dealing with observation data has no
             big problems, so basically I can trust fit results of my target sources. Secondly, the Fermi 
@@ -1605,7 +1740,7 @@
             \label{table:j0218_ccube_photon_counts}
           \end{table}
 
-          \subsubsection{Spectra Fitting}
+          \subsubsection{Binned Likelihood Analysis}
 
             The figure \ref{fig: j0218_count_map_and_model} shows that the fit result of the model 
             is similar to the observation. However, 
@@ -1622,47 +1757,18 @@
             Thus, the spatial positions of photons are different between the observation and the model and 
             the count maps generated directly from models are usually cleaner. 
             
-            % \begin{figure}[!ht]
-            %   \begin{minipage}{1\textwidth}
-            %     \begin{center} 
-            %       \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/j0218_count_map_diff.png}
-            %     \end{center}
-            %   \end{minipage}
-            %   \centering
-            %   \begin{minipage}{0.8\textwidth}
-            %     \mycaption{The residual map shows the difference between the observation and the model. 
-            %     It is generated by subtracting the photon counts of each pixel between the count maps of 
-            %     observation and the model. 
-            %     \change{ugly, scale may be wrong}}
-            %     \label{fig: j0218_count_map_diff}
-            %   \end{minipage}
-            % \end{figure}
-
             \begin{figure}[!ht]
-              \begin{minipage}{0.32\textwidth}
+              \begin{minipage}{1\textwidth}
                 \begin{center} 
-                  \includegraphics[scale=1]{/Users/grewwc/Desktop/Thesis/diff_log_scale_0218.png}
+                  \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/j0218_count_map_diff.png}
                 \end{center}
               \end{minipage}
-              \begin{minipage}{0.32\textwidth}
-                \begin{center}
-                  \includegraphics[scale=1]{/Users/grewwc/Desktop/Thesis/diff_linear_scale_0218.png}
-                \end{center}
-              \end{minipage}
-              \begin{minipage}{0.32\textwidth}
-                \begin{center}
-                \includegraphics[scale=1]{/Users/grewwc/Desktop/Thesis/diff_squareroot_scale_0218.png}
-                \end{center}
-              \end{minipage}
-  
               \centering
               \begin{minipage}{0.8\textwidth}
-                \mycaption{The residual maps show the difference between the observation and the model. 
-                    They are generated by subtracting the photon counts of each pixel between the count maps 
-                    of observation data and the model. From left to right, the residual map is in "log" scale, 
-                    "linear" scale and "square root" scale respectively. 
-                    \add{add color bar. I have turned on the color bars in ds9, but each time when I save 
-                    the figure, the color bar disappears}}
+                \mycaption{The residual map shows the difference between the observation and the model. 
+                It is generated by subtracting the photon counts of each pixel between the count maps of 
+                observation and the model. 
+                \change{ugly, scale may be wrong}}
                 \label{fig: j0218_count_map_diff}
               \end{minipage}
             \end{figure}
@@ -1675,8 +1781,7 @@
 
             \begin{table}[!ht]
               \centering
-                \begin{tabular}{|c|c|c|}
-                  \hline 
+                \begin{tabular}{c|c|c}
                   & Value & Error \\
                   \hline 
                   Prefactor ($N_{0}$) & $1.71\times 10^{-11}$ & $0.0610\times 10^{-12}$ \\
@@ -1684,7 +1789,6 @@
                   Index1 ($\gamma_1$) & $1.8999$ & 0.0395 \\
                   \hline 
                   Cutoff ($E_c$, MeV) & $3794.25$ & $396.447$ \\
-                  \hline 
                 \end{tabular}    
                 \mycaption{Fit parameters of the model. The parameters are corresponding to the equation 
                   \ref{eq: fermi_model}. \\
@@ -1694,7 +1798,7 @@
             \end{table}  
 
             \singleFig{j0218_cur_with_data_points.png}{0.6}{
-              The log-log plot of flux to energy of PSRJ0218+4232. The grey shade represents 
+              The log-log plot of flux to energy. The grey shade represents 
               fitting errors, black points with error bars are flux points, the blue dots are upper values and the 
               red line is the PLExpCutoff model multiplied by $E^2$. Flux points 
               are fitted separately by dividing the total energy bin (100 MeV $\sim$ 100 GeV) into multiple energy bins.
@@ -1716,23 +1820,6 @@
             \singleFig{blank.png}{0.3}{\change{The figure should be a TS map, but the new TS map has not been generated yet.
             The previous TS map does not use the best fit parameters, so I have to re-generate the TS map. And this 
             world map is just a reminder and it may be used a lot.}}
-
-            After obtaining the spectra fit results in gamma-ray band, we can generate a broad band spectrum. 
-            The hard X-ray data is from the paper  
-            \blackhref{https://arxiv.org/pdf/1704.02964.pdf}{NUSTAR HARD X-RAY OBSERVATIONS OF THE ENERGETIC   %
-            MILLISECOND PULSARS PSR B1821-24, PSR B1937+21, AND PSR J0218+4232}. We also generate simulation data
-            from the two-layer model. Then we compare the simulation and observation as the Fig 
-            \ref{fig: J0218+4232} showing. The prediction of the two-layer model is consistent with the observation
-            both in X-ray band (from about 3 keV to 10 MeV) and high energy gamma-ray band (above 1 GeV). However, 
-            from about 100 MeV to 1 GeV, the spectrum from the two-layer model is not consistent with Fermi data. 
-            \question{This can have 2 explanations. Firstly, the Fermi telescope is not sensitive in about 100 MeV.
-            As a result, the observatoin data may not be very reliable at about this energy band. Secondly, the  
-            real emission mechanism in the energy band is different from the model predicts. Thus, we can observe 
-            inconsistency between the simulation and observation.} 
-
-            \singleFig{J0218+4232}{0.35}{\Notice{have to uniformly change the style of figures later.}}
-
-
 
             
             \subsection{PSR J1824.6-2452}
@@ -1768,7 +1855,7 @@
                 \end{minipage}
               \end{figure}
               
-              As the figure \ref{fig: b1821_count_map_with_region_and_model} showing, the PSR J1824.6 is much dimmer than
+              As the figure \ref{fig: b1821_count_map_with_region_and_model} shown, the PSR J1824.6 is much dimmer than
               PSR J0218+4232, which implies that the fitting result may be worse. In general, the two figures are quite 
               similar, except that the modeled count map lacks some details and the reason was explained in the previous 
               section \ref{j0218}. 
@@ -1843,160 +1930,7 @@
             \subsection{PSR J1939+2134}
               \add{continue here}
 
-      
-    \chapter{theory and simulation}
-      \section{Two-layer Model}
-      After we have reviewed gamma-ray fundamental emission mechanism, we can proceed to
-      the Two-layer model on which this thesis is mainly based. Two-layer model is a 
-      variation of outer-gap model since they both claim that the gamma-ray emission zone
-      is close to the light-cylinder. However, in two-layer model, the outer layer 
-      consists of two regions --- a primary acceleration region and a screening region. 
-
-      In the primary region, charged particles moved out of pulsars along the open field lines, 
-      so the charge density is usually very low. 
-      However, by pair-production processes, a lot of $e^{-}$ and $e^{+}$ are produced. 
-      But in the primary region where lots of pairs are created, the charge density doesn't 
-      change very much because the pairs have not been separated yet. With the help of strong 
-      electric field, the particles of different signs move to opposite directions. 
-      As a result, the two-layer model states that just above the primary region, a screening 
-      region will be created and the charge density is very large. This is basically the reason why 
-      there are two regions in pulsars' outer magnetosphere.
-
-      Then the next issue is that how we describe the distribution of charge density in these two regions. 
-      For simplicity, we just use a step function to represent the charge density distribution and step function 
-      can clearly shows the gap between the two regions. We use a magnetic dipole model to approximate the 
-      magnetic distribution in the magnetosphere. Since in magnetic dipole model, magnetic field at one position is 
-      only dependent on the position's distance from the source and altitude, we can also ignore the azimuthal 
-      distribution of charge density in our model and use the two parameters
-      the $r (distance)$ and $\theta (altitude)$ to calculate the magnetic field at some position.
-
-      In the two-layer model, we can use three parameters to express the structure of a pulsar's outer 
-      magnetosphere - charge density of the primary region, the total length of the primary region and the 
-      screening region and the last one is the ratio of the thickness of the primary region and the 
-      screening region. The figure \ref{fig: charge_density} shows the basic structure of two-layer model. 
-
-      \singleFig{charge_density}{0.6}{(a): The geometry of two-layer model. $h_{1}$ and $h_{2}$ is the height
-      of the primary region and the screening region respectively. (b): the charge densities of primary region and 
-      screening region. In the primary region, the charge density is much smaller than Goldreich-Julian charge density
-      while is larger in the screening region. \mayChange{this figure is from the previous paper, I may need to 
-      regenerate the figure.}}
-
-      As the figure \ref{fig: charge_density} showing, 
-      let the charge density of the primary region be $\rho_1 = (1-g_{1}) \rho_{GJ}$ and the total gap size is 
-      $h_{2}$, where $\rho_{GJ}$ is Goldreich-Julian charge density. For convenience, 
-      we also denote the gap size of the primary region as $h_{1}$. 
-      \myComment{Then we can calculate electric potential and electric field by solving the Poisson equation }
-
-      We denote the electrical potential to be $\phi_{0}$ which satisfies 
-      \begin{equation}
-        \label{eq: Poisson_corotating}
-        \nabla^{2}\phi_{0} = -4\pi\rho_{GJ}
-      \end{equation}
-      and the total electrical potential is $\phi = \phi_{0} + \phi^{\prime}$, where $\phi^{\prime}$ is a 
-      representation of the deviation of the co-rotating electrical potential.  
-      Let total charge density is $\rho$ and subtract the equation \ref{eq: Poisson_corotating} we have 
-      \begin{equation}
-        \label{eq: Poisson_final}
-        \nabla^{2}\phi^{\prime} = -4\pi\left(\rho - \rho_{GJ} \right)
-      \end{equation}
-
-      Because the model has ignored the distribution in the azimuthal direction, we can use two parameters 
-      $x, z$ to represent a position, where $x$ is the direction along the magnetic field line and $z$ is the 
-      perpendicular to the magnetic field line. In order to solve the equation \ref{eq: Poisson_final}, 
-      the model also makes 2 approximations. The first is that the directive of electrical potential $\phi$ 
-      is ignored. The second is that the \gj{} is uniformly distributed along the magnetic line direction 
-      ($x$ direction). These 2 approximations are based on the a reasonable assumption that the change rate 
-      for both electrical potential ($\phi^{\prime}$) and \gj{}($\rho_{GJ}$) along the $x$ direction is much 
-      smaller compared with $z$ direction. 
-      As a result, the equation \ref{eq: Poisson_final} can be written as: 
-      \begin{equation}
-        \label{eq: Poisson_final_final}
-        \frac{\partial^2}{\partial z^2} \phi^{\prime} = -4\pi\left(\rho - \rho_{GJ} \right)
-      \end{equation}
-
-      In order to solve the equation \ref{eq: Poisson_final_final}, we have to have proper boundary conditions. 
-      First of all, we have to decide the boundary positions, which is determined by 4 parameters and they are  
-      $x_{lo}, x_{hi}, z_{lo}, z_{hi}$. It is reasonable to set $x_{lo}$ and $x_{hi}$
-      be the pulsar's surface and the light cylinder respectively and $z_{lo}$ (lower boundary) be the last open 
-      field line. And let the electrical potential be $0$ along the last open field line (this is because we have 
-      ignored the variation of electric field in $x$ direction).   
-
-      \begin{equation}
-        \label{eq: lower_boundary}
-        \phi \left(x, z_{lo}\right) = 0
-      \end{equation}
-      The position of $z_{hi}$ is a little bit tricky. In order to make the electrical potential be 
-      continuous at $z = z_{hi} = h_2$, the model sets the $\phi^{\prime} = 0$ since the 
-      non-corotating electrical potential outside the upper bound is $0$ and the co-rotating potential
-      is continuous near the boundary. 
-
-      With these boundary conditions and equation \ref{eq: Poisson_final_final}, we can calculate the 
-      distribution of electric field, which accelerates charged particles to a very high speed so that 
-      they can emit curvature radiation, giving gamma-ray spectra. With the accelerating electric field 
-      known, we can calculate the Lorentz factor of charged particles and their spectra. This is the 
-      basic idea of the Two-layer model. \question{not sure if I should introduce the theory more 
-      thoroughly}.
-
-      \question{I am not sure if I should add this part here, since it is completely based on 
-        my own experience}
-      \subsubsection{Constraints of The Two-lay Model Used In The Thesis} 
-        The simplified two-layer model is consistent with observation data to some extent. 
-        (The relevant data can be found in the paper 
-        \href{http://iopscience.iop.org/article/10.1088/0004-637X/720/1/178/pdf}
-        {\color{black}{\textit{\small GAMMA-RAY SPECTRAL PROPERTIES OF MATURE PULSARS: A TWO-LAYER MODEL.}}})
-        The model uses 4 parameters to get a fair good prediction of gamma-ray spectra for many 
-        pulsars. And all these 4 parameters have a very obvious physical meaning. 
-        However, we can clearly find the "defects" of the model --- it is somewhat oversimplified. 
-        Though there are other more sophisticated version of two-layer model, we use the simpler one, 
-        which may cause some inconsistency between our simulation and observation. 
-
-        Therefore, we can briefly analyze which part is oversimplified and can be improved. 
-        First of all, we directly use a step function to describe the charged particle distribution. 
-        Though the charge density of the screening region is much larger than the primary region, using 
-        a step function is non-physical and may exaggerate the change rate of charge density. At the 
-        same time, the dramatic change of charge density also brings introduces some instability for 
-        numerical simulation. 
-
-        Secondly, the model sets the total of screening region and primary region to be rectangular shape. 
-        Though the shape is not clear, it should not be a rectangular in theory and may be very different.
-        In numerical simulation, changes in shape of the regions will directly lead to a different 
-        integration region, which may change the simulated spectra completely.
-
-    
-        Thirdly, there are some inconsistency in the model itself according to the its assumption. 
-        For example, the model states that (for simplicity) the energy of charged particles accelerated 
-        in the primary region has been completely transferred to a photon-pairs by the pair creation process.
-        It can be expressed as a function: 
-        \begin{equation}
-          \label{eq: constraints_all_is_curvature_radiation}
-          e E_{\parallel} c = l_{cur}
-        \end{equation}
-        where $E_\parallel$ is the electric field strength along the magnetic field line and 
-        \begin{equation}
-          \label{eq: constraints_curvature_radiation_power}
-          l_{cur} = \frac{2 e^2 c \gamma^{4}_{e}}{3s^2}
-        \end{equation}
-        is the power of curvature radiation, where $s$ is the radius of curvature. 
-        Combining the equation \ref{eq: constraints_all_is_curvature_radiation} and 
-        \ref{eq: constraints_curvature_radiation_power} we have: 
-        \begin{equation}
-          \label{eq: constraints_gamma_can_be_zero}
-          \gamma_{e} = \left(\frac{3s^2}{2e} E_{\parallel}\right)^{1/4}
-        \end{equation}
-        Since $E_{\parallel}$ can be $0$, 
-        from the equation \ref{eq: constraints_curvature_radiation_power} we know that 
-        $\gamma_{e}$ can also be $0$, which is absolutely impossible. Although this may not have a big 
-        influence on the spectra, it is the problem that we should solve. 
-
-        All in all, the model is simple and the gamma-ray spectra computed based on the model is 
-        consistent with observation data. There are many much more sophisticated two-layer model 
-        which are generalizations of model used in the thesis. Those models may have addressed the 
-        problems described above, but the model used in the thesis do have some defects. 
-
-       \mayAdd{continue from here}
-
-  %stupid
-
+              
 
 
 \end{document}
