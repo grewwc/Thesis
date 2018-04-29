@@ -22,6 +22,7 @@
 \usepackage{hyperref}
 \usepackage{color}
 \usepackage{epigraph}
+\usepackage{makebox}
 
 \renewcommand{\arraystretch}{2}
 
@@ -1403,7 +1404,82 @@
         It is an reprocessing of the entire Fermi mission dataset with better energy measurements, larger effective 
         area, wider energy range and so on. This is part of the reason why I will redo the analysis of the three MSPs.
 
-      
+        \section{A Brief Introduction of Fermi Data Analysis}
+          We not only want to analyze observation data from Fermi LAT but also study spectra 
+          models of our interested sources. We do spectra analysis by comparing our model with 
+          the observation data based on maximum likelihood principal. 
+
+          When doing Fermi data analysis, we basically dealing with 2 "threads". The first is 
+          processing observation data and the second is generating photon distribution based on 
+          our models. Cleaning data is straightforward including select data, filter data with 
+          good time intervals(GTI), generating count maps and so on. Generating model-based count 
+          maps and count cubes needs a little bit more effort and mainly includes the following 
+          procedures. 
+
+          Firstly, we need to generate a spectra model of all sources in our region of interest (ROI).
+          The model basically describes how strong each source is in different energy bands and 
+          different positions. However, the model alone is not very helpful and we have to know other 
+          informations in order to get simulated photon distribution. 
+
+          Since we are going to compare our simulation with the observation data, we have to 
+          take the telescope influence into account. For example, 
+          effective area of telescope decreases when we are away from the optical axis. 
+          In addition, inclination angles and observation time have a direct effect on the 
+          number of photon counts. In short, after we get the simulated photon distribution from 
+          our model, we have to transfer the simulation into the "real simulation" by applying 
+          the telescope functions. 
+          
+          After we get the photon distribution simulation, we can then do comparisons in order to get 
+          the maximum likelihood. We divide the total energy band into many smaller bins and denote
+          the number of photon counts in observation data as $n_{i}$, so that $\sum_{i}^{}n_{i} = N$, 
+          where $N$ is the total number of photons we observed. The observed number of photon counts
+          in $ith$ bin is a Poisson distribution with a mean of $m_{i}$. Actually, the value $m_{i}$ is the 
+          expected number of photon counts from our spectra model. Therefore, the distribution for $ith$ bin
+          can be expressed by the function \ref{func: maximum_likelihood_poisson}, where 
+          $P_{i}\left(n_{i}\right)$ is the possibility of observing the $n_{i}$ photon counts for the $ith$
+          bin. 
+          \begin{equation}
+            P_{i}\left(n_{i}\right) = \frac{e^{-m_{i}} m_{i}^{n_{i}}}{n_{i}!}
+            \label{func: maximum_likelihood_poisson}
+          \end{equation}
+
+          As a result, it is not hard to generalize the possibility for each bin to all bins, just 
+          by multiplying the possibilities for different bins.
+          \begin{eqnarray}
+            P_{total} &=& \prod_{i}^{}P_{i}\left(n_{i}\right) \nonumber \\ 
+                      &=& e^{\sum_{i}^{}m_i}\prod_{i}^{}\frac{m_{i}^{n_i}}{n_i!}
+            \label{func: maximum_likelihood_poisson_all}
+          \end{eqnarray}
+          In the function \ref{func: maximum_likelihood_poisson_all}, $n_i$s are directly 
+          from observation data so they usually can not be changed during the binned likelihood 
+          analysis. However, by changing our model, the $m_i$s can be altered. 
+          Hence, our aim is to tweak the spectra model in order to make the total possibility 
+          $P_{total}$ as large as possible. 
+
+          This is the basic idea and procedure of doing Fermi data analysis. After doing these,
+          we can go further such as testing how significant our target is by creating TS maps. The 
+          thesis basically follows the procedures. 
+
+          Before finishing this part, let's take a look at what a TS map is. TS stands for 
+          "Test Statistic" which can be expressed as the function \ref{func: ts_definition}
+          \begin{equation}
+            TS = -2 \ln{\frac{L_{max,0}}{L_{max,1}}}
+            \label{func: ts_definition}
+          \end{equation}
+          where $L_{max,0}$ and $L_{max,1}$ is the maximum likelihood of models in which our 
+          target source is not included and included respectively. According to the function 
+          \ref{func: ts_definition}, the larger the TS value is, the larger $L_{max, 1}$ is, which
+          means that the probability of existence of the target source is larger. 
+          In order to generate a TS map, we divide the whole map into many sub-grids. In each sub-grid,
+          the algorithm basically does 2 things. The first procedure is calculating the maximum likelihood 
+          directly based on our spectra model ($L_{max,0}$). Then it adds an imaginary source, fit the source 
+          and get the maximum likelihood ($L_{max, 1}$). In the end, it can get the TS value for the 
+          sub-grid using the function \ref{func: ts_definition}. 
+
+          After having the TS values for each sub-grids, we can generate a TS map just by 
+          rendering colors according to the each grid's TS value. By comparing TS values of 
+          each grid in a TS map, we can 
+          determine where our target source is most likely to be and how large the probability is. 
       
         \section{Analysis With Fermi LAT}
         In this section, my main objective is to show the results of my analysis. Before doing so, it is 
@@ -1511,7 +1587,6 @@
             $1.30\pm0.02$ and $1.4\pm0.1$, which means that the errors reduce a lot. Additionally, the TS 
             value is more than double as before. 
 
-
         \subsection{PSR J0218+4232}
           \label{j0218}
           Our ROI is a circle with radius of $20^\circ$ and all parameters of sources which are $8^\circ$ outside 
@@ -1580,26 +1655,28 @@
             \end{minipage}
           \end{figure}
           
-          The figure \ref{fig: j0218_ccube_bin_1_and_15} is a comparison of PSR J0218+4232's count maps in different energy 
+          The figure \ref{fig: j0218_ccube_bin_1_and_15} is a comparison between PSR J0218+4232's count maps in different energy 
           bands. The count map in about 100MeV is so messy that we can hardly distinguish our target source 
-          while in about 30GeV so faint that there are no recorded photon around the source. 
+          while above 30GeV there are so few photons that there is not a clear sign of the source. 
           We choose three circle regions whose centers are the our target sources and the radii are 1000 $''$ for 
           all of the three figures and then calculate the total photon counts of the selected regions. 
           As the following table \ref{table:j0218_ccube_photon_counts}
-          shown, though total photon counts around our target source are similar between the left and middle map, the 
-          counts per energy is quite different. Therefore, we focus more on the middle energy parts (500MeV $\sim$ 
-          50GeV). This means that when doing binned analysis, we divide more bins in the middle part.
+          shown, though total number of photon counts around our target source is similar between the left and middle maps, the 
+          number of counts per energy is much different. Since there are few photons in high energy band 
+          (above 50 $GeV$) compare to other energy bands, we focus more on the lower energy part. 
 
           \begin{table}[!h]   
             \centering
-            \begin{tabular}{m{4cm} | c | c | c }
+            \begin{tabular}{|m{4.5cm} | c | c | c |}
+              \hline 
               & Left & Middle & Right \\
               \hline
               Total counts & 78 & 93 & 0 \\
               \hline 
-              Energy range (MeV) & 100$\sim$123 & 1873$\sim$2310 & 35110$\sim$43290 \\ 
+              Energy range ($MeV$) & 100$\sim$123 & 1873$\sim$2310 & 35110$\sim$43290 \\ 
               \hline
-              Counts / MeV & 3.39 & 0.213 & 0.000 \\  
+              Counts / MeV ($MeV^{-1}$)& 3.39 & 0.213 & 0.000 \\  
+              \hline
             \end{tabular}
             \mycaption{Photon counts of count maps in different energy bands.}
             \label{table:j0218_ccube_photon_counts}
@@ -1610,15 +1687,15 @@
             The figure \ref{fig: j0218_count_map_and_model} shows that the fit result of the model 
             is similar to the observation. However, 
             there are lots of small red pixels in the left figure (generated directly by the observation data) while the 
-            right figure is very "clean". This means that a lot of photon are thought as generated by the modeled 
+            right figure is very "clean". This means that a lot of photons are thought as generated by the modeled 
             source. Thus in our model, the sources are generally slightly brighter than the observation. However, our target
             source is an exception. In the region we have used before (the center is the target source, and the radius is
             1000$''$), the total photon count in the left figure is 1815 compare to 1737 in the right figure. 
 
-            The reason why the count map generated directly by the observation data is a lot more messy is that our modeled 
-            source is generated according to the Fermi database and their spatial position is fixed. This means that if 
+            The reason why the count map generated directly by the observation data is a lot more messy is that our source 
+            model is generated according to the Fermi database and their spatial position is fixed. This means that if 
             a photon comes from a particular direction and there is no any known pulsar in that direction, this 
-            photon has to be classified to other directions in which there are other modeled pulsars.  
+            photon has to be classified to other directions and there is a modeled source in the direction.  
             Thus, the spatial positions of photons are different between the observation and the model and 
             the count maps generated directly from models are usually cleaner. 
             
@@ -1661,35 +1738,40 @@
                     They are generated by subtracting the photon counts of each pixel between the count maps 
                     of observation data and the model. From left to right, the residual map is in "log" scale, 
                     "linear" scale and "square root" scale respectively. 
-                    \add{add color bar. I have turned on the color bars in ds9, but each time when I save 
-                    the figure, the color bar disappears}}
+                    \add{add color bar. }}
                 \label{fig: j0218_count_map_diff}
               \end{minipage}
             \end{figure}
 
             The figure \ref{fig: j0218_count_map_diff} generally describes how well our model is compared to the 
             observation data. There are some black dots and bright dots in the residual map which means that the 
-            absolute photon counts between the model and the observation differ a lot. However, 
-            it is acceptable because the original value is much larger. The absolute values
-            of most of other pixels are less than 10 implying that the global fit is fine. 
+            number of absolute photon counts between the model and the observation differs a lot. However, 
+            it is acceptable because the difference is small compared to the the absolute number of 
+            photon counts. The absolute values
+            of most of other pixels are less than 10 implying that our spectra model gives a good 
+            simulation. 
 
             \begin{table}[!ht]
               \centering
-                \begin{tabular}{|c|c|c|}
-                  \hline 
-                  & Value & Error \\
-                  \hline 
-                  Prefactor ($N_{0}$) & $1.71\times 10^{-11}$ & $0.0610\times 10^{-12}$ \\
+                \begin{tabular}{|c|c|c|c|c|}
+                  \cline{1-5}
+                  & \multicolumn{2}{|c|}{Now} & \multicolumn{2}{|c|}{Previous} \\
+                  \cline{1-5}
+                  & Value & Error & Value & Error \\
                   \hline
-                  Index1 ($\gamma_1$) & $1.8999$ & 0.0395 \\
+                  Index1 ($\gamma_1$) & $1.89492$ & $0.04044$ & $2.0$ & $0.1$ \\
                   \hline 
-                  Cutoff ($E_c$, MeV) & $3794.25$ & $396.447$ \\
+                  Cutoff ($E_c$, MeV) & $3766.69$ & $397.38$ & $4600$ & $1200$ \\
                   \hline 
+                  Photon Flux (ph $cm^{-2} s^{-1}$) ($10^{-8}$) & $7.28913$ & $0.27988$ & $7.7$ & $0.7$ \\ 
+                  \hline
                 \end{tabular}    
-                \mycaption{Fit parameters of the model. The parameters are corresponding to the equation 
-                  \ref{eq: fermi_model}. \\
-                  \add{add comparison with previous data later.)}
-                  \change{the table is ugly}}
+                \mycaption{Fit parameters of the model. The names of parameters are consistent with the equation
+                  \ref{eq: fermi_model}. The old results are from the paper
+                  \blackhref{https://arxiv.org/abs/1305.4385}{The Second Fermi Large Area Telescope Catalog of Gamma-ray Pulsars}
+                  published in 2013.\\
+                  \change{should rename "Previous" and "Now". \\ 
+                      should draw a diagnal line in the upper left cell, but don't know how yet.)}}
                 \label{table: j0218_fit_result}        
             \end{table}  
 
@@ -1704,7 +1786,11 @@
               \change{legends, arrows}
             }
 
-            The table \ref{table: j0218_fit_result} lists the results of fitting parameters. The figure 
+            The table \ref{table: j0218_fit_result} lists the results of fitting parameters. We see from 
+            the figure that the new fit results are consistent with the old results. However, the 
+            precision improves a lot which is ascribed to the Fermi LAT Third Source Catalogue and PASS 
+            8 data. 
+            The figure 
             \ref{fig: j0218_cur_with_data_points.png} plot the spectrum according to the function \ref{eq: fermi_model}.
             One thing should be noticed is that we need to multiply $E^2$ to the function \ref{eq: fermi_model} to 
             get the flux. The figure \ref{fig: j0218_cur_with_data_points.png} shows that the global fit is consistent 
@@ -1712,6 +1798,8 @@
             a significance level $\sigma \approx \sqrt{TS} = 84$. This strongly implies the presence of our
             target source. We can also use a TS map to test the presence of the source as the figure 
             \ref{fig: blank.png} showing. 
+
+            
 
             \singleFig{blank.png}{0.3}{\change{The figure should be a TS map, but the new TS map has not been generated yet.
             The previous TS map does not use the best fit parameters, so I have to re-generate the TS map. And this 
@@ -1722,7 +1810,7 @@
             \blackhref{https://arxiv.org/pdf/1704.02964.pdf}{NUSTAR HARD X-RAY OBSERVATIONS OF THE ENERGETIC   %
             MILLISECOND PULSARS PSR B1821-24, PSR B1937+21, AND PSR J0218+4232}. We also generate simulation data
             from the two-layer model. Then we compare the simulation and observation as the Fig 
-            \ref{fig: J0218+4232} showing. The prediction of the two-layer model is consistent with the observation
+            \ref{fig: J0218+4232} shown. The prediction of the two-layer model is consistent with the observation
             both in X-ray band (from about 3 keV to 10 MeV) and high energy gamma-ray band (above 1 GeV). However, 
             from about 100 MeV to 1 GeV, the spectrum from the two-layer model is not consistent with Fermi data. 
             \question{This can have 2 explanations. Firstly, the Fermi telescope is not sensitive in about 100 MeV.
