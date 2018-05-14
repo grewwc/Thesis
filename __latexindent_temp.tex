@@ -49,10 +49,10 @@
 
 \geometry{
 	a4paper,
-	total={180mm,257mm},
- 	left=25mm,
- 	top=15mm,
- 	right=25mm,
+	% total={210mm,297mm},
+ 	left=35mm,
+ 	top=25mm,
+ 	right=35mm,
 }
 
 \title{\textbf{Thesis Title}\\ \vspace{1cm}
@@ -113,7 +113,8 @@
   \includegraphics[scale=#2]{/Users/grewwc/Desktop/Thesis/#1}
   \mycaption{#3}
  \label{fig: #1}
- \end{figure} 
+ \end{figure}
+ \vspace{0.5cm} 
 }
 
 \newcommand{\gj}[0]{
@@ -125,20 +126,20 @@
 }
 
 \newcommand{\change}[1]{
-  $<$\textbf{change}$>$#1$<$\textbf{/change}$>$
+  $<$\colorbox{red}{\textbf{change}}$>$#1$<$\colorbox{red}{\textbf{/change}}$>$
 }
 
 \newcommand{\add}[1]{
-  $<$\textbf{add}$>$#1$<$\textbf{/add}$>$
+  $<$\colorbox{red}{\textbf{add}}$>$#1$<$\colorbox{red}{\textbf{/add}}$>$
 }
 
 \newcommand{\mayAdd}[1]{
-  $<$\textbf{mayAdd}$>$#1$<$\textbf{/mayAdd}$>$
+  $<$\colorbox{red}{\textbf{mayAdd}}$>$#1$<$\colorbox{red}{\textbf{/mayAdd}}$>$
 }
 
 
 \newcommand{\mayChange}[1]{
-  $<$\textbf{mayChange}$>$#1$<$\textbf{/mayChange}$>$
+  $<$\colorbox{red}{\textbf{mayChange}}$>$#1$<$\colorbox{red}{\textbf{/mayChange}}$>$
 }
 
 \newcommand{\myComment}[1]{
@@ -665,22 +666,23 @@
             field near the light cylinder. The figure \ref{fig:class } is an example of aligned pulse profile.
 
     \section{Objectives}
-    Recently, it is found that X-ray band of spectrum of millisecond pulsar B1937+21 has a hard photon 
-    index of $0.9\mathrm{\pm}0.1$ by analyzing data of \textit{Chandra}, \textit{XMM-Newton} \textit{Fermi} 
-    (\href{https://arxiv.org/pdf/1110.1271.pdf}{\textit{Ng et al. 2014}}).
-    People think X-ray emission
-    is mainly produced by synchrotron radiation, but it is difficult to explain such a hard photon index. 
-    Besides millisecond pulsar B1937+21, it is discovered that hard photon index is a common characteristic 
-    of class II MSPs. Therefore, people propose that Inverse Compton scattering can also lead to X-ray 
-    emission and build a model recently to explain it (\href{https://arxiv.org/pdf/1110.1271.pdf}
-    {\textit{Ng et al. 2014}}). \\
-    \indent 
-    In order to test the model, we need to analyze the hard X-ray band of millisecond pulsars B1937+21, 
-    J0218+4232 and B1821-24. The energy ranges of \textit{Chandra} and \textit{XMM-Newton} are up to 10keV 
-    and 15keV respectively while \textit{NuSTAR} can be up to 79keV. As a result, we aim to use
-    \textit{NuSTAR} to measure the hard X-ray band of the three MSPs mentioned above. 
+            The three millisecond pulsars J0218+4232, J1824.6-2452 and J1939+2134 show 
+            broadband spectra in all radio, X-ray and gamma-ray bands. Fermi LAT gives us 
+            additional data and tools to do gamma-ray analysis for the pulsars. Lots of research 
+            have been done on the three MSPs, however, many of them are a little bit 'old'. In year 
+            2015, Fermi team released Pass 8 data including many improvements. According to the 
+            \blackhref{https://fermi.gsfc.nasa.gov/ssc/data/analysis/documentation/Pass8_usage.html}{Fermi official website},
+            Pass 8 dataset includes improved event construction, better energy measurement and 
+            significantly improved effective area. Additionally, we have more observation Fermi LAT
+            data. As a result, it is reasonable to redo the gamma-ray analysis with newer dataset and 
+            more observation data and gain more reliable results. 
 
-
+            Therefore, my main objective is to use the new tools and data to redo the gamma-ray
+            analysis of the three MSPs listed above. 
+            Then, I will do a numerical simulation based on a theoretical model called two-lay model and test if the new observation 
+            data is consistent with the model. And finally, with the help of the two-layer model
+            and numerical simulations, I will generate broadband spectra (including hard X-ray band 
+            and gamma-ray band) for all the three MSPs. 
 
 %     \section{NuSTAR}  
 %         \textit{NuSTAR} stands for Nuclear Spectroscopic Telescope Array and is launched in June 12, 2012. It is the 
@@ -1517,11 +1519,11 @@
         We use a power-law-exponential-cutoff (PLExpCutoff) model to fit the observation data and 
         it is a special case of power-law-super-exponential-cutoff (PLSuperExpCutoff) model. 
         The spectrum of PLSuperExpCutoff can be described by the function: 
-            \begin{equation} 
-              \label{eq: fermi_model}
-              \frac{dN}{dE} = N_{0} \left(\frac{E}{E_0}\right)^{\gamma_1} 
-              exp\left(-\left(\frac{E}{E_c}\right)^{\gamma_2}\right)
-            \end{equation}
+        \begin{equation} 
+          \label{eq: fermi_model}
+          \frac{dN}{dE} = N_{0} \left(\frac{E}{E_0}\right)^{\gamma_1} 
+          exp\left(-\left(\frac{E}{E_c}\right)^{\gamma_2}\right)
+        \end{equation}
         where $N_0$ is prefactor, $E_c$ is the cutoff energy and the $E_0$ is a scale parameter. 
         PLExpCutoff model is the special case where $\gamma_2=1$. Our aim is to fit the parameters 
         $N_0$, $E_c$ and $\gamma_1$ to make the model be more consistent with observation data.
@@ -1604,18 +1606,18 @@
             \begin{center}
             \begin{minipage}{0.45\textwidth}
               \begin{center} 
-                  \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_count_map_with_region.png}
+                  \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_count_map_with_region.png}
               \end{center}
             \end{minipage}
             \begin{minipage}{0.45\textwidth}
               \begin{center} 
-                  \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_count_map_model.png}
+                  \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_count_map_model.png}
               \end{center}
             \end{minipage}
           \end{center}
             \begin{minipage}{\textwidth}
               \centering 
-              \mycaption{The count map of PSR J0218 (left) and the count map generated by the model. In the left figure,
+              \mycaption{The count map of PSR J0218+4232 (left) and the count map generated by the model. In the left figure,
               the green circles represent free sources. The figure in the right is count map generated 
               according to our fitted spectra model. 
               The size of the figure is 141 pixels $\times$ 141 pixels, and each pixel is $0.2^\circ \times 0.2^\circ$. }
@@ -1634,17 +1636,17 @@
           \begin{figure}[!ht]
             \begin{minipage}{0.32\textwidth}
               \begin{center} 
-                \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_ccube_bin_1.png}
+                \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j0218_ccube_start.png}
               \end{center}
             \end{minipage}
             \begin{minipage}{0.32\textwidth}
               \begin{center}
-                \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_ccube_bin_15.png}
+                \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j0218_ccube_middle.png}
               \end{center}
             \end{minipage}
             \begin{minipage}{0.32\textwidth}
               \begin{center}
-              \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_ccube_bin_29.png}
+              \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j0218_ccube_end.png}
               \end{center}
             \end{minipage}
 
@@ -1721,19 +1723,20 @@
               \begin{center}
               \begin{minipage}{0.45\textwidth}
                 \begin{center} 
-                  \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_count_map_linear_scale.png}
+                  \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_count_map_linear_scale.png}
                 \end{center}
               \end{minipage}
               \begin{minipage}{0.45\textwidth}
                 \begin{center}
-                  \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_dif_map_linear_scale.png}
+                  \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_dif_map_linear_scale.png}
                 \end{center}
               \end{minipage}
             \end{center}
   
               \centering
               \begin{minipage}{0.8\textwidth}
-                \mycaption{The figures are in linear scale in order to compare the residual map between the 
+                \mycaption{The count map and residual map of PSR J0218+4232.
+                  The figures are in linear scale in order to compare the residual map between the 
                   original count map more intuitively. The left figure is the count map and the right 
                   figure is the residual map and it shows the difference between the observation and the model.
                   It is created by directly subtracting the photon counts of each pixel between the count maps 
@@ -1773,7 +1776,8 @@
                   Photon Flux (ph $cm^{-2} s^{-1}$) ($10^{-8}$) & $7.28913$ & $0.27988$ & $7.7$ & $0.7$ \\ 
                   \hline
                 \end{tabular}    
-                \mycaption{Fit parameters of the model. The names of parameters are consistent with the equation
+                \mycaption{Fit parameters of the spectral model of PSR J0218+4232. 
+                  The names of parameters are consistent with the equation
                   \ref{eq: fermi_model}. The old results are from the paper
                   \blackhref{https://arxiv.org/abs/1305.4385}{The Second Fermi Large Area Telescope Catalog of Gamma-ray Pulsars}
                   published in 2013.\\
@@ -1792,6 +1796,7 @@
               may be my matplotlib version is too old.) \\
               \change{legends, arrows}
             }
+            \vspace{1cm}
 
             The table \ref{table: j0218_fit_result} lists the results of fitting parameters. We see from 
             the figure that the new fit results are consistent with the old results. However, the 
@@ -1803,11 +1808,8 @@
             get the flux. The figure \ref{fig: j0218_cur_with_data_points.png} shows that the global fit is consistent 
             with flux points fitted by each energy bin separately. The TS value for the fit is 7110, which gives us 
             a significance level $\sigma \approx \sqrt{TS} = 84$. This strongly implies the presence of our
-            target source. We can also use a TS map to test the presence of the source as the figure 
-            \ref{fig: blank.png} showing.  
-
-            
-
+            target source. We can also use a TS map to test the presence of the source as the figures 
+            \ref{fig: j0218_tsmap_comparison_15} and \ref{fig: j0218_tsmap_comparison_20} shown.  
             % \singleFig{blank.png}{0.3}{\change{The figure should be a TS map, but the new TS map has not been generated yet.
             % The previous TS map does not use the best fit parameters, so I have to re-generate the TS map. And this 
             % world map is just a reminder and it may be used a lot.}}
@@ -1816,19 +1818,19 @@
               \begin{center}
               \begin{minipage}{0.46\textwidth}
                 \begin{center} 
-                  \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/j0218_with_source_15.png}
+                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_with_source_15.png}
                 \end{center}
               \end{minipage}
               \begin{minipage}{0.45\textwidth}
                 \begin{center}
-                  \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/j0218_nosource_15.png}
+                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_nosource_15.png}
                 \end{center}
               \end{minipage}
             \end{center}
 
               \centering
               \begin{minipage}{\textwidth}
-                \mycaption{The figures' dimensions are $3^{\circ} \times3^{\circ}$ ($15 pixels \times 
+                \mycaption{TS maps of PSR J0218+4232. The figures' dimensions are $3^{\circ} \times3^{\circ}$ ($15 pixels \times 
                 15 pixels$ with $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). The \textsf{left}
                 figure and \textsf{right} figure are generated by the XML models with and without our 
                 target source PSR J0218+4232 respectively. The left figure shows that the possibility 
@@ -1840,47 +1842,46 @@
               \end{minipage}
             \end{figure}
 
-
             \begin{figure}[!ht]
               \begin{center}
               \begin{minipage}{0.45\textwidth}
                 \begin{center} 
-                  \includegraphics[scale=0.50]{/Users/grewwc/Desktop/Thesis/j0218_tsmap_with_source_20.png}
+                  \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_tsmap_with_source_20.png}
                 \end{center}
               \end{minipage}
               \begin{minipage}{0.45\textwidth}
                 \begin{center}
-                  \includegraphics[scale=0.50]{/Users/grewwc/Desktop/Thesis/j0218_nosource_20.png}
+                  \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_nosource_20.png}
                 \end{center}
               \end{minipage}
             \end{center}
 
               \centering
               \begin{minipage}{\textwidth}
-                \mycaption{The figures' dimensions are $4^{\circ} \times4^{\circ}$ ($20 pixels \times 
+                \mycaption{TS maps for PSR J0218+4232. The figures' dimensions are $4^{\circ} \times4^{\circ}$ ($20 pixels \times 
                 20 pixels$ with $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). The figures meanings 
                 are completely the same with the figure \ref{fig: j0218_tsmap_comparison_15}}
-                \label{fig: j0218_tsmap_comparison_10}
+                \label{fig: j0218_tsmap_comparison_20}
               \end{minipage}
             \end{figure}
 
             There are 2 sets of Ts maps with different scales. The first group is $3^{\circ} 
             \times3^{\circ}$ while the second group is $2^{\circ} \times2^{\circ}$. 
 
-            After obtaining the spectra fit results in gamma-ray band, we can generate a broad band spectrum. 
-            The hard X-ray data is from the paper  
-            \blackhref{https://arxiv.org/pdf/1704.02964.pdf}{NUSTAR HARD X-RAY OBSERVATIONS OF THE ENERGETIC   %
-            MILLISECOND PULSARS PSR B1821-24, PSR B1937+21, AND PSR J0218+4232}. We also generate simulation data
-            from the two-layer model. Then we compare the simulation and observation as the Fig 
-            \ref{fig: J0218+4232} shown. The prediction of the two-layer model is consistent with the observation
-            both in X-ray band (from about 3 keV to 10 MeV) and high energy gamma-ray band (above 1 GeV). However, 
-            from about 100 MeV to 1 GeV, the spectrum from the two-layer model is not consistent with Fermi data. 
-            \question{This can have 2 explanations. Firstly, the Fermi telescope is not sensitive in about 100 MeV.
-            As a result, the observatoin data may not be very reliable at about this energy band. Secondly, the  
-            real emission mechanism in the energy band is different from the model predicts. Thus, we can observe 
-            inconsistency between the simulation and observation.} 
+            % After obtaining the spectra fit results in gamma-ray band, we can generate a broad band spectrum. 
+            % The hard X-ray data is from the paper  
+            % \blackhref{https://arxiv.org/pdf/1704.02964.pdf}{NUSTAR HARD X-RAY OBSERVATIONS OF THE ENERGETIC   %
+            % MILLISECOND PULSARS PSR B1821-24, PSR B1937+21, AND PSR J0218+4232}. We also generate simulation data
+            % from the two-layer model. Then we compare the simulation and observation as the Fig 
+            % \ref{fig: J0218+4232} shown. The prediction of the two-layer model is consistent with the observation
+            % both in X-ray band (from about 3 keV to 10 MeV) and high energy gamma-ray band (above 1 GeV). However, 
+            % from about 100 MeV to 1 GeV, the spectrum from the two-layer model is not consistent with Fermi data. 
+            % This can have 2 explanations. Firstly, the Fermi telescope is not sensitive in about 100 MeV.
+            % As a result, the observatoin data may not be very reliable at about this energy band. Secondly, the  
+            % real emission mechanism in the energy band is different from the model predicts. Thus, we can observe 
+            % inconsistency between the simulation and observation.
 
-            \singleFig{J0218+4232}{0.35}{\Notice{have to uniformly change the style of figures later.}}
+            % \singleFig{J0218+4232}{0.35}{\Notice{have to uniformly change the style of figures later.}}
 
             \subsection{PSR J1824.6-2452}
               The ROI region is a circle whose radius is $20^\circ$ and all sources outside of $8^\circ$ are fixed. 
@@ -1893,121 +1894,307 @@
                 \begin{center}
                 \begin{minipage}{0.45\textwidth}
                   \begin{center} 
-                    \includegraphics[scale=0.36]{/Users/grewwc/Desktop/Thesis/b1821_count_map_with_region.png}
+                    \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/b1821_count_map_with_region.png}
                   \end{center}
                 \end{minipage}
                 \begin{minipage}{0.45\textwidth}
                   \begin{center}
-                    \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/b1821_count_map_model.png}
+                    \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/b1821_count_map_model.png}
                   \end{center}
                 \end{minipage}
               \end{center}
 
                 \centering
                 \begin{minipage}{\textwidth}
-                  \mycaption{The count map of PSR J1821.6 (left) and the count map generated by the model. In the left figure,
-                  the green circles are free sources while the purple circles are fixed sources.
+                  \mycaption{The count map of PSR J1824.6 (left) and the count map generated by the model. In the left figure,
+                  the green circles are free sources.
                   The sizes of the both figures are 141 pixels $\times$ 141 pixels, 
                   and each pixel is $0.2^\circ \times 0.2^\circ$. 
                   }
                   \label{fig: b1821_count_map_with_region_and_model}
                 \end{minipage}
               \end{figure}
-              
-              As the figure \ref{fig: b1821_count_map_with_region_and_model} showing, the PSR J1824.6 is much dimmer than
-              PSR J0218+4232, which implies that the fitting result may be worse. In general, the two figures are quite 
-              similar, except that the modeled count map lacks some details and the reason was explained in the previous 
-              section \ref{j0218}. 
             
               \begin{figure}[!ht]
                 \begin{center}
                 \begin{minipage}{0.32\textwidth}
                   \begin{center} 
-                    \includegraphics[scale=0.345]{/Users/grewwc/Desktop/Thesis/b1821_ccube_1.png}
+                    \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/b1821_ccube_start.png}
                   \end{center}
                 \end{minipage}
                 \begin{minipage}{0.32\textwidth}
                   \begin{center}
-                    \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_ccube_15.png}
+                    \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/b1821_ccube_15.png}
                   \end{center}
                 \end{minipage}
                 \begin{minipage}{0.32\textwidth}
                   \begin{center}
-                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_ccube_33.png}
+                  \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/b1821_ccube_end.png}
                   \end{center}
                 \end{minipage}
               \end{center}
                 \centering
                 \begin{minipage}{0.8\textwidth}
-                  \mycaption{Three figures of PSR J1824.6's count cube. The energy range of the figure in the 
-                    left: 100$\sim$123MeV, middle: 1.873$\sim$2.310GeV, right: 81.11$\sim$100GeV.
-                    \add{add color bar}}
+                  \mycaption{Three figures of PSR J1824.6-2452's count cube. The energy range of the figure in the 
+                    left: 100$\sim$123MeV, middle: 1.873$\sim$2.310GeV, right: 81.11$\sim$100GeV.}
                   \label{fig: b1821_ccube_1_15_33.png}
                 \end{minipage}
               \end{figure}
+
+              The left and right part of the figure \ref{fig: b1821_count_map_diff.png} is the count 
+              map of the PSR J1824.6-2452 generate from observation data and spectral model respectively. 
+              Like the situations of PSR J0218+4232, the count map from the model is clearly cleaner than 
+              from the observation data and the two figures are very similar, which implies that our model 
+              is close to the observation. 
 
               The figures \ref{fig: b1821_ccube_1_15_33.png} are count maps of PSR J1824.6-2452 in different energy 
               bands. The target pulsar is too faint in very high energy band and interfered too much by the ambient 
               environment in low energy band (around 100MeV). Because our target source is near the M28 globular 
               cluster and very faint, it is reasonable that the fitting result is worse than PSR J0218+4232. 
 
-              
               \subsubsection{Binned Likelihood Analysis}
-                The differences of the count map between the observation data and the model are described as the figure
-                \ref{fig: b1821_count_map_diff.png}.
-
+                
               \begin{figure}[!ht]
                 \begin{center}
                 \begin{minipage}{0.45\textwidth}
                   \begin{center} 
-                    \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/b1821_count_map_linear_scale.png}
+                    \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/b1821_count_map_linear_scale.png}
                   \end{center}
                 \end{minipage}
                 \begin{minipage}{0.45\textwidth}
                   \begin{center}
-                    \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/b1821_count_map_diff.png}
+                    \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/b1821_count_map_diff.png}
                   \end{center}
                 \end{minipage}
               \end{center}
               \centering
                 \begin{minipage}{\textwidth}
-                  \mycaption{}
+                  \mycaption{The count map and residual map of PSR J1824.6-2452 in linear scale. 
+                  The left figure is the count map and the right 
+                  figure is the residual map showing the difference between the observation and the model.}
                   \label{fig: b1821_count_map_diff.png}
                 \end{minipage}
-              
             \end{figure}
-                There is an obvious black dot in the figure \ref{fig: b1821_count_map_diff.png} and the value of the dot
-                is large --- 1299. 
-                The original value from the observation data is 4503. I think the model is acceptable
-                because the source in this pixel is fixed and far away from our target source 
-                (\question{I'm not sure yet.}).
-                So the value of this source does not contribute too much to the center. The values of most other 
-                pixels are below 20 implying that the global fit result is acceptable. 
-                
-                \singleFig{b1821_spectrum_with_points.png}{0.6}{The log-log plot of flux to energy. 
-                  \change{should use legends, add arrows for upper values, make the label fonts larger.}}
 
-                The figure \ref{fig: b1821_spectrum_with_points.png} shows that the global fit is consistent with 
-                the flux points generated by fitting sub-energy bins. However, we should notice the first flux points 
-                which is denoted as a blue square in the figure \ref{fig: b1821_spectrum_with_points.png}. This 
-                flux points is significantly smaller than the global fit (the red line in the figure). 
-                What's more, the upper value for the first energy bin is still slightly smaller. 
-                \question{I think it is because that the flux points are fitted separately and are independent to 
-                the global fit. In fact, we use a single power-lay model to fit each sub-energy bin while PLExpCutoff
-                model to do the global fit. As we have explained previously, the lower energy part of the 
-                observation (around 100 MeV) is not reliable. As a result, the separate fit for the first energy bin
-                is not as reliable as the global fit and it is reasonable that the two fitting results are not 
-                consistent. When this happens, we have more confidence on the global fit than the separate fit.}
+            \singleFig{b1821_spectrum_with_points.png}{0.6}{The log-log plot of flux to energy. 
+              \change{should use legends, add arrows for upper values, make the label fonts larger.}}
+              \vspace{1cm}
 
-              \singleFig{blank.png}{0.3}{\change{The figure should be a TS map, but the new TS map has not been generated yet.
-              The previous TS map does not use the best fit parameters, so I have to re-generate the TS map. And this 
-              world map is just a reminder and it may be used a lot.}}
+            The differences of the count map between the observation data and the model are described as the figure
+            \ref{fig: b1821_count_map_diff.png} which are in linear scale. In the right part of the figure, there are some black dots 
+            with value of about $-800$. Though their values are relatively high, the number of 
+            high-value dots are very small so the fit is acceptable in general. 
 
-            \subsection{PSR J1939+2134}
-              \add{continue here}
+            The table \ref{table: b1821_fit_result} shows the global fit results of PSR J1824.6-2452. 
+            \mayChange{There is no previous fit results for the pulsar, so we cannot compare our result
+            with the old one.} The TS value of the model is 941 which gives us a significance level 
+            of about $\sqrt{941} \sim 31$. This strongly shows the existence of the target source in 
+            the observation data.
 
+            The figure \ref{fig: b1821_spectrum_with_points.png} shows that the global fit is consistent with 
+            the flux points generated by fitting sub-energy bins. However, we should notice the first flux point 
+            which is denoted as a blue square in the figure \ref{fig: b1821_spectrum_with_points.png}. This 
+            flux point is significantly smaller than the global fit (the red line in the figure). 
+            In addition, the upper value for the first energy bin is still slightly smaller than the global fit. 
+            Though it is strange that the upper value is smaller than the normal value at first glance, 
+            it is reasonable since the flux points are fitted separately and are independent to 
+            the global fit. In fact, we use a single power-lay model to fit each sub-energy bin while PLExpCutoff
+            model to do the global fit. As we have explained previously, the lower energy part of the 
+            observation (around 100 MeV) is not as reliable as other energy bands. As a result, the separate 
+            fit for the first energy bin
+            is not as reliable as the global fit and it is reasonable that the two fitting results are not 
+            consistent. When this happens, we have more confidence on the global fit than the separate fit.
+            
+            \begin{table}[!ht]
+              \centering
+                \begin{tabular}{|c|c|c|c|c|}
+                  \cline{1-5}
+                  & \multicolumn{2}{|c|}{Now} & \multicolumn{2}{|c|}{Previous} \\
+                  \cline{1-5}
+                  & Value & Error & Value & Error \\
+                  \hline
+                  Index1 ($\gamma_1$) & $1.906$ & $0.068$ & $Nan$ & $Nan$ \\
+                  \hline 
+                  Cutoff ($E_c$, MeV) & $4501.92$ & $710.41$ & $Nan$ & $Nan$ \\
+                  \hline 
+                  Photon Flux (ph $cm^{-2} s^{-1}$) ($10^{-8}$) & $3.85$ & $0.31$ & $Nan$ & $Nan$ \\ 
+                  \hline
+                \end{tabular}    
+                \mycaption{Fit parameters of the spectral model of PSR J1824.6-2452. 
+                  The names of parameters are also onsistent with the equation
+                  \ref{eq: fermi_model}. \question{The old results are not available yet} \\
+                  \change{should rename "Previous" and "Now". \\ 
+                      should draw a diagnal line in the upper left cell, but don't know how yet.)}}
+                \label{table: b1821_fit_result}        
+            \end{table}  
+            \vspace{1cm}
+              % \singleFig{blank.png}{0.3}{\change{The figure should be a TS map, but the new TS map has not been generated yet.
+              % The previous TS map does not use the best fit parameters, so I have to re-generate the TS map. And this 
+              % world map is just a reminder and it may be used a lot.}}
+
+            \begin{figure}[!ht]
+              \begin{center}
+              \begin{minipage}{0.46\textwidth}
+                \begin{center} 
+                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_with_source_15.png}
+                \end{center}
+              \end{minipage}
+              \begin{minipage}{0.45\textwidth}
+                \begin{center}
+                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_nosource_15.png}
+                \end{center}
+              \end{minipage}
+            \end{center}
+
+              \centering
+              \begin{minipage}{\textwidth}
+                \mycaption{TS maps of PSR J1824.6-2452. The figures' dimensions are $3^{\circ} \times3^{\circ}$ ($15 pixels \times 
+                15 pixels$ with $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). The \textsf{left}
+                figure and \textsf{right} figure are generated by the XML models with and without our 
+                target source PSR J1821.6-2452 respectively. The \textsf{left} figure shows that the possibility 
+                of adding an imputative point source is very low only with a maximum TS value of 
+                less than 11 and the TS values of the \textsf{right} figure are generally much larger.}
+                \label{fig: b1821_tsmap_comparison_15}
+              \end{minipage}
+            \end{figure}
+            \vspace{1cm}
+
+            \begin{figure}[!ht]
+              \begin{center}
+              \begin{minipage}{0.45\textwidth}
+                \begin{center} 
+                  \includegraphics[scale=0.43]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_with_source_20.png}
+                \end{center}
+              \end{minipage}
+              \begin{minipage}{0.45\textwidth}
+                \begin{center}
+                  \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_nosource_20.png}
+                \end{center}
+              \end{minipage}
+            \end{center}
+
+              \centering
+              \begin{minipage}{\textwidth}
+                \mycaption{TS maps of PSR J1824.6-2452. The figures' dimensions are $4^{\circ} \times4^{\circ}$ ($20 pixels \times 
+                20 pixels$ with $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). The meaning of the 
+                figure is the same as the figure \ref{fig: b1821_tsmap_comparison_15}}
+                \label{fig: b1821_tsmap_comparison_15}
+              \end{minipage}
+            \end{figure}
+            \vspace{1cm}
       
-    \chapter{theory and simulation}
+        \subsection{PSR J1939+2134}
+          In order to make the data analysis be more consistent, we choose the same parameters
+          to process the observation data. Like the other two MSPs, the radius of ROI is $20^{\circ}$ 
+          degrees, and all parameters of sources $8^{\circ}$ degrees outside from the center 
+          are fixed with default values. The figure \ref{fig: j1939_count_map} shows the 
+          comparison of count maps between observation data and our spectral model. 
+          \subsubsection{Count Maps and Count Cubes}
+          \begin{figure}[!ht]
+            \begin{center}
+            \begin{minipage}{0.45\textwidth}
+              \begin{center} 
+                \includegraphics[scale=0.38]{/Users/grewwc/Desktop/Thesis/j1939_count_map.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.45\textwidth}
+              \begin{center}
+                \includegraphics[scale=0.38]{/Users/grewwc/Desktop/Thesis/j1939_count_map_model.png}
+              \end{center}
+            \end{minipage}
+          \end{center}
+
+            \centering
+            \begin{minipage}{\textwidth}
+              \mycaption{The count map of PSR J1939+2134 created from observation 
+              data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
+              of both figures are $141 pixels \times 141 pixels$ and each pixel is 
+              $0.2^{\circ}\times0.2^{\circ}$ large.}
+              \label{fig: j1939_count_map}
+            \end{minipage}
+          \end{figure}
+          \vspace{1cm}
+
+          There are 4 point sources with free parameters in the model which are represented by the green 
+          circles in the figure \ref{fig: j1939_count_map}.
+          However, the left part of the figure \ref{fig: j1939_count_map} only contains three circles.
+          This is the difference between the PSR J1939+2134 and the the other two MSPs described 
+          above. With some reasons, the PSR J1939+2134 is not shown in Fermi LAT Third Source Catalogue.
+          Therefore, in order to analysis the spectrum of this pulsar, we have to add the source 
+          by hand. The green circles are only created by Fermi tools by default, hence our source is 
+          not represented by a green circle. In addition, the count map is so messy that we completely 
+          cannot distinguish the source PSR J1939+2134 from the count map. 
+          Since our target pulsar PSR J1939+2134 is not in the Fermi LAT Third Source Catalogue and 
+          we have to generate the model by hand, we need to set the model with its parameters properly.
+          Like the other 2 MSPs, we choose the specified PLSuperExpCutoff model and set the initial value 
+          of photon index to be $-2.5$.
+          
+
+          The figure \ref{fig: j1939_count_cube} shows count maps in difference energy bands. As 
+          the figure shown, the lower energy band is too messy while there is nearly nothing 
+          valuable in the high energy band. Therefore, when we divide the total energy bin into 
+          many sub-bins to do analysis separately, we focus on the middle parts and have more bins
+          in that range of energy.
+
+          \add{Continue from here... \\
+            PSR J1939+2134 is a little bit different. I did a phase resolved analysis, 
+            in order to show if it is necessary, I plan to do a new phase averaged analysis for 
+            comparison. The best phase averaged results are not finished completely yet, but soon.}
+          \begin{figure}[!ht]
+            \begin{minipage}{0.32\textwidth}
+              \begin{center} 
+                \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j1939_ccube_start.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.32\textwidth}
+              \begin{center}
+                \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j1939_ccube_middle.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.32\textwidth}
+              \begin{center}
+              \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j1939_ccube_end.png}
+              \end{center}
+            \end{minipage}
+            \centering
+            \begin{minipage}{0.8\textwidth}
+              \mycaption{Three figures of PSR J1939+2134's count cube. The energy range of the figure in the 
+                left: 100$\sim$123MeV, middle: 1.873$\sim$2.310GeV, right: 35.11$\sim$43.29GeV.}
+              \label{fig: j1939_count_cube}
+            \end{minipage}
+          \end{figure}
+          \vspace{0.5cm}
+
+      \subsubsection{Binned Likelihood Analysis}
+          The figure \ref{fig: j1939_count_map_diff} shows the residual map together with the 
+          original count map in linear scale.
+          \begin{figure}[!ht]
+            \begin{center}
+            \begin{minipage}{0.45\textwidth}
+              \begin{center} 
+                \includegraphics[scale=0.34]{/Users/grewwc/Desktop/Thesis/j1939_count_map_linear.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.45\textwidth}
+              \begin{center}
+                \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j1939_count_map_model_linear.png}
+              \end{center}
+            \end{minipage}
+          \end{center}
+          \centering
+
+          \begin{minipage}{\textwidth}
+            \mycaption{The count map of PSR J1939+2134 created from observation 
+            data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
+            of both figures are $141 pixels \times 141 pixels$ and each pixel's size is
+            $0.2^{\circ}\times0.2^{\circ}$.}
+            \label{fig: j1939_count_map_diff}
+          \end{minipage}
+        \end{figure}
+        \vspace{1cm}
+
+
+    \chapter{Theory And Simulation}
       \section{Two-layer Model}
       After we have reviewed gamma-ray fundamental emission mechanism, we can proceed to
       the Two-layer model on which this thesis is mainly based. Two-layer model is a 
@@ -2089,19 +2276,80 @@
         \phi \left(x, z_{lo}\right) = 0
       \end{equation}
       The position of $z_{hi}$ is a little bit tricky. In order to make the electrical potential be 
-      continuous at $z = z_{hi} = h_2$, the model sets the $\phi^{\prime} = 0$ since the 
+      continuous at $z = z_{hi} = h_2$, the model sets the $\phi^{\prime}\left(z=h_{2}\right) = 0$ since the 
       non-corotating electrical potential outside the upper bound is $0$ and the co-rotating potential
-      is continuous near the boundary. 
+      is continuous near the boundary. Additionally, because $\phi^{\prime}\left(z=h_{2}-\right) = 0$
+      and $\phi^{\prime}\left(z=h_{2}+\right) = 0$, we know that the first order derivative 
+      $\partial{\phi^{\prime}}/\partial{z}\vert_{z=h_{2}}$ is $0$, which means 
+      $E_{\perp}\vert_{z=h_{2}} = 0$. 
+      In order to solve the equation \ref{eq: Poisson_final_final}, we denote charge densities of
+      the two regions for convenience as the following function 
+      \ref{eq: twolayer_charge_density} shown.
+      \begin{equation}
+        \label{eq: twolayer_charge_density}
+          \rho\left(z\right) = 
+          \begin{cases}
+             & \rho_{1} , \text{    if} \left(0 \leq z < h_{1}\right)\\
+             & \rho_{2} , \text{    if} \left(h_{1} \leq z \leq h_{2}\right) 
+          \end{cases}       
+      \end{equation}
+      With the definition \ref{eq: twolayer_charge_density} and the three boundary conditions
+      we can directly solve the equation \ref{eq: Poisson_final_final} and the result is:
+      \begin{equation}
+        \label{eq: twolayer_potential}
+          \phi^{\prime}\left(z, x\right) = -2\pi
+          \left\{\begin{alignedat}{2}
+             & \left(\rho_{1} - \rho_{GJ}\left(x\right)\right)z^2 + C_{1} z ,  &&\left(0 \leq z < h_{1}\right)\\
+             & \left(\rho_{2}-\rho_{GJ}\left(x\right)\right)\left(z^2 - h_2^2\right) + D_{1} \left(z-h_2\right),  &&\qquad \left(h_{1} \leq z \leq h_{2}\right) 
+          \end{alignedat}\right.
+      \end{equation}
+      where 
+      \begin{align*}
+        C_{1} &= \frac{\left(\rho_{1}-\rho_{GJ}\left(x\right)\right)h_1\left(h_1-2h_2\right)-\left(\rho_2-\rho_{GJ}\left(x\right)\right)\left(h_1-h_2\right)^2}{h_2} \\
+        D_{2} &= \frac{\left(\rho_1-\rho_2\right)h_1^2-\left(\rho_2-\rho_{GJ}\left(x\right)\right)h_2^2}{h_2}
+      \end{align*}
+      From equation \ref{eq: twolayer_potential} and apply $\rho_{GJ}\left(x\right)=-\left(\Omega B x\right)/\left(2\pi cs\right)$ 
+      we can directly derive the electrical field parallel to magnetic field lines as a function of $z$
+      as the equation \ref{eq: twolayer_field} shown.
+      \begin{equation}
+        \label{eq: twolayer_field}
+          E^{\prime}_{\parallel}\left(z\right) = \frac{\Omega B}{cs}
+          \left\{\begin{alignedat}{2}
+             & -g_1 z^2 + C_1^{\prime}z ,  &&\left(0 \leq z < h_{1}\right)\\
+             & g_2\left(z^2 - h_2^2\right) + D_1^{\prime}\left(z-h_2\right)  &&\qquad \left(h_{1} \leq z \leq h_{2}\right) 
+          \end{alignedat}\right.
+      \end{equation}
+      where 
+      \begin{align*}
+        C_{1}^{\prime} &= \frac{g_1 h_1 \left(h_1 - 2h_2\right)+ g_2\left(h_1-h_2\right)^2}{h_2} \\
+        D_{2}^{\prime} &= -\frac{\left(g_1 + g_2\right)h_2^2 + g_2 h_2^2}{h_2}
+      \end{align*}
 
-      With these boundary conditions and equation \ref{eq: Poisson_final_final}, we can calculate the 
-      distribution of electric field, which accelerates charged particles to a very high speed so that 
-      they can emit curvature radiation, giving gamma-ray spectra. With the accelerating electric field 
-      known, we can calculate the Lorentz factor of charged particles and their spectra. This is the 
-      basic idea of the Two-layer model. \question{not sure if I should introduce the theory more 
-      thoroughly}.
+      Since charged particles are accelerated in the primary region to relativistic speed 
+      and then emit energy by curvature radiation, we have equation \ref{eq: all_is_curvature_radiation}.
+      \begin{equation}
+        \label{eq: all_is_curvature_radiation}
+        e E_{\parallel}^{\prime} c = l_{cur}
+      \end{equation}
+      where $E_\parallel^{\prime}$ is the electric field strength along the magnetic field line 
+      described in equation \ref{eq: twolayer_field}.
+      We can estimate Lorentz factors of the charged particles according to the function 
+      \ref{eq: curvature_radiation_power}.
+      \begin{equation}
+        \label{eq: curvature_radiation_power}
+        l_{cur} = \frac{2 e^2 c \gamma^{4}_{e}}{3s^2}
+      \end{equation}      
+      where $s$ is the radius of curvature. 
+      Combining the equation \ref{eq: all_is_curvature_radiation} and 
+      \ref{eq: curvature_radiation_power} we get Lorentz factor: 
+      \begin{equation}
+        \label{eq: gamma_can_be_zero}
+        \gamma_{e} = \left(\frac{3s^2}{2e} E_{\parallel}^{\prime}\right)^{1/4}
+      \end{equation}
+      With Lorentz factor of charged particles known, we can derive curvature radiation spectrum
+      for single charged particle and then can get the total spectrum by integrating over all 
+      charged particels. This is the simplified basic idea of the Two-layer model. 
 
-      \question{I am not sure if I should add this part here, since it is completely based on 
-        my own experience}
       \subsubsection{Constraints of The Two-lay Model Used In The Thesis} 
         The simplified two-layer model is consistent with observation data to some extent. 
         (The relevant data can be found in the paper 
@@ -2125,29 +2373,9 @@
         In numerical simulation, changes in shape of the regions will directly lead to a different 
         integration region, which may change the simulated spectra completely.
 
-    
         Thirdly, there are some inconsistency in the model itself according to the its assumption. 
-        For example, the model states that (for simplicity) the energy of charged particles accelerated 
-        in the primary region has been completely transferred to a photon-pairs by the pair creation process.
-        It can be expressed as a function: 
-        \begin{equation}
-          \label{eq: constraints_all_is_curvature_radiation}
-          e E_{\parallel} c = l_{cur}
-        \end{equation}
-        where $E_\parallel$ is the electric field strength along the magnetic field line and 
-        \begin{equation}
-          \label{eq: constraints_curvature_radiation_power}
-          l_{cur} = \frac{2 e^2 c \gamma^{4}_{e}}{3s^2}
-        \end{equation}
-        is the power of curvature radiation, where $s$ is the radius of curvature. 
-        Combining the equation \ref{eq: constraints_all_is_curvature_radiation} and 
-        \ref{eq: constraints_curvature_radiation_power} we have: 
-        \begin{equation}
-          \label{eq: constraints_gamma_can_be_zero}
-          \gamma_{e} = \left(\frac{3s^2}{2e} E_{\parallel}\right)^{1/4}
-        \end{equation}
-        Since $E_{\parallel}$ can be $0$, 
-        from the equation \ref{eq: constraints_curvature_radiation_power} we know that 
+        According to the equations \ref{eq: curvature_radiation_power} and \ref{eq: gamma_can_be_zero}
+        since $E_{\parallel}^{\prime}$ can be $0$, we know that 
         $\gamma_{e}$ can also be $0$, which is absolutely impossible. Although this may not have a big 
         influence on the spectra, it is the problem that we should solve. 
 
@@ -2156,11 +2384,152 @@
         which are generalizations of model used in the thesis. Those models may have addressed the 
         problems described above, but the model used in the thesis do have some defects. 
 
-       \mayAdd{continue from here}
+        \section{Numerical Calculation of Spectra Based on Two-layer Model}
+          After we have understood theory part of the two-layer model, we can then do numerical 
+          calculations of spectra 
+          based on the theory. Since the theory is the same for all the three MSPs, the calculation 
+          algorithms are the same. 
+
+          There are 3 independent parameters to fit altogether in the calculation. 
+          The first parameter is fractional gap size $f=h_{2}/R_{lc}$, where $h_{2}$ is the 
+          total gap size including both the primary acceleration region and the screening region 
+          and $R_{lc}$ is the length of light cylinder. The second parameter is $g_{1}$ so that
+          the charge density in the primary accelerating region is $\left(1-g_{1}\right) \rho_{GJ}$, 
+          where $\rho_{GJ}$ is the Goldreich-Julian charge density. The third parameter is the ratio 
+          between the sizes of the two gaps ($h_{1}/h_{2}$). Note that we only set the charge density in the primary acceleration region as an 
+          independent parameter, since the charge density in the two gaps are related to each 
+          other. The figures \ref{fig: j0218_twolayer_cur.png} are the spectra of the three MSPs generate 
+          from the two-layer model and the result of the fitting parameters are listed in the table 
+          \ref{table: twolayer_fit_parameter}. Other than the low energy and high energy gamma-ray bands, 
+          the model is consistent with the observation data in terms of gamma-ray part. 
+
+          Generally speaking, the modeled spectra for the three MSPs are acceptable. Just as 
+          we have discussed in the data analysis part that global fits are not very consistent 
+          with separate fits in low energy gamma-ray band (about $100MeV\sim 1000MeV$) and high energy
+          band (above $10GeV$), the modeled spectra also have the same problem. 
+          This can have 2 explanations. Firstly, the Fermi telescope is not sensitive in about $100 MeV$.
+          As a result, the observation data may not be very reliable at about this energy band. Secondly, the  
+          real emission mechanism in the energy band is different from the model predicts. Thus, we can observe 
+          inconsistency between the calculations and observations.
+ 
+          \singleFig{j0218_twolayer_cur.png}{0.41}{The modeled spectrum of PSR J0218+4232. 
+          \change{python arrow doesn't work properly}}
+          \singleFig{b1821_twolayer_cur.png}{0.4}{The modeled spectrum of PSR J1824.6-2452. 
+          \mayChange{I wanted to combine the three figures together, if I do so, each 
+          figure is too small.}}
+          \singleFig{j1939_twolayer_cur.png}{0.41}{The modeled spectrum of PSR J1939+2134.}
+          
+          \begin{table}[!ht]
+            \centering
+            \begin{tabular}{|c|c|c|c|}
+              \hline 
+              & f & g & $h_1/h_2$ \\ 
+              \hline 
+              PSR J0218+4232 & 0.330 & 0.92 & 0.915 \\
+              \hline 
+              PSR J0218+4232 & 0.247 & 0.955 & 0.920 \\
+              \hline 
+              PSR J0218+4232 & 0.320 & 0.975 & 0.925 \\
+              \hline 
+            \end{tabular}
+            \begin{minipage}{0.8\textwidth}
+            \mycaption{The results of fitting parameters for the three MSPs. The physical 
+              meaning of each parameter is consistent with the two-layer model describe above.
+              \change{the table is ugly, but not sure how to make it more beautiful...}}
+            \label{table: twolayer_fit_parameter}
+            \end{minipage}
+          \end{table}
+          \vspace{0.5cm}
+          
+          After obtaining the spectra fit results in gamma-ray band, we can generate broad band spectra 
+          as the figures \ref{fig: j0218_twolayer_all.png} shown. 
+          The hard X-ray data are from the paper  
+          \blackhref{https://arxiv.org/pdf/1704.02964.pdf}{NUSTAR HARD X-RAY OBSERVATIONS OF THE ENERGETIC   %
+          MILLISECOND PULSARS PSR B1821-24, PSR B1937+21, AND PSR J0218+4232}. By tweaking the 
+          independent parameters of the two-layer model, we can make the modeled spectra very 
+          close to the observation data in hard X-ray band. Since we lack observation data in 
+          the energy band from about $100keV$ to $100MeV$, we cannot tell if the two-layer model 
+          describes the right physical scenario in this energy range. However, the prediction made 
+          by the simplified two-layer model is relatively precise. In addition, the model is very 
+          intuitive, which is also a very important consideration for building a model. Just as 
+          the famous words "With four parameters I can fit an elephant, and with five I can make him wiggle his trunk" 
+          said by John von Neumann, in principal, we can fit any data by adding independent parameters. 
+          Therefore, in order to test if a theory model is good or not, not only we need to consider 
+          how precisely the model can predict, but also the physical meaning behind the model. In this 
+          sense, the two-layer model is a good start of explaining emission mechanism of 
+          pulsars. 
+          
+        \singleFig{j0218_twolayer_all.png}{0.39}{The broad band and modeled spectrum of PSR J0218+4232.
+          The grey shade is the error of the global fit. And the green shade in the left part of the 
+          figure represents the error of hard X-ray. The 'Total' legend represents the total flux 
+          combining the Synchrotron radiation, inverse Compton radiation and curvature radiation
+          altogether.}
+        \singleFig{b1821_twolayer_all.png}{0.4}{The broad band and modeled spectrum of PSR J1824.6-2452.
+          The meaning of grey shade and the green shade are the same as the figure 
+          \ref{fig: j0218_twolayer_all.png}}
+        \singleFig{j1939_twolayer_all.png}{0.39}{The broad band and modeled spectrum of PSR J1939+2134.
+          The meaning of grey shade and the green shade are the same as the figure 
+          \ref{fig: j0218_twolayer_all.png}}
+        
+      \section{Pitfalls and Considerations of Doing Numerical Calculation}
+        \subsection{Correctness of Computation}
+          To make sure the numerical computation be right is the most important. 
+          The first consideration is underflow and overflow of floating digits.
+          One possible condition is calculating speed of relativistic charged particles with 
+          Lorentz factor $\gamma$. By doing some simple test, we find that for 
+          $\gamma < 1.5\times 10^7$, the results are precise enough. However, there is significant rounding error
+          when $\gamma > 5\times 10^7$, which means that our results will be wrong for highly 
+          energetic particles if we directly use the formula $\beta = \sqrt{1 - 1/\gamma^2}$.
+          Likely, in the two-layer model, nearly all particles have $\gamma < 1\times 10^7$. 
+          Thus, this part does not cause any problem.
+            
+          There are some cases when a whole function can be calculated while some parts of them are not. 
+          For example, consider the function $f\left(x\right) = x\times1/x$. When $x$ is too large, it 
+          can not be expressed by a computer and multiplication is not associative when doing floating 
+          point operation. We encounter some situations like this.
+          The formula of curvature radiation spectrum contains modified Bessel function of order $5/3$.
+          In order to speed up the program, we use a polynomial to express the Bessel function, as the 
+          function \ref{func: polynomial_appro} shown. 
+          \begin{equation}
+            K_{5/3} \left(x\right) \simeq a \left(\frac{1}{x} + b\right)^{-cx - 1/3} \sqrt{\frac{\pi}{2}} e^{-x - d} \sqrt{x + d} %
+            \left[1 + \frac{55}{72\left(x + d\right)} - \frac{10151}{10368}\left(x+d\right)^2\right] 
+            \label{func: polynomial_appro}
+          \end{equation}
+          where $a,b,c,d$ are just positive constants and $c = 0.96 < 1$. As a result, 
+          the part $(1/x + b)^{-cx - 1/3}$ in the function \ref{func: polynomial_appro} is infinity
+          when $x$ is large though the total function is approximated to $0$. Thus, we have to explicitly 
+          assign the result to be $0$ instead of calculating it. Actually, this error is not easy to find 
+          since in most cases the result is not infinity. 
+          
+        \subsection{Speed of Computation}
+          We actually have not done any accurate benchmarks for the flowing discussions and all are 
+          dependent of the average time of running the simulation.
+          The most obvious solution of to use multicores to do computation. However, most library functions 
+          do not support run concurrently and only run on a single core. For example, we need to do many 
+          integrations and the speed of integration is critical. We write some simple functions to 
+          utilize 4 CPU cores at the same time when doing integration. 
+          This gives us a huge performance improvement.
+
+          Furthermore, There are some facts about the basic operations. For instance, add is faster than 
+          multiplication which is faster than devision. Multiplications and devisions are not associative
+          between floating points. 
+          Though the performance differences between different operations for integers can usually be optimized 
+          away by modern compilers, the compilers can do nothing for floating points. Thus, we have to do it 
+          by ourselves. For example, we have $z^2 - h_2\left(x\right)^2$ in function \ref{eq: twolayer_field}.
+          In this formula, we have 2 multiplications and 1 subtraction. After we re-write it to 
+          $\left(z-h_2\right)\left(z + h_2\right)$, we have 1 addition, 1 subtraction and 1 multiplication.
+          Since addition and subtraction is not slower than multiplication, it has no performance harm 
+          for the rewriting. What we need to notice is that the multiplication may not be slower than addition
+          and it is dependent on machines. However, division is definitely slower than the other 3 operations. 
+          Therefore, in our program, expressions like $1 / 3$ are rewritten to $1*0.3333$ and so on.  
 
   %stupid
 
+      \chapter{Conclusion and Future Work}
+        \add{continue from here...}
 
+
+          
 
 \end{document}
 
