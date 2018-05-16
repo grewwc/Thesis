@@ -1,8 +1,7 @@
-from inspect import Signature, Parameter, signature
+import matplotlib.pyplot as plt
 
-def test(a,b):
-    pass 
-
-a = signature(test)
-p = Parameter()
-print(a)
+plt.xscale('log')
+plt.yscale('log')
+# ax = plt.axes()
+plt.arrow(1, 1, 5, 5, head_width=0.5, head_length=0.1, fc='k', ec='k')
+plt.show()
