@@ -24,9 +24,10 @@
 \usepackage{color}
 \usepackage{epigraph}
 \usepackage{makebox}
+\usepackage{graphicx}
 
 \renewcommand{\arraystretch}{2}
-\renewcommand{\bibname}{References}
+\renewcommand{\bibname}{REFERENCES}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -56,7 +57,7 @@
  	right=35mm,
 }
 
-\title{\textbf{Gamma-ray Analysis of Millisecond Pulsars PSR J0218+4232, PSR B1821-24 and PSR B1937+21}\\ \vspace{1cm}
+\title{\textbf{Broadband Spectra Analysis of Three Energetic Millisecond Pulsars}\\ \vspace{1cm}
 			{\large Department of Physics, The University of Hong Kong, Pokfulam Road, Hong Kong}\\ \vspace{1cm}
 			% {\includegraphics[scale=0.2]{{/Users/grewwc/Desktop/Thesis/hku.png}}}\\ \vspace{3cm}
 }
@@ -115,7 +116,6 @@
   \mycaption{#3}
  \label{fig: #1}
  \end{figure}
- \vspace{0.5cm} 
 }
 
 \newcommand{\gj}[0]{
@@ -163,13 +163,13 @@
     %chapter 'Abstract'.
 \begin{abstract}
     \normalsize
-    In the thesis, we mainly introduce our study on the high energy spectra of three millisecond pulsars which are  
+    In the thesis, I mainly introduce our study on the high energy spectra of three millisecond pulsars which are  
     PSR J0218+4232, PSR B1821-24 and PSR B1937+21. 
     The Fermi LAT Pass 8 data was published in 2015 and has lots of advantages over the old Pass 7 data, 
     such as increased effective area and wider energy range. Since the recent gamma-ray spectra analysis of 
-    the three MSPs are relatively old (in about 2014), we redo the gamma-ray spectra analysis of the MSPs with 
+    the three MSPs are relatively old (in about 2014), I redo the gamma-ray spectra analysis of the MSPs with 
     4-year more Fermi LAT observation data and newly published Pass 8 data. 
-    As we expected, we obtain better fit results for gamma-ray spectra of 
+    As expected, I obtain better fit results for gamma-ray spectra of 
     the three MSPs with smaller errors and larger test statistic values. Then we briefly introduce 
     a pulsar emission model called two-layer model \cite{0004-637X-787-2-167} and do numerical simulation 
     to test the two-layer model using the new observation data.
@@ -334,11 +334,9 @@
               \end{center}
             \end{minipage}
             \centering
-            \begin{minipage}{0.8\textwidth}
               \mycaption{According to the function \ref{func: fx}, top: $F\left(x\right)$; bottom: $x F\left(x\right)$.
                 \change{should change the style of the Fig..}}
               \label{fig: sync_spectrum_loglog}
-            \end{minipage}
             \end{figure}
             
             The top figure \ref{func: fx} describes the general shape of power spectrum of synchrotron radiation
@@ -1364,13 +1362,10 @@
         that the Fermi LAT operates is totally different. 
 
         \begin{figure}[!ht]  
-          \begin{minipage}{0.8\textwidth}
-            \begin{center} 
-                \includegraphics[scale=0.7]{/Users/grewwc/Desktop/Thesis/Gamma_telescope_schematic.png}
-                \mycaption{The figure illustrates how Fermi LAT tracks incident gamma-ray photons.}
-                \label{fig:fermi schematic}
-            \end{center}
-          \end{minipage}
+          \centering
+              \includegraphics[scale=0.7]{/Users/grewwc/Desktop/Thesis/Gamma_telescope_schematic.png}
+              \mycaption{The figure illustrates how Fermi LAT tracks incident gamma-ray photons.}
+              \label{fig:fermi schematic}
         \end{figure}
         The following figure \ref{fig:fermi schematic} demonstrates the very basic idea of the Fermi LAT working
         principles. \\
@@ -1563,9 +1558,10 @@
           \vspace{1cm} 
           \begin{table}[!ht]
             \centering
+            \scalebox{0.8}{
             \begin{tabular}{|c|c|c|c|c|c|c|} 
               \hline 
-              & \multicolumn{3}{|c|}{Test} & \multicolumn{3}{|c|}{Paper} \\ 
+              & \multicolumn{3}{|c|}{Test Results} & \multicolumn{3}{|c|}{Previous Results} \\ 
               \cline{2-7}
               & $\Gamma$ & $E_c$ (MeV) & TS & $\Gamma$ & $E_c$ (MeV) & TS \\ 
               \hline
@@ -1573,7 +1569,7 @@
               \hline 
               J0534+2200 & $2.07\pm0.01$ & $9880\pm572$ & $239015$ & $1.9\pm0.1$ & $4200\pm200$ & $102653$  \\
               \hline
-            \end{tabular}
+            \end{tabular}}
             \vspace{0.5cm}
               \centering
               \mycaption{The Spectra Fit Results. In the thesis, in order to make data analysis be more 
@@ -1583,19 +1579,20 @@
                 corresponding spectra properties based on the old paper \cite{0067-0049-208-2-17}.
                 According to the standard PLSuperExpCutoff model (described in equation \ref{eq: fermi_model}, 
                 $\Gamma$ is photon index and $E_c$ is cutoff energy.)}
-              \change{the width of the table is larger than width of page}
+              % \change{the width of the table is larger than width of page}
               \label{table: previous_result_comparison}
           \end{table}
           \vspace{1cm}            
 
           \begin{table}[!ht]
             \centering
+            \scalebox{0.85}{
             \begin{tabular}{|c|c|c|c|}
               \hline 
               &$\Gamma$& $E_c$ (MeV) & TS \\ \hline 
               J0007+7303 & $1.34\pm0.02$ & $2204\pm67$ & $210166$ \\ \hline 
               J0534+2200 & $2.01\pm0.01$ & $9173\pm372$ & $449946$ \\ \hline
-            \end{tabular}
+            \end{tabular}}
             \mycaption{Fit Results With Data From Year 2009 To Year 2018. The physical meanings of 
             $\Gamma$ and $E_c$ are the same as the table \ref{table: previous_result_comparison}.}
             \label{table: 2018_fit_data}
@@ -1652,17 +1649,17 @@
           \begin{figure}[!ht]
             \begin{minipage}{0.32\textwidth}
               \begin{center} 
-                \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j0218_ccube_start.png}
+                \includegraphics[scale=0.30]{/Users/grewwc/Desktop/Thesis/j0218_ccube_start.png}
               \end{center}
             \end{minipage}
             \begin{minipage}{0.32\textwidth}
               \begin{center}
-                \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j0218_ccube_middle.png}
+                \includegraphics[scale=0.30]{/Users/grewwc/Desktop/Thesis/j0218_ccube_middle.png}
               \end{center}
             \end{minipage}
             \begin{minipage}{0.32\textwidth}
               \begin{center}
-              \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j0218_ccube_end.png}
+              \includegraphics[scale=0.30]{/Users/grewwc/Desktop/Thesis/j0218_ccube_end.png}
               \end{center}
             \end{minipage}
             \mycaption{Three count maps from PSR J0218+4232's count cube. The energy ranges of the figures are 
@@ -1683,6 +1680,7 @@
 
           \begin{table}[!h]   
             \centering
+            \scalebox{0.85}{
             \begin{tabular}{|m{4.5cm} | c | c | c |}
               \hline 
               & Left & Middle & Right \\
@@ -1693,7 +1691,7 @@
               \hline
               Counts / MeV ($MeV^{-1}$)& 3.39 & 0.213 & 0.000 \\  
               \hline
-            \end{tabular}
+            \end{tabular}}
             \mycaption{Numbers of photon counts of count maps in different energy bands for PSR J0218+4232.}
             \label{table:j0218_ccube_photon_counts}
           \end{table}
@@ -1780,15 +1778,16 @@
             The TS value of our target source is 7110, which gives us 
             a significance level $\sigma \approx \sqrt{TS} = 84$. This strongly implies the presence of our
             target source. We can also use a TS map to test the presence of the source as the Fig.
-            \ref{fig: j0218_tsmap_comparison_15} and \ref{fig: j0218_tsmap_comparison_20} shown. 
+            \ref{fig: j0218_tsmap_comparison_20} shown. 
             There are 2 sets of Ts maps with different scales. The first group is $3^{\circ} 
             \times3^{\circ}$ while the second group is $2^{\circ} \times2^{\circ}$. 
             \vspace{1cm}
             \begin{table}[!ht]
               \centering
+                \scalebox{0.8}{
                 \begin{tabular}{|c|c|c|c|c|}
                   \cline{1-5}
-                  & \multicolumn{2}{|c|}{Now} & \multicolumn{2}{|c|}{Previous} \\
+                  & \multicolumn{2}{|c|}{Our Results} & \multicolumn{2}{|c|}{Previous Results} \\
                   \cline{1-5}
                   & Value & Error & Value & Error \\
                   \hline
@@ -1798,25 +1797,20 @@
                   \hline 
                   Photon Flux (ph $cm^{-2} s^{-1}$) ($10^{-8}$) & $7.28913$ & $0.27988$ & $7.7$ & $0.7$ \\ 
                   \hline
-                \end{tabular}    
+                \end{tabular}}  
                 \mycaption{Fit parameters of the spectral model of PSR J0218+4232. 
                   The names of parameters are consistent with the equation
-                  \ref{eq: fermi_model}. The old results are from the paper \cite{0067-0049-208-2-17}.
-                  \\
-                  \change{should rename "Previous" and "Now". \\ 
-                      should draw a diagnal line in the upper left cell, but don't know how yet.)}}
+                  \ref{eq: fermi_model}. The old results are from the paper \cite{0067-0049-208-2-17}.}
                 \label{table: j0218_fit_result}        
             \end{table}  
 
-            \singleFig{j0218_cur_with_data_points.png}{0.6}{
+            \singleFig{j0218_cur.png}{0.40}{
               The log-log plot of flux to energy of PSR J0218+4232. The grey shade represents 
               fitting errors, black points with error bars are flux points, the blue dots are upper values and the 
               red line is the PLExpCutoff model multiplied by $E^2$. Flux points 
               are fitted separately by dividing the total energy bin (100 MeV $\sim$ 100 GeV) into multiple energy bins.
               The horizontal error bars represents the width of each bin. \\
-              (The figure should use legends, but for now I have problem setting those styles, 
-              may be my matplotlib version is too old.) \\
-              \change{legends, arrows}
+              % \change{legends, arrows}
             }
             \vspace{1cm}
             % \singleFig{blank.png}{0.3}{\change{The Fig.should be a TS map, but the new TS map has not been generated yet.
@@ -1826,17 +1820,17 @@
               \begin{center}
               \begin{minipage}{0.46\textwidth}
                 \begin{center} 
-                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_with_source_15.png}
+                  \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/j0218_tsmap_with_source_20.png}
                 \end{center}
               \end{minipage}
               \begin{minipage}{0.45\textwidth}
                 \begin{center}
-                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j0218_nosource_15.png}
+                  \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/j0218_nosource_20.png}
                 \end{center}
               \end{minipage}
             \end{center}
             \mycaption{TS maps of PSR J0218+4232. The figures' dimensions are 
-            $3^{\circ} \times3^{\circ}$ ($15 pixels \times 15 pixels$ with 
+            $4^{\circ} \times 4^{\circ}$ ($20$ pixels $\times$ $20$ pixels with 
             $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). The \textsf{left}
             figure and \textsf{right} figure are generated by the XML models with and without our 
             target source PSR J0218+4232 respectively. The \textsf{left} figure shows that the 
@@ -1844,28 +1838,28 @@
             less than 5. However, the \textsf{right} figure strongly implies that there should be an 
             additional source after we have removed our target source from the spectral model, 
             which means it's highly likely that PSR J0218+4232 is contained in our observation data.}
-            \label{fig: j0218_tsmap_comparison_15}
+            \label{fig: j0218_tsmap_comparison_20}
             \end{figure}
 
-            \begin{figure}[!ht]
-              \begin{center}
-              \begin{minipage}{0.45\textwidth}
-                \begin{center} 
-                  \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_tsmap_with_source_20.png}
-                \end{center}
-              \end{minipage}
-              \begin{minipage}{0.45\textwidth}
-                \begin{center}
-                  \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_nosource_20.png}
-                \end{center}
-              \end{minipage}
-            \end{center}
-              \mycaption{TS maps for PSR J0218+4232. The figures' dimensions are 
-              $4^{\circ} \times4^{\circ}$ ($20 pixels \times 20 pixels$ with 
-              $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). The figures' meanings 
-              are completely the same with the Fig.\ref{fig: j0218_tsmap_comparison_15}}
-              \label{fig: j0218_tsmap_comparison_20}
-            \end{figure}
+            % \begin{figure}[!ht]
+            %   \begin{center}
+            %   \begin{minipage}{0.45\textwidth}
+            %     \begin{center} 
+            %       \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_tsmap_with_source_20.png}
+            %     \end{center}
+            %   \end{minipage}
+            %   \begin{minipage}{0.45\textwidth}
+            %     \begin{center}
+            %       \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/j0218_nosource_20.png}
+            %     \end{center}
+            %   \end{minipage}
+            % \end{center}
+            %   \mycaption{TS maps for PSR J0218+4232. The figures' dimensions are 
+            %   $4^{\circ} \times4^{\circ}$ ($20$ pixels $\times$ 20 $pixels$ with 
+            %   $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). The figures' meanings 
+            %   are completely the same with the Fig.\ref{fig: j0218_tsmap_comparison_15}}
+            %   \label{fig: j0218_tsmap_comparison_20}
+            % \end{figure}
             % After obtaining the spectra fit results in gamma-ray band, we can generate a broad band spectrum. 
             % The hard X-ray data is from the paper  
             % \blackhref{https://arxiv.org/pdf/1704.02964.pdf}{NUSTAR HARD X-RAY OBSERVATIONS OF THE ENERGETIC   %
@@ -1893,12 +1887,12 @@
                   \begin{center}
                   \begin{minipage}{0.45\textwidth}
                     \begin{center} 
-                      \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/b1821_count_map_with_region.png}
+                      \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/b1821_count_map_with_region.png}
                     \end{center}
                   \end{minipage}
                   \begin{minipage}{0.45\textwidth}
                     \begin{center}
-                      \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/b1821_count_map_model.png}
+                      \includegraphics[scale=0.375]{/Users/grewwc/Desktop/Thesis/b1821_count_map_model.png}
                     \end{center}
                   \end{minipage}
                 \end{center}
@@ -1913,17 +1907,17 @@
                 \begin{center}
                 \begin{minipage}{0.32\textwidth}
                   \begin{center} 
-                    \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/b1821_ccube_start.png}
+                    \includegraphics[scale=0.30]{/Users/grewwc/Desktop/Thesis/b1821_ccube_start.png}
                   \end{center}
                 \end{minipage}
                 \begin{minipage}{0.32\textwidth}
                   \begin{center}
-                    \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/b1821_ccube_15.png}
+                    \includegraphics[scale=0.30]{/Users/grewwc/Desktop/Thesis/b1821_ccube_middle.png}
                   \end{center}
                 \end{minipage}
                 \begin{minipage}{0.32\textwidth}
                   \begin{center}
-                  \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/b1821_ccube_end.png}
+                  \includegraphics[scale=0.30]{/Users/grewwc/Desktop/Thesis/b1821_ccube_end.png}
                   \end{center}
                 \end{minipage}
               \end{center}
@@ -1947,7 +1941,7 @@
                 \begin{center}
                 \begin{minipage}{0.45\textwidth}
                   \begin{center} 
-                    \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/b1821_count_map_linear_scale.png}
+                    \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/b1821_countmap_noregion.png}
                   \end{center}
                 \end{minipage}
                 \begin{minipage}{0.45\textwidth}
@@ -1956,15 +1950,15 @@
                   \end{center}
                 \end{minipage}
               \end{center}
-              \mycaption{The count map and residual map of PSR B1821-24 in linear scale. 
+              \mycaption{The count map and residual map of PSR B1821-24 in log scale. 
+              The reason why linear is not used here is that the residual map is nearly black in linear scale.
               The \textsf{left} figure is the count map and the \textsf{right} 
               figure is the residual map showing the difference between the observation data and the spectral model.}
               \label{fig: b1821_count_map_diff.png}
             \end{figure}
 
-            \singleFig{b1821_spectrum_with_points.png}{0.6}{The log-log plot of flux to energy of 
-              PSR B1821-24's gamma-ray spectrum. 
-              \change{should use legends, add arrows for upper values, make the label fonts larger.}}
+            \singleFig{b1821_cur.png}{0.40}{The log-log plot of flux to energy of 
+              PSR B1821-24's gamma-ray spectrum.}
               \vspace{1cm}
 
             The differences of the count map between the observation data and the model are described as the Fig.
@@ -1979,10 +1973,10 @@
             of about $\sqrt{941} \sim 31$. This strongly supports the existence of the target source in 
             the observation data.
 
-            The Fig.\ref{fig: b1821_spectrum_with_points.png} shows that the global fit is consistent with 
+            The Fig.\ref{fig: b1821_twolayer_cur.png} shows that the global fit is consistent with 
             the flux points generated by fitting sub-energy bins separately. However, 
             we should notice the first flux point 
-            which is denoted as a blue square in the Fig.\ref{fig: b1821_spectrum_with_points.png}. This 
+            which is denoted as a blue square in the Fig.\ref{fig: b1821_twolayer_cur.png}. This 
             flux point is significantly smaller than the global fit (the red line in the figure). 
             In addition, the upper value for the first energy bin is still slightly smaller than the global fit. 
             Though it is strange that the upper value is smaller than the normal value at first glance, 
@@ -1996,9 +1990,10 @@
             
             \begin{table}[!ht]
               \centering
+                \scalebox{0.8}{
                 \begin{tabular}{|c|c|c|c|c|}
                   \cline{1-5}
-                  & \multicolumn{2}{|c|}{Now} & \multicolumn{2}{|c|}{Previous} \\
+                  & \multicolumn{2}{|c|}{Our Results} & \multicolumn{2}{|c|}{Previous Results} \\
                   \cline{1-5}
                   & Value & Error & Value & Error \\
                   \hline
@@ -2008,12 +2003,10 @@
                   \hline 
                   Photon Flux (ph $cm^{-2} s^{-1}$) ($10^{-8}$) & $3.85$ & $0.31$ & $Nan$ & $Nan$ \\ 
                   \hline
-                \end{tabular}    
+                \end{tabular}}  
                 \mycaption{Fit parameters of the spectral model of PSR B1821-24. 
                   The names of parameters are also onsistent with the equation
-                  \ref{eq: fermi_model}. \question{The old results are not available yet} \\
-                  \change{should rename "Previous" and "Now". \\ 
-                      should draw a diagnal line in the upper left cell, but don't know how yet.)}}
+                  \ref{eq: fermi_model}. \question{The old results are not available yet}}
                 \label{table: b1821_fit_result}        
             \end{table}  
             \vspace{1cm}
@@ -2025,44 +2018,44 @@
               \begin{center}
               \begin{minipage}{0.46\textwidth}
                 \begin{center} 
-                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_with_source_15.png}
+                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_with_source_20.png}
                 \end{center}
               \end{minipage}
               \begin{minipage}{0.45\textwidth}
                 \begin{center}
-                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_nosource_15.png}
-                \end{center}
-              \end{minipage}
-            \end{center}
-            \mycaption{TS maps of PSR B1821-24. The figures' dimensions are $3^{\circ} \times3^{\circ}$ 
-            ($15 pixels \times 15 pixels$ with $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). 
-            The \textsf{left} figure and \textsf{right} figure are generated by the XML models with and without our 
-            target source PSR B1821-24 respectively. The \textsf{left} figure shows that the possibility 
-            of adding an imputative point source is very low only with a maximum TS value of 
-            less than 11 while the TS values of the \textsf{right} figure are generally much larger.}
-            \label{fig: b1821_tsmap_comparison_15}
-            \end{figure}
-            \vspace{1cm}
-
-            \begin{figure}[!ht]
-              \begin{center}
-              \begin{minipage}{0.45\textwidth}
-                \begin{center} 
-                  \includegraphics[scale=0.43]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_with_source_20.png}
-                \end{center}
-              \end{minipage}
-              \begin{minipage}{0.45\textwidth}
-                \begin{center}
-                  \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_nosource_20.png}
+                  \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_nosource_20.png}
                 \end{center}
               \end{minipage}
             \end{center}
             \mycaption{TS maps of PSR B1821-24. The figures' dimensions are $4^{\circ} \times4^{\circ}$ 
-            ($20 pixels \times 20 pixels$ with $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). 
-            The meaning of the figure is the same as the Fig.\ref{fig: b1821_tsmap_comparison_15}}
-            \label{fig: b1821_tsmap_comparison_15}
+            ($20$ pixels $\times$ $20$ pixels with $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). 
+            The \textsf{left} figure and \textsf{right} figure are generated by the XML models with and without our 
+            target source PSR B1821-24 respectively. The \textsf{left} figure shows that the possibility 
+            of adding an imputative point source is very low only with a maximum TS value of 
+            less than 11 while the TS values of the \textsf{right} figure are generally much larger.}
+            \label{fig: b1821_tsmap_comparison_20}
             \end{figure}
             \vspace{1cm}
+
+            % \begin{figure}[!ht]
+            %   \begin{center}
+            %   \begin{minipage}{0.45\textwidth}
+            %     \begin{center} 
+            %       \includegraphics[scale=0.43]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_with_source_20.png}
+            %     \end{center}
+            %   \end{minipage}
+            %   \begin{minipage}{0.45\textwidth}
+            %     \begin{center}
+            %       \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_nosource_20.png}
+            %     \end{center}
+            %   \end{minipage}
+            % \end{center}
+            % \mycaption{TS maps of PSR B1821-24. The figures' dimensions are $4^{\circ} \times4^{\circ}$ 
+            % ($20$ pixels $\times$ $20$ $pixels$ with $0.25^{\circ} \times 0.25^{\circ}$ for each pixel). 
+            % The meaning of the figure is the same as the Fig.\ref{fig: b1821_tsmap_comparison_15}}
+            % \label{fig: b1821_tsmap_comparison_15}
+            % \end{figure}
+            % \vspace{1cm}
       
         \subsection{PSR B1937+21}
           In order to make the data analysis be more consistent, we choose the same parameters
@@ -2378,8 +2371,7 @@
           real emission mechanism in the energy band is different from the model predicts. Thus, we can observe 
           inconsistency between the calculations and observations.
  
-          \singleFig{j0218_twolayer_cur.png}{0.41}{The modeled spectrum of PSR J0218+4232. 
-          \change{python arrow doesn't work properly in log-log scale figure}}
+          \singleFig{j0218_twolayer_cur.png}{0.41}{The modeled spectrum of PSR J0218+4232.}
           \singleFig{b1821_twolayer_cur.png}{0.4}{The modeled spectrum of PSR B1821-24. 
           \mayChange{I wanted to combine the three figures together, if I do so, each 
           figure is too small.}}
@@ -2387,6 +2379,7 @@
           
           \begin{table}[!ht]
             \centering
+            \scalebox{1.1}{
             \begin{tabular}{|c|c|c|c|}
               \hline 
               & f & g & $h_1/h_2$ \\ 
@@ -2397,7 +2390,7 @@
               \hline 
               PSR B1937+21 & 0.320 & 0.975 & 0.925 \\
               \hline 
-            \end{tabular}
+            \end{tabular}}
             \mycaption{The results of fitting parameters for the three MSPs. The physical 
               meaning of each parameter is consistent with the two-layer model describe above.
               \change{the table is ugly, but not sure how to make it more beautiful...}}
@@ -2426,12 +2419,17 @@
           figure represents the error of hard X-ray. The 'Total' legend represents the total flux 
           combining the Synchrotron radiation, inverse Compton radiation and curvature radiation
           altogether.}
+        \vspace{0.5cm} 
+        
         \singleFig{b1821_twolayer_all.png}{0.4}{The broad band and modeled spectrum of PSR B1821-24.
           The meaning of grey shade and the green shade are the same as the Fig.
           \ref{fig: j0218_twolayer_all.png}}
+        \vspace{0.5cm} 
+          
         \singleFig{j1939_twolayer_all.png}{0.39}{The broad band and modeled spectrum of PSR B1937+21.
           The meaning of grey shade and the green shade are the same as the Fig.
           \ref{fig: j0218_twolayer_all.png}}
+        \vspace{0.5cm}
         
       \section{Pitfalls and Considerations of Doing Numerical Calculation}
         \subsection{Correctness of Computation}
