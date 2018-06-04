@@ -236,7 +236,7 @@
         % \indent 
         % \fi
 
-    \section{Emission Mechanism of Pulsars}
+     \section{Emission Mechanism of Pulsars}
             Although the emission mechanism of pulsars has not been fully understood yet, some models 
             have been developed 
             trying to explain observational data. The following is a simple model that can explain some basic 
@@ -284,29 +284,44 @@
               \label{fig:braking_index}
             \end{figure}
     
-        \subsection{Synchrotron Radiation}
-              Synchrotron radiation is a special case of cyclotron radiation when particles' speed is comparable to the 
-              speed of light. Because of the relativistic beaming effect, we will observe a very short radiation pulse 
-              when speed of particles is large. 
-              We only aim to analyze the spectral properties of MSPs, so we focus on the 
-              spectrum property of synchrotron radiation. The power spectrum of a single electron  
-              can be described by Function \ref{func: syncrothron spectrum}
+          \subsection{Synchrotron Radiation}
+            Synchrotron radiation is a special case of cyclotron radiation when particles' speed is comparable to the 
+            speed of light. Because of the relativistic beaming effect, we will observe a very short radiation pulse 
+            when speed of particles is large. 
+            We only aim to analyze the spectral properties of MSPs, so we focus on the 
+            spectrum property of synchrotron radiation. 
+            With Larmor's Formula we can derive the synchrotron radiation power of an electron:
             \begin{equation}
-              \label{func: syncrothron spectrum}
-              P\left(\nu\right) = \frac{\sqrt{3} e^3 B \sin{\alpha}}{m c^2} 
-                \left(\frac{\nu}{\nu_c}\right) \int_{\nu / \nu_c}^{\infty} K_{5/3}\left(\eta \right)d\eta 
+              \label{func: sync_total_power_precise}
+              P = \frac{2e^4\gamma^2\beta^2B_{\perp}^2}{3m_e^2c^3} 
             \end{equation}
+            where $\gamma$ is the Lorentz factor of the electron, $\beta=v/c$ and $B_{\perp}$ is the strength 
+            of magnetic field perpendicular to the circular motion plane. 
+            When $\beta \sim 1$, Function \ref{func: sync_total_power_precise} can be simplified as:
+            \begin{equation}
+              \label{func: sync_total_power_simplified}
+              P = \frac{2}{3}\frac{e^2c}{R^2}\gamma^4
+            \end{equation}
+            where $R = E / e B_{\perp}$ is the radius of the electron's circular motion. 
+            Furthermore, the power spectrum of a single electron  
+            can be described by Function \ref{func: syncrothron spectrum}
+            \begin{eqnarray}
+              \label{func: syncrothron spectrum}
+              P\left(\nu\right) &=& \frac{\sqrt{3} e^3 B \sin{\alpha}}{m c^2} 
+                \left(\frac{\nu}{\nu_c}\right) \int_{\nu / \nu_c}^{\infty} K_{5/3}\left(\eta \right)d\eta  \nonumber \\
+                &=& \frac{\sqrt{3}e^2}{m_eR}\gamma \left(\frac{\nu}{\nu_c}\right) \int_{\nu / \nu_c}^{\infty} K_{5/3}\left(\eta \right)d\eta
+            \end{eqnarray}
             where $\nu_c$ is the critical frequency and $K_{5/3}$ is modified Bessel function. The critical frequency 
             can be expressed by Function \ref{func: critical_frequency}
-            \begin{equation}
+            \begin{eqnarray}
               \label{func: critical_frequency}
-              \nu_c = \frac{3}{2} \gamma^2 \nu_{cyc} \sin{\alpha}
-            \end{equation} 
-            where $\alpha$ is the pitch angle and the $\nu_{cyc}$ is the frequency of corresponding cyclotron radiation. 
-  
-            These function does not give us very much information because of the integration of the modified Bessel 
-            function. We let $x = \nu / \nu_c$ and fix the environment variables such as magnetic field ($B$), 
-            Function \ref{func: syncrothron spectrum} becomes: 
+              \nu_c &=& \frac{3}{2} \gamma^2 \nu_{cyc} \sin{\alpha} \nonumber \\
+                   &=& \frac{3}{4\pi} \frac{c}{R} \gamma^3 
+            \end{eqnarray} 
+            where $\alpha$ is the pitch angle and the $\nu_{cyc}$ is the frequency of corresponding cyclotron 
+            radiation. These functions do not give us very much information because of the integration of the 
+            modified Bessel function. We let $x = \nu / \nu_c$ and fix the environment variables such as magnetic 
+            field ($B$), Function \ref{func: syncrothron spectrum} becomes: 
             \begin{equation}
               \label{func: to_x}
               P\left(\nu\right) = C \times x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
@@ -318,54 +333,58 @@
               F\left(x\right) = x \int_{x}^{\infty} K_{5/3}\left(\eta \right)d\eta 
             \end{equation}
             
-            \begin{figure}[!ht] 
-            \begin{minipage}{\textwidth}
-              \begin{center} 
-                \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/sync_spectrum_loglog.png}
-              \end{center}
-              \end{minipage}
-              \\
-            \begin{minipage}{\textwidth}
-              \begin{center}
-              \includegraphics[scale=0.61]{/Users/grewwc/Desktop/Thesis/sync_power_loglog.png}
-              \end{center}
-            \end{minipage}
-            \centering
-              \mycaption{According to Function \ref{func: fx}, top: $F\left(x\right)$; bottom: $x F\left(x\right)$.
-                \change{should change the style of Figure.}}
-              \label{fig: sync_spectrum_loglog}
-            \end{figure}
+            % \begin{figure}[!ht] 
+            % \begin{minipage}{\textwidth}
+            %   \begin{center} 
+            %     \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/sync_spectrum_loglog.png}
+            %   \end{center}
+            %   \end{minipage}
+            %   \\
+            % \begin{minipage}{\textwidth}
+            %   \begin{center}
+            %   \includegraphics[scale=0.61]{/Users/grewwc/Desktop/Thesis/sync_power_loglog.png}
+            %   \end{center}
+            % \end{minipage}
+            % \centering
+            %   \mycaption{According to Function \ref{func: fx}, top: $F\left(x\right)$; bottom: $x F\left(x\right)$.
+            %     \change{should change the style of Figure.}}
+            %   \label{fig: sync_spectrum_loglog}
+            % \end{figure}
             
+            \singleFig{sync_spectrum_loglog_combined}{0.5}{Spectrum shape of synchrotron radiation for a single 
+              particle (top). 
+             According ot Function \ref{func: fx},}
+
             The top figure \ref{func: fx} describes the general shape of power spectrum of synchrotron radiation
             When the frequency is larger than
             the critical frequency $\nu_c$, the power goes down dramatically. However, the top figure does not show 
-            the information that at what frequency the electron emit the strongest power, which is in the bottom figure.
-            The bottom figure shows that the energy most energy emitted around critical frequency. 
+            the information that at what frequency the charged particle emit the strongest power, which can be described
+            in the bottom figure. The bottom figure shows that the energy most energy emitted around critical frequency. 
   
-            In reality, synchrotron radiation is not generated by a single particle. We describe the number density 
-            distribution of electrons with respect to energy by a single power-law model:
+            In reality, synchrotron radiation is not generated by a single particle. We describe the number 
+            density distribution of electrons with respect to energy by a single power-law model:
             \begin{equation}
               \label{func: sync_number_density}
               N\left(E\right) \approx C E^{-\delta}
             \end{equation}
           
-            For simplicity, we set the ambient magnetic field $B$ to be a constant and make an approximation that all 
-            radiations are at a single frequency:
+            For simplicity, we set the ambient magnetic field $B$ to be a constant and make an approximation 
+            that all radiations are at a single frequency:
             \begin{equation}
               \label{func: sync_approximation}
               \nu \approx \gamma^2 \nu_{cyc}
             \end{equation}
-            where the meaning of $\nu_{cyc}$ is the same as function \ref{func: critical_frequency}. Our objective is to
-            know the relationship between total power of all electrons and their radiation frequency. We describe the 
-            relationship as Function \ref{func: sync_power_single_frequency}
+            where the meaning of $\nu_{cyc}$ is the same as Function \ref{func: critical_frequency}. 
+            Our objective is to know the relationship between total power of all electrons and their radiation 
+            frequency. We describe the relationship as Function \ref{func: sync_power_single_frequency}
             
             \begin{eqnarray}
               \label{func: sync_power_single_frequency}
               -P\left(E\right)N\left(E\right)dE &=& Q_{\nu} d\nu\\
               P\left(E\right) &=& \frac{4}{3} \sigma_{T} \beta^2 \gamma^2 c U_B
             \end{eqnarray} 
-            where $\sigma_{T}$ is electron Thompson scattering section, $U_B$ is energy density of the environment 
-            magnetic field,  $Q_{nu}$ is the emission coefficient of synchrotron radiation 
+            where $\sigma_{T}$ is electron Thompson scattering section, $U_B$ is energy density of 
+            the environment magnetic field,  $Q_{nu}$ is the emission coefficient of synchrotron radiation 
             and $E=\gamma m_e c^2$. With function \ref{func: sync_approximation}, we have
             \begin{equation}
               \label{func: sync_combine}
@@ -380,8 +399,8 @@
               \label{func: sync_final}
               Q_{\nu} \propto \nu^{(1-\delta)/2}
             \end{equation}
-            Function \ref{func: sync_final} shows that if the number density electrons is a power-law distribution, 
-            the spectrum of synchrotron radiation is also a power-lay model.  
+            Function \ref{func: sync_final} shows that if the number density electrons is a power-law 
+            distribution, the spectrum of synchrotron radiation is also a power-lay model.  
             %end of synchrotron.
   
           % \subsection{Curvature Radiation}
@@ -393,150 +412,180 @@
           %   \add{continue from here}
           %end of "Curvature Radiation"
           \subsection{Inverse-Compton radiation}
-          If an energetic relativistic photon collides with a charged particle from an proper incident angle,
-          the photon's energy decreases and its direction changes. This is the process of Compton Scattering. 
-          Inverse-Compton radiation is the opposite process and a low energy photon gained energy 
-          from an ultra-relativistic electron in the process. 
+            If an energetic relativistic photon collides with a charged particle from an proper incident angle,
+            the photon's energy decreases and its direction changes. This is the process of Compton Scattering. 
+            Inverse-Compton radiation is the opposite process and a low energy photon gained energy 
+            from an ultra-relativistic electron in the process. 
 
-          \singleFig{inverse_compton}{0.45}{Inverse Compton Diagram \Notice{this figure is from internet}}
-          
-          As Figure\ref{fig: inverse_compton} shows, in the laboratory frame ($S$), the incident angle and 
-          energy of a photon is $\theta$ and $h \nu$ respectively. The speed of the electron is $v$. In the 
-          electron rest frame ($S^{\prime}$), we change the denotation to $\theta^{\prime}$, $h \nu^{\prime}$ and.
-          Also, let the position of the electron be the origin point of $S^{\prime}$.
-          We can study the whole process in the $S^{\prime}$ frame, the transfer the result 
-          to the $S$ frame by Lorentz transformation. 
+            \singleFig{inverse_compton}{0.45}{Inverse Compton Diagram \Notice{this figure is from internet}}
+            As Figure\ref{fig: inverse_compton} shows, in the laboratory frame ($S$), the incident angle and 
+            energy of a photon is $\theta$ and $h \nu$ respectively. The speed of the electron is $v$. In the 
+            electron rest frame ($S^{\prime}$), we change the denotation to $\theta^{\prime}$, $h \nu^{\prime}$ and.
+            Also, let the position of the electron be the origin point of $S^{\prime}$.
+            We can study the whole process in the $S^{\prime}$ frame, the transfer the result 
+            to the $S$ frame by Lorentz transformation. 
 
-          In the $S^{\prime}$ frame, the electron is at rest so its energy is $m_e c^2$. 
-          For Inverse Compton scattering, the energy of an incident photon (less than several $keV$) 
-          is much less than the rest energy of an electron (about $0.51MeV$) 
-          and the relationship can be expressed by 
-          $h\nu^{\prime} \ll m_e c^2$. Therefore, this can be treated as Thompson Scattering process. 
-          Let the Poynting vector of incident photons be $\vec{S}^{\prime}$ and their energy density 
-          be $U_{rad}^{\prime}$, we have equation \ref{eq: poynting_and_energy_density}
-          \begin{equation}
-            \label{eq: poynting_and_energy_density}
-            \vec{S}^{\prime} = c U_{rad}^{\prime}
-          \end{equation}
-          The electron absorbs the energy of the incident photons and then be accelerated. Thus the 
-          accelerated electron will emit part of energy taken from incoming photons and the power of 
-          scattered radiation is denoted as $P^{\prime}$.
-          The ratio can be described by Thompson Scattering cross section $\sigma_{T}$ which is:
-          \begin{equation}
-            \label{eq: thompson_cross_section}
-            \sigma_{T} = \frac{8\pi}{3} \left(\frac{e^2}{m_e c^2}\right)^2
-          \end{equation}
-          and the relationship between the electron radiation power and incoming photon energy flux can be 
-          described by Equation \ref{eq: relationship_power_poynting}
-          \begin{equation}
-            \label{eq: relationship_power_poynting}
-            P^{\prime} = \left| \vec{S}^{\prime} \right| \sigma_{T}
-          \end{equation}
-          Combine Equation \ref{eq: poynting_and_energy_density} and \ref{eq: relationship_power_poynting},
-          the radiation power emitted by the electron is: 
-          \begin{equation}
-            \label{eq: final_relationship}
-            P^{\prime} = c \sigma_{T} U^{\prime}_{rad}
-          \end{equation}
+            In the $S^{\prime}$ frame, the electron is at rest so its energy is $m_e c^2$. 
+            For Inverse Compton scattering, the energy of an incident photon (less than several $keV$) 
+            is much less than the rest energy of an electron (about $0.51MeV$) 
+            and the relationship can be expressed by 
+            $h\nu^{\prime} \ll m_e c^2$. Therefore, this can be treated as Thompson Scattering process. 
+            Let the Poynting vector of incident photons be $\vec{S}^{\prime}$ and their energy density 
+            be $U_{rad}^{\prime}$, we have equation \ref{eq: poynting_and_energy_density}
+            \begin{equation}
+              \label{eq: poynting_and_energy_density}
+              \vec{S}^{\prime} = c U_{rad}^{\prime}
+            \end{equation}
+            The electron absorbs the energy of the incident photons and then be accelerated. Thus the 
+            accelerated electron will emit part of energy taken from incoming photons and the power of 
+            scattered radiation is denoted as $P^{\prime}$.
+            The ratio can be described by Thompson Scattering cross section $\sigma_{T}$ which is:
+            \begin{equation}
+              \label{eq: thompson_cross_section}
+              \sigma_{T} = \frac{8\pi}{3} \left(\frac{e^2}{m_e c^2}\right)^2
+            \end{equation}
+            and the relationship between the electron radiation power and incoming photon energy flux can be 
+            described by Equation \ref{eq: relationship_power_poynting}
+            \begin{equation}
+              \label{eq: relationship_power_poynting}
+              P^{\prime} = \left| \vec{S}^{\prime} \right| \sigma_{T}
+            \end{equation}
+            Combine Equation \ref{eq: poynting_and_energy_density} and \ref{eq: relationship_power_poynting},
+            the radiation power emitted by the electron is: 
+            \begin{equation}
+              \label{eq: final_relationship}
+              P^{\prime} = c \sigma_{T} U^{\prime}_{rad}
+            \end{equation}
 
-          Then we need to find the relationship between frame $S$ and $S^{\prime}$. It mainly contains two
-          parts: the relationship between $P$, $P^{\prime}$ and $U_{rad}$, $U_{rad}^{\prime}$. Since 
-          $P = dE/dt$ and $dE/dt$ is Lorentz invariant in inertial frame, we know that: 
-          \begin{equation}
-            \label{eq: power_is_equal}
-            P = P^{\prime}
-          \end{equation}
-          Now we hope to write $U_{rad}^{\prime}$ in terms of $U_{rad}$. $U_{rad}$ is comprised by 
-          energy of a single photon and photon density. In the flowing analysis, all the denotations are 
-          correspondent to \ref{fig: inverse_compton} According to the relativistic Doppler shift formula,
-          we have: 
-          \begin{equation}
-            \label{eq: doppler_shift}
-            h \nu^{\prime} = \left(h \nu\right) \gamma \left(1 + \beta \cos{\theta} \right)
-          \end{equation}
-          where $\beta = v / c$ and $\gamma$ is Lorentz factor of an ultra-relativistic electron. 
-          Then we calculate the photon density. In the frame $S^{\prime}$, the photon density is
-          inverse proportional to the time interval ($\Delta t$) between the two photon striking the electron 
-          since total number of photons is Lorentz invariant. In laboratory frame $S$, 
-          we consider two photons collide with the electron at the 4-dimension vector of 
-          $\left(x_{1}, 0, 0, t_{1}\right)$ and $\left(x_{2}, 0, 0, t_{2}\right)$. According to the 
-          Lorentz transformation between inertial frames: 
-          \begin{equation}
-            \label{eq: lorentz_transfer_general}
-              \begin{cases}
-                 & x = \gamma \left( x^{\prime} + \beta c t^{\prime} \right)\\
-                 & y = y^{\prime} \\
-                 & z = z^{\prime} \\ 
-                 & t = \gamma \left(t^{\prime} + \frac{\beta x^{\prime}}{c}\right)
-              \end{cases}       
-          \end{equation}
-          and since we set $x^{\prime} = 0$, from equation \ref{eq: lorentz_transfer_general}, the two 
-          events of two successive photons collide with the electron can be expressed as:
-          $\left(\gamma v t_{1}^{\prime}, 0, 0, \gamma t_{1}^{\prime}\right)$ and 
-          $\left(\gamma v t_{2}^{\prime}, 0, 0, \gamma t_{2}^{\prime}\right)$. 
-          As the Fig \ref{fig: inverse_compton_time_interval} showing, the time interval of two successive 
-          photons (reciprocal of frequency) in frame $S$ is: 
-          \begin{eqnarray}
-            \label{eq: inverse_compton_time_interval}
-            \Delta t &=& \left(t_2 - t_1\right) + \frac{\left(x_2 - x_1\right) \cos{\theta}}{c}  \nonumber \\
-                     &=& \gamma \left(t_{2}^{\prime} - t_{1}^{\prime}\right) + \frac{\gamma v \left(t_{2}^{\prime} - t_{1}^{\prime}\right) \cos{\theta}}{c} \nonumber \\
-                     &=&  \Delta t^{\prime} \gamma \left(1 + \beta \cos{\theta}\right) 
-          \end{eqnarray}
-          Equation \ref{eq: inverse_compton_time_interval} shows that the relationship of photon number 
-          density between frame $S$ and $S^{\prime}$ is:
-          \begin{equation}
-            \label{eq: inverse_compton_number_density_relationship}
-            n^{\prime} = n \gamma \left(1 + \beta \cos{\theta}\right) 
-          \end{equation}
-          Combine Equations \ref{eq: inverse_compton_number_density_relationship} and 
-          \ref{eq: doppler_shift} we can transfer the incident photon energy density from frame $S$ to 
-          $S^{\prime}$ according to Equation \ref{eq: inverse_compton_energy_density}
-          \begin{equation}
-            \label{eq: inverse_compton_energy_density}
-            U_{rad}^{\prime} = U_{rad} \left[\gamma \left(1 + \beta \cos{\theta}\right)\right]^{2}
-          \end{equation}
-          In Equation \ref{eq: inverse_compton_energy_density}, the incoming photon energy density 
-          is a function of the incident angle ($\theta$), in order to get the total photon energy density,
-          we integrate Equation over $\theta$. Then we get: 
-          \begin{equation}
-            \label{eq: inverse_compton_energy_density_total}
-            U_{rad}^{\prime} = \frac{4}{3} U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
-          \end{equation}
-          Combine Equations \ref{eq: inverse_compton_energy_density_total} and 
-          \ref{eq: final_relationship}, the total scattered radiation power is:
-          \begin{eqnarray}
-            \label{eq: inverse_compton_power}
-            P^{\prime} &=& P  \nonumber \\
-                       &=& \frac{4}{3} \sigma_{T} c U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
-          \end{eqnarray}
-          As mentioned before, $P^{\prime}$ and $P$ are the total radiation power after scattering. Before the 
-          low energy gain photons, they give away some energy first which is $\sigma_{T} c U_{rad}$. 
-          Therefore, we have to subtract this value from Equation \ref{eq: inverse_compton_power} to 
-          calculate the rate of net energy gain, which is described by Equation 
-          \ref{eq: inverse_compton_net_gain}.
-          \begin{eqnarray}
-            \label{eq: inverse_compton_net_gain}
-            P^{\prime} = P = \frac{dE}{dt} &=& \frac{4}{3} \sigma_{T} c U_{rad} \left(\gamma^2 - \frac{1}{4}\right) - \sigma_{T} c U_{rad} \nonumber \\
-                                           &=& \frac{4}{3} \sigma_{T} c U_{rad} \beta^{2} \gamma^{2}
-          \end{eqnarray}
-          If we compare Equation \ref{eq: inverse_compton_net_gain} with \ref{func: sync_combine}, we 
-          find that the form is very similar between these two equations. 
-          \begin{equation}
-            \label{eq: comparision_inverse_compton_and_sync}
-            \frac{P_{IC}}{P_{sync}} = \frac{U_{rad}}{U_{B}}
-          \end{equation}
-          where $U_{B}$ is the energy density of environment magnetic field. 
+            Then we need to find the relationship between frame $S$ and $S^{\prime}$. It mainly contains two
+            parts: the relationship between $P$, $P^{\prime}$ and $U_{rad}$, $U_{rad}^{\prime}$. Since 
+            $P = dE/dt$ and $dE/dt$ is Lorentz invariant in inertial frame, we know that: 
+            \begin{equation}
+              \label{eq: power_is_equal}
+              P = P^{\prime}
+            \end{equation}
+            Now we hope to write $U_{rad}^{\prime}$ in terms of $U_{rad}$. $U_{rad}$ is comprised by 
+            energy of a single photon and photon density. In the flowing analysis, all the denotations are 
+            correspondent to \ref{fig: inverse_compton} According to the relativistic Doppler shift formula,
+            we have: 
+            \begin{equation}
+              \label{eq: doppler_shift}
+              h \nu^{\prime} = \left(h \nu\right) \gamma \left(1 + \beta \cos{\theta} \right)
+            \end{equation}
+            where $\beta = v / c$ and $\gamma$ is Lorentz factor of an ultra-relativistic electron. 
+            Then we calculate the photon density. In the frame $S^{\prime}$, the photon density is
+            inverse proportional to the time interval ($\Delta t$) between the two photon striking the electron 
+            since total number of photons is Lorentz invariant. In laboratory frame $S$, 
+            we consider two photons collide with the electron at the 4-dimension vector of 
+            $\left(x_{1}, 0, 0, t_{1}\right)$ and $\left(x_{2}, 0, 0, t_{2}\right)$. According to the 
+            Lorentz transformation between inertial frames: 
+            \begin{equation}
+              \label{eq: lorentz_transfer_general}
+                \begin{cases}
+                  & x = \gamma \left( x^{\prime} + \beta c t^{\prime} \right)\\
+                  & y = y^{\prime} \\
+                  & z = z^{\prime} \\ 
+                  & t = \gamma \left(t^{\prime} + \frac{\beta x^{\prime}}{c}\right)
+                \end{cases}       
+            \end{equation}
+            and since we set $x^{\prime} = 0$, from equation \ref{eq: lorentz_transfer_general}, the two 
+            events of two successive photons collide with the electron can be expressed as:
+              $\left(\gamma v t_{1}^{\prime}, 0, 0, \gamma t_{1}^{\prime}\right)$ and 
+              $\left(\gamma v t_{2}^{\prime}, 0, 0, \gamma t_{2}^{\prime}\right)$. 
+            As the Fig \ref{fig: inverse_compton_time_interval} showing, the time interval of two successive 
+            photons (reciprocal of frequency) in frame $S$ is: 
+            \begin{eqnarray}
+              \label{eq: inverse_compton_time_interval}
+              \Delta t &=& \left(t_2 - t_1\right) + \frac{\left(x_2 - x_1\right) \cos{\theta}}{c}  \nonumber \\
+                      &=& \gamma \left(t_{2}^{\prime} - t_{1}^{\prime}\right) + \frac{\gamma v \left(t_{2}^{\prime} - t_{1}^{\prime}\right) \cos{\theta}}{c} \nonumber \\
+                      &=&  \Delta t^{\prime} \gamma \left(1 + \beta \cos{\theta}\right) 
+            \end{eqnarray}
+            Equation \ref{eq: inverse_compton_time_interval} shows that the relationship of photon number 
+            density between frame $S$ and $S^{\prime}$ is:
+            \begin{equation}
+              \label{eq: inverse_compton_number_density_relationship}
+              n^{\prime} = n \gamma \left(1 + \beta \cos{\theta}\right) 
+            \end{equation}
+            Combine Equations \ref{eq: inverse_compton_number_density_relationship} and 
+            \ref{eq: doppler_shift} we can transfer the incident photon energy density from frame $S$ to 
+            $S^{\prime}$ according to Equation \ref{eq: inverse_compton_energy_density}
+            \begin{equation}
+              \label{eq: inverse_compton_energy_density}
+              U_{rad}^{\prime} = U_{rad} \left[\gamma \left(1 + \beta \cos{\theta}\right)\right]^{2}
+            \end{equation}
+            In Equation \ref{eq: inverse_compton_energy_density}, the incoming photon energy density 
+            is a function of the incident angle ($\theta$), in order to get the total photon energy density,
+            we integrate Equation over $\theta$. Then we get: 
+            \begin{equation}
+              \label{eq: inverse_compton_energy_density_total}
+              U_{rad}^{\prime} = \frac{4}{3} U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
+            \end{equation}
+            Combine Equations \ref{eq: inverse_compton_energy_density_total} and 
+            \ref{eq: final_relationship}, the total scattered radiation power is:
+            \begin{eqnarray}
+              \label{eq: inverse_compton_power}
+              P^{\prime} &=& P  \nonumber \\
+                        &=& \frac{4}{3} \sigma_{T} c U_{rad} \left(\gamma^2 - \frac{1}{4}\right)
+            \end{eqnarray}
+            As mentioned before, $P^{\prime}$ and $P$ are the total radiation power after scattering. Before the 
+            low energy gain photons, they give away some energy first which is $\sigma_{T} c U_{rad}$. 
+            Therefore, we have to subtract this value from Equation \ref{eq: inverse_compton_power} to 
+            calculate the rate of net energy gain, which is described by Equation 
+            \ref{eq: inverse_compton_net_gain}.
+            \begin{eqnarray}
+              \label{eq: inverse_compton_net_gain}
+              P^{\prime} = P = \frac{dE}{dt} &=& \frac{4}{3} \sigma_{T} c U_{rad} \left(\gamma^2 - \frac{1}{4}\right) - \sigma_{T} c U_{rad} \nonumber \\
+                                            &=& \frac{4}{3} \sigma_{T} c U_{rad} \beta^{2} \gamma^{2}
+            \end{eqnarray}
+            If we compare Equation \ref{eq: inverse_compton_net_gain} with \ref{func: sync_combine}, we 
+            find that the form is very similar between these two equations. 
+            \begin{equation}
+              \label{eq: comparision_inverse_compton_and_sync}
+              \frac{P_{IC}}{P_{sync}} = \frac{U_{rad}}{U_{B}}
+            \end{equation}
+            where $U_{B}$ is the energy density of environment magnetic field. 
 
-          \vspace{1cm}
-          \singleFig{inverse_compton_time_interval}{0.45}{Two photons collide with an electron. 
-            In the frame $S^{\prime}$, two photons collide with a rest electron successively.
-            In the frame $S$, the electron is no longer at rest and the positions of the two events 
-            are $x_1$ and $x_2$ \Notice{Figureis from internet}}
+            \vspace{1cm}
+            \singleFig{inverse_compton_time_interval}{0.45}{Two photons collide with an electron. 
+              In the frame $S^{\prime}$, two photons collide with a rest electron successively.
+              In the frame $S$, the electron is no longer at rest and the positions of the two events 
+              are $x_1$ and $x_2$ \Notice{Figureis from internet}}
 
           \add{spectrum property, shape}
-
-        %end of "IC"
         
+        \subsection{Curvature Radiation}
+          Curvature radiation is the main source of gamma-ray photons. Charged particles emit 
+          radiation not only move around magnetic field lines (synchrotron radiation), 
+          but also along magnetic field lines (curvature radiation) because charged particles will be 
+          accelerated by curved magnetic field lines. 
+
+          Function \ref{func: sync_total_power_precise} shows that total synchrotron radiation power 
+          is related to pitch angel (because of the term $B_\perp$), and if the pitch angel is $0$, there is 
+          no synchrotron radiation. However, curvature radiation can still be generated and is dependent on 
+          the curvature radii of magnetic field lines:
+          \begin{equation}
+            \label{func: curvature_radiation}
+            P = \frac{2}{3}\frac{e^2c}{s^2}\gamma^4
+          \end{equation}
+          where $s$ is the curvature radii of magnetic field lines. 
+          Function \ref{func: curvature_radiation} is very similar to the Function 
+          \ref{func: sync_total_power_simplified} and the only difference is that $R$ is changed to $s$.
+          Similarly, according to the function \ref{func: syncrothron spectrum}, 
+          the power spectrum of curvature radiation can be written as:
+          \begin{equation}
+            \label{func: curvature spectrum}
+            P = \frac{\sqrt{3}e^2}{m_es}\gamma \left(\frac{\nu}{\nu_c}\right) \int_{\nu / \nu_c}^{\infty} K_{5/3}\left(\eta \right)d\eta
+          \end{equation}
+          where $\nu_c$ is the critical frequency of curvature photons and equals to:
+          \begin{equation}
+            \label{func: curvature critical frequency}
+            \nu_c = \frac{3}{4\pi}\frac{c}{s}\gamma^3
+          \end{equation}
+          According to Functions \ref{func: curvature_radiation}, \ref{func: curvature spectrum} and 
+          \ref{func: curvature critical frequency}, the spectral properties of curvature radiation are  
+          similar to synchrotron radiation. The only differences in the equations are particles' Lorentz 
+          factors and curvature radii. 
+
         \subsection{A Brief Introduction to Gamma-ray Emission Process}
           It is oversimplified to regard a pulsar as a magnetized sphere rotating in vacuum. Actually,
           there are plenty of 
@@ -549,7 +598,7 @@
           \indent 2. In intense magnetic field,  the high energy photons decay into electrons and 
           positrons which are called secondary particles by the process: 
           $\gamma + (B) \rightarrow e^++e^-+(B)$. Synchrotron 
-                              photons can be emitted by these secondary particles. \\
+          photons can be emitted by these secondary particles. \\
           \indent 3. Secondary particles are also accelerated in strong magnetic field which is just like 
           primary particles. As a result, these charged particles can create more secondary particles. \\
           \indent This chain of process is quite efficient to produce charged particles and pulsar's 
@@ -871,23 +920,25 @@
           is that according to previous studies, they are bright and easy to detect with a large TS value of 
           43388 and 102653 for J0007+7303 and J0534+2200 respectively. \cite{0067-0049-208-2-17} 
 
-          In the spectra fit process, I do not use the same fit parameters as the paper, (for instance, 
-          the number of free parameters in the ROI is different)
+          In the spectra fit process, I do not use the same fit parameters as the previous paper, 
+          (for instance, the number of free parameters in the ROI is different)
           however, I get very similar results in terms of spectra index.  
           In Table \ref{table: previous_result_comparison}, I used the observation data from 
           2009-01-01 to 2013-02-01 in order to try to be 
           consistent with the old paper \cite{0067-0049-208-2-17}. 
-          In addition, I also fit spectra with observation data up to 2018-02-01 and Pass 8 data to test 
-          how much improvement I can make with the new Fermi dataset and more observation data. 
-          The results of year 2018 data are showed in Table \ref{table: 2018_fit_data}.
+          In addition, I also fit spectra with observation data up to 2018-02-01 and Pass 8 dataset to test 
+          how big improvement I can make with the new Fermi dataset and more observation data. 
+          The results of year 2018 data are shown in Table \ref{table: 2018_fit_data}.
 
-          Table \ref{table: previous_result_comparison} and table \ref{table: 2018_fit_data} mainly 
+          Tables \ref{table: previous_result_comparison} and \ref{table: 2018_fit_data} mainly 
           show two pieces of information. Firstly, my procedure of dealing with observation data has no
           big problems, so basically I can trust fit results of my target sources. Secondly, the Fermi 
           Pass 8 Lat Data has improves the accuracy a lot. For example, as Table 
-          \ref{table: previous_result_comparison} showing, the photon indexes are 
+          \ref{table: previous_result_comparison} shows, the photon indexes are 
           $1.30\pm0.02$ and $1.4\pm0.1$, which means that the errors reduce a lot. Additionally, the TS 
-          value is more than double as before. 
+          value is more than double as before.
+          \question{However, the cutoff energies are not consistent between the previous result and the new result.
+            (I need to explain this a little bit later).}
           \vspace{1cm} 
           \begin{table}[!ht]
             \centering
@@ -935,31 +986,32 @@
 
         \subsection{PSR J0218+4232}
           \label{j0218}
-          Our ROI is a circle with radius of $20^\circ$ and all parameters of sources which are $8^\circ$ outside 
+          The ROI is a circle with radius of $20^\circ$ and all parameters of sources which are $8^\circ$ outside 
           of the center are fixed. For sources within $8^\circ$, initial values of parameters are the same as
           their default values.
-          In our case, there are  point sources which have free parameters. In Figure
-          \ref{fig: j0218_count_map_and_model}, the green circles represent those free sources. We need to notice 
-          that in the outer parts of the count map, there are some of very 
-          bright sources which have no free parameters. The reason is that the they are so far away from our target source
+          In my case, there are point sources which have free parameters. 
+          In Figure
+          \ref{fig: j0218_count_map_and_model}, the green circles represent those free sources.
+          There are some of very bright sources which have no free parameters
+          in the outer parts of the count map. The reason is that the they are so far away from the target source
           that the Fermi telescope can distinguish if a photon comes from the target source or the outer sources.
           As a result, we do not need to fit any parameters for those outer sources. 
           However, it is another case for the nearby sources and we have to fit parameters of them.
           
           \subsubsection{Count Maps And Count Cubes}
-          \begin{figure}[!ht]  
-            \begin{center}
-            \begin{minipage}{0.45\textwidth}
-              \begin{center} 
-                  \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_count_map_with_region.png}
-              \end{center}
-            \end{minipage}
-            \begin{minipage}{0.45\textwidth}
-              \begin{center} 
-                  \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_count_map_model.png}
-              \end{center}
-            \end{minipage}
-          \end{center}
+            \begin{figure}[!ht]  
+              \begin{center}
+              \begin{minipage}{0.45\textwidth}
+                \begin{center} 
+                    \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_count_map_with_region.png}
+                \end{center}
+              \end{minipage}
+              \begin{minipage}{0.45\textwidth}
+                \begin{center} 
+                    \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_count_map_model.png}
+                \end{center}
+              \end{minipage}
+            \end{center}
             \begin{center}
               \mycaption{The count map of PSR J0218+4232 (left) and the count map generated by the model (right). 
               In the left figure,
@@ -970,7 +1022,7 @@
             \label{fig: j0218_count_map_and_model}    
             \end{center} 
           \end{figure}
-          In the left of Figure\ref{fig: j0218_count_map_and_model} 
+          In the left of Figure \ref{fig: j0218_count_map_and_model} 
           is the count map of PSR J0218+4232.
           In the center of the left figure, 
           we can clearly see our target source. The dimension of Figures seems to be weird and 
