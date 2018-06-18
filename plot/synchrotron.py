@@ -46,8 +46,15 @@ def plot2():
 
     ax2.plot(x, [fx(xi) for xi in x])
 
-plot1()
-plot2()
-plt.show()
+# plot1()
+# plot2()
+# plt.show()
 
+
+
+
+
+import sys 
+import os 
+os.system('echo $SHELL')
 
