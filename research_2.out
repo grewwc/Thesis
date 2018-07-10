@@ -20,13 +20,17 @@
 \BOOKMARK [1][-]{section.2.2}{A Brief Introduction to Fermi Data Analysis}{chapter.2}% 20
 \BOOKMARK [1][-]{section.2.3}{Fermi LAT Data Analysis}{chapter.2}% 21
 \BOOKMARK [2][-]{subsection.2.3.1}{Verifying the Data Analysis Process}{section.2.3}% 22
-\BOOKMARK [2][-]{subsection.2.3.2}{PSR J0218+4232}{section.2.3}% 23
-\BOOKMARK [2][-]{subsection.2.3.3}{PSR B1821-24}{section.2.3}% 24
-\BOOKMARK [2][-]{subsection.2.3.4}{PSR B1937+21}{section.2.3}% 25
-\BOOKMARK [0][-]{chapter.3}{Theory And Simulation}{}% 26
-\BOOKMARK [1][-]{section.3.1}{Two-layer Model}{chapter.3}% 27
-\BOOKMARK [1][-]{section.3.2}{Numerical Calculation of Spectra Based on Two-layer Model}{chapter.3}% 28
-\BOOKMARK [1][-]{section.3.3}{Pitfalls and Considerations of Doing Numerical Calculation}{chapter.3}% 29
-\BOOKMARK [2][-]{subsection.3.3.1}{Correctness of Computation}{section.3.3}% 30
-\BOOKMARK [2][-]{subsection.3.3.2}{Speed of Computation}{section.3.3}% 31
-\BOOKMARK [0][-]{chapter.4}{Discussion and Future Work}{}% 32
+\BOOKMARK [1][-]{section.2.4}{PSR J0218+4232}{chapter.2}% 23
+\BOOKMARK [2][-]{subsection.2.4.1}{Count Maps And Count Cubes}{section.2.4}% 24
+\BOOKMARK [2][-]{subsection.2.4.2}{Spectra Fitting}{section.2.4}% 25
+\BOOKMARK [1][-]{section.2.5}{PSR B1821-24}{chapter.2}% 26
+\BOOKMARK [2][-]{subsection.2.5.1}{Binned Likelihood Analysis}{section.2.5}% 27
+\BOOKMARK [1][-]{section.2.6}{PSR B1937+21}{chapter.2}% 28
+\BOOKMARK [2][-]{subsection.2.6.1}{Phase Resolved Analysis}{section.2.6}% 29
+\BOOKMARK [0][-]{chapter.3}{Theory And Simulation}{}% 30
+\BOOKMARK [1][-]{section.3.1}{Two-layer Model}{chapter.3}% 31
+\BOOKMARK [1][-]{section.3.2}{Numerical Calculation of Spectra Based on Two-layer Model}{chapter.3}% 32
+\BOOKMARK [1][-]{section.3.3}{Pitfalls and Considerations of Doing Numerical Calculation}{chapter.3}% 33
+\BOOKMARK [2][-]{subsection.3.3.1}{Correctness of Computation}{section.3.3}% 34
+\BOOKMARK [2][-]{subsection.3.3.2}{Speed of Computation}{section.3.3}% 35
+\BOOKMARK [0][-]{chapter.4}{Discussion and Future Work}{}% 36
