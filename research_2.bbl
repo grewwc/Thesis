@@ -1,4 +1,4 @@
-\begin{thebibliography}{1}
+\begin{thebibliography}{10}
 
 \bibitem{0067-0049-208-2-17}
 A.~A. Abdo, M.~Ajello, A.~Allafort, L.~Baldini, J.~Ballet, G.~Barbiellini,
@@ -41,6 +41,17 @@ A.~A. Abdo, M.~Ajello, A.~Allafort, L.~Baldini, J.~Ballet, G.~Barbiellini,
   Z.~Yang.
 \newblock The second fermi large area telescope catalog of gamma-ray pulsars.
 \newblock {\em The Astrophysical Journal Supplement Series}, 208(2):17, 2013.
+
+\bibitem{1986ApJ...300..500C}
+K.~S. Cheng, C.~Ho, and M.~Ruderman.
+\newblock Energetic radiation from rapidly spinning pulsars. i - outer
+  magnetosphere gaps. ii - vela and crab.
+\newblock {\em The Astrophysical Journal}, 300:500--539, Jan 1986.
+
+\bibitem{1969ApJ}
+P.~Goldreich and W.~H. Julian.
+\newblock Pulsar electrodynamics.
+\newblock {\em The Astrophysical Journal}, 157:869, aug 1969.
 
 \bibitem{0004-637X-845-2-159}
 E.~V. Gotthelf and S.~Bogdanov.
@@ -87,5 +98,12 @@ Hao Tong.
 Y.~Wang, J.~Takata, and K.~S. Cheng.
 \newblock Gamma-ray spectral properties of mature pulsars: A two-layer model.
 \newblock {\em The Astrophysical Journal}, 720(1):178, 2010.
+
+\bibitem{doi:10.1111/j.1365-2966.2011.18577.x}
+Y.~Wang, J.~Takata, and K.~S. Cheng.
+\newblock Three-dimensional two-layer outer gap model: Fermi energy-dependent
+  light curves of the vela pulsar.
+\newblock {\em Monthly Notices of the Royal Astronomical Society},
+  414(3):2664--2673, 2011.
 
 \end{thebibliography}
