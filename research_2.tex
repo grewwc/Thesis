@@ -711,23 +711,26 @@
           These pulsars have strong magnetic fields near the light cylinder. 
           Figure \ref{fig:class } is an example of aligned pulse profile.
 
-      \section{Objectives}
-        Three millisecond pulsars J0218+4232, B1821-24 and B1937+21 show 
-        broadband spectra across radio, X-ray and gamma-ray bands. \textit{Fermi LAT} gives us 
-        additional data and tools to do gamma-ray analysis for the pulsars. 
-        In year 2015, Fermi team released Pass 8 data including many improvements. Including 
-        better energy measurement and 
-        significantly improved effective area. Additionally, we have more \textit{Fermi LAT}
-        data. As a result, it is reasonable to redo the gamma-ray analysis with the newer 
-        dataset and more observation data in order to gain more reliable results. 
+      \section{Previous Work and Objectives}
+        The three millisecond pulsars J0218+4232, B1821-24 and B1937+21 show 
+        broadband spectra across radio, X-ray and gamma-ray bands like young pulsars. 
+
+
+
+
+        \textit{Fermi LAT} gives us additional data and tools to do gamma-ray analysis for the pulsars. 
+        In year 2015, Fermi team released Pass 8 data including many improvements, including 
+        better energy measurement and significantly improved effective area. Additionally, 
+        there are more \textit{Fermi LAT} observation data. As a result, it is reasonable to 
+        redo the gamma-ray analysis with the newer dataset and more observation data in order 
+        to gain more reliable results. 
 
         Therefore, my main objective is to use the new data to redo the gamma-ray
-        analysis of the three MSPs mentioned above. 
-        Then, I will do a numerical simulation based on a theoretical model called 
-        two-lay model and test if the new observation data are consistent with the the 
-        predictions of the model. And finally, based on numerical simulations of the 
-        two-layer emission model, I will generate broadband spectra (including hard X-ray 
-        band and gamma-ray band) for all the three MSPs. 
+        analysis of the three MSPs mentioned above. Then, I will do a numerical simulation 
+        based on a theoretical model called two-lay model and test if the new observation 
+        data are consistent with the the predictions of the model. And finally, based on 
+        numerical simulations of the two-layer emission model, I will generate broadband 
+        spectra (including hard X-ray band and gamma-ray band) for all the three MSPs. 
 
   \chapter{Gamma-Ray Analysis}
     As mentioned before, because of very short rotation periods, MSPs usually have very small 
@@ -930,7 +933,7 @@
             \label{eq: fermi_model}
             \frac{dN}{dE} = N_{0} \left(\frac{E}{E_0}\right)^{\gamma_1}\mbox{exp}\left[-\left(\frac{E}{E_c}\right)^{\gamma_2}\right]
           \end{equation}  
-          where $N_0$ is prefactor, $E_c$ is the cutoff energy and the $E_0$ is a scale 
+          where $N_0$ is called prefactor, $E_c$ is the cutoff energy and the $E_0$ is a scale 
           parameter. PLExpCutoff model is the special case where $\gamma_2=1$. My aim is to 
           fit the parameters $N_0$, $E_c$ and $\gamma_1$ to make the model be more 
           consistent with the observation data.
@@ -1027,13 +1030,12 @@
               \begin{center}
               \begin{minipage}{0.45\textwidth}
                 \begin{center} 
-                    \includegraphics[scale=0.4]
-                        {/Users/grewwc/Desktop/Thesis/j0218_count_map_with_region.png}
+                    \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j0218_count_map_with_region.png}
                 \end{center}
               \end{minipage}
               \begin{minipage}{0.45\textwidth}
                 \begin{center} 
-                    \includegraphics[scale=0.4]
+                    \includegraphics[scale=0.33]
                         {/Users/grewwc/Desktop/Thesis/j0218_count_map_model.png}
                 \end{center}
               \end{minipage}
@@ -1058,19 +1060,19 @@
           case, the rectangular is usually chosen as a square. 
           
           \begin{figure}[!ht]
-            \begin{minipage}{0.32\textwidth}
+            \begin{minipage}{0.31\textwidth}
               \begin{center} 
                 \includegraphics[scale=0.30]
                       {/Users/grewwc/Desktop/Thesis/j0218_ccube_start.png}
               \end{center}
             \end{minipage}
-            \begin{minipage}{0.32\textwidth}
+            \begin{minipage}{0.31\textwidth}
               \begin{center}
                 \includegraphics[scale=0.30]
                       {/Users/grewwc/Desktop/Thesis/j0218_ccube_middle.png}
               \end{center}
             \end{minipage}
-            \begin{minipage}{0.32\textwidth}
+            \begin{minipage}{0.31\textwidth}
               \begin{center}
               \includegraphics[scale=0.30]
                     {/Users/grewwc/Desktop/Thesis/j0218_ccube_end.png}
@@ -1106,7 +1108,7 @@
               \hline 
               Energy range ($MeV$) & 100$\sim$123 & 1873$\sim$2310 & 35110$\sim$43290 \\ 
               \hline
-              Counts / MeV ($MeV^{-1}$)& 3.39 & 0.213 & 0.000 \\  
+              Counts / MeV ($MeV^{-1}$)& 3.39 & 0.21 & 0.00 \\  
               \hline
             \end{tabular}}
             \mycaption{Numbers of photon counts of count maps in different energy bands for 
@@ -1197,9 +1199,10 @@
             We see from Table \ref{table: j0218_fit_result} that the new fit results are 
             consistent with the old ones. However, the precision improves a lot which is 
             ascribed to the \textit{Fermi LAT Third Source Catalogue} and \textit{PASS 8} 
-            data. Figure \ref{fig: j0218_cur_with_data_points.png} is a plot of the spectrum 
+            data. Figure \ref{fig: j0218_cur.png} is a plot of the spectrum 
             according to Function \ref{eq: fermi_model}.
-            One thing should be noticed is that we need to multiply $E^2$ to Function \ref{eq: fermi_model} 
+            One thing should be noticed is that we need to multiply $E^2$ to Function 
+            \ref{eq: fermi_model} 
             % in order to get the flux. Figure \ref{fig: j0218_cur_with_data_points.png} shows that the global 
             fit is consistent with flux points fitted by each energy bin separately. 
             The TS value of our target source is 7110, which gives us 
@@ -1335,20 +1338,18 @@
                 \begin{figure}[!ht]
                   \begin{center}
                   \begin{minipage}{0.45\textwidth}
-                    \begin{center} 
-                      \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/b1821_count_map_with_region.png}
-                    \end{center}
+                    \centering 
+                    \includegraphics[scale=0.27]{/Users/grewwc/Desktop/Thesis/b1821_count_map_with_region.png}
                   \end{minipage}
                   \begin{minipage}{0.45\textwidth}
-                    \begin{center}
-                      \includegraphics[scale=0.375]{/Users/grewwc/Desktop/Thesis/b1821_count_map_model.png}
-                    \end{center}
+                    \centering
+                    \includegraphics[scale=0.27]{/Users/grewwc/Desktop/Thesis/b1821_count_map_model.png}
                   \end{minipage}
                 \end{center}
-                \mycaption{The count map of PSR B1821-24 (left) and the count map generated by the 
-                model (right). In the left panel, the green circles are free sources. The sizes of the both 
-                figures are 141 pixels $\times$ 141 pixels, and each pixel's dimension is 
-                $0.2^\circ \times 0.2^\circ$.}
+                \mycaption{The count map of PSR B1821-24 (left) and the count map generated by 
+                  the model (right). In the left panel, the green circles are free sources. The 
+                  sizes of the both figures are 141 pixels $\times$ 141 pixels, and each 
+                  pixel's dimension is $0.2^\circ \times 0.2^\circ$.}
                 \label{fig: b1821_count_map_with_region_and_model}
               \end{figure}
             
@@ -1447,11 +1448,11 @@
                   \cline{1-5}
                   & Value & Error & Value & Error \\
                   \hline
-                  Index1 ($\gamma_1$) & $1.906$ & $0.068$ & $0.96$ & $0.22$ \\
+                  Index1 ($\gamma_1$) & $1.906$ & $0.068$ & $1.6$ & $0.3$ \\
                   \hline 
-                  Cutoff ($E_c$, MeV) & $4501.92$ & $710.41$ & $1410$ & $300$ \\
+                  Cutoff ($E_c$, MeV) & $4501.92$ & $710.41$ & $3300$ & $1500$ \\
                   \hline 
-                  Photon Flux (ph $cm^{-2} s^{-1}$) ($10^{-8}$) & $3.85$ & $0.31$ & $2.39$ & $0.22$ \\ 
+                  Photon Flux (ph $cm^{-2} s^{-1}$) ($10^{-8}$) & $3.85$ & $0.31$ & $1.5$ & $0.6$ \\ 
                   \hline
                 \end{tabular}}  
                 \mycaption{Fit parameters of the spectral model of PSR B1821-24. 
@@ -1459,7 +1460,8 @@
                   \ref{eq: fermi_model} 
                   We should note that the energy ranges of photon flux between the two results are different.
                   The energy is from 100MeV to 100GeV for the new results while from 200MeV to 300GeV for the 
-                  previous results.}
+                  previous results. \cite{2013ApJ...778..106J}}
+                  
                 \label{table: b1821_fit_result}        
             \end{table}  
             \vspace{1cm}
@@ -1514,7 +1516,7 @@
       
           \begin{figure}[!ht]
             \centering
-            \includegraphics[scale=0.45]{/Users/grewwc/Desktop/Thesis/b1821_count_spectra.png}
+            \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/b1821_count_spectra.png}
             \caption{The upper panel is the count spectrum of all sources included in the 
                     fit procedure. Thick lines are those sources with free fit parameters 
                     while the thin lines are fixed sources. The green line and the black 
@@ -1527,13 +1529,63 @@
 
         \section{PSR B1937+21}
           \subsection{Phase Averaged Analysis}
+            In order to make the data analysis be more consistent, I choose the same parameters
+            to process the raw observation data. Like the other two MSPs, the radius of the ROI 
+            is $20^{\circ}$ degrees, and all parameters of sources $8^{\circ}$ degrees outside 
+            from the center are fixed with default values. Figure \ref{fig: j1939_count_map_ave} 
+            is the comparison of count maps between observation data.
+            \begin{figure}[!ht]
+              \begin{center}
+              \begin{minipage}{0.45\textwidth}
+                \begin{center} 
+                  \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j1939_cmap_ave.png}
+                \end{center}
+              \end{minipage}
+              \begin{minipage}{0.45\textwidth}
+                \begin{center}
+                  \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j1939_model_map_ave.png}
+                \end{center}
+              \end{minipage}
+            \end{center}
+ 
+          \caption{The count maps of PSR B1937+21 created from observation 
+              data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
+              of both figures are $141 pixels \times 141 pixels$ and each pixel's size is
+              $0.2^{\circ}\times0.2^{\circ}$.}
+            \label{fig: j1939_count_map_ave}
+          \end{figure}
+
+
+          \begin{figure}[!ht]
+            \begin{minipage}{0.32\textwidth}
+              \begin{center} 
+                \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_1_ave.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.32\textwidth}
+              \begin{center}
+                \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_13_ave.png}
+              \end{center}
+            \end{minipage}
+            \begin{minipage}{0.32\textwidth}
+              \begin{center}
+              \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_19_ave.png}
+              \end{center}
+            \end{minipage}
+            \caption{Three count maps of PSR B1937+21's count cube. The energy ranges of the 
+              figures are from $100$ to $131$ MeV, from $2460$ to $3212$ MeV, from $12198$ to
+              $15929$ MeV respectively.}
+            \label{fig: j1939_count_cube_ave}
+          \end{figure}
+%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
+
 
           \subsection{Phase Resolved Analysis}
-          In order to make the data analysis be more consistent, I choose the same parameters
-          to process the raw observation data. Like the other two MSPs, the radius of the ROI 
-          is $20^{\circ}$ degrees, and all parameters of sources $8^{\circ}$ degrees outside 
-          from the center are fixed with default values. Figure \ref{fig: j1939_count_map} is 
-          the comparison of count maps between observation data.
+            In order to make the data analysis be more consistent, I choose the same parameters
+            to process the raw observation data. Like the other two MSPs, the radius of the ROI 
+            is $20^{\circ}$ degrees, and all parameters of sources $8^{\circ}$ degrees outside 
+            from the center are fixed with default values. Figure \ref{fig: j1939_count_map} is 
+            the comparison of count maps between observation data.
 
           \subsubsection{Count Maps and Count Cubes}
             \begin{figure}[!ht]
@@ -1587,24 +1639,24 @@
             for comparison. The best phase averaged results are not finished completely yet, 
             but soon.}
           \begin{figure}[!ht]
-            \begin{minipage}{0.30\textwidth}
+            \begin{minipage}{0.32\textwidth}
               \begin{center} 
-                \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j1939_ccube_start.png}
+                \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_start.png}
               \end{center}
             \end{minipage}
-            \begin{minipage}{0.30\textwidth}
+            \begin{minipage}{0.32\textwidth}
               \begin{center}
-                \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j1939_ccube_middle.png}
+                \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_middle.png}
               \end{center}
             \end{minipage}
-            \begin{minipage}{0.30\textwidth}
+            \begin{minipage}{0.32\textwidth}
               \begin{center}
-              \includegraphics[scale=0.25]{/Users/grewwc/Desktop/Thesis/j1939_ccube_end.png}
+              \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_end.png}
               \end{center}
             \end{minipage}
             \caption{Three count maps of PSR B1937+21's count cube. The energy ranges of the 
-              figures are from $100$ to $123$MeV, from $1.873$ to $2.310$GeV, from $35.11$ to
-              $43.29$GeV respectively.}
+              figures are from $100$ to $126$ MeV, from $1995$ to $2512$ MeV, from $50119$ to
+              $63096$ MeV respectively.}
             \label{fig: j1939_count_cube}
           \end{figure}
 
@@ -1629,12 +1681,12 @@
           \subsubsection{Count Maps and Count Cubes}
             \begin{figure}[!ht]
               \begin{center}
-              \begin{minipage}{0.40\textwidth}
+              \begin{minipage}{0.45\textwidth}
                 \begin{center} 
                   \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_linear.png}
                 \end{center}
               \end{minipage}
-              \begin{minipage}{0.40\textwidth}
+              \begin{minipage}{0.45\textwidth}
                 \begin{center}
                   \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_diff_linear.png}
                 \end{center}
@@ -1707,6 +1759,7 @@
           \end{figure}
           
           \begin{figure}[!ht]
+            \centering
             \begin{minipage}{0.40\textwidth}
               \begin{center} 
                 \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_tsmap_nosource_15.png}
@@ -1746,8 +1799,7 @@
               \label{table: j1939_fit_result}        
           \end{table} 
 
-    \chapter{Theory And Simulation}
-
+    \chapter{Theory and Simulation}
       \section{A Brief Introduction to Outer Gap Model}
         It is oversimplified to regard a pulsar as a magnetized sphere rotating in vacuum. 
         Actually, there are plenty of charged particles in a pulsar's magnetosphere 
@@ -1773,23 +1825,35 @@
         Since the charged particles cannot move along the magnetic field lines near 
         the light cylinder, there are closed field lines and open field lines. Charged 
         particles can move out of the magnetosphere along those open field lines. Thus, the 
-        charge density in the regions nearly the light cylinder can be much smaller than 
+        charge density in the regions near the light cylinder can be much smaller than 
         \gj{} and electrons and positrons are accelerated to very high speeds by electric 
         fields parallel to the magnetic field lines ($E_{\parallel}$). These regions are called 
-        outer gap which are between the null charge surface and the light cylinder as Figure 
-        \ref{fig: outer gap model} shows. \cite{1986ApJ...300..500C}
+        outer gap which are between the null charge surface and the light cylinder.
+        \cite{1986ApJ...300..500C} 
+        
+        Since electrons and positrons are accelerated to opposite directions, there are many 
+        charged particles move toward the pulsar's surface. As discussed above, there is no 
+        significant electric field to accelerate the incoming particles, they emit softer 
+        photons than the photons emitted by the particles move outward. Furthermore, since the 
+        softer photons are close the the stellar surface, they can generate electrons and 
+        positrons under high magnetic fields. These charged particles maintain the current 
+        moving along the open field lines. Meanwhile, the particles moving from null charge 
+        surface to the light cylinder are largely accelerated by $E_{\parallel}$, and hence 
+        emit gamma-rays by curvature radiations. Part of the gamma-rays covert to
+        electron-positron pairs by colliding with soft photons, and the pairs compensate 
+        the deficit of charge densities, hence stop the growth of outer gap. This is the 
+        very basic introduction of the outer gap model, which is helpful to understand the 
+        two-layer model. 
+        
+        % In short, the whole process can be crudely approximated by the following procedures. 
+        % At first, charged particles move out of the magnetosphere along the open field lines
+        % and forms strong electric fields parallel to the magnetic field lines 
+        % ($E_{\parallel}$). Then particles with opposite sign are accelerated to very high 
+        % speeds by the $E_{\parallel}$ and move to opposite directions. The incoming charges 
+        % can further generate more particles with the help of the high magnetic field near the 
+        % stellar surface and maintain the current moving along the open field lines. On the 
+        % other hand, the charges moving outward emit curvature photons, 
 
-        % \begin{figure}
-          % \centering 
-          % \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/}
-        % \end{figure}
-
-      
-        As a result, the charged particles can be 
-        accelerated to a very large velocity (Lorentz factor $\gamma\sim 10^7$) and then 
-        emit gamma-ray. Photons in outer gap can also create electrons and positrons by 
-        the process: $\gamma+\gamma\rightarrow e^-+e^+$. At the outer gap, the above process 
-        can't happen because magnetic field is too weak in this region.
 
 
       \section{Two-layer Model}
@@ -2118,9 +2182,7 @@
   %stupid
 
     \chapter{Discussion and Future Work}
-      
-        
-      \subsection{Constraints of The Two-lay Model Used In The Thesis} 
+      \section{Constraints of The Two-lay Model Used In The Thesis} 
         The simplified two-layer model is consistent with observation data to some extent. 
         (The relevant data can be found in the paper \cite{0004-637X-720-1-178})
         The model uses four parameters to get a fairly good prediction of the gamma-ray 
@@ -2156,8 +2218,27 @@
         may have addressed the problems described above, but the model used in the thesis 
         do have some defects. 
 
+    \section{Analysis With \textit{LAT 8-year Point Source List}}
+      The latest preliminary \textit{LAT 8-year Point Source List} (\textit{FL8Y}) is released 
+      on 03 May 2018. Since the release date is a little bit late and the point source list is a 
+      preliminary version, I have not finished the spectra analysis with the data. However, it is 
+      reasonable to show some results I have done with the new source list and my further plan.
 
-        
+      Some spectra models are changed, for instance, \textit{PLSuperExpCutoff} is removed and 
+      \textit{PLSuperExpCutoff\mbox{2}} is added. The equation of 
+      \textit{PLSuperExpCutoff\mbox{2}} \cite{newFermiModel} is,
+      \begin{equation}
+        \frac{dN}{dE} = K\left(\frac{E}{E_0}\right)^{\Gamma} \mbox{exp}\left(a\left(E_0^b-E^b\right)\right) 
+        \label{eq: new_fermi_model}
+      \end{equation}
+      In principal, there is no difference between the Equations \ref{eq: fermi_model} and 
+      \ref{eq: new_fermi_model}, the parameters needed to be fitted is different. In fact, the 
+      \textit{Cutoff} in \textit{PLSuperExpCutoff} is changed to \textit{Expfactor} in 
+      \textit{PLSuperExpCutoff\mbox{2}}. 
+      
+      \subsection{PSR J0218+4232}
+
+
 
 % \begin{thebibliography}{9}
 

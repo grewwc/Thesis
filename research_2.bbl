@@ -43,7 +43,7 @@ A.~A. Abdo, M.~Ajello, A.~Allafort, L.~Baldini, J.~Ballet, G.~Barbiellini,
 \newblock {\em The Astrophysical Journal Supplement Series}, 208(2):17, 2013.
 
 \bibitem{1986ApJ...300..500C}
-K.~S. Cheng, C.~Ho, and M.~Ruderman.
+K.S. Cheng, C.~Ho, and M.~Ruderman.
 \newblock Energetic radiation from rapidly spinning pulsars. i - outer
   magnetosphere gaps. ii - vela and crab.
 \newblock {\em The Astrophysical Journal}, 300:500--539, Jan 1986.
@@ -73,6 +73,21 @@ L.~Guillemot, T.~J. Johnson, C.~Venter, M.~Kerr, B.~Pancrazi, M.~Livingstone,
 O.~Hamil, J.~R. Stone, M.~Urbanec, and G.~Urbancov\'a.
 \newblock Braking index of isolated pulsars.
 \newblock {\em Phys. Rev. D}, 91:063007, Mar 2015.
+
+\bibitem{newFermiModel}
+B.~Lott J.~Ballet, T. H.~Burnett and the Fermi-LAT~collaboration.
+\newblock Fermi-lat 8-year source list.
+
+\bibitem{2013ApJ...778..106J}
+T.~J. Johnson, L.~Guillemot, M.~Kerr. I, Cognard P.~S. Ray, M.~T. Wolff, G.~H.
+  Janssen, R.~W. Romani, C.~Venter, J.~E. Grove, P.~C.~C. Freire, M.~Wood,
+  C.~C. Cheung, J.~M. Casandjian I.~H. Stairs, F.~Camilo, C.~M. Espinoza, E.~C.
+  Ferrara, A.~K. Harding, S.~Johnston, M.~Kramer, A.~G. Lyne, P.~F. Michelson,
+  S.~M. Ransom, R.~Shannon, D.~A. Smith, B.~W. Stappers, G.~Theureau, and S.~E.
+  Thorsett.
+\newblock Broadband pulsations from psr b1821-24: Implications for emission
+  models and the pulsar population of m28.
+\newblock {\em The Astrophysics Journal}, 778:106, Dec 2013.
 
 \bibitem{0004-637X-787-2-167}
 C.-Y. Ng, J.~Takata, G.~C.~K. Leung, K.~S. Cheng, and P.~Philippopoulos.
