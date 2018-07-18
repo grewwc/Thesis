@@ -1115,7 +1115,7 @@
                   PSR J0218+4232.}
             \label{table:j0218_ccube_photon_counts}
           \end{table}
-          \subsection{Binned Likelyhood Analysis}
+          \subsection{Binned Likelihood Analysis}
             Figure \ref{fig: j0218_count_map_and_model} shows that the fit results of the model 
             are consistent with the observation. However, there are lots of small red pixels 
             in the left panel (generated directly by the observation data) while the 
@@ -1318,7 +1318,8 @@
             \begin{figure}[!ht]
               \centering
               \includegraphics[scale=0.47]{/Users/grewwc/Desktop/Thesis/j0218_count_spectra.png}
-              \caption{The upper panel is the count spectrum of all sources included in the 
+              \caption{The count spectra and count residuals of PSR J0218+4232.
+                      The upper panel is the count spectrum of all sources included in the 
                       fit procedure. Thick lines are those sources with free fit parameters 
                       while the thin lines are fixed sources. The green line and the black 
                       dots represents observed counts in different energy bands. The purple 
@@ -1402,10 +1403,11 @@
                   \end{center}
                 \end{minipage}
               \end{center}
-              \caption{The count map and residual map of PSR B1821-24 in log scale. 
-              The reason why linear is not used here is that the residual map is nearly black in linear scale.
-              The \textsf{left} figure is the count map and the \textsf{right} 
-              figure is the residual map showing the difference between the observation data and the spectral model.}
+              \caption{The count map and residual map of PSR B1821-24 in linear scale. 
+                The reason why use linear scale is not used here is that the residual map is 
+                nearly black in linear scale. The \textsf{left} figure is the count map and the 
+                \textsf{right} figure is the residual map showing the difference between the 
+                observation data and the spectral model.}
               \label{fig: b1821_count_map_diff.png}
             \end{figure}
 
@@ -1517,7 +1519,8 @@
           \begin{figure}[!ht]
             \centering
             \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/b1821_count_spectra.png}
-            \caption{The upper panel is the count spectrum of all sources included in the 
+            \caption{The count spectra and count residuals of PSR B1821-24A.
+                  The upper panel is the count spectrum of all sources included in the 
                     fit procedure. Thick lines are those sources with free fit parameters 
                     while the thin lines are fixed sources. The green line and the black 
                     dots represents observed counts in different energy bands. The purple 
@@ -1532,51 +1535,163 @@
             In order to make the data analysis be more consistent, I choose the same parameters
             to process the raw observation data. Like the other two MSPs, the radius of the ROI 
             is $20^{\circ}$ degrees, and all parameters of sources $8^{\circ}$ degrees outside 
-            from the center are fixed with default values. Figure \ref{fig: j1939_count_map_ave} 
-            is the comparison of count maps between observation data.
+            from the center are fixed with default values. 
+            \subsubsection{Count Maps and Count Cubes}
+              Figure \ref{fig: j1939_count_map_ave} is the comparison of count maps between 
+              observation data. Likewise, the count map of observation data is more messy than 
+              the fitted model. 
+
+              \begin{figure}[!ht]
+                \begin{center}
+                \begin{minipage}{0.45\textwidth}
+                  \begin{center} 
+                    \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j1939_cmap_ave.png}
+                  \end{center}
+                \end{minipage}
+                \begin{minipage}{0.45\textwidth}
+                  \begin{center}
+                    \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j1939_model_map_ave.png}
+                  \end{center}
+                \end{minipage}
+              \end{center}
+              \caption{The count maps of PSR B1937+21 created from observation 
+                  data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
+                  of both figures are $141 pixels \times 141 pixels$ and each pixel's size is
+                  $0.2^{\circ}\times0.2^{\circ}$.}
+                \label{fig: j1939_count_map_ave}
+              \end{figure}
+
+              Figure \ref{fig: j1939_count_cube_ave} is the count maps in different energy bands.
+              When energy is above about $1.6\mbox{GeV}$, there is very few photons. In many cases,
+              people analyze spectra from $100\mbox{MeV}$ to $300\mbox{GeV}$ with 
+              \textit{Fermi Lat}, however, the photon counts above $100\mbox{GeV}$ is nearly 
+              negligible compared with the total counts. The total number of photon counts from 
+              $100\mbox{MeV}$ to $300\mbox{GeV}$ is about $1.068819e+07$ compared with $1175$ from
+              $100\mbox{GeV}$ to $300\mbox{GeV}$. Furthermore, the energy resolution for too high
+              energy is not as good as lower energy band. As a result, it is reasonable to use data
+              only from $100\mbox{MeV}$ to $100\mbox{GeV}$. The case is also true for the other two
+              pulsars --- PSRs J0218+4232 and B1821-24A. 
+
+            \begin{figure}[!ht]
+              \begin{minipage}{0.32\textwidth}
+                \begin{center} 
+                  \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_1_ave.png}
+                \end{center}
+              \end{minipage}
+              \begin{minipage}{0.32\textwidth}
+                \begin{center}
+                  \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_13_ave.png}
+                \end{center}
+              \end{minipage}
+              \begin{minipage}{0.32\textwidth}
+                \begin{center}
+                \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_19_ave.png}
+                \end{center}
+              \end{minipage}
+              \caption{Three count maps of PSR B1937+21's count cube. The energy ranges of the 
+                figures are from $100$ to $131$ MeV, from $2460$ to $3212$ MeV, from $12198$ to
+                $15929$ MeV respectively.}
+              \label{fig: j1939_count_cube_ave}
+            \end{figure}
+
+
+          \subsubsection{Binned Likelihood Analysis}
+            Figure \ref{fig: j1939_count_map_diff_ave} roughly describes how well the global fit 
+            is. Both left and right panel are in linear scale in order to make it easier to 
+            compare. As the residual map shows, there is no obvious difference between the fitted 
+            model and the observation. The max value of the photon counts in the residual map 
+            is only about $270$. 
             \begin{figure}[!ht]
               \begin{center}
               \begin{minipage}{0.45\textwidth}
                 \begin{center} 
-                  \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j1939_cmap_ave.png}
+                  \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_linear_ave.png}
                 \end{center}
               \end{minipage}
               \begin{minipage}{0.45\textwidth}
                 \begin{center}
-                  \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j1939_model_map_ave.png}
+                  \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_diff_map_linear_ave.png}
                 \end{center}
               \end{minipage}
-            \end{center}
- 
-          \caption{The count maps of PSR B1937+21 created from observation 
-              data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
-              of both figures are $141 pixels \times 141 pixels$ and each pixel's size is
-              $0.2^{\circ}\times0.2^{\circ}$.}
-            \label{fig: j1939_count_map_ave}
-          \end{figure}
+              \end{center}
+
+              \caption{The count maps of PSR B1937+21 created from observation 
+                data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
+                of both figures are $141 pixels \times 141 pixels$ and each pixel's size is
+                $0.2^{\circ}\times0.2^{\circ}$.}
+              \label{fig: j1939_count_map_diff_ave}
+            \end{figure}
+
+            Table \ref{table: j1939_fit_result_ave} lists the fit results. According to the 
+            previous work \cite{0004-637X-787-2-167}, the PLExpCutoff model is not 
+            preferred over power-law model. Therefore, only the results of power-lay model is 
+            reported in the paper. In this result, the PLExpCutoff model gives a TS value of 122,
+            which is about the same as the previous results \cite{0004-637X-787-2-167}. 
+
+            \begin{table}[!ht]
+              \centering
+                \scalebox{0.8}{
+                \begin{tabular}{|c|c|c|c|c|}
+                  \cline{1-5}
+                  & \multicolumn{2}{|c|}{This Study} & \multicolumn{2}{|c|}{Previous Results} \\
+                  \cline{1-5}
+                  & Value & Error & Value & Error \\
+                  \hline
+                  Index1 ($\gamma_1$) & $2.61$ & $0.22$ & $2.1$ & $0.2$ \\
+                  \hline 
+                  Cutoff ($E_c$, MeV) & $4895$ & $2294$ & $8000$ & $4000$ \\
+                  \hline 
+                  Photon Flux ($cm^{-2} s^{-1}$) ($10^{-8}$) & $4.61$ & $2.50$ & $~$ & $~$ \\ 
+                  \hline
+                \end{tabular}}  
+                \mycaption{Fit parameters of the spectral model of PSR B1937+21. 
+                  The names of parameters are consistent with Eq.
+                  \ref{eq: fermi_model}. The old results are from the paper \cite{0004-637X-787-2-167}.}
+                \label{table: j1939_fit_result_ave}        
+            \end{table} 
+
+            Figure \ref{fig: j1939_count_spectra_ave} shows the residual counts of the global fit.
+            The fit is good from $100$MeV to about $20$GeV, which is even better than the results 
+            of the other two pulsars. However, it goes significantly worse when energy is too 
+            high and the residual counts are much larger than the PSRs J0218+4232 and B1821-24A.
+
+            Although the TS value for PSR B1937+21 is only 122, existence in gamma-ray of the 
+            target source is more obvious in the TS maps as the Figure 
+            \ref{fig: j1939_tsmap_comparison_15_ave} shows. 
+
+            \begin{figure}[!ht]
+              \centering
+              \begin{minipage}{0.40\textwidth}
+                \begin{center} 
+                  \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_tsmap_nosource_15_ave.png}
+                \end{center}
+              \end{minipage}
+              \begin{minipage}{0.40\textwidth}
+                \begin{center}
+                  \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_tsmap_withsource_15_ave.png}
+                \end{center}
+              \end{minipage}
+              \caption{TS maps of PSR B1937+21. The dimension is $3^{\circ} \times 3^{\circ}$
+                ($15$ pixels $\times 15$ pixels and each pixel is 
+                $0.2^{\circ} \times 0.2^{\circ}$). The left panel is generated by the model 
+                by removing PSR B1937+21 while the right panel contains the target source.}
+              \label{fig: j1939_tsmap_comparison_15_ave}
+            \end{figure}
+  
+
+            \begin{figure}
+              \centering 
+              \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/what_j1939_count_spectra.png}
+              \caption{Top: count spectra for all sources included in the xml model (including 
+              sources with both free parameters and fixed parameters). Bottom: counts residual plot
+              of the model. The thick red line is the target source PSR B1937+21, the blue thick 
+              lines are sources with free parameters and the thin lines are the sources with only 
+              fixed parameters.}
+              \label{fig: j1939_count_spectra_ave}
+            \end{figure}
 
 
-          \begin{figure}[!ht]
-            \begin{minipage}{0.32\textwidth}
-              \begin{center} 
-                \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_1_ave.png}
-              \end{center}
-            \end{minipage}
-            \begin{minipage}{0.32\textwidth}
-              \begin{center}
-                \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_13_ave.png}
-              \end{center}
-            \end{minipage}
-            \begin{minipage}{0.32\textwidth}
-              \begin{center}
-              \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_19_ave.png}
-              \end{center}
-            \end{minipage}
-            \caption{Three count maps of PSR B1937+21's count cube. The energy ranges of the 
-              figures are from $100$ to $131$ MeV, from $2460$ to $3212$ MeV, from $12198$ to
-              $15929$ MeV respectively.}
-            \label{fig: j1939_count_cube_ave}
-          \end{figure}
+
 %%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%%
 
 
@@ -1585,7 +1700,7 @@
             to process the raw observation data. Like the other two MSPs, the radius of the ROI 
             is $20^{\circ}$ degrees, and all parameters of sources $8^{\circ}$ degrees outside 
             from the center are fixed with default values. Figure \ref{fig: j1939_count_map} is 
-            the comparison of count maps between observation data.
+            the comparison of count maps between observation data and the model.
 
           \subsubsection{Count Maps and Count Cubes}
             \begin{figure}[!ht]
@@ -1678,46 +1793,26 @@
           difference in percent can cause big residuals of photon counts. 
           \question{Not Sure}
 
-          \subsubsection{Count Maps and Count Cubes}
-            \begin{figure}[!ht]
-              \begin{center}
-              \begin{minipage}{0.45\textwidth}
-                \begin{center} 
-                  \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_linear.png}
-                \end{center}
-              \end{minipage}
-              \begin{minipage}{0.45\textwidth}
-                \begin{center}
-                  \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_diff_linear.png}
-                \end{center}
-              \end{minipage}
+          \begin{figure}[!ht]
+            \begin{center}
+            \begin{minipage}{0.45\textwidth}
+              \begin{center} 
+                \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_linear.png}
               \end{center}
+            \end{minipage}
+            \begin{minipage}{0.45\textwidth}
+              \begin{center}
+                \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_diff_linear.png}
+              \end{center}
+            \end{minipage}
+            \end{center}
 
-              \caption{The count maps of PSR B1937+21 created from observation 
-                data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
-                of both figures are $141 pixels \times 141 pixels$ and each pixel's size is
-                $0.2^{\circ}\times0.2^{\circ}$.}
-              \label{fig: j1939_count_map_diff}
-            \end{figure}
-
-
-          % \begin{figure}[!ht]
-          %   \begin{center}
-          %   \begin{minipage}{0.45\textwidth}
-          %     \begin{center} 
-          %       \includegraphics[scale=0.34]{/Users/grewwc/Desktop/Thesis/j1939_count_map_linear.png}
-          %     \end{center}
-          %   \end{minipage}
-          %   \begin{minipage}{0.45\textwidth}
-          %     \begin{center}
-          %       \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/j1939_count_map_model_linear.png}
-          %     \end{center}
-          %   \end{minipage}
-          % \end{center}
-          % \caption{The count maps of PSR B1937+21 created from observation 
-          % data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
-          % of both figures are $141 pixels \times 141 pixels$ and each pixel's size is
-          % $0.2^{\circ}\times0.2^{\circ}$.}
+            \caption{The count maps of PSR B1937+21 created from observation 
+              data (\textsf{left}) and from the spectral model (\textsf{right}). The dimensions
+              of both figures are $141 pixels \times 141 pixels$ and each pixel's size is
+              $0.2^{\circ}\times0.2^{\circ}$.}
+            \label{fig: j1939_count_map_diff}
+          \end{figure}
 
           The Figure \ref{fig: j1939_count_spectra} is the combination of count spectra for 
           all sources within the $20^{\circ}$ and the count residual plot. The count residual 
