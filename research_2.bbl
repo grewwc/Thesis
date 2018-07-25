@@ -1,5 +1,10 @@
 \begin{thebibliography}{10}
 
+\bibitem{2013ApJS..208...17A}
+A.~A. Abdo, M.~Ajello, and A.~Allafort.
+\newblock The second fermi large area telescope catalog of gamma-ray pulsars.
+\newblock 208:17, Oct 2013.
+
 \bibitem{0067-0049-208-2-17}
 A.~A. Abdo, M.~Ajello, A.~Allafort, L.~Baldini, J.~Ballet, G.~Barbiellini,
   M.~G. Baring, D.~Bastieri, A.~Belfiore, R.~Bellazzini, B.~Bhattacharyya,
@@ -59,6 +64,11 @@ E.~V. Gotthelf and S.~Bogdanov.
   psr b1821-24, psr b1937+21, and psr j0218+4232.
 \newblock {\em The Astrophysical Journal}, 845(2):159, 2017.
 
+\bibitem{J1939_old}
+L.~Guillemot, T.~J Johnson, and et~al.
+\newblock Pulsed gamma rays from the original millisecond and black widow
+  pulsars: A case for caustic radio emission?
+
 \bibitem{0004-637X-744-1-33}
 L.~Guillemot, T.~J. Johnson, C.~Venter, M.~Kerr, B.~Pancrazi, M.~Livingstone,
   G.~H. Janssen, P.~Jaroenjittichai, M.~Kramer, I.~Cognard, B.~W. Stappers,
@@ -93,6 +103,10 @@ T.~J. Johnson, L.~Guillemot, M.~Kerr. I, Cognard P.~S. Ray, M.~T. Wolff, G.~H.
 C.-Y. Ng, J.~Takata, G.~C.~K. Leung, K.~S. Cheng, and P.~Philippopoulos.
 \newblock High-energy emission of the first millisecond pulsar.
 \newblock {\em The Astrophysical Journal}, 787(2):167, 2014.
+
+\bibitem{ATNF}
+A.~Teoh R.~N.~Manchester, G. B.~Hobbs and Astronomical~Journal M.~Hobbs.
+\newblock The atnf pulsar catalogue.
 
 \bibitem{0004-637X-603-1-283}
 Zakir~F. Seidov.
