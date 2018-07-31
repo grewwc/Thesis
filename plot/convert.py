@@ -50,7 +50,7 @@ class Star:
         x = np.linspace(lo, hi, 100)
         y = x * x * dN_dE(x, self.N0, self.gamma1, self.E0, self.Ec) * 1.6e-6
         plt.loglog(x, y)
-        plt.show()
+        # plt.show()
 
     def __str__(self):
         return f""" 
@@ -59,25 +59,27 @@ class Star:
                     Cutoff: {self.Ec}
                     Scale: {self.E0}
                 """
+if __name__ == "__main__":
+
+    j0218 = Star(1.7e-11, 1.8949, 735, 3766)
+    j0218.set_err(0.062e-11, 0.04, 397)
 
 
-j0218 = Star(1.7e-11, 1.8949, 735, 3766)
-j0218.set_err(0.062e-11, 0.04, 397)
+    b1821 = Star(6e-12, 1.906, 895.187, 4501.92)
+    b1821.set_err(0.35e-12, 0.067, 710)
 
+    j1939 = Star(5.86176e-12 * 0.4, 2.37029, 1000, 4482.17)
+    j1939.set_err(5.5e-13 * 0.4, 0.06, 1192.53)
 
-b1821 = Star(6e-12, 1.906, 895.187, 4501.92)
-b1821.set_err(0.35e-12, 0.067, 710)
+    j1939 = Star(1.71e-12, 2.37, 1000)
+    j1939.set_err(2.38e-13, 0.13)
 
-# j1939 = Star(5.86176e-12 * 0.4, 2.37029, 1000, 4482.17)
-# j1939.set_err(5.5e-13 * 0.4, 0.06, 1192.53)
+    j1939 = Star(1.54e-12, 2.90, 1000, 9844)
+    j1939.set_err(0.98e-12, 0.38, 2000)
 
-j1939 = Star(1.71e-12, 2.37, 1000)
-j1939.set_err(2.38e-13, 0.13)
-# j1939.plot_shape()
-# print(j1939.get_photon_flux(pl=True))
-# print(j1939.get_photon_err(pl=True))
-# print(j1939.get_energy_flux(pl=True))
-# print(j1939.get_energy_err(pl=True))
+    print(j1939.get_energy_flux())
+    print(j1939.get_energy_err())
+    print(j1939.get_photon_flux())
+    print(j1939.get_photon_err())
 
-
-print(np.log(18409504/4410944) * 2)
+# print(np.log(18409504/4410944) * 2)

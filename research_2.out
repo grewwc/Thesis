@@ -17,7 +17,7 @@
 \BOOKMARK [0][-]{chapter.2}{Gamma-Ray Analysis}{}% 17
 \BOOKMARK [1][-]{section.2.1}{Introduction to the Fermi Gamma-ray Space Telescope}{chapter.2}% 18
 \BOOKMARK [1][-]{section.2.2}{A Brief Introduction to Fermi Data Analysis}{chapter.2}% 19
-\BOOKMARK [1][-]{section.2.3}{Fermi LAT Data Analysis}{chapter.2}% 20
+\BOOKMARK [1][-]{section.2.3}{Fermi Lat Data Analysis}{chapter.2}% 20
 \BOOKMARK [2][-]{subsection.2.3.1}{Verifying the Data Analysis Process}{section.2.3}% 21
 \BOOKMARK [1][-]{section.2.4}{PSR J0218+4232}{chapter.2}% 22
 \BOOKMARK [2][-]{subsection.2.4.1}{Count Maps And Count Cubes}{section.2.4}% 23
@@ -35,8 +35,8 @@
 \BOOKMARK [1][-]{section.3.4}{Pitfalls and Considerations of Doing Numerical Calculation}{chapter.3}% 35
 \BOOKMARK [2][-]{subsection.3.4.1}{Correctness of Computation}{section.3.4}% 36
 \BOOKMARK [2][-]{subsection.3.4.2}{Speed of Computation}{section.3.4}% 37
-\BOOKMARK [0][-]{chapter.4}{Discussion and Future Work}{}% 38
-\BOOKMARK [1][-]{section.4.1}{Constraints of The Two-layer Model Used In The Thesis}{chapter.4}% 39
-\BOOKMARK [1][-]{section.4.2}{Inconsistency Between the Two-layer Model and Fit Results}{chapter.4}% 40
-\BOOKMARK [1][-]{section.4.3}{Analysis With LAT 8-year Point Source List}{chapter.4}% 41
-\BOOKMARK [0][-]{chapter.5}{Conclusion}{}% 42
+\BOOKMARK [0][-]{chapter.4}{Conclusion}{}% 38
+\BOOKMARK [0][-]{chapter.5}{Discussion and Future Work}{}% 39
+\BOOKMARK [1][-]{section.5.1}{Constraints of The Two-layer Model Used In The Thesis}{chapter.5}% 40
+\BOOKMARK [1][-]{section.5.2}{Inconsistency Between the Two-layer \040Model and Fit Results}{chapter.5}% 41
+\BOOKMARK [1][-]{section.5.3}{Analysis With LAT 8-year Point Source List}{chapter.5}% 42
