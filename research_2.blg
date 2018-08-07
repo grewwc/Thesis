@@ -11,45 +11,45 @@ Warning--empty year in newFermiModel
 Warning--empty journal in ATNF
 Warning--empty year in ATNF
 Warning--empty year in Tong2015
-You've used 17 entries,
+You've used 15 entries,
             2118 wiz_defined-function locations,
-            610 strings with 10661 characters,
-and the built_in function-call counts, 13078 in all, are:
-= -- 982
-> -- 1553
+            597 strings with 10064 characters,
+and the built_in function-call counts, 11747 in all, are:
+= -- 880
+> -- 1403
 < -- 0
-+ -- 624
-- -- 602
-* -- 1426
-:= -- 2450
-add.period$ -- 48
-call.type$ -- 17
-change.case$ -- 352
++ -- 563
+- -- 544
+* -- 1284
+:= -- 2201
+add.period$ -- 42
+call.type$ -- 15
+change.case$ -- 317
 chr.to.int$ -- 0
-cite$ -- 25
-duplicate$ -- 184
-empty$ -- 381
-format.name$ -- 602
-if$ -- 2299
+cite$ -- 23
+duplicate$ -- 162
+empty$ -- 336
+format.name$ -- 544
+if$ -- 2062
 int.to.chr$ -- 0
-int.to.str$ -- 17
-missing$ -- 17
-newline$ -- 85
-num.names$ -- 34
-pop$ -- 340
+int.to.str$ -- 15
+missing$ -- 15
+newline$ -- 75
+num.names$ -- 30
+pop$ -- 309
 preamble$ -- 1
-purify$ -- 335
+purify$ -- 302
 quote$ -- 0
-skip$ -- 118
+skip$ -- 104
 stack$ -- 0
-substring$ -- 255
-swap$ -- 13
+substring$ -- 229
+swap$ -- 11
 text.length$ -- 0
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 68
+type$ -- 60
 warning$ -- 8
-while$ -- 48
-width$ -- 19
-write$ -- 175
+while$ -- 42
+width$ -- 17
+write$ -- 153
 (There were 8 warnings)
