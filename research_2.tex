@@ -2508,44 +2508,68 @@
     The new point source list contains the source PSR B1937+21 and the default spectra model is 
     PLExpCutoff2. Table \ref{table: new_results_all_three} lists the fit parameters for all of
     the three MSPs.
+    % \begin{table}[!htp]
+    %   \centering
+    %     \scalebox{0.8}{
+    %     \begin{tabular}{|cccc|}
+    %       \hline
+    %       & J0218+4232 & B1821-24 & B1937+21 \\
+    %       \hline \hline 
+    %       Photon Index ($\Gamma$) & $1.77\pm0.07$ & $1.14\pm0.02$ & $1.84\pm0.03$ \\
+    %       Expfactor (a, $10^{-3}$) & $6.73\pm0.86$ & $11.76\pm0.12$ & $6.77\pm0.25$ \\
+    %       Scale ($E_0$) & $821.48$ & $1128.68$ & $1901$ \\ 
+    %       Index2 (b) & $0.67$ & $0.67$ & $0.67$ \\
+    %       Photon Flux ($10^{-8}$ $cm^{-2} s^{-1}$) & $7.44\pm0.32$ & $2.44\pm0.08$ & $3.00\pm0.19$ \\
+    %       Energy Flux ($10^{-11}$ erg $cm^{-2} s^{-1}$) & $4.45\pm0.16$ & $2.08\pm0.04$ & $1.69\pm0.06$ \\
+    %       TS value & $7189$ &  $980$  & $149$ \\
+    %       \hline
+    %     \end{tabular}}  
+    %     \mycaption{Fit results of PSRs J0218+4232, B1821-24 and B1937+21 with 
+    %       LAT 8-year Point Source List.}
+    %     \label{table: new_results_all_three}        
+    % \end{table}  
+
     \begin{table}[!htp]
       \centering
         \scalebox{0.8}{
-        \begin{tabular}{|cccc|}
+        \begin{tabular}{|ccc|}
           \hline
-          & J0218+4232 & B1821-24 & B1937+21 \\
+          & J0218+4232 & B1821-24  \\
           \hline \hline 
-          Photon Index ($\Gamma$) & $1.77\pm0.07$ & $1.14\pm0.02$ & $1.84\pm0.03$ \\
-          Expfactor (a, $10^{-3}$) & $6.73\pm0.86$ & $11.76\pm0.12$ & $6.77\pm0.25$ \\
-          Scale ($E_0$) & $821.48$ & $1128.68$ & $1901$ \\ 
-          Index2 (b) & $0.67$ & $0.67$ & $0.67$ \\
-          Photon Flux ($10^{-8}$ $cm^{-2} s^{-1}$) & $7.44\pm0.32$ & $2.44\pm0.08$ & $3.00\pm0.19$ \\
-          Energy Flux ($10^{-11}$ erg $cm^{-2} s^{-1}$) & $4.45\pm0.16$ & $2.08\pm0.04$ & $1.69\pm0.06$ \\
-          TS value & $7189$ &  $980$  & $149$ \\
+          Photon Index ($\Gamma$) & $1.77\pm0.07$ & $1.14\pm0.02$  \\
+          Expfactor (a, $10^{-3}$) & $6.73\pm0.86$ & $11.76\pm0.12$  \\
+          Scale ($E_0$) & $821.48$ & $1128.68$  \\ 
+          Index2 (b) & $0.67$ & $0.67$  \\
+          Photon Flux ($10^{-8}$ $cm^{-2} s^{-1}$) & $7.44\pm0.32$ & $2.44\pm0.08$ \\
+          Energy Flux ($10^{-11}$ erg $cm^{-2} s^{-1}$) & $4.45\pm0.16$ & $2.08\pm0.04$  \\
+          TS value & $7189$ &  $980$  \\
           \hline
         \end{tabular}}  
-        \mycaption{Fit results of PSRs J0218+4232, B1821-24 and B1937+21 with 
-          LAT 8-year Point Source List.}
+        \mycaption{Fit results of PSRs J0218+4232 and B1821-24 with LAT 8-year Point 
+          Source List.}
         \label{table: new_results_all_three}        
     \end{table}  
   
-    The TS values for all the three MSPs are all a little bit larger as Table 
-    \ref{table: new_ts_compare} shows. Figures \ref{fig: j0218_new_cur} and \ref{fig: b1821_new_cur} are the fit spectra of the PSRs
-    J0218+4232, B1821-24 and B1937+21. The fit results are not the final results because I only 
-    have tried a few models and have not compared the likelihood and TS values between different 
+    The TS values for PSRs J0218+4232 and B1821-24 are both a little bit larger as Table 
+    \ref{table: new_ts_compare} shows. Figures \ref{fig: j0218_new_cur} and 
+    \ref{fig: b1821_new_cur} are the fit spectra of the PSRs
+    J0218+4232 and B1821-24. I still have not get a good fit for PSR B1937+21 because this 
+    MSP takes more effort which is the same as the 3FGL case. Besides, the fit 
+    results for the two MSPs are also not the final results because I only have tried a 
+    few models and have not compared the likelihood and TS values between different 
     spectra models. 
 
     Figures \ref{fig: new_j0218_count_spectra} and \ref{fig: new_b1821_count_spectra} are 
-    count spectra and count residuals plot for all the three MPSs. 
+    count spectra and count residuals plot for the two MSPs. 
     \begin{table}[!htp]
       \centering
         \scalebox{0.8}{
-        \begin{tabular}{|cccc|}
+        \begin{tabular}{|ccc|}
           \hline
-          & J0218+4232 & B1821-24 & B1937+21 \\
+          & J0218+4232 & B1821-24\\
           \hline \hline 
-          FL8Y & $7189$ & $980$ & $149$ \\ 
-          3FGL & $6809$ & $941$ & $122$\\ 
+          FL8Y & $7189$ & $980$  \\ 
+          3FGL & $6809$ & $941$ \\ 
           \hline
         \end{tabular}}  
         \mycaption{TS values comparison between 3FGL (older) and FL8Y (newer) source list.}
@@ -2583,13 +2607,18 @@
       \label{fig: new_b1821_count_spectra}
     \end{figure}
     
-    \begin{figure}[!htp]
-      \centering 
-      \includegraphics[scale=0.36]{/Users/grewwc/Desktop/Thesis/new_j1939_count_spectra.png}
-      \caption{Count spectra and residuals of PSR B1937+21.}
-      \label{fig: new_j1939_count_spectra}
-    \end{figure}
-% \begin{thebibliography}{9}
+
+    \section{Future Works}
+      LAT 8-year Point Source List is only a preliminary list which has not been published 
+      yet. I will continue to analyze the gamma-ray spectra of the three MSPs with the 
+      newer point source list in order to get more precise results. In addition, since 
+      \textit{Fermi Lat} is producing large quantities of data, it is important to be able 
+      to handle the data effectively. I have created some pipeline scripts and am going to
+      improve them, which can help me to study more pulsars with better efficiency.
+      Additionally, I am going to study more about the two-layer model and other emission 
+      models, then compare the predictions of the models with newer observation data.
+
+    % \begin{thebibliography}{9}
 
 
 % \end{thebibliography}
