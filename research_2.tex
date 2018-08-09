@@ -25,7 +25,7 @@
 \usepackage{array}
 \usepackage{setspace}
 \usepackage[english]{babel}
-
+\graphicspath{{C:/Users/User/Desktop/Thesis/}{/Users/grewwc/Desktop/Thesis/}}
 
 \renewcommand{\arraystretch}{2}
 \renewcommand{\bibname}{REFERENCES}
@@ -60,7 +60,7 @@
 
 % \title{\textbf{Broadband Spectra Analysis of Three Energetic Millisecond Pulsars}\\ \vspace{1cm}
 % 			{\large Department of Physics, The University of Hong Kong, Pokfulam Road, Hong Kong}\\ \vspace{1cm}
-% 			% {\includegraphics[scale=0.2]{{/Users/grewwc/Desktop/Thesis/hku.png}}}\\ \vspace{3cm}
+% 			% {\includegraphics[scale=0.2]{{hku.png}}}\\ \vspace{3cm}
 % }
 
 \title{\textbf{Gamma-ray Spectra Analysis of Three Energetic Millisecond Pulsars} \\ \vspace{1cm}
@@ -117,7 +117,7 @@
 \newcommand{\singleFig}[3]{
   \begin{figure}[!htp]
     \centering
-    \includegraphics[scale=#2]{/Users/grewwc/Desktop/Thesis/#1}
+    \includegraphics[scale=#2]{#1}
     \caption{#3}
     \label{fig: #1}
   \end{figure}
@@ -128,7 +128,7 @@
 }
 
 \newcommand{\fgl}[0]{
-  Fermi Lat four-year Point Source Catalog
+  Fermi LAT four-year Point Source Catalog
 }
 
 \newcommand{\question}[1]{
@@ -205,23 +205,21 @@
 \addcontentsline{toc}{chapter}{Abstract}
 \chapter*{Abstract}
   \doublespacing
-  In the thesis, I mainly introduce our study on the high energy spectra of three 
-  millisecond pulsars which are PSRs J0218+4232, B1821-24 and B1937+21. 
-  The \textit{Fermi Lat} Pass 8 data was published in 2015 and has lots of advantages over 
+  PSRs J0218+4232, B1821-24 and B1937+21 are among the most energetic and fastest-spinning 
+  millisecond pulsars (MSPs). They have been studied in radio, X-ray and gamma-ray bands. 
+  The \textit{Fermi LAT} Pass 8 data was published in 2015 and has lots of advantages over 
   the old Pass 7 data, such as increased effective area and wider energy range. Since 
-  the recent gamma-ray spectra analysis of the three MSPs are relatively old (in about 2014), 
+  the recent gamma-ray spectra analysis of the three MSPs are relatively old, 
   I redo the gamma-ray spectra analysis of the MSPs with 
-  4-year more \textit{Fermi Lat} observation data and newly published Pass 8 data. 
-  As expected, I obtain better fit results for gamma-ray spectra of 
-  the three MSPs with smaller errors and larger test statistic values. Then I briefly 
-  introduce a pulsar emission model called two-layer model (C.-Y. Ng \& Takata et al. 
-  \cite{0004-637X-787-2-167}) and 
-  do numerical simulation to test the two-layer model using the new observation data.
-  By minimizing the differences between the predictions of the two-layer model and the real 
-  data, I fit the independent parameters of the two-layer model, which is helpful to
-  understand emission mechanisms of pulsars. I find that though the two-layer model is 
-  simple, it can generate broad-band spectra of pulsars which are very close to the 
-  observation data from \textit{Fermi Lat} in most energy bands.
+  4-year more \textit{Fermi LAT} observation data and newly published Pass 8 data. 
+  I obtain better fit results for gamma-ray spectra of the three MSPs with smaller errors 
+  and larger test statistic values (TS values). I also do numerical simulations to test the 
+  two-layer model (C.-Y. Ng \& Takata et al. \cite{0004-637X-787-2-167}) using the new 
+  observation data. By minimizing the differences between the predictions of the two-layer 
+  model and the real data, I fit the independent parameters of the two-layer model. I find that
+  the simplified two-layer model can predict broad-band spectra of the three 
+  MSPs which are very close to the observation data from \textit{Fermi LAT} in most energy
+  ranges.
 			
 \cleardoublepage
 \addcontentsline{toc}{chapter}{\listfigurename}
@@ -276,7 +274,7 @@
 
     \begin{figure}[!htp]
       \centering
-      \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/pulsar_distribution.png}
+      \includegraphics[scale=0.35]{pulsar_distribution.png}
       \caption{Spatial distribution of some pulsars in galactic coordinate system.}
       \label{fig: spatial_distribution}
     \end{figure}
@@ -321,7 +319,7 @@
         
       \begin{figure}[!ht]
         \centering
-        \includegraphics[scale=0.6]{/Users/grewwc/Desktop/Thesis/table.png}
+        \includegraphics[scale=0.6]{table.png}
         \caption{Braking indices of some pulsars.}
         \label{fig:braking_index}
       \end{figure}
@@ -630,7 +628,7 @@
       derivative of rotation periods ($\dot{\mbox{P}}$).
       \begin{figure}[!htp]
           \centering
-          \includegraphics[scale=0.3]{/Users/grewwc/Desktop/Thesis/ppdot.png}
+          \includegraphics[scale=0.3]{ppdot.png}
           \caption{\protect Positions of pulsars in $\mbox{P}$-$\dot{\mbox{P}}$ diagram}
           \label{fig:p-pdot}
       \end{figure}
@@ -683,7 +681,7 @@
         \ref{fig:roche lobe} is a schematic diagram of Roche Lobe.
         \begin{figure}[!htp]
           \centering
-          \includegraphics[scale=0.5]{/Users/grewwc/Desktop/Thesis/roche_lobes.jpg}
+          \includegraphics[scale=0.5]{roche_lobes.jpg}
           \caption{A schematic diagram of Roche lobe. \protect $L_{1}$ is called inner 
                     Lagrange point which is the intersection of equipotential lines 
                     of the two stars.}
@@ -710,7 +708,7 @@
     \subsection{Class II MSPs}
       \begin{figure}[!htp]   
         \centering
-        \includegraphics[width=6.9cm,height=7.6cm]{/Users/grewwc/Desktop/Thesis/bands.png}
+        \includegraphics[width=6.9cm,height=7.6cm]{bands.png}
         \caption{Pulse profiles of PSR B1937+21 in radio, X-ray and gamma-ray bands.
           \protect (C.-Y. Ng \& Takata et al. \cite{0004-637X-787-2-167})}
         \label{fig:class }
@@ -731,7 +729,7 @@
     the three MSPs. The three MSPs are some of the most energetic MSPs which have largest light 
     cylinder magnetic filed strength as the table shows. Some of gamma-ray and 
     non-thermal X-ray studies have been done on the three MSPs. 
-    In particular, gamma-ray spectra properties have been reported using \textit{Fermi Lat}.
+    In particular, gamma-ray spectra properties have been reported using \textit{Fermi LAT}.
     The gamma-ray spectra are fitted with the power-law-with-exponential-cutoff model 
     (PLExpCutoff) and the results are shown in Table \ref{table: previous_spectra_property}. 
 
@@ -825,25 +823,25 @@
     focus on the LAT instrument, which contains four main subcomponents including trackers, 
     calorimeters, anti-coincidence detectors and data acquisition systems. The reason why the 
     telescope is designed in this way is that high-energy gamma-rays cannot be refracted by
-    lens or mirrors. Therefore, the working principals of the \textit{Fermi Lat} and other 
+    lens or mirrors. Therefore, the working principals of the \textit{Fermi LAT} and other 
     gamma-ray telescopes are completely different.
 
     \begin{figure}[!htp]  
       \centering
       \includegraphics[scale=0.7]
-              {/Users/grewwc/Desktop/Thesis/Gamma_telescope_schematic.png}
+              {Gamma_telescope_schematic.png}
       \caption{The figure (\blackhref{https://www-glast.stanford.edu/instrument.html}
               {https://www-glast.stanford.edu/instrument.html})
-              illustrates how \textit{Fermi Lat} tracks incident gamma-ray photons.}
+              illustrates how \textit{Fermi LAT} tracks incident gamma-ray photons.}
         \label{fig:fermi schematic}
     \end{figure}
     Figure \ref{fig:fermi schematic} demonstrates the very basic idea of the 
-    \textit{Fermi Lat} working principles. 
+    \textit{Fermi LAT} working principles. 
 
     \begin{itemize}
       \item Gamma-ray photons can enter the anti-coincidence detector freely while 
         cosmic-rays will generate signals which then tell the data acquisition system 
-        component to reject these particles. In this way, the \textit{Fermi Lat} can 
+        component to reject these particles. In this way, the \textit{Fermi LAT} can 
         distinguish the gamma-ray photons from high energy cosmic-rays with a confidence 
         level over 99.9\%.
       \item The conversion foil (Figure \ref{fig:fermi schematic}) can convert  
@@ -863,18 +861,18 @@
     \end{itemize}
 
     For a telescope, the ability of measuring the directions and energies of incident 
-    photons is very crucial. From the above descriptions of the \textit{Fermi Lat} 
+    photons is very crucial. From the above descriptions of the \textit{Fermi LAT} 
     working principles, we know that the precision of construction of particles' paths 
     heavily influences how well we can measure the directions and energies of gamma-ray 
     photons. And this process is greatly dependent on simulations and available Fermi datasets,
     which means that with the improvements of simulations and datasets,
-    the precision and sensitivity of \textit{Fermi Lat} can also be improved. The Pass 8 data 
+    the precision and sensitivity of \textit{Fermi LAT} can also be improved. The Pass 8 data 
     have reprocessed the entire Fermi mission dataset so the quality of the dataset is much 
     better. This is the main reason why I redo the analysis of the three MSPs.
 
   \section{A Brief Introduction to Fermi Data Analysis}
     \subsubsection{Processes of Doing Fermi Analysis}
-      When doing \textit{Fermi Lat} data analysis, I basically dealt with two parts. The 
+      When doing \textit{Fermi LAT} data analysis, I basically dealt with two parts. The 
       first part is processing observation data and the second is generating photon 
       distributions based on spectra models. Cleaning data is straightforward including data 
       selection, data filtering with good time intervals (GTIs), generating count maps 
@@ -963,7 +961,7 @@
       source should be significantly higher than other positions in the TS map if the target 
       source is deleted from the fitted spectra model.
        
-  \section{\textit{Fermi Lat} Data Analysis}
+  \section{\textit{Fermi LAT} Data Analysis}
     The basic idea of fitting spectra parameters is to make the count cube generated by 
     the model be as similar to the observation data as possible. A count cube is just a 
     combination of many count maps in different energy bands. For example, a dataset whose 
@@ -1000,7 +998,7 @@
     where $N_0$ is called prefactor, $E_c$ is the cutoff energy and the $E_0$ is a scale 
     parameter. PLExpCutoff model is the special case where $\gamma_2=1$. My aim is to 
     fit the parameters $N_0$, $E_c$ and $\gamma_1$ to make the model be more 
-    consistent with the \textit{Fermi Lat} observation data.
+    consistent with the \textit{Fermi LAT} observation data.
 
     \subsection{Verifying the Data Analysis Process}
       Before analyzing the observations of my target sources, it is reasonable to test 
@@ -1023,7 +1021,7 @@
       Tables \ref{table: previous_result_comparison} and \ref{table: 2018_fit_data} mainly 
       show two pieces of information. Firstly, my procedures of dealing with observation 
       data has no obvious problems, so basically I can trust fit results of my target 
-      sources. Secondly, the \textit{Fermi Pass 8 Lat Data} has improved the accuracy a 
+      sources. Secondly, the \textit{Fermi Pass 8 LAT Data} has improved the accuracy a 
       lot. For example, as Table \ref{table: previous_result_comparison} shows, the photon 
       indexes are $1.30\pm0.02$ and $1.4\pm0.1$, which shows that the errors reduce a lot. 
       Additionally, the TS value is more than double as before.
@@ -1085,7 +1083,7 @@
     \ref{fig: j0218_count_map_and_model}, the green circles represent those sources.
     There are some very bright sources which have no free parameters
     in the outer parts of the count map. The reason is that the they are so far away 
-    from PSR J0218+4232 that \textit{Fermi Lat} can distinguish if a photon comes 
+    from PSR J0218+4232 that \textit{Fermi LAT} can distinguish if a photon comes 
     from the target source or the outer sources. As a result, I do not need to fit 
     any parameters for those outer sources and their spectra properties are from 
     \fgl{}. However, it is different for the nearby sources and they have to be fitted.
@@ -1095,13 +1093,13 @@
         \begin{center}
         \begin{minipage}{0.45\textwidth}
           \begin{center} 
-              \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j0218_count_map_with_region.png}
+              \includegraphics[scale=0.33]{j0218_count_map_with_region.png}
           \end{center}
         \end{minipage}
         \begin{minipage}{0.45\textwidth}
           \begin{center} 
               \includegraphics[scale=0.33]
-                  {/Users/grewwc/Desktop/Thesis/j0218_count_map_model.png}
+                  {j0218_count_map_model.png}
           \end{center}
         \end{minipage}
       \end{center}
@@ -1129,19 +1127,19 @@
         \begin{minipage}{0.32\textwidth}
           \begin{center} 
             \includegraphics[scale=0.28]
-                  {/Users/grewwc/Desktop/Thesis/j0218_ccube_start.png}
+                  {j0218_ccube_start.png}
           \end{center}
         \end{minipage}
         \begin{minipage}{0.32\textwidth}
           \begin{center}
             \includegraphics[scale=0.28]
-                  {/Users/grewwc/Desktop/Thesis/j0218_ccube_middle.png}
+                  {j0218_ccube_middle.png}
           \end{center}
         \end{minipage}
         \begin{minipage}{0.32\textwidth}
           \begin{center}
           \includegraphics[scale=0.28]
-                {/Users/grewwc/Desktop/Thesis/j0218_ccube_end.png}
+                {j0218_ccube_end.png}
           \end{center}
         \end{minipage}
         \caption{Three count maps from PSR J0218+4232's count cube. The energy ranges of 
@@ -1204,13 +1202,13 @@
         \begin{minipage}{0.45\textwidth}
           \begin{center} 
             \includegraphics[scale=0.4]
-                  {/Users/grewwc/Desktop/Thesis/j0218_count_map_linear_scale.png}
+                  {j0218_count_map_linear_scale.png}
           \end{center}
         \end{minipage}
         \begin{minipage}{0.45\textwidth}
           \begin{center}
             \includegraphics[scale=0.4]
-                  {/Users/grewwc/Desktop/Thesis/j0218_dif_map_linear_scale.png}
+                  {j0218_dif_map_linear_scale.png}
           \end{center}
         \end{minipage}
       \end{center}
@@ -1236,7 +1234,7 @@
       in our model. This is not negligible since it is nearly $28\%$ of the original 
       photon counts. Does this mean that the model is not good? The answer should be 
       yes, however, this does not mean the fit is not good since the model parameters 
-      in this region are all fixed and the fixed values are from the Fermi Lat 4-year 
+      in this region are all fixed and the fixed values are from the Fermi LAT 4-year 
       Point Source Catalog. Hence, the difference shows some problems of the spectra 
       model, but has nothing to do with the fit results. Instead, from the residual map, 
       we can see that the fit results are good because the differences
@@ -1291,12 +1289,12 @@
         \begin{center}
         \begin{minipage}{0.46\textwidth}
           \begin{center} 
-            \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/j0218_tsmap_with_source_20.png}
+            \includegraphics[scale=0.37]{j0218_tsmap_with_source_20.png}
           \end{center}
         \end{minipage}
         \begin{minipage}{0.45\textwidth}
           \begin{center}
-            \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/j0218_nosource_20.png}
+            \includegraphics[scale=0.37]{j0218_nosource_20.png}
           \end{center}
         \end{minipage}
       \end{center}
@@ -1327,7 +1325,7 @@
             
       \begin{figure}[!htp]
         \centering
-        \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/j0218_count_spectra.png}
+        \includegraphics[scale=0.42]{j0218_count_spectra.png}
         \caption{The count spectra and count residuals of PSR J0218+4232.
                 The upper panel is the count spectra of all sources included in the 
                 fit procedure. Thick lines are those sources with free fit parameters 
@@ -1350,11 +1348,11 @@
         \begin{center}
         \begin{minipage}{0.45\textwidth}
           \centering 
-          \includegraphics[scale=0.27]{/Users/grewwc/Desktop/Thesis/b1821_count_map_with_region.png}
+          \includegraphics[scale=0.27]{b1821_count_map_with_region.png}
         \end{minipage}
         \begin{minipage}{0.45\textwidth}
           \centering
-          \includegraphics[scale=0.27]{/Users/grewwc/Desktop/Thesis/b1821_count_map_model.png}
+          \includegraphics[scale=0.27]{b1821_count_map_model.png}
         \end{minipage}
       \end{center}
       \mycaption{The count map of PSR B1821-24 (left) and the count map generated by 
@@ -1368,17 +1366,17 @@
         \begin{center}
           \begin{minipage}{0.31\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.27]{/Users/grewwc/Desktop/Thesis/b1821_ccube_start.png}
+              \includegraphics[scale=0.27]{b1821_ccube_start.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.31\textwidth}
             \begin{center}
-              \includegraphics[scale=0.27]{/Users/grewwc/Desktop/Thesis/b1821_ccube_middle.png}
+              \includegraphics[scale=0.27]{b1821_ccube_middle.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.31\textwidth}
             \begin{center}
-            \includegraphics[scale=0.27]{/Users/grewwc/Desktop/Thesis/b1821_ccube_end.png}
+            \includegraphics[scale=0.27]{b1821_ccube_end.png}
             \end{center}
           \end{minipage}
           \end{center}
@@ -1406,12 +1404,12 @@
         \begin{center}
         \begin{minipage}{0.45\textwidth}
           \begin{center} 
-            \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/b1821_countmap_noregion.png}
+            \includegraphics[scale=0.40]{b1821_countmap_noregion.png}
           \end{center}
         \end{minipage}
         \begin{minipage}{0.45\textwidth}
           \begin{center}
-            \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/b1821_count_map_diff.png}
+            \includegraphics[scale=0.40]{b1821_count_map_diff.png}
           \end{center}
         \end{minipage}
       \end{center}
@@ -1486,12 +1484,12 @@
         \begin{center}
         \begin{minipage}{0.46\textwidth}
           \begin{center} 
-            \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_with_source_20.png}
+            \includegraphics[scale=0.35]{b1821_tsmap_with_source_20.png}
           \end{center}
         \end{minipage}
         \begin{minipage}{0.45\textwidth}
           \begin{center}
-            \includegraphics[scale=0.35]{/Users/grewwc/Desktop/Thesis/b1821_tsmap_nosource_20.png}
+            \includegraphics[scale=0.35]{b1821_tsmap_nosource_20.png}
           \end{center}
         \end{minipage}
       \end{center}
@@ -1507,7 +1505,7 @@
             
       \begin{figure}[!htp]
         \centering
-        \includegraphics[scale=0.40]{/Users/grewwc/Desktop/Thesis/b1821_count_spectra.png}
+        \includegraphics[scale=0.40]{b1821_count_spectra.png}
         \caption{The count spectra and count residuals of PSR B1821-24.
                 The upper panel is the count spectra of all sources included in the 
                 ROI. Thick lines are those sources with free fit parameters 
@@ -1539,12 +1537,12 @@
           \begin{center}
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j1939_cmap_ave.png}
+              \includegraphics[scale=0.33]{j1939_cmap_ave.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.45\textwidth}
             \begin{center}
-              \includegraphics[scale=0.33]{/Users/grewwc/Desktop/Thesis/j1939_model_map_ave.png}
+              \includegraphics[scale=0.33]{j1939_model_map_ave.png}
             \end{center}
           \end{minipage}
         \end{center}
@@ -1558,7 +1556,7 @@
         Figure \ref{fig: j1939_count_cube_ave} is the count maps in different energy bands.
         When energy is above about $1.6\mbox{GeV}$, there is very few photons. In many cases,
         people analyze spectra from $100\mbox{MeV}$ to $300\mbox{GeV}$ with 
-        \textit{Fermi Lat}, however, the number of photon counts above $100\mbox{GeV}$ is 
+        \textit{Fermi LAT}, however, the number of photon counts above $100\mbox{GeV}$ is 
         nearly negligible compared with the total counts. The total number of photon counts 
         from $100\mbox{MeV}$ to $300\mbox{GeV}$ is about $1.07\times10^7$ compared with 
         $1175$ from $100\mbox{GeV}$ to $300\mbox{GeV}$. As a result, it is reasonable to 
@@ -1570,17 +1568,17 @@
         \begin{figure}[!htp]
           \begin{minipage}{0.32\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_1_ave.png}
+              \includegraphics[scale=0.24]{j1939_ccube_1_ave.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.32\textwidth}
             \begin{center}
-              \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_13_ave.png}
+              \includegraphics[scale=0.24]{j1939_ccube_13_ave.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.32\textwidth}
             \begin{center}
-            \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_19_ave.png}
+            \includegraphics[scale=0.24]{j1939_ccube_19_ave.png}
             \end{center}
           \end{minipage}
           \caption{Three count maps of PSR B1937+21's count cube. The energy ranges of the 
@@ -1599,12 +1597,12 @@
           \begin{center}
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_linear_ave.png}
+              \includegraphics[scale=0.31]{j1939_cmap_linear_ave.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.45\textwidth}
             \begin{center}
-              \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_diff_map_linear_ave.png}
+              \includegraphics[scale=0.31]{j1939_diff_map_linear_ave.png}
             \end{center}
           \end{minipage}
           \end{center}
@@ -1657,12 +1655,12 @@
           \centering
           \begin{minipage}{0.40\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_tsmap_nosource_15_ave.png}
+              \includegraphics[scale=0.31]{j1939_tsmap_nosource_15_ave.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.40\textwidth}
             \begin{center}
-              \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_tsmap_withsource_15_ave.png}
+              \includegraphics[scale=0.31]{j1939_tsmap_withsource_15_ave.png}
             \end{center}
           \end{minipage}
           \caption{TS maps of PSR B1937+21. The dimension is $3^{\circ} \times 3^{\circ}$
@@ -1675,7 +1673,7 @@
 
         \begin{figure}[!htp]
           \centering 
-          \includegraphics[scale=0.37]{/Users/grewwc/Desktop/Thesis/what_j1939_count_spectra.png}
+          \includegraphics[scale=0.37]{what_j1939_count_spectra.png}
           \caption{Top: count spectra for all sources included in the xml model (including 
             sources with both free parameters and fixed parameters). Bottom: count residuals plot
             of the model. The thick red line is the target source PSR B1937+21, the blue thick 
@@ -1726,7 +1724,7 @@
 
         \begin{figure}
           \centering 
-          \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j1939_power_law_count_spectra.png}
+          \includegraphics[scale=0.4]{j1939_power_law_count_spectra.png}
           \caption{Top panel is counts spectra for all sources within the ROI. Bottom panel  
             shows the count residuals. }
           \label{fig: j1939_power_law_count_spectra}
@@ -1739,12 +1737,12 @@
           \begin{center}
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.38]{/Users/grewwc/Desktop/Thesis/j1939_power_law_tsmap_no_source_20.png}
+              \includegraphics[scale=0.38]{j1939_power_law_tsmap_no_source_20.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.45\textwidth}
             \begin{center}
-              \includegraphics[scale=0.38]{/Users/grewwc/Desktop/Thesis/j1939_power_law_tsmap_with_source_20.png}
+              \includegraphics[scale=0.38]{j1939_power_law_tsmap_with_source_20.png}
             \end{center}
           \end{minipage}
         \end{center}
@@ -1758,7 +1756,7 @@
 
         \begin{figure}[!htp]
           \centering
-          \includegraphics[scale=0.3]{/Users/grewwc/Desktop/Thesis/j1939_pl_and_cutoff_ave.png}
+          \includegraphics[scale=0.3]{j1939_pl_and_cutoff_ave.png}
           \caption{The log-log plot of flux to energy of PSR B1937+21’s gamma-ray spectrum.
             The red line represents the PLExpCutoff model and the green line is the power-law
             model. }
@@ -1773,20 +1771,20 @@
       Figure \ref{fig: j1939_phase} implies. 
       \begin{figure}[!htp]
         \centering 
-        \includegraphics[scale=0.55]{/Users/grewwc/Desktop/Thesis/b1937_parfiles.png}
+        \includegraphics[scale=0.55]{b1937_parfiles.png}
         \caption{Top left panel shows the pulse phase of PSR B1937+21 in gamma-ray band. 
           The figure is produced by tempo2.}
         \label{fig: j1939_phase}
       \end{figure}
 
-      The light curve generated by \textit{Fermi Lat} is consistent with the paper 
+      The light curve generated by \textit{Fermi LAT} is consistent with the paper 
       (Guillemot \& Johnson et al. \cite{J1939_old}) as Figure \ref{fig: j1939_light_curve_compare} shows. 
       The new light curve by \textit{LAT} is better than the previous \textit{LAT} light curve
       as shown in the figure. 
 
       \begin{figure}
         \centering 
-        \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j1939_lightcurve_all.png}
+        \includegraphics[scale=0.4]{j1939_lightcurve_all.png}
         \caption{Light curves of PSR B1937+21 by different telescopes. The data and figure
           are from the paper (Guillemot \& Johnson et al. \cite{J1939_old})}
         \label{fig: j1939_light_curve_compare}
@@ -1804,12 +1802,12 @@
           \begin{center}
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.38]{/Users/grewwc/Desktop/Thesis/j1939_cmap.png}
+              \includegraphics[scale=0.38]{j1939_cmap.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.45\textwidth}
             \begin{center}
-              \includegraphics[scale=0.38]{/Users/grewwc/Desktop/Thesis/j1939_cmap_model.png}
+              \includegraphics[scale=0.38]{j1939_cmap_model.png}
             \end{center}
           \end{minipage}
           \end{center}
@@ -1835,17 +1833,17 @@
         \begin{figure}[!htp]
           \begin{minipage}{0.32\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_start.png}
+              \includegraphics[scale=0.24]{j1939_ccube_start.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.32\textwidth}
             \begin{center}
-              \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_middle.png}
+              \includegraphics[scale=0.24]{j1939_ccube_middle.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.32\textwidth}
             \begin{center}
-            \includegraphics[scale=0.24]{/Users/grewwc/Desktop/Thesis/j1939_ccube_end.png}
+            \includegraphics[scale=0.24]{j1939_ccube_end.png}
             \end{center}
           \end{minipage}
           \caption{Three count maps extracted from PSR B1937+21's count cube. The energy ranges 
@@ -1876,12 +1874,12 @@
           \begin{center}
           \begin{minipage}{0.45\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_linear.png}
+              \includegraphics[scale=0.31]{j1939_cmap_linear.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.45\textwidth}
             \begin{center}
-              \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_cmap_diff_linear.png}
+              \includegraphics[scale=0.31]{j1939_cmap_diff_linear.png}
             \end{center}
           \end{minipage}
           \end{center}
@@ -1907,7 +1905,7 @@
         
         \begin{figure}[!htp]
           \centering
-          \includegraphics[scale=0.42]{/Users/grewwc/Desktop/Thesis/j1939_count_spectra.png}
+          \includegraphics[scale=0.42]{j1939_count_spectra.png}
           \caption{The count spectra (top) of all sources including those with only fixed 
             parameters and count residuals (bottom) of the fit for PSR B1937+21.}
           \label{fig: j1939_count_spectra}
@@ -1927,7 +1925,7 @@
         
         \begin{figure}[!htp]
           \centering 
-          \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j1939_pl_and_cutoff.png}
+          \includegraphics[scale=0.4]{j1939_pl_and_cutoff.png}
           \caption{PLExpCutoff model spectrum of PSR B1937+21 (phase resolved). }
           \label{fig: j1939_pl_and_cutoff}
         \end{figure}
@@ -1936,12 +1934,12 @@
           \centering
           \begin{minipage}{0.40\textwidth}
             \begin{center} 
-              \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_tsmap_nosource_15.png}
+              \includegraphics[scale=0.31]{j1939_tsmap_nosource_15.png}
             \end{center}
           \end{minipage}
           \begin{minipage}{0.40\textwidth}
             \begin{center}
-              \includegraphics[scale=0.31]{/Users/grewwc/Desktop/Thesis/j1939_tsmap_withsource_15.png}
+              \includegraphics[scale=0.31]{j1939_tsmap_withsource_15.png}
             \end{center}
           \end{minipage}
           \caption{TS maps of PSR B1937+21. The dimension is $3^{\circ} \times 3^{\circ}$
@@ -2330,7 +2328,7 @@
     the three MSPs are not consistent with each other in lower gamma-ray bands (about $100$ 
     MeV). I have tried different reasonable parameter combinations to fix the problem, but 
     it is not solved. I think there could be some reasonable explanations. First of all, 
-    the energy resolution of \textit{Fermi Lat} in a few hundred MeV is not as good as in 
+    the energy resolution of \textit{Fermi LAT} in a few hundred MeV is not as good as in 
     other gamma-ray bands. Secondly, energy band of several hundred MeV, the signal-to-noise 
     is low compared with high energy part. By directly analyzing the events files, we find that 
     about $90\%$ of photons are in $100$MeV to $1000$MeV and the background is too bright 
@@ -2485,28 +2483,29 @@
   
   \section{Analysis With LAT 8-year Point Source List}
     The latest preliminary LAT 8-year Point Source List (\textit{FL8Y}) is released 
-    on 03 May 2018. Since the release date is a little bit late and the point source list is a 
-    preliminary version, I have not finished all the spectra analysis with the data. However, 
-    it is reasonable to show some results I have done with the new source list together with my
-    further plan.
+    on May 03 2018. Since the release date is a little bit late and the point source list 
+    is a preliminary version, I have not finished all the spectra analysis with the data.
+    However, I would like to show some results I have done with the new source list
+    together with my further plan.
 
-    Some spectra models are changed, for instance, the expression of PLSuperExpCutoff model has 
-    been changed as Equation \ref{eq: new_fermi_model} shows (Ballet \& Burnett et al. 
+    Some spectra models are changed, for instance, the expression of PLSuperExpCutoff model 
+    has been changed as Equation \ref{eq: new_fermi_model} shows (Ballet \& Burnett et al. 
     \cite{newFermiModel}). 
     \begin{equation}
       \frac{dN}{dE} = K\left(\frac{E}{E_0}\right)^{\Gamma} e^{\left(a\left(E_0^b-E^b\right)\right)} 
       \label{eq: new_fermi_model}
     \end{equation}
-    Particularly, Fermi tools combined the $E_0^b$ with $K$ as Equation 
-    \ref{eq: new_fermi_model_modified} shows and the model is called PLSuperExpCutoff2. 
+    Particularly, Fermi tools combine the $E_0^b$ with $K$ as Equation 
+    \ref{eq: new_fermi_model_modified} shows and the model is renamed to PLSuperExpCutoff2. 
     \begin{equation}
       \frac{dN}{dE} = K\left(\frac{E}{E_0}\right)^{\Gamma} e^{-aE^b} 
       \label{eq: new_fermi_model_modified}
     \end{equation}
     In principal, there is no difference between the Equations \ref{eq: fermi_model} and 
-    \ref{eq: new_fermi_model_modified}, however, the parameters needed to be fitted are different. 
-    The new point source list contains the source PSR B1937+21 and the default spectra model is 
-    PLExpCutoff2. Table \ref{table: new_results_all_three} lists the fit parameters for all of
+    \ref{eq: new_fermi_model_modified}, however, the parameters needed to be fitted are 
+    different. The new point source list contains the source PSR B1937+21 and the default 
+    spectra model is PLExpCutoff2. However, the spectra model for the MSP is still not easy 
+    to obtain. Table \ref{table: new_results_all_three} lists the fit parameters for all of 
     the three MSPs.
     % \begin{table}[!htp]
     %   \centering
@@ -2579,14 +2578,14 @@
 
     \begin{figure}[!htp]
       \centering 
-      \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/j0218_new_cur.png}
+      \includegraphics[scale=0.4]{j0218_new_cur.png}
       \caption{Gamma-ray spectra of PSR J0218+4232 with PLExpCutoff2 model.}
       \label{fig: j0218_new_cur}
     \end{figure}
 
     \begin{figure}[!htp]
       \centering 
-      \includegraphics[scale=0.4]{/Users/grewwc/Desktop/Thesis/b1821_new_cur.png}
+      \includegraphics[scale=0.4]{b1821_new_cur.png}
       \caption{Gamma-ray spectra of PSR B1821-24 with PLExpCutoff2 model.}
       \label{fig: b1821_new_cur}
     \end{figure}
@@ -2595,14 +2594,14 @@
 
     \begin{figure}[!htp]
       \centering 
-      \includegraphics[scale=0.36]{/Users/grewwc/Desktop/Thesis/new_j0218_count_spectra.png}
+      \includegraphics[scale=0.36]{new_j0218_count_spectra.png}
       \caption{Count spectra and residuals of PSR J0218+4232}
       \label{fig: new_j0218_count_spectra}
     \end{figure}
 
     \begin{figure}[!htp]
       \centering 
-      \includegraphics[scale=0.36]{/Users/grewwc/Desktop/Thesis/new_b1821_count_spectra.png}
+      \includegraphics[scale=0.36]{new_b1821_count_spectra.png}
       \caption{Count spectra and residuals of PSR B1821-24.}
       \label{fig: new_b1821_count_spectra}
     \end{figure}
@@ -2612,7 +2611,7 @@
       LAT 8-year Point Source List is only a preliminary list which has not been published 
       yet. I will continue to analyze the gamma-ray spectra of the three MSPs with the 
       newer point source list in order to get more precise results. In addition, since 
-      \textit{Fermi Lat} is producing large quantities of data, it is important to be able 
+      \textit{Fermi LAT} is producing large quantities of data, it is important to be able 
       to handle the data effectively. I have created some pipeline scripts and am going to
       improve them, which can help me to study more pulsars with better efficiency.
       Additionally, I am going to study more about the two-layer model and other emission 
