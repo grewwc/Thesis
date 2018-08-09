@@ -726,11 +726,11 @@
     The three energetic millisecond pulsars PSRs J0218+4232, \\ 
     B1821-24 and B1937+21 show broadband spectra across radio, X-ray and gamma-ray bands like 
     young pulsars. Table \ref{table: basic_information_3_msps} lists some basic information of 
-    the three MSPs. The three MSPs are some of the most energetic MSPs which have largest light 
-    cylinder magnetic filed strength as the table shows. Some of gamma-ray and 
+    the three MSPs. They are some of the most energetic MSPs which have largest light 
+    cylinder magnetic filed strengths as the table shows. Some of gamma-ray and 
     non-thermal X-ray studies have been done on the three MSPs. 
     In particular, gamma-ray spectra properties have been reported using \textit{Fermi LAT}.
-    The gamma-ray spectra are fitted with the power-law-with-exponential-cutoff model 
+    They are fitted with the power-law-with-exponential-cutoff model 
     (PLExpCutoff) and the results are shown in Table \ref{table: previous_spectra_property}. 
 
     \begin{table}[!htp]
@@ -805,10 +805,10 @@
 \chapter{Gamma-Ray Analysis}
   As mentioned before, because of very short rotation periods, MSPs usually have very small 
   light cylinders compared with normal pulsars. As a result, their emission mechanisms are 
-  similar to normal pulsars, especially for my target objects --- PSRs J0218+4232, B1937+21 
-  and B1821-24, which are among the fastest spinning and most energetic MSPs. Therefore, 
-  as normal pulsars, the three MSPs have broadband emissions so it is intriguing to analyze 
-  the spectra properties of them in gamma-ray band.
+  similar to those of normal pulsars, especially for my target objects --- PSRs J0218+4232, 
+  B1937+21 and B1821-24, which are among the fastest spinning and most energetic MSPs. 
+  Therefore, as normal pulsars, the three MSPs have broadband emissions so it is intriguing 
+  to analyze the spectra properties of them in gamma-ray band.
 
   \section{Introduction to the \textit{Fermi Gamma-ray Space Telescope}}
     The \textit{Fermi Gamma-ray Space Telescope} was launched on June 11, 2008 and opened 
@@ -1076,15 +1076,15 @@
 
   \section{PSR J0218+4232}
     % \label{j0218}
-    The ROI is a circle with radius of $20^\circ$ and all parameters of sources which 
-    are $8^\circ$ outside of the center are fixed. For sources within $8^\circ$, initial
-    values of parameters are the same as their default values according to \fgl.
-    In this case, there are seven point sources which have free parameters. In Figure
-    \ref{fig: j0218_count_map_and_model}, the green circles represent those sources.
+    The region of interest (ROI) is a circle with radius of $20^\circ$ and all parameters of
+    sources which are $8^\circ$ outside of the center are fixed. For sources within 
+    $8^\circ$, initial values of parameters are the same as their default values according 
+    to \fgl. In this case, there are seven point sources which have free parameters. In 
+    Figure \ref{fig: j0218_count_map_and_model}, the green circles represent those sources.
     There are some very bright sources which have no free parameters
     in the outer parts of the count map. The reason is that the they are so far away 
     from PSR J0218+4232 that \textit{Fermi LAT} can distinguish if a photon comes 
-    from the target source or the outer sources. As a result, I do not need to fit 
+    from the target source or other outer sources. As a consequence, I do not need to fit 
     any parameters for those outer sources and their spectra properties are from 
     \fgl{}. However, it is different for the nearby sources and they have to be fitted.
           
@@ -1113,7 +1113,7 @@
         \end{center} 
       \end{figure}
 
-      The left part of Figure \ref{fig: j0218_count_map_and_model} is the count map of 
+      The left panel of Figure \ref{fig: j0218_count_map_and_model} is the count map of 
       PSR J0218+4232 created directly from the observation data. In the center of the left 
       panel, the target source can be seen clearly.
       The dimensions of the figures seems to be weird and the reason why the count 
@@ -2504,7 +2504,7 @@
     In principal, there is no difference between the Equations \ref{eq: fermi_model} and 
     \ref{eq: new_fermi_model_modified}, however, the parameters needed to be fitted are 
     different. The new point source list contains the source PSR B1937+21 and the default 
-    spectra model is PLExpCutoff2. However, the spectra model for the MSP is still not easy 
+    spectra model is PLExpCutoff2. However, the fit results for the MSP are still not easy 
     to obtain. Table \ref{table: new_results_all_three} lists the fit parameters for all of 
     the three MSPs.
     % \begin{table}[!htp]
@@ -2552,11 +2552,11 @@
     The TS values for PSRs J0218+4232 and B1821-24 are both a little bit larger as Table 
     \ref{table: new_ts_compare} shows. Figures \ref{fig: j0218_new_cur} and 
     \ref{fig: b1821_new_cur} are the fit spectra of the PSRs
-    J0218+4232 and B1821-24. I still have not get a good fit for PSR B1937+21 because this 
-    MSP takes more effort which is the same as the 3FGL case. Besides, the fit 
+    J0218+4232 and B1821-24. I still have not get a good fit result for PSR B1937+21 because 
+    this MSP takes more effort which is the same case as the 3FGL. Besides, the fit 
     results for the two MSPs are also not the final results because I only have tried a 
-    few models and have not compared the likelihood and TS values between different 
-    spectra models. 
+    few spectra models and have not compared the likelihood and TS values between different 
+    models. 
 
     Figures \ref{fig: new_j0218_count_spectra} and \ref{fig: new_b1821_count_spectra} are 
     count spectra and count residuals plot for the two MSPs. 
@@ -2608,14 +2608,14 @@
     
 
     \section{Future Works}
-      LAT 8-year Point Source List is only a preliminary list which has not been published 
-      yet. I will continue to analyze the gamma-ray spectra of the three MSPs with the 
+      LAT 8-year Point Source List is only a preliminary list and 4FGL is being processed. 
+      I will continue to analyze the gamma-ray spectra of the three MSPs with the 
       newer point source list in order to get more precise results. In addition, since 
       \textit{Fermi LAT} is producing large quantities of data, it is important to be able 
       to handle the data effectively. I have created some pipeline scripts and am going to
-      improve them, which can help me to study more pulsars with better efficiency.
-      Additionally, I am going to study more about the two-layer model and other emission 
-      models, then compare the predictions of the models with newer observation data.
+      improve them, which can help me to study more pulsars with higher efficiency.
+      Additionally, I am going to study the two-layer model more thoroughly and other 
+      emission models, then compare the predictions of the models with newer observation data.
 
     % \begin{thebibliography}{9}
 
