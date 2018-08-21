@@ -1,7 +1,10 @@
-This is BibTeX, Version 0.99dThe top-level auxiliary file: research_2.aux
+This is BibTeX, Version 0.99d (TeX Live 2017)
+Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
+The top-level auxiliary file: research_2.aux
 The style file: plain.bst
 Database file #1: bibfile.bib
 Warning--empty journal in 2013ApJS..208...17A
+Warning--empty journal in 1982Natur.300..615B
 Warning--empty journal in J1939_old
 Warning--empty year in J1939_old
 Warning--empty journal in newFermiModel
@@ -9,4 +12,46 @@ Warning--empty year in newFermiModel
 Warning--empty journal in ATNF
 Warning--empty year in ATNF
 Warning--empty year in Tong2015
-(There were 8 warnings)
+Warning--empty journal in article
+You've used 19 entries,
+            2118 wiz_defined-function locations,
+            624 strings with 10673 characters,
+and the built_in function-call counts, 13089 in all, are:
+= -- 1004
+> -- 1480
+< -- 0
++ -- 595
+- -- 570
+* -- 1391
+:= -- 2435
+add.period$ -- 54
+call.type$ -- 19
+change.case$ -- 342
+chr.to.int$ -- 0
+cite$ -- 29
+duplicate$ -- 206
+empty$ -- 431
+format.name$ -- 570
+if$ -- 2330
+int.to.chr$ -- 0
+int.to.str$ -- 19
+missing$ -- 19
+newline$ -- 95
+num.names$ -- 38
+pop$ -- 330
+preamble$ -- 1
+purify$ -- 323
+quote$ -- 0
+skip$ -- 134
+stack$ -- 0
+substring$ -- 305
+swap$ -- 13
+text.length$ -- 0
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 76
+warning$ -- 10
+while$ -- 54
+width$ -- 21
+write$ -- 195
+(There were 10 warnings)
