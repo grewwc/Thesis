@@ -24,17 +24,41 @@
 \usepackage{array}
 \usepackage{setspace}
 \usepackage{natbib}
-\renewcommand{\bibname}{REFERENCES}
+\usepackage{mathrsfs}
+\usepackage{caption}
+\usepackage{makecell}
+\graphicspath{{C:/Users/User/Desktop/Thesis/}{/Users/grewwc/Desktop/Thesis/}}
+
+\captionsetup{font={stretch=1.5}}
+
 \begin{document}
 
-Document body text with citations. \citep{article}
-something
+\begin{table}[!htp]
+  \centering 
+  \scalebox{0.8}{
+    \begin{tabular}{|cccccc|}
+      \hline 
+      Pulsar Name & $f$ & $g_1$ & $h_1/h_2$ & $E_{\text{cut}}$ & \makecell{Energy Flux  \\ ($10^{-11}$ erg $\text{cm}^{-2}$ $\text{s}^{-1}$)} \\
+      \hline \hline 
+      J0633+1746 & $0.76$ & $0.85$ & $0.933$ & $2.2\pm0.1$ & $423.3\pm1.2$ \\ 
+      J0835-4510 & $0.16$ & $0.92$ & $0.927$ & $3.0\pm0.1$ & $906\pm2$ \\ 
+      J0007+7303 & $0.65$ & $0.94$ & $0.967$ & $4.7\pm0.2$ & $40\pm0.4$ \\ 
+      J0030+0451 & $0.60$ & $0.88$ & $0.947$ & $1.8\pm0.2$ & $6.14\pm0.18$ \\ 
+      J0437-4715 & $0.38$ & $0.95$ & $0.927$ & $1.1\pm0.3$ & $1.67\pm0.11$ \\
+      \hline
+    \end{tabular}}
+    \caption[The best-fit parameters of the two-layer model and observational properties 
+      for a few pulsars]
+      {The best-fit parameters of the two-layer model and observational properties 
+      for a few pulsars. Both young pulsars and MSPs are included. }
+    \label{table: two_layer_other_parameters}
+\end{table}
 
 
 \bibpunct{(}{)}{;}{a}{}{,}
-\bibliographystyle{apj}
 \bibliography{bibfile}
-
+\bibliographystyle{apj}
+  
 \end{document}
 
 

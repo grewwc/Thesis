@@ -1,144 +1,124 @@
-\begin{thebibliography}{10}
+\begin{thebibliography}{}
+\expandafter\ifx\csname natexlab\endcsname\relax\def\natexlab#1{#1}\fi
 
-\bibitem{2013ApJS..208...17A}
-A.~A. Abdo, M.~Ajello, and A.~Allafort.
-\newblock The second fermi large area telescope catalog of gamma-ray pulsars.
-\newblock 208:17, Oct 2013.
+\bibitem[{Abdo {et~al.}(2013)Abdo, Ajello, Allafort, Baldini, Ballet,
+  Barbiellini, Baring, Bastieri, Belfiore, Bellazzini, Bhattacharyya, Bissaldi,
+  Bloom, Bonamente, Bottacini, Brandt, Bregeon, Brigida, Bruel, Buehler,
+  Burgay, Burnett, Busetto, Buson, Caliandro, Cameron, Camilo, Caraveo,
+  Casandjian, Cecchi, Çelik, Charles, Chaty, Chaves, Chekhtman, Chen, Chiang,
+  Chiaro, Ciprini, Claus, Cognard, Cohen-Tanugi, Cominsky, Conrad, Cutini,
+  D'Ammando, de~Angelis, DeCesar, Luca, den Hartog, de~Palma, Dermer,
+  Desvignes, Digel, Venere, Drell, Drlica-Wagner, Dubois, Dumora, Espinoza,
+  Falletti, Favuzzi, Ferrara, Focke, Franckowiak, Freire, Funk, Fusco, Gargano,
+  Gasparrini, Germani, Giglietto, Giommi, Giordano, Giroletti, Glanzman,
+  Godfrey, Gotthelf, Grenier, Grondin, Grove, Guillemot, Guiriec, Hadasch,
+  Hanabata, Harding, Hayashida, Hays, Hessels, Hewitt, Hill, Horan, Hou,
+  Hughes, Jackson, Janssen, Jogler, Jóhannesson, Johnson, Johnson, Johnson,
+  Johnson, Johnston, Kamae, Kataoka, Keith, Kerr, Knödlseder, Kramer, Kuss,
+  Lande, Larsson, Latronico, Lemoine-Goumard, Longo, Loparco, Lovellette,
+  Lubrano, Lyne, Manchester, Marelli, Massaro, Mayer, Mazziotta, McEnery,
+  McLaughlin, Mehault, Michelson, Mignani, Mitthumsiri, Mizuno, Moiseev,
+  Monzani, Morselli, Moskalenko, Murgia, Nakamori, Nemmen, Nuss, Ohno, Ohsugi,
+  Orienti, Orlando, Ormes, Paneque, Panetta, Parent, Perkins, Pesce-Rollins,
+  Pierbattista, Piron, Pivato, Pletsch, Porter, Possenti, Rainò, Rando,
+  Ransom, Ray, Razzano, Rea, Reimer, Reimer, Renault, Reposeur, Ritz, Romani,
+  Roth, Rousseau, Roy, Ruan, Sartori, Parkinson, Scargle, Schulz, Sgrò,
+  Shannon, Siskind, Smith, Spandre, Spinelli, Stappers, Strong, Suson,
+  Takahashi, Thayer, Thayer, Theureau, Thompson, Thorsett, Tibaldo, Tibolla,
+  Tinivella, Torres, Tosti, Troja, Uchiyama, Usher, Vandenbroucke, Vasileiou,
+  Venter, Vianello, Vitale, Wang, Weltevrede, Winer, Wolff, Wood, Wood, Wood,
+  \& Yang}]{0067-0049-208-2-17}
+Abdo, A.~A., Ajello, M., Allafort, A., {et~al.} 2013, The Astrophysical Journal
+  Supplement Series, 208, 17
 
-\bibitem{0067-0049-208-2-17}
-A.~A. Abdo, M.~Ajello, A.~Allafort, L.~Baldini, J.~Ballet, G.~Barbiellini,
-  M.~G. Baring, D.~Bastieri, A.~Belfiore, R.~Bellazzini, B.~Bhattacharyya,
-  E.~Bissaldi, E.~D. Bloom, E.~Bonamente, E.~Bottacini, T.~J. Brandt,
-  J.~Bregeon, M.~Brigida, P.~Bruel, R.~Buehler, M.~Burgay, T.~H. Burnett,
-  G.~Busetto, S.~Buson, G.~A. Caliandro, R.~A. Cameron, F.~Camilo, P.~A.
-  Caraveo, J.~M. Casandjian, C.~Cecchi, Ö. Çelik, E.~Charles, S.~Chaty,
-  R.~C.~G. Chaves, A.~Chekhtman, A.~W. Chen, J.~Chiang, G.~Chiaro, S.~Ciprini,
-  R.~Claus, I.~Cognard, J.~Cohen-Tanugi, L.~R. Cominsky, J.~Conrad, S.~Cutini,
-  F.~D'Ammando, A.~de~Angelis, M.~E. DeCesar, A.~De Luca, P.~R. den Hartog,
-  F.~de~Palma, C.~D. Dermer, G.~Desvignes, S.~W. Digel, L.~Di Venere, P.~S.
-  Drell, A.~Drlica-Wagner, R.~Dubois, D.~Dumora, C.~M. Espinoza, L.~Falletti,
-  C.~Favuzzi, E.~C. Ferrara, W.~B. Focke, A.~Franckowiak, P.~C.~C. Freire,
-  S.~Funk, P.~Fusco, F.~Gargano, D.~Gasparrini, S.~Germani, N.~Giglietto,
-  P.~Giommi, F.~Giordano, M.~Giroletti, T.~Glanzman, G.~Godfrey, E.~V.
-  Gotthelf, I.~A. Grenier, M.-H. Grondin, J.~E. Grove, L.~Guillemot,
-  S.~Guiriec, D.~Hadasch, Y.~Hanabata, A.~K. Harding, M.~Hayashida, E.~Hays,
-  J.~Hessels, J.~Hewitt, A.~B. Hill, D.~Horan, X.~Hou, R.~E. Hughes, M.~S.
-  Jackson, G.~H. Janssen, T.~Jogler, G.~Jóhannesson, R.~P. Johnson, A.~S.
-  Johnson, T.~J. Johnson, W.~N. Johnson, S.~Johnston, T.~Kamae, J.~Kataoka,
-  M.~Keith, M.~Kerr, J.~Knödlseder, M.~Kramer, M.~Kuss, J.~Lande, S.~Larsson,
-  L.~Latronico, M.~Lemoine-Goumard, F.~Longo, F.~Loparco, M.~N. Lovellette,
-  P.~Lubrano, A.~G. Lyne, R.~N. Manchester, M.~Marelli, F.~Massaro, M.~Mayer,
-  M.~N. Mazziotta, J.~E. McEnery, M.~A. McLaughlin, J.~Mehault, P.~F.
-  Michelson, R.~P. Mignani, W.~Mitthumsiri, T.~Mizuno, A.~A. Moiseev, M.~E.
-  Monzani, A.~Morselli, I.~V. Moskalenko, S.~Murgia, T.~Nakamori, R.~Nemmen,
-  E.~Nuss, M.~Ohno, T.~Ohsugi, M.~Orienti, E.~Orlando, J.~F. Ormes, D.~Paneque,
-  J.~H. Panetta, D.~Parent, J.~S. Perkins, M.~Pesce-Rollins, M.~Pierbattista,
-  F.~Piron, G.~Pivato, H.~J. Pletsch, T.~A. Porter, A.~Possenti, S.~Rainò,
-  R.~Rando, S.~M. Ransom, P.~S. Ray, M.~Razzano, N.~Rea, A.~Reimer, O.~Reimer,
-  N.~Renault, T.~Reposeur, S.~Ritz, R.~W. Romani, M.~Roth, R.~Rousseau, J.~Roy,
-  J.~Ruan, A.~Sartori, P.~M.~Saz Parkinson, J.~D. Scargle, A.~Schulz, C.~Sgrò,
-  R.~Shannon, E.~J. Siskind, D.~A. Smith, G.~Spandre, P.~Spinelli, B.~W.
-  Stappers, A.~W. Strong, D.~J. Suson, H.~Takahashi, J.~G. Thayer, J.~B.
-  Thayer, G.~Theureau, D.~J. Thompson, S.~E. Thorsett, L.~Tibaldo, O.~Tibolla,
-  M.~Tinivella, D.~F. Torres, G.~Tosti, E.~Troja, Y.~Uchiyama, T.~L. Usher,
-  J.~Vandenbroucke, V.~Vasileiou, C.~Venter, G.~Vianello, V.~Vitale, N.~Wang,
-  P.~Weltevrede, B.~L. Winer, M.~T. Wolff, D.~L. Wood, K.~S. Wood, M.~Wood, and
-  Z.~Yang.
-\newblock The second fermi large area telescope catalog of gamma-ray pulsars.
-\newblock {\em The Astrophysical Journal Supplement Series}, 208(2):17, 2013.
+\bibitem[{Backer \& et~al.(1982)}]{1982Natur.300..615B}
+Backer, D.~C., \& et~al., K. S.~R. 1982, 300, 615
 
-\bibitem{1982Natur.300..615B}
-D.~C Backer and Kulkarni S.~R. et~al.
-\newblock A millisecond pulsar.
-\newblock 300:615--618, Dec 1982.
+\bibitem[{{Becker} {et~al.}(2010){Becker}, {Huang}, \&
+  {Prinz}}]{2010arXiv1006.0335B}
+{Becker}, W., {Huang}, H.~H., \& {Prinz}, T. 2010, ArXiv e-prints,
+  arXiv:1006.0335
 
-\bibitem{1986ApJ...300..500C}
-K.S. Cheng, C.~Ho, and M.~Ruderman.
-\newblock Energetic radiation from rapidly spinning pulsars. i - outer
-  magnetosphere gaps. ii - vela and crab.
-\newblock {\em The Astrophysical Journal}, 300:500--539, Jan 1986.
+\bibitem[{{Bogdanov} {et~al.}(2011){Bogdanov}, {van den Berg}, {Servillat},
+  {Heinke}, {Grindlay}, {Stairs}, {Ransom}, {Freire}, {B{\'e}gin}, \&
+  {Becker}}]{2011ApJ...730...81B}
+{Bogdanov}, S., {van den Berg}, M., {Servillat}, M., {et~al.} 2011, The
+  Astrophysical Journal, 730, 81
 
-\bibitem{j1939_pulse_profile}
-G.~Cusumano and W.~Hermsen et~al.
-\newblock The phase of the radio and x-ray pulses of psr b1937+21.
-\newblock {\em Astronomy \& Astrophysics}, 410:9--12, 2003.
+\bibitem[{Cheng {et~al.}(1986)Cheng, Ho, \& Ruderman}]{1986ApJ...300..500C}
+Cheng, K., Ho, C., \& Ruderman, M. 1986, The Astrophysical Journal, 300, 500
 
-\bibitem{1969ApJ}
-P.~Goldreich and W.~H. Julian.
-\newblock Pulsar electrodynamics.
-\newblock {\em The Astrophysical Journal}, 157:869, Aug 1969.
+\bibitem[{Cusumano \& et~al.(2003)}]{j1939_pulse_profile}
+Cusumano, G., \& et~al., W.~H. 2003, Astronomy \& Astrophysics, 410, 9
 
-\bibitem{0004-637X-845-2-159}
-E.~V. Gotthelf and S.~Bogdanov.
-\newblock Nustar hard x-ray observations of the energetic millisecond pulsars
-  psr b1821-24, psr b1937+21, and psr j0218+4232.
-\newblock {\em The Astrophysical Journal}, 845(2):159, 2017.
+\bibitem[{Goldreich \& Julian(1969)}]{1969ApJ}
+Goldreich, P., \& Julian, W.~H. 1969, The Astrophysical Journal, 157, 869
 
-\bibitem{J1939_old}
-L.~Guillemot, T.~J Johnson, and et~al.
-\newblock Pulsed gamma rays from the original millisecond and black widow
-  pulsars: A case for caustic radio emission?
+\bibitem[{Gotthelf \& Bogdanov(2017)}]{0004-637X-845-2-159}
+Gotthelf, E.~V., \& Bogdanov, S. 2017, The Astrophysical Journal, 845, 159
 
-\bibitem{PhysRevD.91.063007}
-O.~Hamil, J.~R. Stone, M.~Urbanec, and G.~Urbancov\'a.
-\newblock Braking index of isolated pulsars.
-\newblock {\em Phys. Rev. D}, 91:063007, Mar 2015.
+\bibitem[{Guillemot {et~al.}(2012)Guillemot, Johnson, \& et~al.}]{J1939_old}
+Guillemot, L., Johnson, T.~J., \& et~al. 2012, doi:10.1088/0004-637X/744/1/33
 
-\bibitem{newFermiModel}
-B.~Lott J.~Ballet, T. H.~Burnett and the Fermi-LAT~collaboration.
-\newblock Fermi-lat 8-year source list.
+\bibitem[{Hamil {et~al.}(2015)Hamil, Stone, Urbanec, \&
+  Urbancov\'a}]{PhysRevD.91.063007}
+Hamil, O., Stone, J.~R., Urbanec, M., \& Urbancov\'a, G. 2015, Phys. Rev. D,
+  91, 063007
 
-\bibitem{1538-4357-627-2-L125}
-Fredrick~A. Jenet, Teviet Creighton, and Andrea Lommen.
-\newblock Pulsar timing and the detection of black hole binary systems in
-  globular clusters.
-\newblock {\em The Astrophysical Journal Letters}, 627(2):L125, 2005.
+\bibitem[{{Huang} {et~al.}(2012){Huang}, {Kong}, {Takata}, {Hui}, {Lin}, \&
+  {Cheng}}]{2012ApJ...760...92H}
+{Huang}, R.~H.~H., {Kong}, A.~K.~H., {Takata}, J., {et~al.} 2012, The
+  Astrophysical Journal, 760, 92
 
-\bibitem{2013ApJ...778..106J}
-T.~J. Johnson, L.~Guillemot, M.~Kerr. I, Cognard P.~S. Ray, M.~T. Wolff, G.~H.
-  Janssen, R.~W. Romani, C.~Venter, J.~E. Grove, P.~C.~C. Freire, M.~Wood,
-  C.~C. Cheung, J.~M. Casandjian I.~H. Stairs, F.~Camilo, C.~M. Espinoza, E.~C.
-  Ferrara, A.~K. Harding, S.~Johnston, M.~Kramer, A.~G. Lyne, P.~F. Michelson,
-  S.~M. Ransom, R.~Shannon, D.~A. Smith, B.~W. Stappers, G.~Theureau, and S.~E.
-  Thorsett.
-\newblock Broadband pulsations from psr b1821-24: Implications for emission
-  models and the pulsar population of m28.
-\newblock {\em The Astrophysics Journal}, 778:106, Dec 2013.
+\bibitem[{J.~Ballet \& the Fermi-LAT~collaboration(2018)}]{newFermiModel}
+J.~Ballet, T. H.~Burnett, B.~L., \& the Fermi-LAT~collaboration. 2018
 
-\bibitem{0004-637X-787-2-167}
-C.-Y. Ng, J.~Takata, G.~C.~K. Leung, K.~S. Cheng, and P.~Philippopoulos.
-\newblock High-energy emission of the first millisecond pulsar.
-\newblock {\em The Astrophysical Journal}, 787(2):167, 2014.
+\bibitem[{Jenet {et~al.}(2005)Jenet, Creighton, \&
+  Lommen}]{1538-4357-627-2-L125}
+Jenet, F.~A., Creighton, T., \& Lommen, A. 2005, The Astrophysical Journal
+  Letters, 627, L125
 
-\bibitem{ATNF}
-A.~Teoh R.~N.~Manchester, G. B.~Hobbs and Astronomical~Journal M.~Hobbs.
-\newblock The atnf pulsar catalogue.
+\bibitem[{Johnson {et~al.}(2013)Johnson, Guillemot, I, Ray, Wolff, Janssen,
+  Romani, Venter, Grove, Freire, Wood, Cheung, Stairs, Camilo, Espinoza,
+  Ferrara, Harding, Johnston, Kramer, Lyne, Michelson, Ransom, Shannon, Smith,
+  Stappers, Theureau, \& Thorsett}]{2013ApJ...778..106J}
+Johnson, T.~J., Guillemot, L., I, M.~K., {et~al.} 2013, The Astrophysics
+  Journal, 778, 106
 
-\bibitem{Sturrock:1971zc}
-P.~A. Sturrock.
-\newblock A model of pulsars.
-\newblock {\em Astrophys. J.}, 164:529, 1971.
+\bibitem[{{Kuiper} {et~al.}(2002){Kuiper}, {Hermsen}, {Verbunt}, {Ord},
+  {Stairs}, \& {Lyne}}]{2002ApJ...577..917K}
+{Kuiper}, L., {Hermsen}, W., {Verbunt}, F., {et~al.} 2002, The Astrophysical
+  Journal, 577, 917
 
-\bibitem{Tong2015}
-Hao Tong.
-\newblock Pulsar braking: magnetodipole vs. wind.
-\newblock {\em Science China Physics, Mechanics Astronomy}, 59(1):619501.
+\bibitem[{Ng {et~al.}(2014)Ng, Takata, Leung, Cheng, \&
+  Philippopoulos}]{0004-637X-787-2-167}
+Ng, C.-Y., Takata, J., Leung, G. C.~K., Cheng, K.~S., \& Philippopoulos, P.
+  2014, The Astrophysical Journal, 787, 167
 
-\bibitem{article}
-F~Verbunt, L~Kuiper, Wim Hermsen, S~Ord, I~H.~Stairs, and A~G.~Lyne.
-\newblock High-energy observations of psr j0218+4232.
-\newblock 302:355, 01 2003.
+\bibitem[{Sturrock(1971)}]{Sturrock:1971zc}
+Sturrock, P.~A. 1971, Astrophys. J., 164, 529
 
-\bibitem{0004-637X-720-1-178}
-Y.~Wang, J.~Takata, and K.~S. Cheng.
-\newblock Gamma-ray spectral properties of mature pulsars: A two-layer model.
-\newblock {\em The Astrophysical Journal}, 720(1):178, 2010.
+\bibitem[{Takata {et~al.}(2012)Takata, Cheng, \& Taam}]{0004-637X-745-1-100}
+Takata, J., Cheng, K.~S., \& Taam, R.~E. 2012, The Astrophysical Journal, 745,
+  100
 
-\bibitem{doi:10.1111/j.1365-2966.2011.18577.x}
-Y.~Wang, J.~Takata, and K.~S. Cheng.
-\newblock Three-dimensional two-layer outer gap model: Fermi energy-dependent
-  light curves of the vela pulsar.
-\newblock {\em Monthly Notices of the Royal Astronomical Society},
-  414(3):2664--2673, 2011.
+\bibitem[{Tong(999)}]{Tong2015}
+Tong, H. 999, Science China Physics, Mechanics Astronomy, 59, 619501
+
+\bibitem[{Verbunt {et~al.}(2003)Verbunt, Kuiper, Hermsen, Ord, H.~Stairs, \&
+  G.~Lyne}]{article}
+Verbunt, F., Kuiper, L., Hermsen, W., {et~al.} 2003, 302, 355
+
+\bibitem[{Wang {et~al.}(2010)Wang, Takata, \& Cheng}]{0004-637X-720-1-178}
+Wang, Y., Takata, J., \& Cheng, K.~S. 2010, The Astrophysical Journal, 720, 178
+
+\bibitem[{Wang {et~al.}(2011)Wang, Takata, \&
+  Cheng}]{doi:10.1111/j.1365-2966.2011.18577.x}
+---. 2011, Monthly Notices of the Royal Astronomical Society, 414, 2664
+
+\bibitem[{{Webb} {et~al.}(2004){Webb}, {Olive}, \&
+  {Barret}}]{2004A&A...417..181W}
+{Webb}, N.~A., {Olive}, J.-F., \& {Barret}, D. 2004, Astronomy and
+  Astrophysics, 417, 181
 
 \end{thebibliography}
