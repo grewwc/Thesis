@@ -1,4 +1,4 @@
-\documentclass[12pt]{report}
+\documentclass[a4paper, 12pt]{report}
 \usepackage{geometry}	
 \usepackage[utf8]{inputenc}
 \usepackage{amsmath}
@@ -61,9 +61,10 @@
 \geometry{
 	a4paper,
 	% total={210mm,297mm},
- 	left=35mm,
- 	top=25mm,
- 	right=35mm,
+ 	left=30mm,
+ 	top=30mm,
+  right=30mm,
+  bottom=30mm,
 }
 
 % \title{\textbf{Broadband Spectra Analysis of Three Energetic Millisecond Pulsars}\\ \vspace{1cm}
@@ -181,6 +182,56 @@
 
 \begin{document}
 
+\begin{titlepage}
+  \begin{center}
+  \vspace*{3cm}
+  % Gamma-ray Spectral Analysis of Three Energetic Millisecond Pulsars
+  \Large \textbf{GAMMA-RAY SPECTRAL ANALYSIS 
+    \\[0.5cm] OF THREE ENERGETIC \\ [0.5cm] 
+    MILLISECOND PULSARS \\[3.7cm]}
+  \small
+    A THESIS \\[0.5cm] 
+    SUBMITTED TO THE DEPARTMENT OF PHYSICS \\[0.5cm]
+    OF THE UNIVERSITY OF HONG KONG \\[0.5CM]
+    IN PARTIAL FULFILLMENT OF THE REQUIREMENTS \\[0.5cm]
+    FOR THE DEGREE OF \\[0.5cm]
+    MASTER OF PHILOSOPHY \\[4.2cm]
+
+    By \\[0.5cm]
+    \large Wenchao Wang \\[0.5cm]
+    August 2018
+    \newpage 
+    \centering 
+    Abstract of thesis entitled \\[1.2cm]
+    \Large \textbf{GAMMA-RAY SPECTRAL ANALYSIS 
+    \\[0.5cm] OF THREE ENERGETIC \\ [0.5cm] 
+    MILLISECOND PULSARS \\[0.5cm]}
+    \normalsize Submitted by \\ [0.5cm]
+    \Large \textbf{Wenchao Wang} \\[1cm]
+    \normalsize for the degree of Master of Philosophy \\[0.5cm]
+    at the University of Hong Kong \\[0.5cm]
+    in August 2018 \\[1.9cm]
+  \end{center}
+
+    \doublespacing
+    PSRs J0218+4232, B1821$-$24 and B1937+21 are among the most energetic and fastest-spinning 
+    millisecond pulsars (MSPs). They have been studied in all radio, X-ray and gamma-ray bands. 
+    The \textit{Fermi} LAT Pass 8 data was published in 2015 and has lots of advantages over 
+    the old Pass 7 data, such as increased effective area and wider energy range. Since 
+    the recent gamma-ray spectral analysis of the three MSPs are relatively old, 
+    I redo the gamma-ray spectral analysis of the MSPs with 
+    four-year more \textit{Fermi} LAT observational data and newly published Pass 8 data. 
+    I obtain better fit results for gamma-ray spectra of the three MSPs with smaller errors 
+    and larger test statistic values. I also do numerical simulations to test the 
+    two-layer model using the new observational data. By minimizing the differences between 
+    the predictions of the two-layer model and the real data, I fit the independent 
+    parameters of the two-layer model. I find that the simplified two-layer model can 
+    predict broadband spectra of the three MSPs which are very close to the observational data 
+    from \textit{Fermi} LAT in most energy ranges.
+    
+
+\end{titlepage}
+
 \bibpunct{(}{)}{;}{a}{}{,}
 \bibliographystyle{apj}
 
@@ -219,25 +270,25 @@
 \addcontentsline{toc}{chapter}{Acknowledgments}
  
 
-\cleardoublepage
-\chapter*{Abstract}
-  \doublespacing
-  PSRs J0218+4232, B1821-24 and B1937+21 are among the most energetic and fastest-spinning 
-  millisecond pulsars (MSPs). They have been studied in all radio, X-ray and gamma-ray bands. 
-  The \textit{Fermi} LAT Pass 8 data was published in 2015 and has lots of advantages over 
-  the old Pass 7 data, such as increased effective area and wider energy range. Since 
-  the recent gamma-ray spectral analysis of the three MSPs are relatively old, 
-  I redo the gamma-ray spectral analysis of the MSPs with 
-  four-year more \textit{Fermi} LAT observational data and newly published Pass 8 data. 
-  I obtain better fit results for gamma-ray spectra of the three MSPs with smaller errors 
-  and larger test statistic values. I also do numerical simulations to test the 
-  two-layer model using the new observational data. By minimizing the differences between 
-  the predictions of the two-layer model and the real data, I fit the independent 
-  parameters of the two-layer model. I find that the simplified two-layer model can 
-  predict broadband spectra of the three MSPs which are very close to the observational data 
-  from \textit{Fermi} LAT in most energy ranges.
+% \cleardoublepage
+% \chapter*{Abstract}
+%   \doublespacing
+%   PSRs J0218+4232, B1821$-$24 and B1937+21 are among the most energetic and fastest-spinning 
+%   millisecond pulsars (MSPs). They have been studied in all radio, X-ray and gamma-ray bands. 
+%   The \textit{Fermi} LAT Pass 8 data was published in 2015 and has lots of advantages over 
+%   the old Pass 7 data, such as increased effective area and wider energy range. Since 
+%   the recent gamma-ray spectral analysis of the three MSPs are relatively old, 
+%   I redo the gamma-ray spectral analysis of the MSPs with 
+%   four-year more \textit{Fermi} LAT observational data and newly published Pass 8 data. 
+%   I obtain better fit results for gamma-ray spectra of the three MSPs with smaller errors 
+%   and larger test statistic values. I also do numerical simulations to test the 
+%   two-layer model using the new observational data. By minimizing the differences between 
+%   the predictions of the two-layer model and the real data, I fit the independent 
+%   parameters of the two-layer model. I find that the simplified two-layer model can 
+%   predict broadband spectra of the three MSPs which are very close to the observational data 
+%   from \textit{Fermi} LAT in most energy ranges.
 			
-\addcontentsline{toc}{chapter}{Abstract}
+% \addcontentsline{toc}{chapter}{Abstract}
 
 \tableofcontents
 
@@ -760,22 +811,22 @@
     energy band, PSR B1937+21 has been observed with \textit{XMM-Newton} and \textit{NuSTAR} 
     \citep{0004-637X-787-2-167,0004-637X-845-2-159}.
     
-    PSR B1821-24 is in the globular cluster M28. There 
-    are about a dozen pulsars discovered in M28, and PSR B1821-24 is the brightest one. 
-    In addition, PSR B1821-24 is the most energetic MSP discovered whose spin-down
+    PSR B1821$-$24 is in the globular cluster M28. There 
+    are about a dozen pulsars discovered in M28, and PSR B1821$-$24 is the brightest one. 
+    In addition, PSR B1821$-$24 is the most energetic MSP discovered whose spin-down
     luminosity is about $2.2\times 10^{36}$ erg $\mbox{s}^{-1}$. Like PSR B1937+21, it has 
     two very narrow pulses and the duty cycle is only about a few percent
     \citep{1538-4357-627-2-L125}.
 
-    The gamma-ray spectrum of PSR B1821-24 is fitted by a PLEC model with a photon index of 
+    The gamma-ray spectrum of PSR B1821$-$24 is fitted by a PLEC model with a photon index of 
     $1.6\pm0.3$ using 44 months of \textit{Fermi} LAT data \citep{2013ApJ...778..106J}.
     \textit{NuSTAR} observed the globular cluster M28 in June 2015. Though \textit{NuSTAR}'s
-    clock drift makes it hard to resolve the rotation period of PSR B1821-24, 
+    clock drift makes it hard to resolve the rotation period of PSR B1821$-$24, 
     researchers have invented a method the correct the photon arrival times
     \citep{0004-637X-845-2-159}.
     
     PSR J0218+4232 is also a very energetic MSP with a spin-down luminosity of $2.4\times
-    10^{35}$ erg $\mbox{s}^{-1}$. Unlike the PSRs B1937+21 and B1821-24 which are solitary,
+    10^{35}$ erg $\mbox{s}^{-1}$. Unlike the PSRs B1937+21 and B1821$-$24 which are solitary,
     it is accompanied by a white dwarf with a orbital period of two days at a distance of 
     about $3.15$ kpc \citep{article}. It was also studied using \textit{Fermi} LAT and 
     its spectrum is fitted by a PLEC model whose photon index is $2.0\pm0.1$ 
@@ -803,7 +854,7 @@
       \scalebox{0.8}{
       \begin{tabular}{|cccc|} 
         \hline 
-        & J0218+4232 & B1821-24 & B1937+21 \\
+        & J0218+4232 & B1821$-$24 & B1937+21 \\
         \hline 
         \hline 
         Distance (kpc) & $3.15$ & $5.50$ & $3.50$ \\
@@ -816,8 +867,8 @@
         \hline   
       \end{tabular}}
       \centering
-      \caption[Spin and derived properties of PSRs J0218+4232, B1821-24 and B1937+21.]
-        {Spin and derived properties of PSRs J0218+4232, B1821-24 and B1937+21. 
+      \caption[Spin and derived properties of PSRs J0218+4232, B1821$-$24 and B1937+21.]
+        {Spin and derived properties of PSRs J0218+4232, B1821$-$24 and B1937+21. 
         The data are from the ATNF Pulsar Catalogue \protect \footnotemark}
       \label{table: basic_information_3_msps}
     \end{table}
@@ -829,7 +880,7 @@
       \scalebox{0.8}{
       \begin{tabular}{|cccc|} 
         \hline 
-        & J0218+4232 & B1821-24 & B1937+21 \\
+        & J0218+4232 & B1821$-$24 & B1937+21 \\
         \hline 
         \hline 
         Energy Range (GeV) & $0.1 \sim 100 $ & $0.1 \sim 100 $  & $0.5 \sim 6$ \\
@@ -877,7 +928,7 @@
   As mentioned before, because of very short rotation periods, MSPs usually have very small 
   light cylinders compared with normal pulsars. Therefore, the magnetic field strength at 
   the light cylinders are comparable with young pulsars, especially for my target objects 
-  --- PSRs J0218+4232, B1937+21 and B1821-24, which are among the fastest spinning and 
+  --- PSRs J0218+4232, B1937+21 and B1821$-$24, which are among the fastest spinning and 
   most energetic MSPs. Thus, as normal pulsars, the three MSPs have broadband emissions so 
   it is intriguing to analyze the spectral properties of them in gamma-ray band.
 
@@ -1402,7 +1453,7 @@
       It is also instructive to check the count residuals of the fit as Figure 
       \ref{fig: j0218_count_spectra} shows. The galactic and isotropic emissions are very 
       bright compared with the target source and this can bring some difficulties to 
-      the fit (especially for the other two MSPs PSRs B1937+21 and B1821-24). The residuals 
+      the fit (especially for the other two MSPs PSRs B1937+21 and B1821$-$24). The residuals 
       and fluctuations become larger and more obvious when the energy is larger than 
       $10\mbox{GeV}$. At the same time, in low gamma-ray part 
       (from $100\mbox{MeV}$ to $200\mbox{MeV}$), the number of counts of the model 
@@ -1426,7 +1477,7 @@
         \label{fig: j0218_count_spectra}
       \end{figure}
 
-  \section{PSR B1821-24}
+  \section{PSR B1821$-$24}
     The ROI region is also a circle whose radius is $20^\circ$ and all 
     parameters of sources outside of $8^\circ$ are fixed. 
     There are six free sources in the region of $8^\circ$. Figure
@@ -1445,11 +1496,11 @@
           \includegraphics[scale=0.27]{b1821_count_map_model.png}
         \end{minipage}
       \end{center}
-      \caption[The count map of PSR B1821-24 (left) and the count map generated by 
+      \caption[The count map of PSR B1821$-$24 (left) and the count map generated by 
               the model (right).]
-        {The count map of PSR B1821-24 (left) and the count map generated by 
+        {The count map of PSR B1821$-$24 (left) and the count map generated by 
         the model (right). The green circles are sources with free parameters and the black circle
-        is PSR B1821-24. The sizes of the both figures are 141 pixels $\times$ 141 pixels, and 
+        is PSR B1821$-$24. The sizes of the both figures are 141 pixels $\times$ 141 pixels, and 
         each pixel's dimension is $0.2^\circ \times 0.2^\circ$.}
       \label{fig: b1821_count_map_with_region_and_model}
       \end{figure}
@@ -1472,25 +1523,25 @@
             \end{center}
           \end{minipage}
           \end{center}
-          \caption[Three count maps of PSR B1821-24's count cube.]
-            {Three count maps of PSR B1821-24's count cube. The energy ranges of the 
+          \caption[Three count maps of PSR B1821$-$24's count cube.]
+            {Three count maps of PSR B1821$-$24's count cube. The energy ranges of the 
             figures are 100$\sim$123MeV, 1.873$\sim$2.310GeV, 81.11$\sim$100GeV respectively from 
             left to right.}
           \label{fig: b1821_ccube_1_15_33.png}
       \end{figure}
 
       The left and right panels of Figure \ref{fig: b1821_count_map_diff.png} are the count 
-      map of the PSR B1821-24 generated from observational data and spectra model respectively. 
+      map of the PSR B1821$-$24 generated from observational data and spectra model respectively. 
       Like the situations of PSR J0218+4232, the count map from the model is clearly cleaner than 
       from the observational data and the two figures are very similar, which implies that 
       the spectra model describes the observational data well.  
 
-      Figure \ref{fig: b1821_ccube_1_15_33.png} are count maps of PSR B1821-24 in 
+      Figure \ref{fig: b1821_ccube_1_15_33.png} are count maps of PSR B1821$-$24 in 
       different energy bands. The target pulsar is too faint in very high energy bands 
       and interfered too much by the ambient environment in low energy bands 
-      (slightly above 100MeV). PSR B1821-24 is in the M28 globular cluster and is the most 
+      (slightly above 100MeV). PSR B1821$-$24 is in the M28 globular cluster and is the most 
       energetic one, which is much brighter than other sources found in M28. However, since 
-      PSR B1821-24 is very faint observed from Earth, it is understandable that the fit 
+      PSR B1821$-$24 is very faint observed from Earth, it is understandable that the fit 
       results are not as good as the results of PSR J0218+4232. 
     \subsection{Binned Likelihood Analysis}
       \begin{figure}[!ht]
@@ -1506,15 +1557,15 @@
           \end{center}
         \end{minipage}
       \end{center}
-      \caption[The count map and residual map of PSR B1821-24 in linear scale.]
-        {The count map and residual map of PSR B1821-24 in linear scale. 
+      \caption[The count map and residual map of PSR B1821$-$24 in linear scale.]
+        {The count map and residual map of PSR B1821$-$24 in linear scale. 
         The left panel is the count map and the right panel is the residual map showing the 
         difference between the observational data and the spectra model.}
         \label{fig: b1821_count_map_diff.png}
       \end{figure}
 
       \singleFig{b1821_cur.png}{0.37}{The log-log plot of flux to energy of 
-        PSR B1821-24's gamma-ray spectrum. }
+        PSR B1821$-$24's gamma-ray spectrum. }
       \vspace{1cm}
 
       The differences of the count map between the observational data and the model are described 
@@ -1524,7 +1575,7 @@
       Thus, the fits are acceptable in general. But I am still trying to get the better spectra 
       model. 
 
-      Table \ref{table: b1821_fit_result} shows the global fit results of PSR B1821-24. 
+      Table \ref{table: b1821_fit_result} shows the global fit results of PSR B1821$-$24. 
       The TS value of the model is 941 which gives us a significance level 
       of about $\sqrt{941} \sim 31$. This strongly supports the existence of the target source in 
       the observational data. As Table \ref{table: b1821_fit_result} shows, the energy flux from 
@@ -1543,14 +1594,14 @@
       that the two fit results are not completely consistent. When this happening, I have 
       more confidence in the global fit than the separate fit.
             
-      Figure \ref{fig: b1821_tsmap_comparison_20} contains TS maps of PSR B1821-24. The 
+      Figure \ref{fig: b1821_tsmap_comparison_20} contains TS maps of PSR B1821$-$24. The 
       comparison of TS maps also show the significant of the target MSP. Figure 
       \ref{fig: b1821_count_spectra} shows how well the fit is. Like the count residuals of 
       the other two pulsars, the fit is not good in low energy part (from 100MeV to 500MeV)
       and high energy band (above 10GeV). Besides, as Figures \ref{fig: j0218_count_spectra},
       \ref{fig: b1821_count_spectra} and \ref{fig: j1939_count_spectra} show, the numbers of 
       observed photon events are all larger than modeled photon counts for PSRs J0218+4232, 
-      B1821-24 and B1937+21. 
+      B1821$-$24 and B1937+21. 
 
       \begin{table}[!htp]
         \centering
@@ -1566,8 +1617,8 @@
             TS value & $941$ & $76$ \\
             \hline
           \end{tabular}}  
-          \caption[Fit parameters of the spectra model of PSR B1821-24.]
-            {Fit parameters of the spectra model of PSR B1821-24. 
+          \caption[Fit parameters of the spectra model of PSR B1821$-$24.]
+            {Fit parameters of the spectra model of PSR B1821$-$24. 
             The names of parameters are also consistent with Equation
             \ref{eq: fermi_model}.}
             
@@ -1588,11 +1639,11 @@
           \end{center}
         \end{minipage}
       \end{center}
-        \caption[TS maps of PSR B1821-24.]
-        {TS maps of PSR B1821-24. The figures' dimensions are $4^{\circ} \times4^{\circ}$ 
+        \caption[TS maps of PSR B1821$-$24.]
+        {TS maps of PSR B1821$-$24. The figures' dimensions are $4^{\circ} \times4^{\circ}$ 
         ($20$ pixels $\times$ $20$ pixels with $0.2^{\circ} \times 0.2^{\circ}$ for each pixel). 
         The left and right panels are generated by the XML models with and without the 
-        target source PSR B1821-24 respectively. The left panel shows that the possibility 
+        target source PSR B1821$-$24 respectively. The left panel shows that the possibility 
         of adding an imputative point source is very low only with a maximum TS value of 
         less than 11 while the TS values of the right figure are generally much larger.}
           \label{fig: b1821_tsmap_comparison_20}
@@ -1602,8 +1653,8 @@
       \begin{figure}[!htp]
         \centering
         \includegraphics[scale=0.40]{b1821_count_spectra.png}
-        \caption[The count spectra and count residuals of PSR B1821-24.]
-                {The count spectra and count residuals of PSR B1821-24.
+        \caption[The count spectra and count residuals of PSR B1821$-$24.]
+                {The count spectra and count residuals of PSR B1821$-$24.
                 The upper panel is the count spectra of all sources included in the 
                 ROI. Thick lines are those sources with free fit parameters 
                 while the thin lines are fixed sources.} 
@@ -1662,7 +1713,7 @@
         use data only from $100\mbox{MeV}$ to $100\mbox{GeV}$ and there should not be any 
         noticeable difference whether I use $100\mbox{GeV}$ to $100\mbox{GeV}$ or 
         $100\mbox{GeV}$ to $300\mbox{GeV}$. The case is also true for 
-        the other two pulsars --- PSRs J0218+4232 and B1821-24. 
+        the other two pulsars --- PSRs J0218+4232 and B1821$-$24. 
 
         \begin{figure}[!htp]
           \begin{minipage}{0.32\textwidth}
@@ -1747,7 +1798,7 @@
         Figure \ref{fig: j1939_count_spectra_ave} shows the residual counts of the global fit.
         The fit is good from $100$MeV to about $20$GeV. However, it is significantly worse 
         when the energy is too high and the residual counts are much larger than the PSRs 
-        J0218+4232 and B1821-24.
+        J0218+4232 and B1821$-$24.
 
         Although the TS value for PSR B1937+21 is only 122, existence in gamma-ray of the 
         target source is more obvious in the TS maps as the Figure 
@@ -2088,7 +2139,7 @@
         \end{table} 
 
   \section{Summary of the Results}
-    The spectra of PSRs J0218+4232, B1937+21 and B1821-24 are studied using more observation 
+    The spectra of PSRs J0218+4232, B1937+21 and B1821$-$24 are studied using more observation 
     data and newly published \textit{Pass 8} dataset. The new results of the thesis are 
     generally consistent with the old results as the Table \ref{table: final_results} shows. 
     For PSR B1937+21, I also list the results of power-law model as Table 
@@ -2098,7 +2149,7 @@
         \resizebox{\textwidth}{!}{%
         \begin{tabular}{|c|c|c|c|c|c|c|}
           \cline{1-7}
-          & \multicolumn{2}{|c|}{J0218+2134} & \multicolumn{2}{|c|}{B1937+21} & \multicolumn{2}{|c|}{B1821-24} \\
+          & \multicolumn{2}{|c|}{J0218+2134} & \multicolumn{2}{|c|}{B1937+21} & \multicolumn{2}{|c|}{B1821$-$24} \\
           \cline{1-7} 
           & New & Previous & New & Previous & New & Previous \\
           \cline{1-7}
@@ -2139,7 +2190,7 @@
 
     With \textit{Pass 8} data and more observational data, the new results have smaller 
     error bars in terms of photon index and energy flux. Furthermore, we have much larger 
-    TS values for PSRs J0218+4232 and B1821-24 as the Table \ref{table: ts_value_compare} 
+    TS values for PSRs J0218+4232 and B1821$-$24 as the Table \ref{table: ts_value_compare} 
     shows. 
     
     % For PSR B1937+21, a power-law model should be preferred because of the 
@@ -2153,7 +2204,7 @@
         \scalebox{0.8}{
         \begin{tabular}{|cccc|}
           \hline 
-          & J0218+4232 & B1821-24 & B1937+21 \\ 
+          & J0218+4232 & B1821$-$24 & B1937+21 \\ 
           \hline 
           Previous & 1313 & 76 & 112 \\
           New Results & 6809 & 941 & 147 \\
@@ -2481,15 +2532,15 @@
       \scalebox{0.8}{
         \begin{tabular}{|cccc|}
           \hline 
-          & J0218+4232 & B1937+21 & B1821-24 \\
+          & J0218+4232 & B1937+21 & B1821$-$24 \\
           \hline \hline 
           Photon Index ($\Gamma_{X}$) & $1.10\pm0.06$ & $0.9\pm0.1$ & $1.23\pm0.03$ \\
           Luminosity ($L_{X}, 10^{32}$ erg $\mbox{s}^{-1}$) & $3.3$ & $6.8$ & $14$ \\
           Pulse Fraction (\%) & $64\pm6$ & $\sim100$ & $82.5\pm4$ \\
           \hline 
         \end{tabular}}
-        \caption[X-ray Properties of the PSRs J0218+4232, B1937 and B1821-24.]
-          {X-ray Properties of the PSRs J0218+4232, B1937 and B1821-24. The data are from 
+        \caption[X-ray Properties of the PSRs J0218+4232, B1937 and B1821$-$24.]
+          {X-ray Properties of the PSRs J0218+4232, B1937 and B1821$-$24. The data are from 
           \citet{2011ApJ...730...81B,2004A&A...417..181W,2002ApJ...577..917K,2012ApJ...760...92H,
           2010arXiv1006.0335B}}
         \label{table: X-ray_photon_indices}
@@ -2500,14 +2551,14 @@
       \scalebox{0.8}{
         \begin{tabular}{|cccc|}
           \hline 
-          & J0218+4232 & B1937+21 & B1821-24 \\
+          & J0218+4232 & B1937+21 & B1821$-$24 \\
           \hline \hline 
           $\mbox{F}_{400}$ (mJy) & $35\pm5$ & $40$ & $240$ \\
           $\mbox{F}_{1400}$ (mJy) & $0.9\pm0.2$ & $2.0\pm0.4$ & $13.2\pm5$ \\
           \hline 
         \end{tabular}}
-        \caption[Flux densities of PSRs J0218+4232, B1937+21 and B1821-24.]
-          {Flux densities of PSRs J0218+4232, B1937+21 and B1821-24. The data are 
+        \caption[Flux densities of PSRs J0218+4232, B1937+21 and B1821$-$24.]
+          {Flux densities of PSRs J0218+4232, B1937+21 and B1821$-$24. The data are 
           from the ATNF catalogue. \footnote{http://www.atnf.csiro.au/research/pulsar/psrcat/}}
         \label{table: radio_data_atnf}
     \end{table}
@@ -2606,7 +2657,7 @@
 
     \singleFig{j0218_twolayer_cur.png}{0.37}{The observed gamma-ray spectrum of PSR 
       J0218+4232 compared with the two-layer model.}
-    \singleFig{b1821_twolayer_cur.png}{0.37}{The gamma-ray spectrum of PSR B1821-24 by 
+    \singleFig{b1821_twolayer_cur.png}{0.37}{The gamma-ray spectrum of PSR B1821$-$24 by 
       the two-layer model.}
     \singleFig{j1939_twolayer_cur.png}{0.34}{The gamma-ray spectrum of PSR B1937+21 by 
       the two-layer model. (blue line)}
@@ -2622,7 +2673,7 @@
         Pulsar Name & $f$ & $g_1$ & $h_1/h_2$ \\ 
         \hline \hline
         J0218+4232 & 0.330 & 0.920 & 0.915 \\
-        B1821-24 & 0.247 & 0.955 & 0.920 \\
+        B1821$-$24 & 0.247 & 0.955 & 0.920 \\
         B1937+21 & 0.320 & 0.975 & 0.925 \\
         \hline 
       \end{tabular}}
@@ -2673,13 +2724,13 @@
     \begin{figure}[!htp]
       \centering 
       \includegraphics[scale=0.37]{b1821_twolayer_all.png}
-      \caption[Broadband spectrum of PSR B1821-24.]
-        {The broadband spectrum of PSR B1821-24. The meanings of grey shade and the green 
+      \caption[Broadband spectrum of PSR B1821$-$24.]
+        {The broadband spectrum of PSR B1821$-$24. The meanings of grey shade and the green 
         shade are the same as Figure \ref{fig: j0218_twolayer_all.png}.}
       \label{fig: b1821_twolayer_all.png}
     \end{figure}
 
-    % \singleFig{b1821_twolayer_all.png}{0.37}{The broadband spectrum of PSR B1821-24.
+    % \singleFig{b1821_twolayer_all.png}{0.37}{The broadband spectrum of PSR B1821$-$24.
     %   The meanings of grey shade and the green shade are the same as Figure 
     %   \ref{fig: j0218_twolayer_all.png}.}
     \vspace{0.5cm} 
@@ -2720,16 +2771,17 @@
   some emission properties or just numerical errors when the parameters become too extreme. 
 
   The patterns discussed above only apply to a particular pulsar. For instance, 
-  the values of $f$ of PSRs J0218+4232 and B1821-24 are $0.330$ and $0.247$.
-  Thus $\text{E}_{\text{cut}}$ of PSR J0218+4232 should be larger than PSR B1821-24 because 
+  the values of $f$ of PSRs J0218+4232 and B1821$-$24 are $0.330$ and $0.247$.
+  Thus $\text{E}_{\text{cut}}$ of PSR J0218+4232 should be larger than PSR B1821$-$24 because 
   $f$ has the most significant effects on the shapes of the spectra among the three parameters.  
   However, $\text{E}_{\text{cut}}$ is $3.77\pm0.40$ GeV for PSR J0218+4232 and 
-  $4.5\pm0.71$ GeV for PSR B1821-24, which is not consistent with the 
+  $4.5\pm0.71$ GeV for PSR B1821$-$24, which is not consistent with the 
   previous discussions. In addition, other pulsars does not follow the pattern neither as 
   Table \ref{table: two_layer_other_parameters} shows. This may be because that the spectral 
   properties are related to the sizes of light cylinders, magnetic fields at the light 
   cylinders, inclination angles and many other properties of pulsars. The three parameters 
   of the two-layer model describe the structure of the outer gap of a particular pulsar. 
+  % In addition, the two-layer model used in the thesis is oversimplified,
   Therefore, we may not get much information by comparing the three parameters between 
   different pulsars. 
 
@@ -2854,10 +2906,10 @@
 \chapter{Conclusion and Future Works}
   \section{Conclusion}
     I do phase-averaged gamma-ray spectral analysis with about nine-year \textit{Fermi} LAT
-    data for PSRs J0218+4232, B1821-24 and B1937+21. The fit results are listed in Tables 
+    data for PSRs J0218+4232, B1821$-$24 and B1937+21. The fit results are listed in Tables 
     \ref{table: final_results} and \ref{table: final_results_j1939_pl}. The new results 
     have smaller error bars thanks to Pass 8 dataset and much more observational data.
-    Meanwhile, the TS values for PSRs J0218+4232 and B1821-24 are larger than previous 
+    Meanwhile, the TS values for PSRs J0218+4232 and B1821$-$24 are larger than previous 
     studies as Table \ref{table: final_results} shows. For PSR B1937+21, the power-law 
     model is preferred since $TS_{cut} = 2\Delta log(likelihood) = -2.86 < 9$ and I follow 
     the convention in \citet{0067-0049-208-2-17} like the previous study
@@ -2870,7 +2922,7 @@
     is reasonable to speculate that the radio and gamma-ray emission regions are co-located. 
 
   \section{Analysis With LAT 8-year Point Source List}
-    The latest preliminary LAT 8-year Point Source List (\textit{FL8Y}) is released 
+    The latest preliminary LAT 8-year Point Source List (FL8Y) is released 
     on May 03, 2018. Since the release date is a little bit late and the point source list 
     is a preliminary version, I have not finished all the spectral analysis with the data.
     However, I would like to show some results I have done with the new source list
@@ -2879,7 +2931,7 @@
     Some spectra models are changed, for instance, the expression of PLSuperExpCutoff model 
     has been changed as Equation \ref{eq: new_fermi_model} shows \citep{newFermiModel}.
     \begin{equation}
-      \frac{dN}{dE} = K\left(\frac{E}{E_0}\right)^{\Gamma} e^{\left(a\left(E_0^b-E^b\right)\right)} . 
+      \frac{dN}{dE} = K\left(\frac{E}{E_0}\right)^{\Gamma} e^{a\left(E_0^b-E^b\right)} . 
       \label{eq: new_fermi_model}
     \end{equation}
     Particularly, Fermi tools combine the $E_0^b$ with $K$ as Equation 
@@ -2899,7 +2951,7 @@
     %     \scalebox{0.8}{
     %     \begin{tabular}{|cccc|}
     %       \hline
-    %       & J0218+4232 & B1821-24 & B1937+21 \\
+    %       & J0218+4232 & B1821$-$24 & B1937+21 \\
     %       \hline \hline 
     %       Photon Index ($\Gamma$) & $1.77\pm0.07$ & $1.14\pm0.02$ & $1.84\pm0.03$ \\
     %       Expfactor (a, $10^{-3}$) & $6.73\pm0.86$ & $11.76\pm0.12$ & $6.77\pm0.25$ \\
@@ -2910,7 +2962,7 @@
     %       TS value & $7189$ &  $980$  & $149$ \\
     %       \hline
     %     \end{tabular}}  
-    %     \mycaption{Fit results of PSRs J0218+4232, B1821-24 and B1937+21 with 
+    %     \mycaption{Fit results of PSRs J0218+4232, B1821$-$24 and B1937+21 with 
     %       LAT 8-year Point Source List.}
     %     \label{table: new_results_all_three}        
     % \end{table}  
@@ -2920,7 +2972,7 @@
         \scalebox{0.8}{
         \begin{tabular}{|ccc|}
           \hline
-          & J0218+4232 & B1821-24  \\
+          & J0218+4232 & B1821$-$24  \\
           \hline \hline 
           Photon Index ($\Gamma$) & $1.77\pm0.07$ & $1.14\pm0.02$  \\
           Expfactor (a, $10^{-3}$) & $6.73\pm0.86$ & $11.76\pm0.12$  \\
@@ -2931,15 +2983,15 @@
           TS value & $7189$ &  $980$  \\
           \hline
         \end{tabular}}  
-        \mycaption{Fit results of PSRs J0218+4232 and B1821-24 with LAT 8-year Point 
+        \mycaption{Fit results of PSRs J0218+4232 and B1821$-$24 with LAT 8-year Point 
           Source List.}
         \label{table: new_results_all_three}        
     \end{table}  
   
-    The TS values for PSRs J0218+4232 and B1821-24 are both a little bit larger as Table 
+    The TS values for PSRs J0218+4232 and B1821$-$24 are both a little bit larger as Table 
     \ref{table: new_ts_compare} shows. Figures \ref{fig: j0218_new_cur} and 
     \ref{fig: b1821_new_cur} are the fit spectra of the PSRs
-    J0218+4232 and B1821-24. I still have not got a good fit result for PSR B1937+21 because 
+    J0218+4232 and B1821$-$24. I still have not got a good fit result for PSR B1937+21 because 
     this MSP takes more effort which is the same case as the 3FGL. Besides, the fit 
     results for the two MSPs are also not the final results because I only have tried a 
     few spectra models and have not compared the likelihood and TS values between different 
@@ -2952,7 +3004,7 @@
         \scalebox{0.8}{
         \begin{tabular}{|ccc|}
           \hline
-          & J0218+4232 & B1821-24\\
+          & J0218+4232 & B1821$-$24\\
           \hline \hline 
           FL8Y & $7189$ & $980$  \\ 
           3FGL & $6809$ & $941$ \\ 
@@ -2973,7 +3025,7 @@
     \begin{figure}[!htp]
       \centering 
       \includegraphics[scale=0.4]{b1821_new_cur.png}
-      \caption{Gamma-ray spectra of PSR B1821-24 with PLEC2 model.}
+      \caption{Gamma-ray spectra of PSR B1821$-$24 with PLEC2 model.}
       \label{fig: b1821_new_cur}
     \end{figure}
 
@@ -2989,7 +3041,7 @@
     \begin{figure}[!htp]
       \centering 
       \includegraphics[scale=0.36]{new_b1821_count_spectra.png}
-      \caption{Count spectra and residuals of PSR B1821-24.}
+      \caption{Count spectra and residuals of PSR B1821$-$24.}
       \label{fig: new_b1821_count_spectra}
     \end{figure}
     
