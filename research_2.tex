@@ -16,14 +16,16 @@
 \usepackage{multirow}
 \usepackage{array}
 \usepackage{tabu}
-\usepackage{hyperref}
+% \usepackage{hyperref}
+\usepackage[colorlinks,citecolor=black, urlcolor=black]{hyperref}
 \usepackage{color}
 \usepackage{epigraph}
 \usepackage{makebox}
 \usepackage{graphicx}
 \usepackage{array}
 \usepackage{setspace}
-\usepackage{natbib}
+% \usepackage{natbib}
+
 \usepackage{mathrsfs}
 \usepackage{caption}
 \usepackage{float}
@@ -32,10 +34,42 @@
 \usepackage[english]{babel}
 \graphicspath{{C:/Users/User/Desktop/Thesis/}{/Users/grewwc/Desktop/Thesis/}}
 
+\usepackage{biblatex}
+\renewbibmacro{in:}{}
+\addbibresource{bibfile.bib}
+\DeclareFieldFormat{pages}{#1}% no p
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}\isdot}
 
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}%
+  \setunit*{\addcomma\space}%
+  \iffieldundef{series}
+    {}
+    {\newunit
+     \printfield{series}%
+     \setunit{\addspace}}%
+  \usebibmacro{volume+number+eid}%
+  \setunit{\addspace}%
+  \usebibmacro{issue+date}%
+  \setunit{\addcolon\space}%
+  \usebibmacro{issue}%
+  \newunit}
 
+\renewbibmacro{in:}{\addcomma\addspace}
+\DeclareFieldFormat[article]{title}{``#1''}
+\DeclareFieldFormat[unpublished]{title}{``#1''}
+\DeclareFieldFormat[book]{title}{``#1''}
+\DeclareFieldFormat[article]{volume}{#1}
+\DeclareFieldFormat[article]{number}{\bibstring{number}~#1}
+\DeclareFieldFormat{pages}{#1}
+\renewbibmacro*{volume+number+eid}{%
+  \printfield{volume}%
+  \setunit*{\addcomma\addspace}%
+   \printfield{number}%
+   \setunit{\addcomma\space}%
+   \printfield{eid}}
 \renewcommand{\arraystretch}{2}
-\renewcommand{\bibname}{REFERENCES}
+% \renewcommand{\bibname}{REFERENCES}
 \hypersetup{
     colorlinks,
     citecolor=black,
@@ -78,45 +112,6 @@
 \date{}
 \author{Wang Wenchao  \\3030053350}
 \setlength{\columnsep}{1cm}
-
-% \titleformat
-% {\chapter} % command
-% [display] % shape
-% {\bfseries\Large} % format
-% {\textit{Chapter \thechapter}} % label
-% {0.5ex} % sep
-% {
-%     \rule{\textwidth}{1pt}
-%     \vspace{1ex}
-%     \centering
-% } % before-code
-
-% \titleformat{\section}[hang]
-% {\large\bfseries}
-% {\thesection}
-% {0.5em}
-% {}
-
-% \titleformat{\subsection}[hang]
-% {\fontsize{12}{15}\bfseries\sffamily}
-% {\thesubsection}
-% {1em}
-% {}
-
-% \titleformat{\subsubsection}[hang]
-% {\fontsize{11}{15}\bfseries\sffamily}
-% {\thesubsection}
-% {0.5em}
-% {}
-
-% \titleformat{\subsubsubsection}[hang]
-% {\fontsize{9}{15}\bfseries\sffamily}
-% {\thesubsection}
-% {0.5em}
-% {}
-
-
-
 
 
 \newcommand{\mycaption}[1]{\protect \caption{#1}}
@@ -234,8 +229,8 @@
 
 \end{titlepage}
 
-\bibpunct{(}{)}{;}{a}{}{,}
-\bibliographystyle{apj}
+% \bibpunct{(}{)}{;}{a}{}{,}
+% \bibliographystyle{apj}
 
 \linespread{1.25} 
 \maketitle
@@ -379,7 +374,7 @@
       where $B_s$ is the strength of the surface magnetic field. \\
       \indent In general, a pulsar's spin-down rate can be expressed as $\dot{\Omega}=-K\Omega^{n}$, 
       where K is a constant and n is called braking index. In magnetic dipole model n is 
-      three \citep{Tong2015}. Then the characteristic age of the pulsar can be 
+      three \cite{Tong2015}. Then the characteristic age of the pulsar can be 
       defined as $P/2\dot{P}$ in the magnetic dipole model. For example, the Crab 
       pulsar's rotation period is about $0.033s$ and period derivative is 
       $4.22\times 10^{-13}s/s$. The characteristic age is about 1200 years. The pulsar 
@@ -391,7 +386,7 @@
       braking index is less than 3 as shown in Figure \ref{fig:braking_index}. The reason is 
       that if a pulsar's spin down is completely determined by pulsar winds, the braking 
       index is one. Thus, the real braking index should be a combination of 1 and 3, which is usually 
-      less than three \citep{PhysRevD.91.063007}.
+      less than three \cite{PhysRevD.91.063007}.
         
       \begin{figure}[!ht]
         \centering
@@ -743,7 +738,7 @@
       light cylinder ($B_{lc}$). For instance, PSR J1939+2134's $B_{lc}$ is about 
       $1.02\times10^5$ which is larger than Crab pulsar ($9.55\times10^5$). 
       \footnote{http://www.atnf.csiro.au/research/pulsar/psrcat/}
-      % \citep{ATNF}
+      % \cite{ATNF}
       The reason is that an MSP's radius 
       of light cylinder ($R_{lc}=c/\omega)$ is much smaller than a normal pulsar's 
       because of its short rotation period and the magnetic field near light cylinder can
@@ -797,41 +792,41 @@
   \section{Introduction to the Three MSPs and Previous Works}
     PSR B1937+21 is second fast spinning millisecond pulsar whose rotation period 
     is about $1.56$ms and was discovered in 1982 
-    \citep{1982Natur.300..615B}, which makes it be the first discovered MSP. It has 
+    \cite{1982Natur.300..615B}, which makes it be the first discovered MSP. It has 
     extremely strong magnetic field at the light cylinder with about $10^6$ gauss, which 
     is larger than Crab pulsar. Its basic properties are listed in Table 
     \ref{table: basic_information_3_msps}. It has a double-peak pulse profile and the main 
-    pulse is much stronger than the other \citep{j1939_pulse_profile}. It has very sharp 
+    pulse is much stronger than the other \cite{j1939_pulse_profile}. It has very sharp 
     pulsations and nearly 100\% pulsed fractions. 
     
     Its gamma-ray properties were studied using \textit{Fermi} LAT and its 
     spectra were fitted by both a simple power-law model and a power-law with exponential
     cutoff (PLEC) model with photon-index of $2.38\pm0.07$ and $2.1\pm0.2$ respectively. 
     However, the researchers report that the simple power-law model is preferred according 
-    to the convention in \citet{0067-0049-208-2-17} \citep{0004-637X-787-2-167}. In X-ray 
+    to the convention in \cite{0067-0049-208-2-17} \cite{0004-637X-787-2-167}. In X-ray 
     energy band, PSR B1937+21 has been observed with \textit{XMM-Newton} and \textit{NuSTAR} 
-    \citep{0004-637X-787-2-167,0004-637X-845-2-159}.
+    \cite{0004-637X-787-2-167,0004-637X-845-2-159}.
     
     PSR B1821$-$24 is in the globular cluster M28. There 
     are about a dozen pulsars discovered in M28, and PSR B1821$-$24 is the brightest one. 
     In addition, PSR B1821$-$24 is the most energetic MSP discovered whose spin-down
     luminosity is about $2.2\times 10^{36}$ erg $\mbox{s}^{-1}$. Like PSR B1937+21, it has 
     two very narrow pulses and the duty cycle is only about a few percent
-    \citep{1538-4357-627-2-L125}.
+    \cite{1538-4357-627-2-L125}.
 
     The gamma-ray spectrum of PSR B1821$-$24 is fitted by a PLEC model with a photon index of 
-    $1.6\pm0.3$ using 44 months of \textit{Fermi} LAT data \citep{2013ApJ...778..106J}.
+    $1.6\pm0.3$ using 44 months of \textit{Fermi} LAT data \cite{2013ApJ...778..106J}.
     \textit{NuSTAR} observed the globular cluster M28 in June 2015. Though \textit{NuSTAR}'s
     clock drift makes it hard to resolve the rotation period of PSR B1821$-$24, 
     researchers have invented a method the correct the photon arrival times
-    \citep{0004-637X-845-2-159}.
+    \cite{0004-637X-845-2-159}.
     
     PSR J0218+4232 is also a very energetic MSP with a spin-down luminosity of $2.4\times
     10^{35}$ erg $\mbox{s}^{-1}$. Unlike the PSRs B1937+21 and B1821$-$24 which are solitary,
     it is accompanied by a white dwarf with a orbital period of two days at a distance of 
-    about $3.15$ kpc \citep{article}. It was also studied using \textit{Fermi} LAT and 
+    about $3.15$ kpc \cite{article}. It was also studied using \textit{Fermi} LAT and 
     its spectrum is fitted by a PLEC model whose photon index is $2.0\pm0.1$ 
-    \citep{0067-0049-208-2-17}.
+    \cite{0067-0049-208-2-17}.
 
     All three MSPs are very energetic and have very strong magnetic field at the light 
     cylinders as Table \ref{table: basic_information_3_msps} shows, which makes them can be 
@@ -846,7 +841,7 @@
       \centering
       \includegraphics[width=6.9cm,height=7.6cm]{bands.png}
       \caption{Pulse profiles of PSR B1937+21 in radio, X-ray and gamma-ray bands. 
-        The figure is adopted from \citet{0004-637X-787-2-167}}.
+        The figure is adopted from \cite{0004-637X-787-2-167}}.
       \label{fig:class }
     \end{figure}
     
@@ -896,14 +891,14 @@
         \caption[Spectra properties of the three MSPs from previous studies.]
           {Spectra properties of the three MSPs from previous studies
           \footnote{http://www.atnf.csiro.au/research/pulsar/psrcat/}
-          \citep{0004-637X-787-2-167,J1939_old}.}
+          \cite{0004-637X-787-2-167,J1939_old}.}
         \label{table: previous_spectra_property}
     \end{table}
 
   \section{Objectives}
-    % In the paper (Guillemot \& Johnson et al. \citep{J1939_old}), they only study the PSR B1937+21 
+    % In the paper (Guillemot \& Johnson et al. \cite{J1939_old}), they only study the PSR B1937+21 
     % with energy range from $0.1$ GeV to $6$ GeV and another paper (C.-Y. Ng \& Takata et al. 
-    % \citep{0004-637X-787-2-167}) studied the MSP more 
+    % \cite{0004-637X-787-2-167}) studied the MSP more 
     % thoroughly with a wider energy range. The paper proposed that a power-law model is 
     % preferred and the photon index is $2.38\pm0.07$ with a TS value of $112$. 
     
@@ -1131,14 +1126,14 @@
       analysis for two bright pulsars PSRs J0007+7303 and J0534+2200. The reason I choose 
       these two pulsars is that according to previous studies, they are bright and easy 
       to detect with a large TS value of 43388 and 102653 for J0007+7303 and J0534+2200 
-      respectively \citep{0067-0049-208-2-17}.
+      respectively \cite{0067-0049-208-2-17}.
 
       In the spectra fit process, I do not use the same fit parameters as the previous 
       paper (for instance, the number of free parameters in the ROI is different), 
       however, I get similar results in terms of spectral index.  
       In Table \ref{table: previous_result_comparison}, I used the observational data from 
       2009-01-01 to 2013-02-01 in order to try to be consistent with the old results 
-      \citep{0067-0049-208-2-17}. In addition, I also fit spectra with 
+      \cite{0067-0049-208-2-17}. In addition, I also fit spectra with 
       observational data up to 2018-02-01 and Pass 8 dataset to test how big improvement 
       I can make with the new Fermi Pass 8 dataset and more observational data. 
       The results of year 2018 data are shown in Table \ref{table: 2018_fit_data}.
@@ -1176,7 +1171,7 @@
             observational data. The "Test Results" column is the results generated by 
             using the pipeline scripts. The "Previous Results" column lists the 
             corresponding spectral properties based on the previous studies 
-            \citep{0067-0049-208-2-17}. According to the standard 
+            \cite{0067-0049-208-2-17}. According to the standard 
             PLEC model (described in equation \ref{eq: fermi_model}), $\Gamma$ is 
             photon index and $E_c$ is cutoff energy.}
           \label{table: previous_result_comparison}
@@ -1404,7 +1399,7 @@
             {Fit parameters of the spectra model of PSR J0218+4232. 
             The names of parameters are consistent with Equation
             \ref{eq: fermi_model}. The previous results are reported by
-            \citet{0067-0049-208-2-17}}
+            \cite{0067-0049-208-2-17}}
           \label{table: j0218_fit_result}        
       \end{table}  
 
@@ -1582,7 +1577,7 @@
       of about $\sqrt{941} \sim 31$. This strongly supports the existence of the target source in 
       the observational data. As Table \ref{table: b1821_fit_result} shows, the energy flux from 
       100MeV to 100GeV is not consistent between the two studies and gamma-ray spectrum of the 
-      previous study is also softer \citep{2013ApJ...778..106J}.
+      previous study is also softer \cite{2013ApJ...778..106J}.
 
       Figure \ref{fig: b1821_twolayer_cur.png} shows that the global fit is consistent with 
       the flux points generated by fitting sub-energy bins separately. We notice the upper value 
@@ -1769,7 +1764,7 @@
         \end{figure}
 
         Table \ref{table: j1939_fit_result_ave} lists the fit results of PLEC model. 
-        According to the previous work \citep{0004-637X-787-2-167}), 
+        According to the previous work \cite{0004-637X-787-2-167}), 
         the PLEC model is not preferred over the power-law model. Therefore, only 
         the results of power-law model are reported in the paper. In this result, the 
         PLEC model gives a TS value of 122, which is about the same as the previous 
@@ -1792,7 +1787,7 @@
               {Fit parameters of the spectra model of PSR B1937+21. 
               The names of parameters are consistent with Equation
               \ref{eq: fermi_model}. The old results are reported by
-              \citet{0004-637X-787-2-167} Note that since the paper prefers power-law model 
+              \cite{0004-637X-787-2-167} Note that since the paper prefers power-law model 
               than PLEC model, it does not report the photon flux of PLEC model.}
             \label{table: j1939_fit_result_ave}        
         \end{table} 
@@ -1849,7 +1844,7 @@
         and count cubes for the analysis of the power-law model. The photon index is 
         $2.94\pm0.13$ with a TS value of $147$ as the Table 
         \ref{table: j1939_power_law_compare_ave} shows. Although the energy flux is consistent 
-        with the previous study \citep{0004-637X-787-2-167}, the photon 
+        with the previous study \cite{0004-637X-787-2-167}, the photon 
         index is not.
         \begin{table}[!htp]
           \centering
@@ -1866,7 +1861,7 @@
               studies.]
               {Photon index comparison of power-law model between different 
               studies. The data of column Previous Results are from
-              \citet{0004-637X-787-2-167}.}
+              \cite{0004-637X-787-2-167}.}
             \label{table: j1939_power_law_compare_ave}        
         \end{table}  
 
@@ -1939,7 +1934,7 @@
       \end{figure}
 
       The light curve generated by \textit{Fermi} LAT is consistent with previous results 
-      \citep{J1939_old} as Figure \ref{fig: j1939_light_curve_compare} shows. 
+      \cite{J1939_old} as Figure \ref{fig: j1939_light_curve_compare} shows. 
       The new light curve by LAT is better than the previous LAT light curve
       as shown in the figure. 
 
@@ -1947,7 +1942,7 @@
         \centering 
         \includegraphics[scale=0.4]{j1939_lightcurve_all.png}
         \caption{Light curves of PSR B1937+21 by different telescopes. The data and figure
-          are from \citet{J1939_old}}
+          are from \cite{J1939_old}}
         \label{fig: j1939_light_curve_compare}
       \end{figure}
 
@@ -2134,7 +2129,7 @@
             \end{tabular}}  
             \caption[Fit parameters of the spectra model of PSR B1937+21 (phase resolved).]
               {Fit parameters of the spectra model of PSR B1937+21 (phase resolved). 
-              The previous results are from \citet{0004-637X-787-2-167}.
+              The previous results are from \cite{0004-637X-787-2-167}.
               Since the studied energy range is different, I do not list the energy flux for 
               comparison.}
             \label{table: j1939_fit_result}        
@@ -2165,7 +2160,7 @@
           {Fit parameters of the spectra model of PSR J0218+4232. 
           The names of parameters are consistent with Equation
           \ref{eq: fermi_model}. The previous results are from  
-          \citet{0004-637X-787-2-167,0067-0049-208-2-17}}
+          \cite{0004-637X-787-2-167,0067-0049-208-2-17}}
         \label{table: final_results}        
 
     \end{table}  
@@ -2199,7 +2194,7 @@
     % following reasons. The $-log(likelihood)$ of PLEC model and power-law model are 
     % $-4410944$ and $-18409504$ respectively, the 
     % $TS_{cut} = 2\Delta log(likelihood) = -2.86 < 9$,  thus I follow the convention of the 
-    % paper \citep{2013ApJS..208...17A}.
+    % paper \cite{2013ApJS..208...17A}.
 
     \begin{table}[!htp]
       \centering
@@ -2225,7 +2220,7 @@
     It is oversimplified to regard a pulsar as a magnetized sphere rotating in a vacuum. 
     Actually, there are plenty of charged particles in a pulsar's magnetosphere 
     which co-rotate with the pulsar. The creation of charged particles can 
-    be described following steps \citep{Sturrock:1971zc}.
+    be described following steps \cite{Sturrock:1971zc}.
 
     % The co-rotating charged primary particles emit gamma-ray by \\curvature 
     % radiation because they are accelerated by environmental magnetic fields.  
@@ -2239,7 +2234,7 @@
     This chain of the processes is quite efficient to produce charged particles and 
     make a pulsar's magnetosphere filled with plasma as a consequence. Therefore, a 
     characteristic charge density $\rho_{GJ}=-\frac{\vec{\Omega}\cdot \vec{B}}{2\pi c}$ 
-    called Goldreich-Julian charge density is produced \citep{1969ApJ}.
+    called Goldreich-Julian charge density is produced \cite{1969ApJ}.
     By the definition of $\rho_{GJ}$, there is a surface called null charge surface where 
     $\rho_{GJ}$ is very close or equal to $0$. 
 
@@ -2250,7 +2245,7 @@
     can be much smaller than the \gj{} and electrons and positrons are accelerated to very high 
     speeds by electric fields parallel to the magnetic field lines ($E_{\parallel}$). 
     These regions are called the outer gap which is between the null charge surface and the 
-    light cylinder \citep{1986ApJ...300..500C}.
+    light cylinder \cite{1986ApJ...300..500C}.
     
     Since electrons and positrons are accelerated to opposite directions, there are many 
     charged particles move toward the pulsar's surface. As discussed above, there is no 
@@ -2269,7 +2264,7 @@
   \section{Two-Layer Model}
     After reviewing the gamma-ray emission mechanism, we can proceed to
     the two-layer model on which this thesis is mainly based
-    \citep{0004-637X-720-1-178}. The two-layer model is a variation of the outer-gap model 
+    \cite{0004-637X-720-1-178}. The two-layer model is a variation of the outer-gap model 
     since they both claim that the gamma-ray emission zone is close to the light cylinder. 
     However, in the two-layer model, the outer layer consists of two regions --- a primary 
     acceleration region and a screening region. 
@@ -2310,7 +2305,7 @@
         (b): the charge density distribution of the primary region and the screening region. 
         In the primary region, the charge density is much smaller than Goldreich-Julian charge 
         density while is larger in the screening region. The figure is reported by
-        \citet{0004-637X-720-1-178}.}
+        \cite{0004-637X-720-1-178}.}
       \label{fig: charge_density}
     \end{figure}
     % \singleFig{charge_density}{0.6}{(a): Geometry of the two-layer model. $h_{1}$ and 
@@ -2318,7 +2313,7 @@
     %   (b): the charge density distribution of the primary region and the screening region. 
     %   In the primary region, the charge density is much smaller than Goldreich-Julian charge 
     %   density while is larger in the screening region. The figure is from. 
-    %   \citep{0004-637X-720-1-178}}
+    %   \cite{0004-637X-720-1-178}}
 
     As Figure \ref{fig: charge_density} shows, 
     let the charge density of the primary region be $\rho_1 = (1-g_{1}) \rho_{GJ}$ and 
@@ -2459,9 +2454,9 @@
     outer magnetosphere. The hard X-ray flux is contributed by both inverse-Compton 
     scattering and synchrotron radiation emitted by the secondary particles. 
     
-    Firstly, we consider inverse-Compton scattering. \citet{0004-637X-787-2-167} uses a 
+    Firstly, we consider inverse-Compton scattering. \cite{0004-637X-787-2-167} uses a 
     broken power-law model with a turnover at 10MHz to describe the radio spectrum as 
-    Function \ref{eq: radio_spectrum} shows \citep{0004-637X-787-2-167}.
+    Function \ref{eq: radio_spectrum} shows \cite{0004-637X-787-2-167}.
     \begin{equation}
       \label{eq: radio_spectrum}
         F_{rad}\left(\nu\right) = A \left.
@@ -2479,7 +2474,7 @@
     between radio waves and primary particles can be estimated by 
     $\sin{\theta_0}\sim \sqrt{2f}$, where $f$ is the fractional gap size which is the 
     ratio of the total gap size to the length of the light cylinder. According to 
-    \citet{0004-637X-787-2-167}, inverse-Compton radiation power per unit energy per solid 
+    \cite{0004-637X-787-2-167}, inverse-Compton radiation power per unit energy per solid 
     angle can be estimated by Function \ref{eq: IC_theory},
     \begin{equation}
       \label{eq: IC_theory}
@@ -2498,7 +2493,7 @@
     be included. As previous introduced, some particles are accelerated by the electric 
     fields parallel to the magnetic field lines ($E_{\parallel}$) and move toward the 
     stelar surface. These particles can heat up the polar cap region to about 1MK
-    \citep{0004-637X-745-1-100}. Then new electron-positron pairs can be created by collisions
+    \cite{0004-637X-745-1-100}. Then new electron-positron pairs can be created by collisions
     between the thermal X-rays and gamma-rays. The optical depth can be calculated by 
     Function \ref{eq: X-ray_optical_depth}, 
     \begin{equation}
@@ -2515,7 +2510,7 @@
     \end{equation}
     where $\gamma_s$ is the Lorentz
     factor of the secondary particles, $\dot{E}_{sync}$ is the energy loss rate of the 
-    synchrotron radiation. According to \citet{0004-637X-787-2-167}, the synchrotron 
+    synchrotron radiation. According to \cite{0004-637X-787-2-167}, the synchrotron 
     spectrum can be calculated by Function \ref{eq: X-ray_spectrum_final},
     \begin{equation}
       \label{eq: X-ray_spectrum_final}
@@ -2527,7 +2522,7 @@
 
     Add the synchrotron radiation and inverse-Compton scattering together, we can calculate
     the flux in hard X-ray and gamma-ray bands. In addition, by adding the observational data
-    from \textit{NuSTAR} \citep{0004-637X-845-2-159}, we generate broadband spectra for all
+    from \textit{NuSTAR} \cite{0004-637X-845-2-159}, we generate broadband spectra for all
     the three MSPs.
 
     \begin{table}[!htp]
@@ -2544,7 +2539,7 @@
         \end{tabular}}
         \caption[X-ray Properties of the PSRs J0218+4232, B1937 and B1821$-$24.]
           {X-ray Properties of the PSRs J0218+4232, B1937 and B1821$-$24. The data are from 
-          \citet{2011ApJ...730...81B,2004A&A...417..181W,2002ApJ...577..917K,2012ApJ...760...92H,
+          \cite{2011ApJ...730...81B,2004A&A...417..181W,2002ApJ...577..917K,2012ApJ...760...92H,
           2010arXiv1006.0335B}}
         \label{table: X-ray_photon_indices}
     \end{table}
@@ -2691,7 +2686,7 @@
     After obtaining the spectral fit results in the gamma-ray band, I then generated 
     broadband spectra as Figures \ref{fig: j0218_twolayer_all.png}, 
     \ref{fig: b1821_twolayer_all.png}, and \ref{fig: j1939_twolayer_all_ave.png} show. 
-    The hard X-ray data are from \citet{0004-637X-845-2-159}. By tweaking the independent 
+    The hard X-ray data are from \cite{0004-637X-845-2-159}. By tweaking the independent 
     parameters of the two-layer model, I can make the modeled spectra 
     very close to the observational data in the hard X-ray bands. Since the lack of data in 
     the energy band from about $100$keV to $100$MeV, it is hard to tell if the two-layer model 
@@ -2838,13 +2833,13 @@
   \end{table}
   \section{Constraints of the Two-Layer Model} 
     The simplified two-layer model is consistent with observational data to some extent. 
-    (The relevant data are reported by \citet{0004-637X-720-1-178})
+    (The relevant data are reported by \cite{0004-637X-720-1-178})
     The model uses four parameters to get a fairly good prediction of the gamma-ray 
     spectra of many pulsars. And all these four parameters have very obvious physical 
     meanings. However, the problems of the model are clear --- it is somewhat 
     oversimplified. Although there are other more sophisticated versions of the 
     two-layer model such as three-dimensional two-layer model 
-    \citep{doi:10.1111/j.1365-2966.2011.18577.x} and I used the simpler 
+    \cite{doi:10.1111/j.1365-2966.2011.18577.x} and I used the simpler 
     one, which may cause some inconsistencies between the simulations and observations. 
 
     Therefore, we can briefly analyze which part is oversimplified and can be improved. 
@@ -2915,8 +2910,8 @@
     Meanwhile, the TS values for PSRs J0218+4232 and B1821$-$24 are larger than previous 
     studies as Table \ref{table: final_results} shows. For PSR B1937+21, the power-law 
     model is preferred since $TS_{cut} = 2\Delta log(likelihood) = -2.86 < 9$ and I follow 
-    the convention in \citet{0067-0049-208-2-17} like the previous study
-    \citep{0004-637X-787-2-167}.
+    the convention in \cite{0067-0049-208-2-17} like the previous study
+    \cite{0004-637X-787-2-167}.
 
     I also use the two-layer model to generate gamma-ray spectra for the three MSPs and obtain 
     broadband spectra by combining inverse-Compton scattering and synchrotron radiation.
@@ -2932,7 +2927,8 @@
     together with my further plan.
 
     Some spectra models are changed, for instance, the expression of PLSuperExpCutoff model 
-    has been changed as Equation \ref{eq: new_fermi_model} shows \citep{newFermiModel}.
+    has been changed as Equation \ref{eq: new_fermi_model} shows \footnote[1]%
+    {\url{https://fermi.gsfc.nasa.gov/ssc/data/access/lat/fl8y/FL8Y_description_v8.pdf}}%\cite{newFermiModel}.
     \begin{equation}
       \frac{dN}{dE} = K\left(\frac{E}{E_0}\right)^{\Gamma} e^{a\left(E_0^b-E^b\right)} . 
       \label{eq: new_fermi_model}
@@ -3066,9 +3062,8 @@
 % \end{thebibliography}
 
 % setting for reference 
-\bibliography{bibfile}
-
-
+\printbibliography
+ 
 \end{document}
 
 

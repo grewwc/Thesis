@@ -1,52 +1,15 @@
-This is BibTeX, Version 0.99d (TeX Live 2017)
-Capacity: max_strings=100000, hash_size=100000, hash_prime=85009
-The top-level auxiliary file: research_2.aux
-The style file: apj.bst
-Database file #1: bibfile.bib
-Reallocated wiz_functions (elt_size=4) to 6000 items from 3000.
-Warning--empty journal in 1982Natur.300..615B
-Warning--empty journal in J1939_old
-Warning--empty journal in newFermiModel
-Warning--empty journal in article
-You've used 23 entries,
-            3085 wiz_defined-function locations,
-            809 strings with 12465 characters,
-and the built_in function-call counts, 13675 in all, are:
-= -- 925
-> -- 1413
-< -- 7
-+ -- 480
-- -- 497
-* -- 1349
-:= -- 2692
-add.period$ -- 23
-call.type$ -- 23
-change.case$ -- 160
-chr.to.int$ -- 23
-cite$ -- 27
-duplicate$ -- 434
-empty$ -- 641
-format.name$ -- 527
-if$ -- 2577
-int.to.chr$ -- 1
-int.to.str$ -- 0
-missing$ -- 23
-newline$ -- 73
-num.names$ -- 92
-pop$ -- 173
-preamble$ -- 1
-purify$ -- 160
-quote$ -- 0
-skip$ -- 359
-stack$ -- 0
-substring$ -- 470
-swap$ -- 0
-text.length$ -- 0
-text.prefix$ -- 0
-top$ -- 0
-type$ -- 207
-warning$ -- 4
-while$ -- 86
-width$ -- 0
-write$ -- 228
-(There were 4 warnings)
+[0] Config.pm:304> INFO - This is Biber 2.12
+[0] Config.pm:307> INFO - Logfile is 'research_2.blg'
+[33] biber-MSWIN64:315> INFO - === 
+[67] Biber.pm:371> INFO - Reading 'research_2.bcf'
+[175] Biber.pm:889> INFO - Found 22 citekeys in bib section 0
+[189] Biber.pm:4093> INFO - Processing section 0
+[205] Biber.pm:4254> INFO - Looking for bibtex format file 'bibfile.bib' for section 0
+[214] bibtex.pm:1523> INFO - LaTeX decoding ...
+[265] bibtex.pm:1340> INFO - Found BibTeX data source 'bibfile.bib'
+[883] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'normalization = NFD' with 'normalization = prenormalized'
+[883] UCollate.pm:68> INFO - Overriding locale 'en-US' defaults 'variable = shifted' with 'variable = non-ignorable'
+[883] Biber.pm:3921> INFO - Sorting list 'nty/global//global/global' of type 'entry' with template 'nty' and locale 'en-US'
+[883] Biber.pm:3927> INFO - No sort tailoring available for locale 'en-US'
+[916] bbl.pm:636> INFO - Writing 'research_2.bbl' with encoding 'UTF-8'
+[993] bbl.pm:739> INFO - Output to research_2.bbl

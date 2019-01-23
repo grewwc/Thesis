@@ -1,8 +1,49 @@
 \documentclass{report}
+\usepackage[citecolor=black, urlcolor=black]{hyperref}
 \usepackage{graphicx}
-\usepackage{hyperref}
+\usepackage{biblatex}
+\DeclareFieldFormat{pages}{#1}% no p
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}\isdot}
+
+\renewbibmacro*{journal+issuetitle}{%
+  \usebibmacro{journal}%
+  \setunit*{\addcomma\space}%
+  \iffieldundef{series}
+    {}
+    {\newunit
+     \printfield{series}%
+     \setunit{\addspace}}%
+  \usebibmacro{volume+number+eid}%
+  \setunit{\addspace}%
+  \usebibmacro{issue+date}%
+  \setunit{\addcolon\space}%
+  \usebibmacro{issue}%
+  \newunit}
+
+
+\DeclareFieldFormat{journaltitle}{\mkbibemph{#1}\isdot}
+
+\renewbibmacro{in:}{\addcomma\addspace}
+\DeclareFieldFormat[article]{title}{"#1"}
+\DeclareFieldFormat[unpublished]{title}{"#1"}
+\DeclareFieldFormat[book]{title}{"#1"}
+\DeclareFieldFormat[article]{volume}{#1}
+\DeclareFieldFormat[article]{number}{\bibstring{number}~#1}
+\DeclareFieldFormat{pages}{#1}
+\renewbibmacro*{volume+number}{%
+  \printfield{volume}%
+  \setunit*{\addcomma\addspace}%
+   \printfield{number}%
+   \setunit{\addcomma\space}%
+   }
+
+
+\addbibresource{../bibfile.bib}
+
 
 \begin{document}
-what 
-something
+
+good night \cite{article}
+
+\printbibliography
 \end{document}
